@@ -1,0 +1,51 @@
+Tutorial Text:
+
+Welcome player! Before you begin your rad journey to defeat the four goddesses of the underworld,
+let's get you familiarized with the game's controls.
+
+Movement: 
+Move your character using the left and right arrow keys. 
+Crouching can sometimes be used to dodge attacks.Crouch by using the down key!
+Jumping plays a vital role in this game. Press Spacebar to jump!
+
+Unique aerial movement: Each character has a form of aerial movement that is unique to them.
+You are currently playing as System of a Down's drummer, John. John's unique movement is a double jump. 
+Press Spacebar twice to perform a double jump. 
+
+Great job! 
+
+A quick note before moving on to attacks.You will be able to determine other band members' unique aerial movements
+by hovering over their icons in the selection screen (which you will be taken to upon completing this tutorial).
+
+
+Attacks:
+There are three types of attacks you can perform in the game:
+Short range, long range and a super attack.
+
+Short range: Each character has the ability to perform a STATIONARY, short range attack.
+Short range attacks a more powerful than long range ones HOWEVER, they span a limited distance and can only be performed WHEN STANDING COMPLETELY STILL.
+Try using John's short range attack by pressing the "X" key on the dummy.
+Awesome!
+
+Long range: Moving on to the long range attacks. Long range attacks span a longer distance and CAN BE performed while in motion,
+HOWEVER, they are less powerful than short range attacks.
+Try using John's long range attack by pressing the "Z" key on the dummy.
+Nicely done!
+
+The Super: Every band member has their own special attack called a super.
+Super's are very powerful and vary based on the character you are playing as. 
+Super attacks can only be used once your super meter (located on the bottom left of the screen) is completely full. The more damage you inflict on your enemy, the faster your meter fills up.
+Fill up John's super meter by performing short and long range attacks on the dummy. Once the meter is full, unleash John's super attack by pressing the "C" key. 
+Wonderful! 
+
+A note about the super attacks.You will be able to determine other band members' super attacks
+by hovering over their icons in the selection screen (which you will be taken to upon completing this tutorial).
+
+Okay, that about wraps things up! In summary, the left and right arrows move your character, the down key is for crouching and Spacebar is for jumping.
+"X" is for short range attacks, "Z" is for long range, and "C" is used for the super (when meter is full). 
+If you ever need a quick refresher regarding the controls, feel free to access the controls page through the pause menu (or main menu).
+
+CONGRATULATIONS! YOU HAVE COMPLETED THE TUTORIAL AND ARE READY TO FACE THE GODDESSES OF THE UNDERWORLD! 
+You will now be taken to the selection screen. If for any reason you feel like replaying the tutorial, you can access it in the selection screen.
+Good luck and remember, the very essence of heavy metal is relying on you!
+
