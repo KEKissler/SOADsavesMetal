@@ -1,9 +1,14 @@
-﻿Shader "Hidden/DistortionWave"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Hidden/DistortionWave"
 {
 	Properties
 	{
-		_MainTex ("Texture", 2D) = "alpha" {}
+		_MainTex ("Texture", 2D) = "white" {}
 		_DistortionTex("Distortion Texture", 2D) = "white" {}
+		_Intensity("Intensity", Range(0, 0.1)) = 1
 	}
 	SubShader
 	{
@@ -38,14 +43,18 @@
 				o.uv = v.uv;
 				return o;
 			}
-			
+
 			sampler2D _MainTex;
+			sampler2D _DistortionTex;
+			float _Intensity;
 
 			fixed4 frag (v2f i) : SV_Target
 			{
-				fixed4 col = tex2D(_MainTex, i.uv);
-				// just invert the colors
-				col.rgb = 1 - col.rgb;
+				float2 dv = float2(i.uv.x + _Time.x * 0.4, i.uv.y + _Time.x * 0.4);
+				float2 disp = tex2D(_DistortionTex, dv).xy;
+				disp = ((disp * 2) - 1) * _Intensity;
+
+				float4 col = tex2D(_MainTex, i.uv + disp);
 				return col;
 			}
 			ENDCG
