@@ -2,13 +2,14 @@
 
 // Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Hidden/DistortionWave"
+Shader "Custom/DistortionWave"
 {
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_DistortionTex("Distortion Texture", 2D) = "white" {}
 		_Intensity("Intensity", Range(0, 0.1)) = 1
+		_Multiplier("Multiplier", float) = 0.4
 	}
 	SubShader
 	{
@@ -47,10 +48,11 @@ Shader "Hidden/DistortionWave"
 			sampler2D _MainTex;
 			sampler2D _DistortionTex;
 			float _Intensity;
+			float _Multiplier;
 
 			fixed4 frag (v2f i) : SV_Target
 			{
-				float2 dv = float2(i.uv.x + _Time.x * 0.4, i.uv.y + _Time.x * 0.4);
+				float2 dv = float2(i.uv.x + _Time.x * _Multiplier, i.uv.y + _Time.x * _Multiplier);
 				float2 disp = tex2D(_DistortionTex, dv).xy;
 				disp = ((disp * 2) - 1) * _Intensity;
 
