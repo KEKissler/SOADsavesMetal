@@ -72,4 +72,9 @@ public class Player : MonoBehaviour {
             inAir = true;
         }
     }
+
+    public void PlayerFreeze()
+    {
+        
+    }
 }

@@ -5,7 +5,7 @@ let's get you familiarized with the game's controls.
 
 Movement: 
 Move your character using the left and right arrow keys. 
-Crouching can sometimes be used to dodge attacks.Crouch by using the down key!
+Crouching can sometimes be used to dodge attacks. Crouch by using the down key!
 Jumping plays a vital role in this game. Press Spacebar to jump!
 
 Unique aerial movement: Each character has a form of aerial movement that is unique to them.
