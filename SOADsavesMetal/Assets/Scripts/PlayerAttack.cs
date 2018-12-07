@@ -5,8 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour {
 	
 	private bool attacking;
-	private float currCooldown = 0.0f;
-	private float currAttackTime = 0.0f;
+	private float attackTimer = 0.0f; // General purpose timer
 
 	// Short range attack
     private GameObject shortRangeHitbox;
@@ -14,8 +13,14 @@ public class PlayerAttack : MonoBehaviour {
     private const float SHORT_ATTACK_COOLDOWN = 0.2f;
     
     // Long range attack
-    private GameObject drumstick;
+    public GameObject drumstick;
     private const float LONG_ATTACK_COOLDOWN = 0.35f;
+
+    // Super attack
+    public GameObject cymbal;
+    private const float SUPER_LENGTH = 3f;
+    private const float TIME_BETWEEN_SHOTS = 0.045f;
+    private float shotTimer = 0.0f;
     
 	// Use this for initialization
 	void Start () {
@@ -40,6 +45,11 @@ public class PlayerAttack : MonoBehaviour {
 				Debug.Log("x was pressed");
 				StartCoroutine(AttackLong());
 			}
+            else if(Input.GetKey(KeyCode.C))
+            {
+                Debug.Log("c was pressed");
+                StartCoroutine(AttackSuper());
+            }
 		}
 	}
 
@@ -47,19 +57,19 @@ public class PlayerAttack : MonoBehaviour {
     {
         attacking = true;
         shortRangeHitbox.SetActive(true);
-        currAttackTime = 0.0f;
-        while(currAttackTime < SHORT_ATTACK_HOLD_DURATION)
+        attackTimer = 0.0f;
+        while(attackTimer < SHORT_ATTACK_HOLD_DURATION)
         {
-        	currAttackTime += Time.deltaTime;
+        	attackTimer += Time.deltaTime;
         	yield return null;
         }
         shortRangeHitbox.SetActive(false);
 
         // Cooldown period
-        currCooldown = 0.0f;
-        while(currCooldown < SHORT_ATTACK_COOLDOWN)
+        attackTimer = 0.0f;
+        while(attackTimer < SHORT_ATTACK_COOLDOWN)
         {
-        	currCooldown += Time.deltaTime;
+        	attackTimer += Time.deltaTime;
         	yield return null;
         }
 
@@ -71,16 +81,47 @@ public class PlayerAttack : MonoBehaviour {
     	attacking = true;
 
     	// Create projectile (drumstick)
+    	GameObject dsClone = Instantiate(drumstick, transform.position, transform.rotation);
 
         // Cooldown period
-        currCooldown = 0.0f;
-        while(currCooldown < LONG_ATTACK_COOLDOWN)
+        attackTimer = 0.0f;
+        while(attackTimer < LONG_ATTACK_COOLDOWN)
         {
-        	currCooldown += Time.deltaTime;
+        	attackTimer += Time.deltaTime;
         	yield return null;
         }
 
     	attacking = false;
+    }
+
+    IEnumerator AttackSuper()
+    {
+        attacking = true;
+
+        attackTimer = 0.0f;
+        shotTimer = 0.0f;
+        while(attackTimer < SUPER_LENGTH)
+        {
+            shotTimer += Time.deltaTime;
+            attackTimer += Time.deltaTime;
+
+            if(shotTimer > TIME_BETWEEN_SHOTS)
+            {
+                shotTimer %= TIME_BETWEEN_SHOTS;
+                Debug.Log(shotTimer);
+                GameObject cymbalClone = Instantiate(cymbal, transform.position, transform.rotation);
+            }
+            yield return null;
+        }
+
+        attackTimer = 0.0f;
+        while(attackTimer < LONG_ATTACK_COOLDOWN)
+        {
+            attackTimer += Time.deltaTime;
+            yield return null;
+        }
+
+        attacking = false;
     }
 
     // Create variable get methods here
