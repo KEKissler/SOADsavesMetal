@@ -11,6 +11,9 @@ public class Cymbal : MonoBehaviour {
     private const float LIFESPAN = 0.5f;
     private System.Random rng = new System.Random();
 
+    // Testing code for reflectors
+    private bool reflected = false;
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -27,5 +30,14 @@ public class Cymbal : MonoBehaviour {
     {
         if(!(gameObject.tag == "Projectile"))
         col.gameObject.SendMessage("hit");
+    }
+
+    void reflect()
+    {
+        if(!reflected)
+        {
+            reflected = true;
+            
+        }
     }
 }

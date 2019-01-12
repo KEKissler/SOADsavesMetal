@@ -108,7 +108,7 @@ public class PlayerAttack : MonoBehaviour {
             if(shotTimer > TIME_BETWEEN_SHOTS)
             {
                 shotTimer %= TIME_BETWEEN_SHOTS;
-                Debug.Log(shotTimer);
+                // Debug.Log(shotTimer);
                 GameObject cymbalClone = Instantiate(cymbal, transform.position, transform.rotation);
             }
             yield return null;
