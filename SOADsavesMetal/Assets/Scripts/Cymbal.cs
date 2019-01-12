@@ -28,8 +28,11 @@ public class Cymbal : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if(!(gameObject.tag == "Projectile"))
-        col.gameObject.SendMessage("hit");
+        if(col.gameObject.tag != "Projectile")
+        {
+            //Debug.Log(col.gameObject.name);
+            col.gameObject.SendMessage("hit");
+        }
     }
 
     void reflect()
