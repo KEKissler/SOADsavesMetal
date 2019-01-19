@@ -9,6 +9,7 @@ TextureImporter:
     21300008: john_shortrangeattack_spritesheet_4
     21300010: john_shortrangeattack_spritesheet_5
     21300012: john_shortrangeattack_spritesheet_6
+    21300014: john_shortrangeattack_spritesheet_7
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -226,6 +227,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4e2816a3b67e23540a0447c3dcecaad2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_shortrangeattack_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 2
+        width: 65
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5b26dbdaa7b0b042a964c0e110369a6
       vertices: []
       indices: 
       edges: []
