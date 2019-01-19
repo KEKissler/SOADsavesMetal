@@ -8,7 +8,7 @@ Shader "Custom/DistortionWave"
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_DistortionTex("Distortion Texture", 2D) = "white" {}
-		_Intensity("Intensity", Range(0, 0.1)) = 1
+		_Intensity("Intensity", float) = 0.1
 		_Multiplier("Multiplier", float) = 0.4
 	}
 	SubShader
