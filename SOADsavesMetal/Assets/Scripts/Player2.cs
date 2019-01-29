@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player2 : MonoBehaviour {
 
     //Default Player Variables
     public bool dead;
@@ -13,7 +13,6 @@ public class Player : MonoBehaviour {
     //Player Hitbox Variables
     public GameObject upperBodyHitbox;
     public GameObject shortRangeHitbox;
-    public GameObject stick;
 
     //Player State
     private int remainingJumps;
@@ -183,7 +182,6 @@ public class Player : MonoBehaviour {
 
     public IEnumerator longRangeCooldown()
     {
-        GameObject projectile = Instantiate(stick, new Vector3(gameObject.)) as GameObject;
         yield return new WaitForSeconds(1.0f);
     }
 
