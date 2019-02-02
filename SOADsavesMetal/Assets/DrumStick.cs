@@ -17,12 +17,14 @@ public class DrumStick : MonoBehaviour {
 	void Update () {
         if (started)
         {
-            rb.velocity = new Vector2(1.0f, 0.0f);
+            rb.velocity = new Vector2(5.0f, 0.0f);
         }
 	}
 
     public void Fire()
     {
+        Debug.Log("bang");
+        rb = gameObject.GetComponent<Rigidbody2D>();
         if (!started)
         {
             started = true;
@@ -32,8 +34,8 @@ public class DrumStick : MonoBehaviour {
 
     public IEnumerator fireStick()
     {
-        yield return new WaitForSeconds(1.0f);
-        started = false;
+        yield return new WaitForSeconds(3.0f);
+        //started = false;
     }
 
 

@@ -88,12 +88,13 @@ public class Player : MonoBehaviour {
 
             //Attacks
             //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
-            if(Input.GetKeyDown(KeyCode.Z) && !attacking)
+            if(Input.GetKeyDown(KeyCode.Z) && !attacking && !inAir)
             {
                 StartCoroutine("shortRangeCooldown");
             }
             else if(Input.GetKeyDown(KeyCode.X) && !attacking)
             {
+                attacking = true;
                 StartCoroutine("longRangeCooldown");
             }
             else if(Input.GetKeyDown(KeyCode.C))
@@ -183,8 +184,10 @@ public class Player : MonoBehaviour {
 
     public IEnumerator longRangeCooldown()
     {
-        GameObject projectile = Instantiate(stick, new Vector3(gameObject.)) as GameObject;
+        //GameObject projectile = Instantiate(stick, new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation) as GameObject;
+        //projectile.GetComponent<DrumStick>().SendMessage("Fire");
         yield return new WaitForSeconds(1.0f);
+        attacking = false;
     }
 
     public IEnumerator superCooldown()
