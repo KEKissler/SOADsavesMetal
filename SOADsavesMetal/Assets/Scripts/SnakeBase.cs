@@ -7,6 +7,8 @@ public class SnakeBase : MonoBehaviour
     // TEMPORARY TEST CODE
     private bool attacking;
 	private float attackTimer = 0.0f;
+    public GameObject statueHand;
+    public GameObject indicator;
 
     // Prefabs
     public GameObject snakeBody;
@@ -30,6 +32,8 @@ public class SnakeBase : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         buildSnake();
+        statueHand.transform.position = (Vector2)transform.position + new Vector2(-5f, -1.9f);
+        indicator.transform.position = (Vector2)transform.position + new Vector2(-5f, 0f);
     }
 
     // Update is called once per frame
@@ -45,6 +49,16 @@ public class SnakeBase : MonoBehaviour
             if(Input.GetKey(KeyCode.S))
             {
                 StartCoroutine(spit());
+            }
+
+            if(Input.GetKeyDown(KeyCode.D))
+            {
+                StartCoroutine(hand());
+            }
+
+            if(Input.GetKeyDown(KeyCode.Q))
+            {
+                StartCoroutine(lunge());
             }
         }
     }
@@ -113,11 +127,50 @@ public class SnakeBase : MonoBehaviour
         attacking = false;
     }
 
+    IEnumerator lunge()
+    {
+        attacking = true;
+        toggleAnchors();
+        // toggleRotation();
+        float timer = 0f;
+        while(timer < 0.7f)
+        {
+            for(int i=0; i<bodyLength-1; ++i) bodyRB[i].AddForce(new Vector2(5.3f-4.9f*timer+6.2f*(float)i, 0.9f-2.5f*timer-0.4f*(float)i));
+            bodyRB[bodyLength-1].AddForce(new Vector2(-259.3f-485f*timer-3.9f*(float)(bodyLength-1), -20.3f-24f*timer-2.2f*(float)(bodyLength-1)));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        for(int i=0; i<bodyLength; ++i) bodyRB[i].velocity = new Vector2(-10f, 0);
+        bodyRB[bodyLength-1].drag = 999999f;
+
+        timer = 0f;
+        while(timer < 0.18f)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        bodyRB[bodyLength-1].drag = 2f;
+        bodyRB[bodyLength-1].velocity = new Vector2(1f, 4f);
+        toggleAnchors();
+        // toggleRotation();
+
+        attackTimer = 0.0f;
+        while(attackTimer < 1.5f)
+        {
+            attackTimer += Time.deltaTime;
+            yield return null;
+        }
+        
+        attacking = false;
+    }
+
     IEnumerator spit()
     {
         attacking = true;
 
-        Instantiate(projectile, transform.position, Quaternion.identity);
+        Instantiate(projectile, body[bodyLength-1].transform.position, Quaternion.identity);
 
         attackTimer = 0.0f;
         while(attackTimer < 0.1f)
@@ -145,5 +198,59 @@ public class SnakeBase : MonoBehaviour
         {
             body[i].GetComponent<SnakeRotationLock>().enabled = bodyRotationEnabled;
         }
+    }
+
+    IEnumerator hand()
+    {
+        attacking = true;
+        indicator.SetActive(true);
+        float timer = 0.0f;
+        Rigidbody2D statueRB = statueHand.GetComponent<Rigidbody2D>();
+
+        while(timer < 1.0f)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        indicator.SetActive(false);
+        timer = 0.0f;
+        statueRB.velocity = new Vector2(0, 2.6f);
+
+        while(timer < 0.76f)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        statueRB.velocity = new Vector2(0, 0);
+        timer = 0.0f;
+
+        while(timer < 0.25f)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        statueRB.velocity = new Vector2(0, -2.6f);
+        timer = 0.0f;
+
+        while(timer < 0.76f)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        statueRB.velocity = new Vector2(0, 0);
+        timer = 0.0f;
+
+        while(timer < 0.5f)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        attacking = false;
+
     }
 }
