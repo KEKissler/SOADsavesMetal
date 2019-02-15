@@ -12,24 +12,30 @@ public class Player : MonoBehaviour {
 
     //Player Hitbox Variables
     public GameObject upperBodyHitbox;
+    public GameObject shortRangeHitbox;
+    public GameObject stick;
 
-    //Player Movement State
+    //Player State
     private int remainingJumps;
     private bool crouched;
     private bool inAir;
     private bool landing;
+    private bool attacking;
 
     //Player Animation Variables
     private Animator playerAnim;
+    private Animator shortRange;
     private SpriteRenderer playerSprite;
     private bool deathStarted;
 
     // Use this for initialization
     void Start () {
+        attacking = false;
         dead = false;
         deathStarted = false;
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerAnim = gameObject.GetComponent<Animator>();
+        shortRange = shortRangeHitbox.GetComponent<Animator>();
         playerSprite = gameObject.GetComponent<SpriteRenderer>();
         remainingJumps = 1;
         inAir = false;
@@ -40,6 +46,7 @@ public class Player : MonoBehaviour {
 	void Update () {
         if (!dead)
         {
+            //Falling and Jumping Animations
             if (rb.velocity.y < -0.5f)
             {
                 landing = true;
@@ -50,8 +57,7 @@ public class Player : MonoBehaviour {
                 playerAnim.Play("JohnJump");
             }
 
-            //if(inAir)
-
+            //Crouching
             if (Input.GetKey(KeyCode.DownArrow) && !inAir)
             {
                 if (!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)))
@@ -68,6 +74,7 @@ public class Player : MonoBehaviour {
                 upperBodyHitbox.SetActive(true);
             }
 
+            //Jump and Double Jump
             if (!crouched && Input.GetKeyDown(KeyCode.Space) && remainingJumps > 0)
             {
                 remainingJumps -= 1;
@@ -79,11 +86,29 @@ public class Player : MonoBehaviour {
                 playerAnim.Play("JohnJump2");
             }
 
+            //Attacks
+            //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
+            if(Input.GetKeyDown(KeyCode.Z) && !attacking && !inAir)
+            {
+                StartCoroutine("shortRangeCooldown");
+            }
+            else if(Input.GetKeyDown(KeyCode.X) && !attacking)
+            {
+                attacking = true;
+                StartCoroutine("longRangeCooldown");
+            }
+            else if(Input.GetKeyDown(KeyCode.C))
+            {
+                StartCoroutine("superCooldown");
+            }
+
+            //Movement
+            //Left and Right Arrow Keys: Movement in respective directions
             if (Input.GetKey(KeyCode.RightArrow))
             {
-                if (playerSprite.flipX == true)
+                if (gameObject.transform.rotation.y != 0)
                 {
-                    playerSprite.flipX = false;
+                    gameObject.transform.Rotate(Vector3.up, 180.0f);
                 }
                 if (!inAir)
                 {
@@ -93,9 +118,9 @@ public class Player : MonoBehaviour {
             }
             else if (Input.GetKey(KeyCode.LeftArrow))
             {
-                if (playerSprite.flipX == false)
+                if (gameObject.transform.rotation.y == 0)
                 {
-                    playerSprite.flipX = true;
+                    gameObject.transform.Rotate(Vector3.up, 180.0f);
                 }
                 if (!inAir)
                 {
@@ -105,15 +130,17 @@ public class Player : MonoBehaviour {
             }
             else if (!inAir)
             {
-                if (!crouched)
+                if (!crouched && !attacking)
                 {
                     playerAnim.Play("JohnIdle");
                 }
                 rb.velocity = new Vector2(0, rb.velocity.y);
             }
+
         }
         else
         {
+            //Death Animation
             if (!deathStarted)
             {
                 StartCoroutine("Kill");
@@ -143,6 +170,29 @@ public class Player : MonoBehaviour {
     public void PlayerFreeze()
     {
         
+    }
+
+    public IEnumerator shortRangeCooldown()
+    {
+        attacking = true;
+        playerAnim.Play("JohnShort");
+        shortRange.Play("SoundWave");
+        yield return new WaitForSeconds(0.66f);
+        shortRange.Play("BaseSound");
+        attacking = false;
+    }
+
+    public IEnumerator longRangeCooldown()
+    {
+        //GameObject projectile = Instantiate(stick, new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation) as GameObject;
+        //projectile.GetComponent<DrumStick>().SendMessage("Fire");
+        yield return new WaitForSeconds(1.0f);
+        attacking = false;
+    }
+
+    public IEnumerator superCooldown()
+    {
+        yield return new WaitForSeconds(1.0f);
     }
 
     public IEnumerator Kill()
