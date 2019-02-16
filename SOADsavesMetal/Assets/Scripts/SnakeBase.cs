@@ -107,13 +107,15 @@ public class SnakeBase : MonoBehaviour
         toggleAnchors();
         // toggleRotation();
         float timer = 0f;
-        while(timer < 0.7f)
+        while(timer < 0.75f)
         {
-            for(int i=0; i<bodyLength; ++i) bodyRB[i].AddForce(new Vector2(-29.3f+13f*timer-9.9f*(float)i, -11.3f-19f*timer-3.1f*(float)i));
+            for(int i=0; i<bodyLength; ++i) bodyRB[i].AddForce(new Vector2(-28.9f+11.1f*timer-9.9f*(float)i, -15.3f-54f*timer-3.9f*(float)i));
+            bodyRB[bodyLength-1].AddForce(new Vector2(-40f+48f*timer, -48f*timer));
             timer += Time.deltaTime;
             yield return null;
         }
 
+        bodyRB[bodyLength-1].velocity = new Vector2(1f, 3.6f);
         toggleAnchors();
         // toggleRotation();
 
@@ -152,7 +154,7 @@ public class SnakeBase : MonoBehaviour
         }
 
         bodyRB[bodyLength-1].drag = 2f;
-        bodyRB[bodyLength-1].velocity = new Vector2(1f, 4f);
+        bodyRB[bodyLength-1].velocity = new Vector2(1f, 6f);
         toggleAnchors();
         // toggleRotation();
 
