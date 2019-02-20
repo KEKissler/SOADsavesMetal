@@ -21,20 +21,23 @@ public class Player : MonoBehaviour {
     private bool inAir;
     private bool landing;
     private bool attacking;
+    public bool moving;
 
     //Player Animation Variables
-    private Animator playerAnim;
+    private Animator playerUpperAnim;
+    public Animator playerLowerAnim;
     private Animator shortRange;
     private SpriteRenderer playerSprite;
     private bool deathStarted;
 
     // Use this for initialization
     void Start () {
+        moving = false;
         attacking = false;
         dead = false;
         deathStarted = false;
         rb = gameObject.GetComponent<Rigidbody2D>();
-        playerAnim = gameObject.GetComponent<Animator>();
+        playerUpperAnim = gameObject.GetComponent<Animator>();
         shortRange = shortRangeHitbox.GetComponent<Animator>();
         playerSprite = gameObject.GetComponent<SpriteRenderer>();
         remainingJumps = 1;
@@ -50,11 +53,19 @@ public class Player : MonoBehaviour {
             if (rb.velocity.y < -0.5f)
             {
                 landing = true;
-                playerAnim.Play("JohnFall");
+                if (!attacking)
+                {
+                    playerUpperAnim.Play("JohnFall");
+                }
+                playerLowerAnim.Play("JohnFallLegs");
             }
             if (rb.velocity.y > 0.5)
             {
-                playerAnim.Play("JohnJump");
+                if (!attacking)
+                {
+                    playerUpperAnim.Play("JohnJump");
+                }
+                playerLowerAnim.Play("JohnJumpLegs");
             }
 
             //Crouching
@@ -63,7 +74,11 @@ public class Player : MonoBehaviour {
                 if (!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)))
                 {
                     crouched = true;
-                    playerAnim.Play("JohnCrouch");
+                    if (!attacking)
+                    {
+                        playerUpperAnim.Play("JohnCrouch");
+                    }
+                    playerLowerAnim.Play("JohnCrouchLegs");
                     upperBodyHitbox.SetActive(false);
                 }
 
@@ -78,17 +93,21 @@ public class Player : MonoBehaviour {
             if (!crouched && Input.GetKeyDown(KeyCode.Space) && remainingJumps > 0)
             {
                 remainingJumps -= 1;
-                if (inAir && playerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "JohnJump")
+                if (inAir && playerUpperAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "JohnJump")
                 {
-                    playerAnim.Play("JohnJump");
+                    if (!attacking)
+                    {
+                        playerUpperAnim.Play("JohnJump");
+                    }
+                    playerLowerAnim.Play("JohnJumpLegs");
                 }
                 rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
-                playerAnim.Play("JohnJump2");
+                //playerUpperAnim.Play("JohnJump2");
             }
 
             //Attacks
             //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
-            if(Input.GetKeyDown(KeyCode.Z) && !attacking && !inAir)
+            if(Input.GetKeyDown(KeyCode.Z) && !attacking)
             {
                 StartCoroutine("shortRangeCooldown");
             }
@@ -106,33 +125,45 @@ public class Player : MonoBehaviour {
             //Left and Right Arrow Keys: Movement in respective directions
             if (Input.GetKey(KeyCode.RightArrow))
             {
+                moving = true;
                 if (gameObject.transform.rotation.y != 0)
                 {
                     gameObject.transform.Rotate(Vector3.up, 180.0f);
                 }
                 if (!inAir)
                 {
-                    playerAnim.Play("JohnWalk");
+                    if (!attacking)
+                    {
+                        playerUpperAnim.Play("JohnWalk");
+                    }
+                    playerLowerAnim.Play("JohnWalkLegs");
                 }
                 rb.velocity = new Vector2(speed, rb.velocity.y);
             }
             else if (Input.GetKey(KeyCode.LeftArrow))
             {
+                moving = true;
                 if (gameObject.transform.rotation.y == 0)
                 {
                     gameObject.transform.Rotate(Vector3.up, 180.0f);
                 }
                 if (!inAir)
                 {
-                    playerAnim.Play("JohnWalk");
+                    if (!attacking)
+                    {
+                        playerUpperAnim.Play("JohnWalk");
+                    }
+                    playerLowerAnim.Play("JohnWalkLegs");
                 }
                 rb.velocity = new Vector2(-speed, rb.velocity.y);
             }
             else if (!inAir)
             {
+                moving = false;
                 if (!crouched && !attacking)
                 {
-                    playerAnim.Play("JohnIdle");
+                    playerUpperAnim.Play("JohnIdle");
+                    playerLowerAnim.Play("JohnIdle");
                 }
                 rb.velocity = new Vector2(0, rb.velocity.y);
             }
@@ -175,9 +206,18 @@ public class Player : MonoBehaviour {
     public IEnumerator shortRangeCooldown()
     {
         attacking = true;
-        playerAnim.Play("JohnShort");
+        if (crouched)
+        {
+            //playerSprite.sprite.pivot.Set
+            playerUpperAnim.pivotPosition.Set(0.49f, 0.83f, 0.0f);
+        }
+        playerUpperAnim.Play("JohnShort");
+        if (!moving && !crouched && !inAir)
+        {
+            playerLowerAnim.Play("JohnShortLegs");
+        }
         shortRange.Play("SoundWave");
-        yield return new WaitForSeconds(0.66f);
+        yield return new WaitForSeconds(1.0f);
         shortRange.Play("BaseSound");
         attacking = false;
     }
@@ -197,7 +237,8 @@ public class Player : MonoBehaviour {
 
     public IEnumerator Kill()
     {
-        playerAnim.Play("JohnDeath");
+        playerUpperAnim.Play("JohnDeath");
+        playerLowerAnim.Play("JohnDeath");
         yield return new WaitForSeconds(1.0f);
     }
 }
