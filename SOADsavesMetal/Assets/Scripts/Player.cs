@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     //Default Player Variables
+    public string currentBandMember;
     public bool dead;
     private Rigidbody2D rb;
     public float jumpHeight;
@@ -43,6 +44,10 @@ public class Player : MonoBehaviour {
         remainingJumps = 1;
         inAir = false;
         crouched = false;
+        if(currentBandMember == "")
+        {
+            currentBandMember = "John";
+        }
     }
 	
 	// Update is called once per frame
@@ -63,13 +68,20 @@ public class Player : MonoBehaviour {
             {
                 if (!attacking)
                 {
-                    playerUpperAnim.Play("JohnJump");
+                    if (currentBandMember == "John")
+                    {
+                        playerUpperAnim.Play("JohnJump");
+                    }
                 }
-                playerLowerAnim.Play("JohnJumpLegs");
+                playerLowerAnim.playbackTime = 0.0f;
+                if (currentBandMember == "John")
+                {
+                    playerLowerAnim.Play("JohnJumpLegs");
+                }
             }
 
             //Crouching
-            if (Input.GetKey(KeyCode.DownArrow) && !inAir)
+            if (Input.GetKey(KeyCode.DownArrow) && !inAir && !attacking)
             {
                 if (!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)))
                 {
@@ -80,6 +92,10 @@ public class Player : MonoBehaviour {
                     }
                     playerLowerAnim.Play("JohnCrouchLegs");
                     upperBodyHitbox.SetActive(false);
+                }
+                else
+                {
+                    crouched = false;
                 }
 
             }
@@ -93,21 +109,38 @@ public class Player : MonoBehaviour {
             if (!crouched && Input.GetKeyDown(KeyCode.Space) && remainingJumps > 0)
             {
                 remainingJumps -= 1;
-                if (inAir && playerUpperAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "JohnJump")
+                if (inAir)
                 {
+                    //&& playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "JohnJumpLegs"
                     if (!attacking)
                     {
-                        playerUpperAnim.Play("JohnJump");
+                        if (currentBandMember == "John")
+                        {
+                            playerUpperAnim.Play("JohnJump");
+                        }
+                        else if(currentBandMember == "Shavo")
+                        {
+                            playerUpperAnim.Play("ShavoJump");
+                        }
                     }
-                    playerLowerAnim.Play("JohnJumpLegs");
+                    playerLowerAnim.playbackTime = 0.0f;
+                    if (currentBandMember == "John")
+                    {
+                        playerLowerAnim.Play("JohnJumpLegs");
+                    }
+                    else if(currentBandMember == "Shavo")
+                    {
+                        playerLowerAnim.Play("ShavoJumpLegs");
+                    }
                 }
+                inAir = true;
                 rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
                 //playerUpperAnim.Play("JohnJump2");
             }
 
             //Attacks
             //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
-            if(Input.GetKeyDown(KeyCode.Z) && !attacking)
+            if(Input.GetKeyDown(KeyCode.Z) && !crouched && !attacking)
             {
                 StartCoroutine("shortRangeCooldown");
             }
@@ -162,8 +195,20 @@ public class Player : MonoBehaviour {
                 moving = false;
                 if (!crouched && !attacking)
                 {
-                    playerUpperAnim.Play("JohnIdle");
-                    playerLowerAnim.Play("JohnIdle");
+                    if (currentBandMember == "John")
+                    {
+                        playerUpperAnim.Play("JohnIdle");
+                        playerLowerAnim.Play("JohnIdleLegs");
+                    }
+                    else if (currentBandMember == "Shavo")
+                    {
+                        playerUpperAnim.Play("ShavoIdle");
+                        playerLowerAnim.Play("ShavoIdleLegs");
+                    }
+                }
+                else if (attacking)
+                {
+                    playerLowerAnim.Play("JohnLandLegs");
                 }
                 rb.velocity = new Vector2(0, rb.velocity.y);
             }
@@ -177,6 +222,14 @@ public class Player : MonoBehaviour {
                 StartCoroutine("Kill");
                 deathStarted = true;
             }
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.collider.tag == "Floor")
+        {
+            playerLowerAnim.Play("JohnLandLegs");
         }
     }
 
