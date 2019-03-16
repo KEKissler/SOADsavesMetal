@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186017fa9d8dc1a48a1a118bfb460f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentBandMember: John
+  currentBandMember: Shavo
   dead: 0
   jumpHeight: 18
   speed: 10
