@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 62fb3b8c0a0e48a4cae940ae092b0f33
+guid: 59c1264343dab154a90d6aaa707bee55
 TextureImporter:
   fileIDToRecycleName:
-    21300000: shavo_jump_spritesheet_0
-    21300002: shavo_jump_spritesheet_1
-    21300004: shavo_jump_spritesheet_2
-    21300006: shavo_jump_spritesheet_3
-    21300008: shavo_jump_spritesheet_4
-    21300010: shavo_jump_spritesheet_5
-    21300012: shavo_jump_spritesheet_6
+    21300000: boss_assets_agas_goblet_0
+    21300002: boss_assets_agas_goblet_1
+    21300004: boss_assets_agas_goblet_2
+    21300006: boss_assets_agas_goblet_3
+    21300008: boss_assets_agas_goblet_4
+    21300010: boss_assets_agas_goblet_5
+    21300012: boss_assets_agas_goblet_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -81,7 +81,29 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -91,141 +113,141 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shavo_jump_spritesheet_0
+      name: boss_assets_agas_goblet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 77
-        height: 73
-      alignment: 9
-      pivot: {x: 0.5, y: 0.95}
+        x: 33
+        y: 137
+        width: 92
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0bf29b1fe4013b4198a513aaef2a483
+      spriteID: 07626cf7d7bee344ab5a1ad3d22d60a8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shavo_jump_spritesheet_1
+      name: boss_assets_agas_goblet_1
       rect:
         serializedVersion: 2
-        x: 77
-        y: 0
-        width: 77
-        height: 73
-      alignment: 9
-      pivot: {x: 0.5, y: 0.75}
+        x: 195
+        y: 135
+        width: 94
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c57a1a058a44da84db0b1013c7b6d633
+      spriteID: 0393b86e6c745cc469cad0a1892a260b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shavo_jump_spritesheet_2
+      name: boss_assets_agas_goblet_2
       rect:
         serializedVersion: 2
-        x: 154
-        y: 0
-        width: 77
-        height: 73
-      alignment: 9
-      pivot: {x: 0.55, y: 0.6}
+        x: 355
+        y: 135
+        width: 94
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db0f38aa6a94a634bacff26b7fdd7908
+      spriteID: d7d776728d0f6624c8503750f6b51fa0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shavo_jump_spritesheet_3
+      name: boss_assets_agas_goblet_3
       rect:
         serializedVersion: 2
-        x: 231
-        y: 0
-        width: 77
-        height: 73
-      alignment: 9
-      pivot: {x: 0.55, y: 0.7}
+        x: 516
+        y: 135
+        width: 94
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ff57364487fdfd4bb8627c111c525f6
+      spriteID: 5ce4bd7070389954f94ab8f69187ab7f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shavo_jump_spritesheet_4
+      name: boss_assets_agas_goblet_4
       rect:
         serializedVersion: 2
-        x: 308
+        x: 1
         y: 0
-        width: 77
-        height: 73
-      alignment: 9
-      pivot: {x: 0.55, y: 0.7}
+        width: 161
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfede8f3665cf8d4692b9663a239e43f
+      spriteID: ca23c6d3e14248b489ea0c6f22eb87d9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shavo_jump_spritesheet_5
+      name: boss_assets_agas_goblet_5
       rect:
         serializedVersion: 2
-        x: 385
+        x: 162
         y: 0
-        width: 77
-        height: 73
-      alignment: 9
-      pivot: {x: 0.4, y: 0.3}
+        width: 161
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7bd1c70e12728d4aad2c2eb8b00392f
+      spriteID: 543dbfc104387d04bb8d6c94a592c966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shavo_jump_spritesheet_6
+      name: boss_assets_agas_goblet_6
       rect:
         serializedVersion: 2
-        x: 462
+        x: 323
         y: 0
-        width: 77
-        height: 73
-      alignment: 9
-      pivot: {x: 0.4, y: 0.25}
+        width: 161
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68a0f6e4359ccd24d82f0491b5f20e8a
+      spriteID: 45bf5d3eae6f7324b9eabb74a36ab10c
       vertices: []
       indices: 
       edges: []
@@ -233,7 +255,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7addd0abe7dffc149963ce64243dc2e6
+    spriteID: 6e4dff90e52f9d44b86d9733c66b8186
     vertices: []
     indices: 
     edges: []
