@@ -8,9 +8,9 @@ public class PlayerAttack : MonoBehaviour {
 	private float attackTimer = 0.0f; // General purpose timer
 
 	// Short range attack
-    private GameObject shortRangeHitbox;
-    private const float SHORT_ATTACK_HOLD_DURATION = 0.3f;
-    private const float SHORT_ATTACK_COOLDOWN = 0.2f;
+    public GameObject shortRangeHitbox;
+    private const float SHORT_ATTACK_HOLD_DURATION = 0.35f;
+    private const float SHORT_ATTACK_COOLDOWN = 0.1f;
     
     // Long range attack
     public GameObject drumstick;
@@ -24,8 +24,6 @@ public class PlayerAttack : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
-        shortRangeHitbox = GameObject.Find("Player/ShortRange");
-        print(shortRangeHitbox);
         shortRangeHitbox.SetActive(false);
         attacking = false;
 	}
@@ -56,11 +54,25 @@ public class PlayerAttack : MonoBehaviour {
     IEnumerator AttackShort()
     {
         attacking = true;
+
+        // Windup period
+        attackTimer = 0.0f;
+        while(attackTimer < 0.4f)
+        {
+            attackTimer += Time.deltaTime;
+            yield return null;
+        }
+
+        // Attack
+        shortRangeHitbox.transform.localScale = new Vector3(0.01f,
+            shortRangeHitbox.transform.localScale.y, shortRangeHitbox.transform.localScale.z);
         shortRangeHitbox.SetActive(true);
         attackTimer = 0.0f;
         while(attackTimer < SHORT_ATTACK_HOLD_DURATION)
         {
         	attackTimer += Time.deltaTime;
+            shortRangeHitbox.transform.localScale = new Vector3(Mathf.Lerp(0.01f, 3.2f, attackTimer/SHORT_ATTACK_HOLD_DURATION),
+                shortRangeHitbox.transform.localScale.y, shortRangeHitbox.transform.localScale.z);
         	yield return null;
         }
         shortRangeHitbox.SetActive(false);
@@ -80,8 +92,10 @@ public class PlayerAttack : MonoBehaviour {
     {
     	attacking = true;
 
+        
+
     	// Create projectile (drumstick)
-    	GameObject dsClone = Instantiate(drumstick, transform.position, transform.rotation);
+    	GameObject dsClone = Instantiate(drumstick, transform.position, transform.parent.rotation);
 
         // Cooldown period
         attackTimer = 0.0f;
@@ -109,7 +123,7 @@ public class PlayerAttack : MonoBehaviour {
             {
                 shotTimer %= TIME_BETWEEN_SHOTS;
                 // Debug.Log(shotTimer);
-                GameObject cymbalClone = Instantiate(cymbal, transform.position, transform.rotation);
+                GameObject cymbalClone = Instantiate(cymbal, transform.position, transform.parent.rotation);
             }
             yield return null;
         }

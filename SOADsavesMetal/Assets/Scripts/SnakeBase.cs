@@ -32,8 +32,8 @@ public class SnakeBase : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         buildSnake();
-        statueHand.transform.position = (Vector2)transform.position + new Vector2(-5f, -1.9f);
-        indicator.transform.position = (Vector2)transform.position + new Vector2(-5f, 0f);
+        statueHand.transform.position = (Vector2)transform.position + new Vector2(-5f, -3.4f);
+        indicator.transform.position = (Vector2)transform.position + new Vector2(-5f, -1.5f);
     }
 
     // Update is called once per frame
@@ -172,7 +172,8 @@ public class SnakeBase : MonoBehaviour
     {
         attacking = true;
 
-        Instantiate(projectile, body[bodyLength-1].transform.position, Quaternion.identity);
+        GameObject temp = Instantiate(projectile, body[bodyLength-1].transform.position, Quaternion.identity);
+        //temp.GetComponent<SnakeProjectile>().Configure(ProjectileType.Gravity, ProjectileSpeed.Med);
 
         attackTimer = 0.0f;
         while(attackTimer < 0.1f)

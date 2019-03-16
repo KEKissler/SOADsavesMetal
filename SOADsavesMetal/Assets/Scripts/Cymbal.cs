@@ -17,7 +17,11 @@ public class Cymbal : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(DEFAULT_VELOCITY+rng.Next(2*VELOCITY_VARIATION+1)-(float)VELOCITY_VARIATION, 1.7f+2*(float)rng.NextDouble());
+        float angle = Mathf.Deg2Rad*transform.rotation.y*-180f;
+
+		rb.velocity = new Vector2(DEFAULT_VELOCITY*Mathf.Cos(angle), DEFAULT_VELOCITY*Mathf.Sin(angle));
+        rb.velocity = new Vector2(DEFAULT_VELOCITY*Mathf.Cos(angle)+rng.Next(2*VELOCITY_VARIATION+1)-(float)VELOCITY_VARIATION,
+            DEFAULT_VELOCITY*Mathf.Sin(angle)+1.7f+2*(float)rng.NextDouble());
         Destroy(gameObject, LIFESPAN);
     }
     
