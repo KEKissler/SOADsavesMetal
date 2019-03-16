@@ -10,6 +10,8 @@ public class SimpleWalk : MonoBehaviour {
 	private const float TIMER_MAX = 1.4f;
 	private bool hasBeenHit = false;
 
+	private const float HIT_COOLDOWN = 0.5f;
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
@@ -24,7 +26,7 @@ public class SimpleWalk : MonoBehaviour {
 		if(timer > TIMER_MAX)
 		{
 			timer = 0.0f;
-			rb.velocity = new Vector2(-1.0f * rb.velocity.x, 0.0f);
+			rb.velocity = new Vector2(-1.0f * BASE_VELOCITY * Mathf.Sign(rb.velocity.x), 0.0f);
 		}
 	}
 
@@ -34,6 +36,19 @@ public class SimpleWalk : MonoBehaviour {
 		{
 			hasBeenHit = true;
 			print("I've been hit");
+			StartCoroutine(hitCooldown());
 		}
+	}
+
+	IEnumerator hitCooldown()
+	{
+		float t = 0.0f;
+		while(t < HIT_COOLDOWN)
+		{
+			t += Time.deltaTime;
+			yield return null;
+		}
+
+		hasBeenHit = false;
 	}
 }

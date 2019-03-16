@@ -5,13 +5,16 @@ using UnityEngine;
 public class Drumstick : MonoBehaviour {
  
 	private Rigidbody2D rb;
-	private const float DEFAULT_VELOCITY = 45f;
-	private const float LIFESPAN = 0.4f;
+	private const float DEFAULT_VELOCITY = 25.5f;
+	private const float LIFESPAN = 0.85f;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
-		rb.velocity = new Vector2(DEFAULT_VELOCITY, 0f);
+
+		float angle = Mathf.Deg2Rad*transform.rotation.y*-180f;
+
+		rb.velocity = new Vector2(DEFAULT_VELOCITY*Mathf.Cos(angle), DEFAULT_VELOCITY*Mathf.Sin(angle));
 		Destroy(gameObject, LIFESPAN);
 	}
 	
@@ -22,6 +25,7 @@ public class Drumstick : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D col)
 	{
-		col.gameObject.SendMessage("hit");
+		if(col.gameObject.name == "TheWorstEnemyImaginable")
+			col.gameObject.SendMessage("hit");
 	}
 }
