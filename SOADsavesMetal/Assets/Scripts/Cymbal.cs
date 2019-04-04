@@ -35,7 +35,7 @@ public class Cymbal : MonoBehaviour {
         if(col.gameObject.tag != "Projectile")
         {
             //Debug.Log(col.gameObject.name);
-            col.gameObject.SendMessage("hit");
+            //col.gameObject.SendMessage("hit");
         }
     }
 
