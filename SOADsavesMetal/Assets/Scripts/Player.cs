@@ -91,7 +91,6 @@ public class Player : MonoBehaviour {
                         playerUpperAnim.Play("ShavoJump");
                     }
                 }
-                playerLowerAnim.playbackTime = 0.0f;
                 if (currentBandMember == "John")
                 {
                     playerLowerAnim.Play("JohnJumpLegs");
@@ -154,8 +153,9 @@ public class Player : MonoBehaviour {
                         {
                             playerUpperAnim.Play("JohnJump");
                         }
-                        playerLowerAnim.playbackTime = 0.0f;
                         playerLowerAnim.Play("JohnJumpLegs");
+                        inAir = true;
+                        rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
                     }
                     else if (currentBandMember == "Shavo" && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "ShavoJumpLegs")
                     {
@@ -163,12 +163,16 @@ public class Player : MonoBehaviour {
                         {
                             playerUpperAnim.Play("ShavoJump");
                         }
-                        playerLowerAnim.playbackTime = 0.0f;
                         playerLowerAnim.Play("ShavoJumpLegs");
+                        inAir = true;
+                        rb.velocity = new Vector2(jumpHeight, 0.0f);
                     }
                 }
-                inAir = true;
-                rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+                else
+                {
+                    inAir = true;
+                    rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+                }
                 //playerUpperAnim.Play("JohnJump2");
             }
 
