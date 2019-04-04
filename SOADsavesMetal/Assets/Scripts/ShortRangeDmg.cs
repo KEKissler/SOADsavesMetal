@@ -16,6 +16,6 @@ public class ShortRangeDmg : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D col)
 	{
-		col.gameObject.SendMessage("hit");
+		//col.gameObject.SendMessage("hit");
 	}
 }
