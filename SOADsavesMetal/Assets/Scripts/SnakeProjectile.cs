@@ -11,6 +11,7 @@ public enum ProjectileType
 
 public enum ProjectileSpeed
 {
+    Stop,
     Slow,
     Med,
     Fast
@@ -21,21 +22,21 @@ public class SnakeProjectile : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rb;
 
-    private const float SLOW_VEL = 3.5f;
-    private const float MED_VEL = 6.0f;
-    private const float FAST_VEL = 9.0f;
+    private const float SLOW_VEL = 6.5f;
+    private const float MED_VEL = 10.0f;
+    private const float FAST_VEL = 13.5f;
 
     // Start is called before the first frame update
     void Start()
     {   
-        if(!player) player = GameObject.Find("Player");
+        if(!player) player = GameObject.FindWithTag("Player");
         transform.LookAt(new Vector3(transform.position.x, transform.position.y, 1),
             new Vector3(transform.position.x-player.transform.position.x, transform.position.y-player.transform.position.y, 0));
 
         rb = GetComponent<Rigidbody2D>();
-        Configure(ProjectileType.Gravity, ProjectileSpeed.Fast);
+        Configure(ProjectileType.Gravity, ProjectileSpeed.Fast, 0.0f, 0.0f);
         
-        Destroy(gameObject, 2.5f);
+        Destroy(gameObject, 2.6f);
     }
 
     // Update is called once per frame
@@ -44,7 +45,7 @@ public class SnakeProjectile : MonoBehaviour
         
     }
     
-    void Configure(ProjectileType pt, ProjectileSpeed ps)
+    public void Configure(ProjectileType pt, ProjectileSpeed ps, float xVelocityModifier, float yVelocityModifier)
     {
         float a = player.transform.position.x-transform.position.x;
         float b = player.transform.position.y-transform.position.y;
@@ -52,6 +53,9 @@ public class SnakeProjectile : MonoBehaviour
 
         switch(ps)
         {
+            case ProjectileSpeed.Stop:
+                rb.velocity = new Vector2(0f, 0f);
+                break;
             case ProjectileSpeed.Slow:
                 rb.velocity = new Vector2(a/m*SLOW_VEL, b/m*SLOW_VEL);
                 break;
@@ -81,5 +85,7 @@ public class SnakeProjectile : MonoBehaviour
                 rb.gravityScale = 0f;
                 break;
         }
+
+        rb.velocity += new Vector2(0, yVelocityModifier);
     }
 }

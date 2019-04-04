@@ -17,29 +17,31 @@ public class SnakeBase : MonoBehaviour
     public GameObject projectile;
     
     // Public vars
-    public int bodyLength = 7;
+    public GameObject[] body; // = new GameObject[bodyLength];
 
     // Internal vars
-    GameObject[] body;
     Rigidbody2D[] bodyRB;
     Rigidbody2D rb;
     GameObject[] anchor;
     bool anchorsEnabled = true;
     bool bodyRotationEnabled = true;
+    private int bodyLength;
 
     // Start is called before the first frame update
     void Start()
     {
+        bodyLength = body.Length;
         rb = GetComponent<Rigidbody2D>();
         buildSnake();
         statueHand.transform.position = (Vector2)transform.position + new Vector2(-5f, -3.4f);
         indicator.transform.position = (Vector2)transform.position + new Vector2(-5f, -1.5f);
+        StartCoroutine(basicPattern());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!attacking)
+        if(false)
         {
             if(Input.GetKeyDown(KeyCode.A))
             {
@@ -65,12 +67,11 @@ public class SnakeBase : MonoBehaviour
 
     public void buildSnake()
     {
-        body = new GameObject[bodyLength];
         bodyRB = new Rigidbody2D[bodyLength];
         anchor = new GameObject[bodyLength];
         for(int i=0; i<bodyLength-1; ++i)
         {
-            body[i] = Instantiate(snakeBody, bodyPosition(i+1), Quaternion.identity);
+            // body[i] = Instantiate(snakeBody, bodyPosition(i+1), Quaternion.identity);
             if(i == 0)
             {
                 body[0].GetComponent<SpringJoint2D>().connectedBody = rb;
@@ -83,16 +84,16 @@ public class SnakeBase : MonoBehaviour
             }
             bodyRB[i] = body[i].GetComponent<Rigidbody2D>();
 
-            anchor[i] = Instantiate(bodyAnchor, bodyPosition(i+1), Quaternion.identity);
+            anchor[i] = Instantiate(bodyAnchor, body[i].transform.position, Quaternion.identity);
             anchor[i].GetComponent<SpringJoint2D>().connectedBody = bodyRB[i];
         }
         
-        body[bodyLength-1] = Instantiate(snakeHead, bodyPosition(bodyLength), Quaternion.identity);
+        // body[bodyLength-1] = Instantiate(snakeHead, bodyPosition(bodyLength), Quaternion.identity);
         body[bodyLength-1].GetComponent<SpringJoint2D>().connectedBody = body[bodyLength-2].GetComponent<Rigidbody2D>();
         bodyRB[bodyLength-1] = body[bodyLength-1].GetComponent<Rigidbody2D>();
         body[bodyLength-1].GetComponent<SnakeRotationLock>().target = body[bodyLength-2].transform;
 
-        anchor[bodyLength-1] = Instantiate(bodyAnchor, bodyPosition(bodyLength), Quaternion.identity);
+        anchor[bodyLength-1] = Instantiate(bodyAnchor, body[bodyLength-1].transform.position, Quaternion.identity);
         anchor[bodyLength-1].GetComponent<SpringJoint2D>().connectedBody = bodyRB[bodyLength-1];
     }
 
@@ -255,5 +256,92 @@ public class SnakeBase : MonoBehaviour
 
         attacking = false;
 
+    }
+
+
+    // Attack patterns
+
+    IEnumerator basicPattern()
+    {
+        float timer = 0f;
+        int attackPhase = 0;    // Replace with enum later
+        float waitTime = 2.5f;
+
+        while(true)
+        {
+            if(attacking)   yield return null;
+
+            timer += Time.deltaTime;
+            if(timer > waitTime)
+            {
+                timer = 0f;
+                switch(attackPhase)
+                {
+                    case 0:
+                        // 3 projectiles
+                        StartCoroutine(repeatProjectile(6, 0.3f));
+                        break;
+                    case 1:
+                        // lunge
+                        StartCoroutine(lunge());
+                        break;
+                    case 2:
+                        // fan shape projectiles
+                        StartCoroutine(fanProjectile(5, 1.0f));
+                        break;
+                    case 3:
+                        // statue hand
+                        StartCoroutine(hand());
+                        break;
+                }
+                ++attackPhase;
+                attackPhase %= 4;   // Hard-coded number of phases
+            }
+
+            yield return null;
+        }
+    }
+
+    IEnumerator repeatProjectile(int numRepeats, float waitTime)
+    {
+        //attacking = true;
+        float timer = waitTime;
+        for(int i=0; i<numRepeats; ++i)
+        {
+            while(timer < waitTime)
+            {
+                timer += Time.deltaTime;
+                yield return null;
+            }
+
+            timer = 0f;
+            // Fire projectile
+            GameObject temp = Instantiate(projectile, body[bodyLength-1].transform.position, Quaternion.identity);
+        }
+        attacking = false;
+    }
+
+    IEnumerator fanProjectile(int numProjectiles, float yVelocityModifier)
+    {
+        if(numProjectiles < 1)  numProjectiles = 1;
+        float yv = -yVelocityModifier*0.5f*(numProjectiles-1);
+
+        GameObject[] temp = new GameObject[numProjectiles];
+
+        for(int i=0; i<numProjectiles; ++i)
+        {
+            temp[i] = Instantiate(projectile, body[bodyLength-1].transform.position, Quaternion.identity);
+        }
+
+        yield return null;
+
+        // Add sinusoidal xVel modifier
+        for(int i=0; i<numProjectiles; ++i)
+        {
+            temp[i].GetComponent<SnakeProjectile>().Configure(ProjectileType.Gravity, ProjectileSpeed.Fast, 0.0f, yv);
+            yv += yVelocityModifier;
+        }
+
+        yield return null;
     }
 }
