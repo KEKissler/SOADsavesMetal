@@ -32,10 +32,15 @@ public class SnakeBase : MonoBehaviour
     bool bodyRotationEnabled = true;
     private int bodyLength;
     private float anchorOscillationFreq;
+    private float anchorHeadOscillationMult = 1.15f;
+
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
+        if(!player) player = GameObject.FindWithTag("Player");
+
         bodyLength = body.Length;
         rb = GetComponent<Rigidbody2D>();
         buildSnake();
@@ -109,6 +114,7 @@ public class SnakeBase : MonoBehaviour
         anchor[bodyLength-1].GetComponent<SpringJoint2D>().connectedBody = bodyRB[bodyLength-1];
 
         anchorOscillationFreq = anchor[bodyLength-1].GetComponent<SpringJoint2D>().frequency;
+        anchor[bodyLength-1].GetComponent<SpringJoint2D>().frequency *= anchorHeadOscillationMult;
     }
 
     Vector2 bodyPosition(int partIndex)
@@ -146,16 +152,20 @@ public class SnakeBase : MonoBehaviour
 
     IEnumerator lunge()
     {
-        float snapDrag = 35f;
+        float snapDrag = 35f;   // snapDrag on
         float endDrag = 3.2f;
 
         attacking = true;
         toggleAnchors();
         // toggleRotation();
         float timer = 0f;
-        bodyRB[bodyLength-1].velocity += new Vector2(-6.7f, -0.5f);
+        bodyRB[bodyLength-1].velocity += new Vector2(-7.0f, -0.5f);
 
         // Extend
+        float snakeLungeMagnitude = 670f;
+        float veryWellNamedAngle = Mathf.Atan2(player.transform.position.y - body[bodyLength-1].transform.position.y + 0.8f,
+                                                player.transform.position.x - body[bodyLength-1].transform.position.x);
+        Debug.Log(veryWellNamedAngle);
         while(timer < 0.9f)
         {
             for(int i=0; i<bodyLength-1; ++i)
@@ -163,7 +173,10 @@ public class SnakeBase : MonoBehaviour
                 // bodyRB[i].AddForce(new Vector2(5.3f-4.9f*timer+6.2f*(float)i, 0.9f-2.5f*timer-0.4f*(float)i));
             }
             // bodyRB[bodyLength-1].AddForce(new Vector2(-259.3f-485f*timer-3.9f*(float)(bodyLength-1), -20.3f-24f*timer-2.2f*(float)(bodyLength-1)));
-            bodyRB[bodyLength-1].AddForce(new Vector2(-670f, -30f-50f*timer));
+            bodyRB[bodyLength-1].AddForce(new Vector2(
+                snakeLungeMagnitude * Mathf.Cos(veryWellNamedAngle),
+                snakeLungeMagnitude * Mathf.Sin(veryWellNamedAngle)
+                ));
             timer += Time.deltaTime;
             yield return null;
         }
@@ -205,6 +218,7 @@ public class SnakeBase : MonoBehaviour
                 anchor[i].GetComponent<SpringJoint2D>().frequency = anchorOscillationFreq * lerpValue;
                 bodyRB[i].drag = snapDrag * (1-lerpValue) + endDrag * lerpValue;
             }
+            anchor[bodyLength-1].GetComponent<SpringJoint2D>().frequency *= anchorHeadOscillationMult;
             yield return null;
         }
 
