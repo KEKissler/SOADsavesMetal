@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿// Note: try to move the attacks and attack pattern code out to another file
+// The code to maintain the snake itself should stay here though, interfacing with other code
+// Move the attack code onto the statue itself, have it send messages / call functions
+// on the statue hand and the snake base (this script here)
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +31,7 @@ public class SnakeBase : MonoBehaviour
     bool anchorsEnabled = true;
     bool bodyRotationEnabled = true;
     private int bodyLength;
+    private float anchorOscillationFreq;
 
     // Start is called before the first frame update
     void Start()
@@ -33,9 +39,9 @@ public class SnakeBase : MonoBehaviour
         bodyLength = body.Length;
         rb = GetComponent<Rigidbody2D>();
         buildSnake();
-        statueHand.transform.position = (Vector2)transform.position + new Vector2(-5f, -3.4f);
+        //statueHand.transform.position = (Vector2)transform.position + new Vector2(-5f, -3.4f);
         indicator.transform.position = (Vector2)transform.position + new Vector2(-5f, -1.5f);
-        StartCoroutine(basicPattern());
+        StartCoroutine(mediumPattern());
     }
 
     // Update is called once per frame
@@ -75,13 +81,17 @@ public class SnakeBase : MonoBehaviour
             if(i == 0)
             {
                 body[0].GetComponent<SpringJoint2D>().connectedBody = rb;
-                body[0].GetComponent<SnakeRotationLock>().target = transform;
+                body[i].GetComponent<SpringJoint2D>().distance = (transform.position - body[i].transform.position).magnitude;
+                body[0].GetComponent<SnakeRotationLock>().targetBase = transform;
             }
             else
             {
                 body[i].GetComponent<SpringJoint2D>().connectedBody = body[i-1].GetComponent<Rigidbody2D>();
-                body[i].GetComponent<SnakeRotationLock>().target = body[i-1].transform;
+                body[i].GetComponent<SpringJoint2D>().distance = (body[i-1].transform.position - body[i].transform.position).magnitude;
+                body[i].GetComponent<SnakeRotationLock>().targetBase = body[i-1].transform;
             }
+            if(i == bodyLength-2)   body[bodyLength-2].GetComponent<SnakeRotationLock>().targetHead = body[bodyLength-1].transform;
+            else    body[i].GetComponent<SnakeRotationLock>().targetHead = body[i+1].transform;
             bodyRB[i] = body[i].GetComponent<Rigidbody2D>();
 
             anchor[i] = Instantiate(bodyAnchor, body[i].transform.position, Quaternion.identity);
@@ -90,11 +100,15 @@ public class SnakeBase : MonoBehaviour
         
         // body[bodyLength-1] = Instantiate(snakeHead, bodyPosition(bodyLength), Quaternion.identity);
         body[bodyLength-1].GetComponent<SpringJoint2D>().connectedBody = body[bodyLength-2].GetComponent<Rigidbody2D>();
+        body[bodyLength-1].GetComponent<SpringJoint2D>().distance = (body[bodyLength-2].transform.position - body[bodyLength-1].transform.position).magnitude;
         bodyRB[bodyLength-1] = body[bodyLength-1].GetComponent<Rigidbody2D>();
-        body[bodyLength-1].GetComponent<SnakeRotationLock>().target = body[bodyLength-2].transform;
+        body[bodyLength-1].GetComponent<SnakeRotationLock>().targetBase = body[bodyLength-2].transform;
+        body[bodyLength-1].GetComponent<SnakeRotationLock>().isHead = true;
 
         anchor[bodyLength-1] = Instantiate(bodyAnchor, body[bodyLength-1].transform.position, Quaternion.identity);
         anchor[bodyLength-1].GetComponent<SpringJoint2D>().connectedBody = bodyRB[bodyLength-1];
+
+        anchorOscillationFreq = anchor[bodyLength-1].GetComponent<SpringJoint2D>().frequency;
     }
 
     Vector2 bodyPosition(int partIndex)
@@ -132,39 +146,71 @@ public class SnakeBase : MonoBehaviour
 
     IEnumerator lunge()
     {
+        float snapDrag = 35f;
+        float endDrag = 3.2f;
+
         attacking = true;
         toggleAnchors();
         // toggleRotation();
         float timer = 0f;
-        while(timer < 0.7f)
+        bodyRB[bodyLength-1].velocity += new Vector2(-6.7f, -0.5f);
+
+        // Extend
+        while(timer < 0.9f)
         {
-            for(int i=0; i<bodyLength-1; ++i) bodyRB[i].AddForce(new Vector2(5.3f-4.9f*timer+6.2f*(float)i, 0.9f-2.5f*timer-0.4f*(float)i));
-            bodyRB[bodyLength-1].AddForce(new Vector2(-259.3f-485f*timer-3.9f*(float)(bodyLength-1), -20.3f-24f*timer-2.2f*(float)(bodyLength-1)));
+            for(int i=0; i<bodyLength-1; ++i)
+            {
+                // bodyRB[i].AddForce(new Vector2(5.3f-4.9f*timer+6.2f*(float)i, 0.9f-2.5f*timer-0.4f*(float)i));
+            }
+            // bodyRB[bodyLength-1].AddForce(new Vector2(-259.3f-485f*timer-3.9f*(float)(bodyLength-1), -20.3f-24f*timer-2.2f*(float)(bodyLength-1)));
+            bodyRB[bodyLength-1].AddForce(new Vector2(-670f, -30f-50f*timer));
             timer += Time.deltaTime;
             yield return null;
         }
 
-        for(int i=0; i<bodyLength; ++i) bodyRB[i].velocity = new Vector2(-10f, 0);
-        bodyRB[bodyLength-1].drag = 999999f;
+        // Snap
+        for(int i=0; i<bodyLength; ++i)
+        {
+            bodyRB[i].velocity = new Vector2(-1.5f, 0.2f);
+            bodyRB[i].drag = snapDrag;
+        }
+        bodyRB[bodyLength-1].angularDrag = 99f;
+        bodyRB[bodyLength-1].velocity += new Vector2(-2.0f, -0.2f);
+
+        // Hold
+        timer = 0f;
+        while(timer < 0.05f)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        // Retract
+
+        // for(int i=0; i<bodyLength; ++i) bodyRB[i].drag = 3.2f;
+
+        for(int i=0; i<bodyLength-1; ++i)   bodyRB[i].velocity += new Vector2(3.45f, 0f);
+        toggleAnchors();
 
         timer = 0f;
-        while(timer < 0.18f)
+        float timeToLerpAnchor = 1.1f;
+        while(timer < timeToLerpAnchor)
         {
+            for(int i=0; i<bodyLength-2; ++i) bodyRB[i].AddForce(new Vector2(0f, 18f));
+            bodyRB[bodyLength-1].AddForce(new Vector2(0f, -24f));
             timer += Time.deltaTime;
+            for(int i=0; i<bodyLength; ++i)
+            {
+                float lerpValue = timer / timeToLerpAnchor;
+                anchor[i].GetComponent<SpringJoint2D>().frequency = anchorOscillationFreq * lerpValue;
+                bodyRB[i].drag = snapDrag * (1-lerpValue) + endDrag * lerpValue;
+            }
             yield return null;
         }
 
-        bodyRB[bodyLength-1].drag = 2f;
-        bodyRB[bodyLength-1].velocity = new Vector2(1f, 6f);
-        toggleAnchors();
+        bodyRB[bodyLength-1].angularDrag = 8f;
+        
         // toggleRotation();
-
-        attackTimer = 0.0f;
-        while(attackTimer < 1.5f)
-        {
-            attackTimer += Time.deltaTime;
-            yield return null;
-        }
         
         attacking = false;
     }
@@ -246,16 +292,91 @@ public class SnakeBase : MonoBehaviour
         }
 
         statueRB.velocity = new Vector2(0, 0);
-        timer = 0.0f;
-
-        while(timer < 0.5f)
-        {
-            timer += Time.deltaTime;
-            yield return null;
-        }
 
         attacking = false;
 
+    }
+
+    IEnumerator repeatProjectile(int numRepeats, float waitTime)
+    {
+        attacking = true;
+        float timer = waitTime;
+        for(int i=0; i<numRepeats; ++i)
+        {
+            while(timer < waitTime)
+            {
+                timer += Time.deltaTime;
+                yield return null;
+            }
+
+            timer = 0f;
+            // Fire projectile
+            GameObject temp = Instantiate(projectile, body[bodyLength-1].transform.position, Quaternion.identity);
+        }
+        attacking = false;
+    }
+
+    IEnumerator fanProjectile(int numProjectiles, float degreeModifier)
+    {
+        if(numProjectiles < 1)  numProjectiles = 1;
+        float yv = -degreeModifier*0.5f*(numProjectiles-1);
+
+        GameObject[] temp = new GameObject[numProjectiles];
+
+        for(int i=0; i<numProjectiles; ++i)
+        {
+            temp[i] = Instantiate(projectile, body[bodyLength-1].transform.position, Quaternion.identity);
+        }
+
+        yield return null;
+
+        // Add sinusoidal xVel modifier
+        for(int i=0; i<numProjectiles; ++i)
+        {
+            temp[i].GetComponent<SnakeProjectile>().Configure(ProjectileType.Gravity, ProjectileSpeed.Fast, yv);
+            yv += degreeModifier;
+        }
+
+        yield return null;
+    }
+
+    IEnumerator repeatFanProjectile(int numRepeats, float waitTime, int numProjectiles, float degreeModifier)
+    {
+        if(numProjectiles < 1)  numProjectiles = 1;
+        attacking = true;
+        float timer = waitTime;
+        for(int r=0; r<numRepeats; ++r)
+        {
+            while(timer < waitTime)
+            {
+                timer += Time.deltaTime;
+                yield return null;
+            }
+
+            timer = 0f;
+
+            // Fire projectile
+            float yv = -degreeModifier*0.5f*(numProjectiles-1);
+
+            GameObject[] temp = new GameObject[numProjectiles];
+
+            for(int i=0; i<numProjectiles; ++i)
+            {
+                temp[i] = Instantiate(projectile, body[bodyLength-1].transform.position, Quaternion.identity);
+            }
+
+            yield return null;
+
+            // Add sinusoidal xVel modifier
+            for(int i=0; i<numProjectiles; ++i)
+            {
+                temp[i].GetComponent<SnakeProjectile>().Configure(ProjectileType.Gravity, ProjectileSpeed.Fast,  yv);
+                yv += degreeModifier;
+            }
+        }
+        attacking = false;
+
+        yield return null;
     }
 
 
@@ -279,7 +400,7 @@ public class SnakeBase : MonoBehaviour
                 {
                     case 0:
                         // 3 projectiles
-                        StartCoroutine(repeatProjectile(6, 0.3f));
+                        StartCoroutine(repeatProjectile(4, 0.3f));
                         break;
                     case 1:
                         // lunge
@@ -302,46 +423,49 @@ public class SnakeBase : MonoBehaviour
         }
     }
 
-    IEnumerator repeatProjectile(int numRepeats, float waitTime)
+    IEnumerator mediumPattern()
     {
-        //attacking = true;
-        float timer = waitTime;
-        for(int i=0; i<numRepeats; ++i)
+        float timer = 0f;
+        int attackPhase = 0;    // Replace with enum later
+        float shortWait = 0.5f;
+        float longWait = 2.0f;
+
+        bool isLongWait = true;
+
+        while(true)
         {
-            while(timer < waitTime)
+            if(attacking)   yield return null;
+
+            timer += Time.deltaTime;
+            if(timer > (isLongWait ? longWait : shortWait))
             {
-                timer += Time.deltaTime;
-                yield return null;
+                timer = 0f;
+                switch(attackPhase)
+                {
+                    case 0:
+                        // 3 projectiles
+                        StartCoroutine(repeatProjectile(7, 0.15f));
+                        isLongWait = false;
+                        break;
+                    case 1:
+                        // lunge
+                        StartCoroutine(lunge());
+                        isLongWait = true;
+                        break;
+                    case 2:
+                        // fan shape projectiles
+                        StartCoroutine(repeatFanProjectile(3, 0.25f, 5, 5.5f));
+                        break;
+                    case 3:
+                        // statue hand
+                        StartCoroutine(hand());
+                        break;
+                }
+                ++attackPhase;
+                attackPhase %= 4;   // Hard-coded number of phases
             }
 
-            timer = 0f;
-            // Fire projectile
-            GameObject temp = Instantiate(projectile, body[bodyLength-1].transform.position, Quaternion.identity);
+            yield return null;
         }
-        attacking = false;
-    }
-
-    IEnumerator fanProjectile(int numProjectiles, float yVelocityModifier)
-    {
-        if(numProjectiles < 1)  numProjectiles = 1;
-        float yv = -yVelocityModifier*0.5f*(numProjectiles-1);
-
-        GameObject[] temp = new GameObject[numProjectiles];
-
-        for(int i=0; i<numProjectiles; ++i)
-        {
-            temp[i] = Instantiate(projectile, body[bodyLength-1].transform.position, Quaternion.identity);
-        }
-
-        yield return null;
-
-        // Add sinusoidal xVel modifier
-        for(int i=0; i<numProjectiles; ++i)
-        {
-            temp[i].GetComponent<SnakeProjectile>().Configure(ProjectileType.Gravity, ProjectileSpeed.Fast, 0.0f, yv);
-            yv += yVelocityModifier;
-        }
-
-        yield return null;
     }
 }

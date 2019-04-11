@@ -34,7 +34,7 @@ public class SnakeProjectile : MonoBehaviour
             new Vector3(transform.position.x-player.transform.position.x, transform.position.y-player.transform.position.y, 0));
 
         rb = GetComponent<Rigidbody2D>();
-        Configure(ProjectileType.Gravity, ProjectileSpeed.Fast, 0.0f, 0.0f);
+        Configure(ProjectileType.Gravity, ProjectileSpeed.Fast, 0.0f);
         
         Destroy(gameObject, 2.6f);
     }
@@ -45,30 +45,36 @@ public class SnakeProjectile : MonoBehaviour
         
     }
     
-    public void Configure(ProjectileType pt, ProjectileSpeed ps, float xVelocityModifier, float yVelocityModifier)
+    public void Configure(ProjectileType pt, ProjectileSpeed ps, float degreeModifier)
     {
         float a = player.transform.position.x-transform.position.x;
         float b = player.transform.position.y-transform.position.y;
-        float m = (transform.position-player.transform.position).magnitude;
+        float angle = Mathf.Atan2(b, a) + degreeModifier*Mathf.Deg2Rad;
+        float v;
 
         switch(ps)
         {
             case ProjectileSpeed.Stop:
-                rb.velocity = new Vector2(0f, 0f);
+                v = 0f;
                 break;
             case ProjectileSpeed.Slow:
-                rb.velocity = new Vector2(a/m*SLOW_VEL, b/m*SLOW_VEL);
+                v = SLOW_VEL;
                 break;
             case ProjectileSpeed.Med:
-                rb.velocity = new Vector2(a/m*MED_VEL, b/m*MED_VEL);
+                v = MED_VEL;
                 break;
             case ProjectileSpeed.Fast:
-                rb.velocity = new Vector2(a/m*FAST_VEL, b/m*FAST_VEL);
+                v = FAST_VEL;
                 break;
             default:
-                rb.velocity = new Vector2(a/m*MED_VEL, b/m*MED_VEL);
+                v = MED_VEL;
                 break;
         }
+        
+        a = Mathf.Cos(angle)*v;
+        b = Mathf.Sin(angle)*v;
+        // float m = (transform.position-player.transform.position).magnitude;
+        rb.velocity = new Vector2(a, b);
 
         switch(pt)
         {
@@ -85,7 +91,5 @@ public class SnakeProjectile : MonoBehaviour
                 rb.gravityScale = 0f;
                 break;
         }
-
-        rb.velocity += new Vector2(0, yVelocityModifier);
     }
 }

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8526006562254750522}
   - component: {fileID: 5292478029307911807}
   - component: {fileID: 6722829812318741163}
-  - component: {fileID: 3222729189569736836}
   - component: {fileID: 5535412501015930903}
+  - component: {fileID: 3385789794096234351}
   m_Layer: 0
   m_Name: SnakeHead
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1966061522835762491}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 4.96, y: -0.14999998, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalScale: {x: 2.55, y: 2.55, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -98,8 +98,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
-  m_LinearDrag: 2.5
+  m_Mass: 5.4
+  m_LinearDrag: 3.2
   m_AngularDrag: 8
   m_GravityScale: -0.2
   m_Material: {fileID: 0}
@@ -125,24 +125,8 @@ SpringJoint2D:
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 0
   m_Distance: 0.75
-  m_DampingRatio: 0.95
-  m_Frequency: 29
---- !u!58 &3222729189569736836
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1966061522835762491}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.36
+  m_DampingRatio: 1
+  m_Frequency: 5
 --- !u!114 &5535412501015930903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,4 +139,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a21f2e1b5cd4c43be7b30bc2562c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  targetBase: {fileID: 0}
+  targetHead: {fileID: 0}
+  isHead: 0
+--- !u!70 &3385789794096234351
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966061522835762491}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.48, y: 0.24}
+  m_Direction: 1
