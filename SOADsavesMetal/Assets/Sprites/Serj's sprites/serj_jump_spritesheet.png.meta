@@ -1,12 +1,14 @@
 fileFormatVersion: 2
-guid: 4e90bb12e99893a4c90206710a068064
+guid: 77b6077d31862ea48b6baf071b61304d
 TextureImporter:
   fileIDToRecycleName:
-    21300000: daron_teleport_spritesheet_0
-    21300002: daron_teleport_spritesheet_1
-    21300004: daron_teleport_spritesheet_2
-    21300006: daron_teleport_spritesheet_3
-    21300008: daron_teleport_spritesheet_4
+    21300000: serj_jump_spritesheet_0
+    21300002: serj_jump_spritesheet_1
+    21300004: serj_jump_spritesheet_2
+    21300006: serj_jump_spritesheet_3
+    21300008: serj_jump_spritesheet_4
+    21300010: serj_jump_spritesheet_5
+    21300012: serj_jump_spritesheet_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -89,13 +91,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: daron_teleport_spritesheet_0
+      name: serj_jump_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 177
-        height: 64
+        width: 55
+        height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -103,19 +105,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58b6841c95c5c8449bb81495092fb17f
+      spriteID: 33dc92ed4bf363248b7bd711cbef96b5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: daron_teleport_spritesheet_1
+      name: serj_jump_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 177
+        x: 55
         y: 0
-        width: 177
-        height: 64
+        width: 55
+        height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,19 +125,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7f6d3e49ffc7404fa3887f28725b1b5
+      spriteID: b8d2c3827541964459b98bb310ece78b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: daron_teleport_spritesheet_2
+      name: serj_jump_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 354
+        x: 110
         y: 0
-        width: 177
-        height: 64
+        width: 55
+        height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,19 +145,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71882bc9d1a9d594ea3d782de63332b3
+      spriteID: 2d806d265e559ac4784ca1a6fab5a654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: daron_teleport_spritesheet_3
+      name: serj_jump_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 531
+        x: 165
         y: 0
-        width: 177
-        height: 64
+        width: 55
+        height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,19 +165,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ceb24dcc85a80f54ab9f52786b48597c
+      spriteID: 99242ee7fa8448f41a03f791b7bd9531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: daron_teleport_spritesheet_4
+      name: serj_jump_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 708
+        x: 220
         y: 0
-        width: 177
-        height: 64
+        width: 55
+        height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,7 +185,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb3459217dd23ad4690e2991df1ec15f
+      spriteID: 0bf5bc63cca07c047b874e949234aa1f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: serj_jump_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 0
+        width: 55
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe3d05cb33bd0854883ac757b55d4cb5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: serj_jump_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 0
+        width: 55
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 108872ed6e77e5c44a7360dc83f063c7
       vertices: []
       indices: 
       edges: []
@@ -191,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ae8291dc8fd58d24994ad457bb493191
+    spriteID: d0a9f7feabb1fd247840855eac2bd69e
     vertices: []
     indices: 
     edges: []

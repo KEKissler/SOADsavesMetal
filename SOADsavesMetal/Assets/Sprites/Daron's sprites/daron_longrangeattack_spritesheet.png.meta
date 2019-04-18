@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: 4e90bb12e99893a4c90206710a068064
+guid: a4125352adf0f0b4795f96b2cce75059
 TextureImporter:
   fileIDToRecycleName:
-    21300000: daron_teleport_spritesheet_0
-    21300002: daron_teleport_spritesheet_1
-    21300004: daron_teleport_spritesheet_2
-    21300006: daron_teleport_spritesheet_3
-    21300008: daron_teleport_spritesheet_4
+    21300000: daron_longrangeattack_spritesheet_0
+    21300002: daron_longrangeattack_spritesheet_1
+    21300004: daron_longrangeattack_spritesheet_2
+    21300006: daron_longrangeattack_spritesheet_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -89,13 +88,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: daron_teleport_spritesheet_0
+      name: daron_longrangeattack_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 177
-        height: 64
+        width: 172
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -103,19 +102,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58b6841c95c5c8449bb81495092fb17f
+      spriteID: 49f0dc4fd178f184cb41c2343a700163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: daron_teleport_spritesheet_1
+      name: daron_longrangeattack_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 177
+        x: 172
         y: 0
-        width: 177
-        height: 64
+        width: 172
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,19 +122,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7f6d3e49ffc7404fa3887f28725b1b5
+      spriteID: bdf4bd4d73f87ea48bb9b3c11f73ab66
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: daron_teleport_spritesheet_2
+      name: daron_longrangeattack_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 354
+        x: 344
         y: 0
-        width: 177
-        height: 64
+        width: 172
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,19 +142,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71882bc9d1a9d594ea3d782de63332b3
+      spriteID: 8b3dc5178599b414aa659cdb0e4633db
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: daron_teleport_spritesheet_3
+      name: daron_longrangeattack_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 531
+        x: 516
         y: 0
-        width: 177
-        height: 64
+        width: 172
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,27 +162,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ceb24dcc85a80f54ab9f52786b48597c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: daron_teleport_spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 708
-        y: 0
-        width: 177
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bb3459217dd23ad4690e2991df1ec15f
+      spriteID: e8f67dc02dfc264468e259157bbd4acf
       vertices: []
       indices: 
       edges: []
@@ -191,7 +170,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ae8291dc8fd58d24994ad457bb493191
+    spriteID: 1cc6f9661b16eb34fa4288a26bc88c10
     vertices: []
     indices: 
     edges: []

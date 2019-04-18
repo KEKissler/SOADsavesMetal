@@ -161,11 +161,19 @@ public class Player : MonoBehaviour {
                     {
                         if (!attacking)
                         {
-                            playerUpperAnim.Play("ShavoJump");
+                            playerUpperAnim.Play("ShavoDash");
                         }
-                        playerLowerAnim.Play("ShavoJumpLegs");
+                        playerLowerAnim.Play("ShavoDashLegs");
                         inAir = true;
-                        rb.velocity = new Vector2(jumpHeight, 0.0f);
+                        StartCoroutine("Dash");
+                        if (gameObject.transform.rotation.y == 0)
+                        {
+                            rb.velocity = new Vector2(1.5f * jumpHeight, 0.0f);
+                        }
+                        else
+                        {
+                            rb.velocity = new Vector2(-1.5f * jumpHeight, 0.0f);
+                        }
                     }
                 }
                 else
@@ -356,6 +364,16 @@ public class Player : MonoBehaviour {
         attacking = false;
     }
 
+    public IEnumerator Dash()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        yield return new WaitForSeconds(0.125f);
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.velocity = new Vector2(0.0f, 0.0f);
+
+
+    }
+
     public IEnumerator longRangeCooldown()
     {
         //GameObject projectile = Instantiate(stick, new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation) as GameObject;
@@ -371,8 +389,16 @@ public class Player : MonoBehaviour {
 
     public IEnumerator Kill()
     {
-        playerUpperAnim.Play("JohnDeath");
-        playerLowerAnim.Play("JohnDeath");
+        if (currentBandMember == "John")
+        {
+            playerUpperAnim.Play("JohnDeath");
+            playerLowerAnim.Play("ShavoDashLegs");
+        }
+        else if (currentBandMember == "Shavo")
+        {
+            playerUpperAnim.Play("ShavoDeath");
+            playerLowerAnim.Play("ShavoDashLegs");
+        }
         yield return new WaitForSeconds(1.0f);
     }
 }

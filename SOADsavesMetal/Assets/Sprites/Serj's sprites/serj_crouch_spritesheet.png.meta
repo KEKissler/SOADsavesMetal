@@ -1,12 +1,9 @@
 fileFormatVersion: 2
-guid: 4e90bb12e99893a4c90206710a068064
+guid: 2e6ca016f37fbb941a52581450129b33
 TextureImporter:
   fileIDToRecycleName:
-    21300000: daron_teleport_spritesheet_0
-    21300002: daron_teleport_spritesheet_1
-    21300004: daron_teleport_spritesheet_2
-    21300006: daron_teleport_spritesheet_3
-    21300008: daron_teleport_spritesheet_4
+    21300000: serj_crouch_spritesheet_0
+    21300002: serj_crouch_spritesheet_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -89,13 +86,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: daron_teleport_spritesheet_0
+      name: serj_crouch_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 177
-        height: 64
+        width: 42
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -103,19 +100,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58b6841c95c5c8449bb81495092fb17f
+      spriteID: 3e42be5c5ec335f42b0b401c880a368c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: daron_teleport_spritesheet_1
+      name: serj_crouch_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 177
+        x: 42
         y: 0
-        width: 177
-        height: 64
+        width: 42
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,67 +120,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7f6d3e49ffc7404fa3887f28725b1b5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: daron_teleport_spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 354
-        y: 0
-        width: 177
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71882bc9d1a9d594ea3d782de63332b3
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: daron_teleport_spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 531
-        y: 0
-        width: 177
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ceb24dcc85a80f54ab9f52786b48597c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: daron_teleport_spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 708
-        y: 0
-        width: 177
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bb3459217dd23ad4690e2991df1ec15f
+      spriteID: ea50107a86af8074a98803dd7e35b47c
       vertices: []
       indices: 
       edges: []
@@ -191,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ae8291dc8fd58d24994ad457bb493191
+    spriteID: 333eaa481e2a68045b86ca836d98d213
     vertices: []
     indices: 
     edges: []
