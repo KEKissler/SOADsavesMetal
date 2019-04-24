@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossHealth : MonoBehaviour
 {
     // Public
-    public int startingHP = 2000;
+    public int startingHP = 20000;
 
     // Should be accessible but not modifiable directly
     int HP;
@@ -13,7 +13,7 @@ public class BossHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        HP = startingHP;
     }
 
     // Update is called once per frame
@@ -22,5 +22,9 @@ public class BossHealth : MonoBehaviour
         
     }
 
-    
+    public void hit(int damage)
+    {
+        HP -= damage;
+        Debug.Log(HP);
+    }
 }

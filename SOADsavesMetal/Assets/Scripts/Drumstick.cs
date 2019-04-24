@@ -5,7 +5,7 @@ using UnityEngine;
 public class Drumstick : MonoBehaviour {
  
 	private Rigidbody2D rb;
-	private const float DEFAULT_VELOCITY = 35.6f;
+	private const float DEFAULT_VELOCITY = 33.4f;
 	private const float LIFESPAN = 0.65f;
 
 	// Use this for initialization
@@ -23,14 +23,14 @@ public class Drumstick : MonoBehaviour {
 		
 	}
 
-	void OnTriggerStay2D(Collider2D col)
-	{
-		if(col.gameObject.name == "TheWorstEnemyImaginable")
-			col.gameObject.SendMessage("hit");
-	}
+	// void OnTriggerStay2D(Collider2D col)
+	// {
+	// 	if(col.gameObject.name == "TheWorstEnemyImaginable")
+	// 		col.gameObject.SendMessage("hit");
+	// }
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		
+		if(col.gameObject.tag == "Boss")	col.gameObject.SendMessage("hit", 17);
 	}
 }

@@ -470,6 +470,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc0d8d3460c18043896482f0ba598cb, type: 3}
+--- !u!1 &2006407425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8784614907211985913, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8784614908521002359}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2006407426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006407425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eeec4cad5755ae42a06ebbcefc4926c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHP: 20000
 --- !u!1001 &8784614908521002359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -481,6 +500,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boss_Nhang
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784614907211985913, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Boss
       objectReference: {fileID: 0}
     - target: {fileID: 8784614907211985895, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
         type: 3}
