@@ -5,8 +5,8 @@ using UnityEngine;
 public class Drumstick : MonoBehaviour {
  
 	private Rigidbody2D rb;
-	private const float DEFAULT_VELOCITY = 25.5f;
-	private const float LIFESPAN = 0.85f;
+	private const float DEFAULT_VELOCITY = 35.6f;
+	private const float LIFESPAN = 0.65f;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +19,7 @@ public class Drumstick : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		
 	}
 
@@ -27,5 +27,10 @@ public class Drumstick : MonoBehaviour {
 	{
 		if(col.gameObject.name == "TheWorstEnemyImaginable")
 			col.gameObject.SendMessage("hit");
+	}
+
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		
 	}
 }

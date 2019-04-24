@@ -14,7 +14,7 @@ public class PlayerAttack : MonoBehaviour {
     
     // Long range attack
     public GameObject drumstick;
-    private const float LONG_ATTACK_COOLDOWN = 0.35f;
+    private const float LONG_ATTACK_COOLDOWN = 0.032f;
 
     // Super attack
     public GameObject cymbal;

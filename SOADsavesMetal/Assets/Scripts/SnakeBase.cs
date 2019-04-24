@@ -1,7 +1,7 @@
 ﻿// Note: try to move the attacks and attack pattern code out to another file
 // The code to maintain the snake itself should stay here though, interfacing with other code
 // Move the attack code onto the statue itself, have it send messages / call functions
-// on the statue hand and the snake base (this script here)
+// on the statue hand and the snake base
 
 using System.Collections;
 using System.Collections.Generic;
@@ -45,7 +45,7 @@ public class SnakeBase : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         buildSnake();
         //statueHand.transform.position = (Vector2)transform.position + new Vector2(-5f, -3.4f);
-        indicator.transform.position = (Vector2)transform.position + new Vector2(-5f, -1.5f);
+        // indicator.transform.position = (Vector2)transform.position + new Vector2(-5f, -1.5f);
         StartCoroutine(mediumPattern());
     }
 
@@ -266,20 +266,22 @@ public class SnakeBase : MonoBehaviour
 
     IEnumerator hand()
     {
+        // Velocity is a temporary fix, use anchors and forces
+        const float HAND_VELOCITY = 7.6f;
         attacking = true;
         indicator.SetActive(true);
         float timer = 0.0f;
         Rigidbody2D statueRB = statueHand.GetComponent<Rigidbody2D>();
 
-        while(timer < 1.0f)
+        while(timer < 0.55f)
         {
             timer += Time.deltaTime;
             yield return null;
         }
 
-        indicator.SetActive(false);
+        // indicator.SetActive(false);
         timer = 0.0f;
-        statueRB.velocity = new Vector2(0, 2.6f);
+        statueRB.velocity = new Vector2(0, HAND_VELOCITY);
 
         while(timer < 0.76f)
         {
@@ -296,7 +298,7 @@ public class SnakeBase : MonoBehaviour
             yield return null;
         }
 
-        statueRB.velocity = new Vector2(0, -2.6f);
+        statueRB.velocity = new Vector2(0, -HAND_VELOCITY);
         timer = 0.0f;
 
         while(timer < 0.76f)
@@ -307,6 +309,7 @@ public class SnakeBase : MonoBehaviour
 
         statueRB.velocity = new Vector2(0, 0);
 
+        indicator.SetActive(false);
         attacking = false;
 
     }

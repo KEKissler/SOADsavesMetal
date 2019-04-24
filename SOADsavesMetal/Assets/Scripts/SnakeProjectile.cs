@@ -22,9 +22,9 @@ public class SnakeProjectile : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rb;
 
-    private const float SLOW_VEL = 7.5f;
-    private const float MED_VEL = 10.5f;
-    private const float FAST_VEL = 13.5f;
+    private const float SLOW_VEL = 6.5f;
+    private const float MED_VEL = 9.5f;
+    private const float FAST_VEL = 12.5f;
 
     // Start is called before the first frame update
     void Start()

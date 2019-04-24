@@ -9,21 +9,32 @@ public class CandleEmitter : MonoBehaviour {
 	private GameObject player;
 	private float timer;
 	private const float FIRE_TIME = 2.0f;
+	private Transform candleFire;
 
 	void Start()
 	{
 		player = GameObject.Find("Player");
+		candleFire = transform.GetChild(0);
 		timer = 0f;
+		Destroy(gameObject, 14.1f);
 	}
 
-	void FixedUpdate()
+	void Update()
 	{
 		timer += Time.deltaTime;
 		if(timer > FIRE_TIME)
 		{
 			timer %= FIRE_TIME;
-			//GameObject projectileClone = Instantiate(projectile, transform.position, Transform.LookAt(player.transform));
+			StartCoroutine(createProjectile());
 		}
+	}
+
+	IEnumerator createProjectile()
+	{
+		GameObject projectileClone = Instantiate(projectile, candleFire.position, transform.rotation);
+		yield return null;
+		projectileClone.GetComponent<SnakeProjectile>().Configure(ProjectileType.Linear, ProjectileSpeed.Slow, 0.0f);
+		projectileClone.transform.localScale = new Vector2(3.6f, 3.6f);
 	}
 
 }
