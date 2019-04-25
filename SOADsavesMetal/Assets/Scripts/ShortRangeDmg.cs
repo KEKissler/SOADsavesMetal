@@ -14,8 +14,9 @@ public class ShortRangeDmg : MonoBehaviour {
 		
 	}
 
-	void OnTriggerStay2D(Collider2D col)
+	void OnTriggerEnter2D(Collider2D col)
 	{
-		//col.gameObject.SendMessage("hit");
+		if(col.gameObject.name == "TheWorstEnemyImaginable")
+			col.gameObject.SendMessage("hit");
 	}
 }
