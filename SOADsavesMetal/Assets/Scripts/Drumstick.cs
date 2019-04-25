@@ -2,19 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Direction {Default, Right, Down, Left, Up};
+
 public class Drumstick : MonoBehaviour {
  
+	public float velocity = 33.4f;
+	public Direction direction = Direction.Default;
+	public bool rotateWithPlayer = true;
+	public int damage = 17;
+
 	private Rigidbody2D rb;
-	private const float DEFAULT_VELOCITY = 33.4f;
 	private const float LIFESPAN = 0.65f;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
+		if(!rotateWithPlayer)	transform.rotation = Quaternion.identity;
 
-		float angle = Mathf.Deg2Rad*transform.rotation.y*-180f;
-
-		rb.velocity = new Vector2(DEFAULT_VELOCITY*Mathf.Cos(angle), DEFAULT_VELOCITY*Mathf.Sin(angle));
+		switch(direction)
+		{
+			case Direction.Default:
+				float angle = Mathf.Deg2Rad*transform.rotation.y*-180f;
+				rb.velocity = new Vector2(velocity*Mathf.Cos(angle), velocity*Mathf.Sin(angle));
+				break;
+			case Direction.Right:
+				rb.velocity = new Vector2(velocity, 0f);
+				break;
+			case Direction.Down:
+				rb.velocity = new Vector2(0f, -velocity);
+				break;
+			case Direction.Left:
+				rb.velocity = new Vector2(-velocity, 0f);
+				break;
+			case Direction.Up:
+				rb.velocity = new Vector2(0f, velocity);
+				break;		
+		}
+		
 		Destroy(gameObject, LIFESPAN);
 	}
 	
@@ -31,6 +55,6 @@ public class Drumstick : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.gameObject.tag == "Boss")	col.gameObject.SendMessage("hit", 17);
+		if(col.gameObject.tag == "Boss")	col.gameObject.SendMessage("hit", damage);
 	}
 }

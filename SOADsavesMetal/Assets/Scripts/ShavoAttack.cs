@@ -2,31 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JohnAttack : MonoBehaviour {
-	
+public class ShavoAttack : MonoBehaviour
+{
+    GameObject boss;
+
 	private bool attacking;
 	private float attackTimer = 0.0f; // General purpose timer
 
 	// Short range attack
     public GameObject shortRangeHitbox;
-    private const float SHORT_ATTACK_HOLD_DURATION = 0.35f;
-    private const float SHORT_ATTACK_COOLDOWN = 0.1f;
+    private const float SHORT_ATTACK_WINDUP = 0.25f;
+    private const float SHORT_ATTACK_HOLD_DURATION = 0.26f;
+    private const float SHORT_ATTACK_COOLDOWN = 0.01f;
     
     // Long range attack
-    public GameObject drumstick;
-    private const float LONG_ATTACK_COOLDOWN = 0.047f;
+    public GameObject musicNote;
+    private const float LONG_ATTACK_WINDUP = 0.33f;
+    private const float LONG_ATTACK_COOLDOWN = 0.47f;
 
     // Super attack
     public GameObject cymbal;
     private const float SUPER_LENGTH = 3f;
-    private const float TIME_BETWEEN_SHOTS_HIGH = 0.09f;
-    private const float TIME_BETWEEN_SHOTS_LOW = 0.005f;
-    private const int FINAL_BURST_SIZE = 40;
+    private const float TIME_BETWEEN_SHOTS_HIGH = 0.07f;
+    private const float TIME_BETWEEN_SHOTS_LOW = 0.006f;
+    private const int FINAL_BURST_SIZE = 70;
     private float curr_time_between_shots;
     private float shotTimer = 0.0f;
     
 	// Use this for initialization
 	void Start () {
+        boss = GameObject.FindWithTag("Boss");
         shortRangeHitbox.SetActive(false);
         attacking = false;
 	}
@@ -51,28 +56,30 @@ public class JohnAttack : MonoBehaviour {
 		}
 	}
 
+    // Returns the enemy that should be targeted by the long range attack
+    GameObject getTarget()
+    {
+        return boss;
+    }
+
     IEnumerator AttackShort()
     {
         attacking = true;
 
         // Windup period
         attackTimer = 0.0f;
-        while(attackTimer < 0.4f)
+        while(attackTimer < SHORT_ATTACK_WINDUP)
         {
             attackTimer += Time.deltaTime;
             yield return null;
         }
 
         // Attack
-        shortRangeHitbox.transform.localScale = new Vector3(0.01f,
-            shortRangeHitbox.transform.localScale.y, shortRangeHitbox.transform.localScale.z);
         shortRangeHitbox.SetActive(true);
         attackTimer = 0.0f;
         while(attackTimer < SHORT_ATTACK_HOLD_DURATION)
         {
         	attackTimer += Time.deltaTime;
-            shortRangeHitbox.transform.localScale = new Vector3(Mathf.Lerp(0.01f, 3.2f, attackTimer/SHORT_ATTACK_HOLD_DURATION),
-                shortRangeHitbox.transform.localScale.y, shortRangeHitbox.transform.localScale.z);
         	yield return null;
         }
         shortRangeHitbox.SetActive(false);
@@ -92,10 +99,15 @@ public class JohnAttack : MonoBehaviour {
     {
     	attacking = true;
 
-        
+        attackTimer = 0.0f;
+        while(attackTimer < LONG_ATTACK_WINDUP)
+        {
+            attackTimer += Time.deltaTime;
+        	yield return null;     
+        }
 
-    	// Create projectile (drumstick)
-    	GameObject dsClone = Instantiate(drumstick, transform.position, transform.parent.rotation);
+    	// Create projectile (musicNote)
+    	GameObject dsClone = Instantiate(musicNote, getTarget().transform.position + new Vector3(0, 4f, 0), transform.parent.rotation);
 
         // Cooldown period
         attackTimer = 0.0f;
@@ -108,6 +120,8 @@ public class JohnAttack : MonoBehaviour {
     	attacking = false;
     }
 
+    // Maybe super bleeds / distracts boss if it hits?
+    // (Disrupts attack patterns but that would require attack patterns to be created first)
     IEnumerator AttackSuper()
     {
         attacking = true;
@@ -147,7 +161,4 @@ public class JohnAttack : MonoBehaviour {
 
         attacking = false;
     }
-
-    // Create variable get methods here
-
 }
