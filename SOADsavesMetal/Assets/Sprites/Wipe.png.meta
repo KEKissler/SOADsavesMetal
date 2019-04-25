@@ -1,9 +1,7 @@
 fileFormatVersion: 2
-guid: c6bf20bf288292a49ad9a2a471008c72
+guid: 34b8f95174ae5ff4299e61e4b2d7a908
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: daron_crouch_spritesheet_0
-    21300002: daron_crouch_spritesheet_1
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -33,7 +31,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -42,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -71,64 +69,13 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: daron_crouch_spritesheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 76
-        height: 60
-      alignment: 9
-      pivot: {x: 0.45, y: 0.67}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f238e3127cd4114488922eba609e2f32
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: daron_crouch_spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 0
-        width: 76
-        height: 60
-      alignment: 9
-      pivot: {x: 0.7, y: 0.7300001}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e38eeabcf955df94a9eb4c666104c602
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 896907c9d7a3f4d4fbeb1d0652bd4c79
+    spriteID: e51aba408d0f7b745b736d1867419248
     vertices: []
     indices: 
     edges: []

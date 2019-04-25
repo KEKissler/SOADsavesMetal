@@ -68,6 +68,15 @@ public class Player : MonoBehaviour {
                     {
                         playerUpperAnim.Play("ShavoFall");
                     }
+                    else if (currentBandMember == "Daron")
+                    {
+                        playerUpperAnim.Play("DaronFall");
+                    }
+                    else if (currentBandMember == "Serj")
+                    {
+                        playerUpperAnim.Play("SerjFall");
+                    }
+
                 }
                 if (currentBandMember == "John")
                 {
@@ -76,6 +85,14 @@ public class Player : MonoBehaviour {
                 else if (currentBandMember == "Shavo")
                 {
                     playerLowerAnim.Play("ShavoFallLegs");
+                }
+                else if (currentBandMember == "Daron")
+                {
+                    playerLowerAnim.Play("DaronFallLegs");
+                }
+                else if (currentBandMember == "Serj")
+                {
+                    playerLowerAnim.Play("SerjFallLegs");
                 }
             }
             if (rb.velocity.y > 0.5)
@@ -90,6 +107,14 @@ public class Player : MonoBehaviour {
                     {
                         playerUpperAnim.Play("ShavoJump");
                     }
+                    else if (currentBandMember == "Daron")
+                    {
+                        playerUpperAnim.Play("DaronJump");
+                    }
+                    else if (currentBandMember == "Serj")
+                    {
+                        playerUpperAnim.Play("SerjJump");
+                    }
                 }
                 if (currentBandMember == "John")
                 {
@@ -99,7 +124,15 @@ public class Player : MonoBehaviour {
                 {
                     playerLowerAnim.Play("ShavoJumpLegs");
                 }
-                
+                else if (currentBandMember == "Daron")
+                {
+                    playerLowerAnim.Play("DaronJumpLegs");
+                }
+                else if (currentBandMember == "Serj")
+                {
+                    playerLowerAnim.Play("SerjJumpLegs");
+                }
+
             }
 
             //Crouching
@@ -118,6 +151,14 @@ public class Player : MonoBehaviour {
                         {
                             playerUpperAnim.Play("ShavoCrouch");
                         }
+                        else if (currentBandMember == "Daron")
+                        {
+                            playerUpperAnim.Play("DaronCrouch");
+                        }
+                        else if (currentBandMember == "Serj")
+                        {
+                            playerUpperAnim.Play("SerjCrouch");
+                        }
                     }
                     if (currentBandMember == "John")
                     {
@@ -126,6 +167,14 @@ public class Player : MonoBehaviour {
                     else if (currentBandMember == "Shavo")
                     {
                         playerLowerAnim.Play("ShavoCrouchLegs");
+                    }
+                    else if (currentBandMember == "Daron")
+                    {
+                        playerLowerAnim.Play("DaronCrouchLegs");
+                    }
+                    else if (currentBandMember == "Serj")
+                    {
+                        playerLowerAnim.Play("SerjCrouchLegs");
                     }
                     upperBodyHitbox.SetActive(false);
                 }
@@ -175,6 +224,28 @@ public class Player : MonoBehaviour {
                             rb.velocity = new Vector2(-1.5f * jumpHeight, 0.0f);
                         }
                     }
+                    else if (currentBandMember == "Daron")
+                    {
+                        if (!attacking)
+                        {
+                            playerUpperAnim.Play("DaronTeleport");
+                        }
+                        playerLowerAnim.Play("ShavoDashLegs");
+                        inAir = true;
+                        StartCoroutine("Teleport");
+                        if (gameObject.transform.rotation.y == 0)
+                        {
+                            rb.velocity = new Vector2(1.5f * jumpHeight, 0.0f);
+                        }
+                        else
+                        {
+                            rb.velocity = new Vector2(-1.5f * jumpHeight, 0.0f);
+                        }
+                    }
+                    else if (currentBandMember == "Serj")
+                    {
+
+                    }
                 }
                 else
                 {
@@ -221,6 +292,14 @@ public class Player : MonoBehaviour {
                         {
                             playerUpperAnim.Play("ShavoWalk");
                         }
+                        else if (currentBandMember == "Daron")
+                        {
+                            playerUpperAnim.Play("DaronWalk");
+                        }
+                        else if (currentBandMember == "Serj")
+                        {
+                            playerUpperAnim.Play("SerjWalk");
+                        }
                     }
                     if (currentBandMember == "John")
                     {
@@ -229,6 +308,14 @@ public class Player : MonoBehaviour {
                     else if (currentBandMember == "Shavo")
                     {
                         playerLowerAnim.Play("ShavoWalkLegs");
+                    }
+                    else if (currentBandMember == "Daron")
+                    {
+                        playerLowerAnim.Play("DaronWalkLegs");
+                    }
+                    else if (currentBandMember == "Serj")
+                    {
+                        playerLowerAnim.Play("SerjWalkLegs");
                     }
                 }
                 rb.velocity = new Vector2(speed, rb.velocity.y);
@@ -252,6 +339,14 @@ public class Player : MonoBehaviour {
                         {
                             playerUpperAnim.Play("ShavoWalk");
                         }
+                        else if (currentBandMember == "Daron")
+                        {
+                            playerUpperAnim.Play("DaronWalk");
+                        }
+                        else if (currentBandMember == "Serj")
+                        {
+                            playerUpperAnim.Play("SerjWalk");
+                        }
                     }
                     if (currentBandMember == "John")
                     {
@@ -260,6 +355,14 @@ public class Player : MonoBehaviour {
                     else if (currentBandMember == "Shavo")
                     {
                         playerLowerAnim.Play("ShavoWalkLegs");
+                    }
+                    else if (currentBandMember == "Daron")
+                    {
+                        playerLowerAnim.Play("DaronWalkLegs");
+                    }
+                    else if (currentBandMember == "Serj")
+                    {
+                        playerLowerAnim.Play("SerjWalkLegs");
                     }
                 }
                 rb.velocity = new Vector2(-speed, rb.velocity.y);
@@ -279,6 +382,16 @@ public class Player : MonoBehaviour {
                         playerUpperAnim.Play("ShavoIdle");
                         playerLowerAnim.Play("ShavoIdleLegs");
                     }
+                    else if (currentBandMember == "Daron")
+                    {
+                        playerUpperAnim.Play("DaronIdle");
+                        playerLowerAnim.Play("DaronIdleLegs");
+                    }
+                    else if (currentBandMember == "Serj")
+                    {
+                        playerUpperAnim.Play("SerjIdle");
+                        playerLowerAnim.Play("SerjIdleLegs");
+                    }
                 }
                 else if (attacking)
                 {
@@ -290,7 +403,15 @@ public class Player : MonoBehaviour {
                     {
                         playerLowerAnim.Play("ShavoLandLegs");
                     }
-                    
+                    else if (currentBandMember == "Daron")
+                    {
+                        playerLowerAnim.Play("DaronLandLegs");
+                    }
+                    else if (currentBandMember == "Serj")
+                    {
+                        playerLowerAnim.Play("SerjLandLegs");
+                    }
+
                 }
                 rb.velocity = new Vector2(0, rb.velocity.y);
             }
@@ -318,6 +439,14 @@ public class Player : MonoBehaviour {
             else if (currentBandMember == "Shavo")
             {
                 playerLowerAnim.Play("ShavoLandLegs");
+            }
+            else if (currentBandMember == "Daron")
+            {
+                playerLowerAnim.Play("DaronLandLegs");
+            }
+            else if (currentBandMember == "Serj")
+            {
+                playerLowerAnim.Play("SerjLandLegs");
             }
         }
     }
@@ -353,15 +482,62 @@ public class Player : MonoBehaviour {
             //playerSprite.sprite.pivot.Set
             playerUpperAnim.pivotPosition.Set(0.49f, 0.83f, 0.0f);
         }
-        playerUpperAnim.Play("JohnShort");
+        if (currentBandMember == "John")
+        {
+            playerUpperAnim.Play("JohnShort");
+        }
+        else if (currentBandMember == "Shavo")
+        {
+            playerUpperAnim.Play("ShavoShort");
+        }
+        else if (currentBandMember == "Daron")
+        {
+            playerUpperAnim.Play("DaronShort");
+        }
+        else if (currentBandMember == "Serj")
+        {
+            playerUpperAnim.Play("SerjShort");
+        }
         if (!moving && !crouched && !inAir)
         {
-            playerLowerAnim.Play("JohnShortLegs");
+            if (currentBandMember == "John")
+            {
+                playerLowerAnim.Play("JohnShortLegs");
+            }
+            else if (currentBandMember == "Shavo")
+            {
+                playerLowerAnim.Play("ShavoShortLegs");
+            }
+            else if (currentBandMember == "Daron")
+            {
+                playerLowerAnim.Play("DaronShortLegs");
+            }
+            else if (currentBandMember == "Serj")
+            {
+                playerLowerAnim.Play("SerjShortLegs");
+            }
         }
-        shortRange.Play("SoundWave");
-        yield return new WaitForSeconds(1.0f);
-        shortRange.Play("BaseSound");
-        attacking = false;
+        if (currentBandMember == "John")
+        {
+            shortRange.Play("SoundWave");
+            yield return new WaitForSeconds(1.0f);
+            shortRange.Play("BaseSound");
+            attacking = false;
+        }
+        else if (currentBandMember == "Shavo")
+        {
+            yield return new WaitForSeconds(0.5f);
+            attacking = false;
+        }
+        else if (currentBandMember == "Daron")
+        {
+
+        }
+        else if (currentBandMember == "Serj")
+        {
+
+        }
+
     }
 
     public IEnumerator Dash()
@@ -370,14 +546,48 @@ public class Player : MonoBehaviour {
         yield return new WaitForSeconds(0.125f);
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.velocity = new Vector2(0.0f, 0.0f);
+    }
 
-
+    public IEnumerator Teleport()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        upperBodyHitbox.GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(0.125f);
+        upperBodyHitbox.GetComponent<BoxCollider2D>().enabled = true ;
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.velocity = new Vector2(0.0f, 0.0f);
     }
 
     public IEnumerator longRangeCooldown()
     {
         //GameObject projectile = Instantiate(stick, new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation) as GameObject;
         //projectile.GetComponent<DrumStick>().SendMessage("Fire");
+        if (currentBandMember == "Shavo")
+        {
+            playerUpperAnim.Play("ShavoLong");
+            if (!moving && !crouched && !inAir)
+            {
+                playerLowerAnim.Play("ShavoLongLegs");
+            }
+        }
+        else if (currentBandMember == "Daron")
+        {
+            playerUpperAnim.Play("DaronLong");
+            if (!moving && !crouched && !inAir)
+            {
+                playerLowerAnim.Play("DaronLongLegs");
+            }
+        }
+        else if (currentBandMember == "Serj")
+        {
+            playerUpperAnim.Play("SerjLong");
+            if (!moving && !crouched && !inAir)
+            {
+                playerLowerAnim.Play("SerjLongLegs");
+            }
+        }
         yield return new WaitForSeconds(1.0f);
         attacking = false;
     }
@@ -397,6 +607,16 @@ public class Player : MonoBehaviour {
         else if (currentBandMember == "Shavo")
         {
             playerUpperAnim.Play("ShavoDeath");
+            playerLowerAnim.Play("ShavoDashLegs");
+        }
+        else if (currentBandMember == "Daron")
+        {
+            playerUpperAnim.Play("DaronDeath");
+            playerLowerAnim.Play("ShavoDashLegs");
+        }
+        else if (currentBandMember == "Serj")
+        {
+            playerUpperAnim.Play("SerjDeath");
             playerLowerAnim.Play("ShavoDashLegs");
         }
         yield return new WaitForSeconds(1.0f);
