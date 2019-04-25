@@ -461,7 +461,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2380804504558194934}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.239805, y: -0.5528387, z: 0.118472286}
+  m_LocalPosition: {x: -7.039805, y: -0.5528387, z: 0.118472286}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2380804504650341485}
@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 2380804504942363380}
   m_Layer: 0
   m_Name: Boss_Agas
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -611,7 +611,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2380804504942363386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.012, z: 0}
+  m_LocalPosition: {x: 4.8, y: 1.012, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2380804505285666473}
@@ -738,7 +738,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2380804505285666478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.8, y: -1.34, z: 0}
+  m_LocalPosition: {x: 1, y: -1.34, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children:
   - {fileID: 2380804505784683564}
@@ -849,7 +849,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2380804505604382101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.72, y: 2.69, z: 0}
+  m_LocalPosition: {x: 0.92, y: 2.69, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children:
   - {fileID: 2380804503749740927}
