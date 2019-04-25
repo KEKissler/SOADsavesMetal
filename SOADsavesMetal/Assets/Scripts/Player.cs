@@ -510,7 +510,7 @@ public class Player : MonoBehaviour {
             }
             else if (currentBandMember == "Daron")
             {
-                playerLowerAnim.Play("DaronShortLegs");
+                playerLowerAnim.Play("DaronAttackLegs");
             }
             else if (currentBandMember == "Serj")
             {
@@ -531,7 +531,8 @@ public class Player : MonoBehaviour {
         }
         else if (currentBandMember == "Daron")
         {
-
+            yield return new WaitForSeconds(0.5f);
+            attacking = false;
         }
         else if (currentBandMember == "Serj")
         {
@@ -577,7 +578,7 @@ public class Player : MonoBehaviour {
             playerUpperAnim.Play("DaronLong");
             if (!moving && !crouched && !inAir)
             {
-                playerLowerAnim.Play("DaronLongLegs");
+                playerLowerAnim.Play("DaronAttackLegs");
             }
         }
         else if (currentBandMember == "Serj")
