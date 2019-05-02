@@ -15,8 +15,8 @@ public class ButtonHoverAnimation : MonoBehaviour, IPointerEnterHandler, IPointe
 
         left_eye.SetActive(true);
         right_eye.SetActive(true);
-        left_eye.transform.position = new Vector3(left_eye.transform.position.x, transform.position.y, 0);
-        right_eye.transform.position = new Vector3(right_eye.transform.position.x, transform.position.y, 0);
+        left_eye.transform.position = new Vector3(left_eye.transform.position.x, transform.position.y+0.5f, 0);
+        right_eye.transform.position = new Vector3(right_eye.transform.position.x, transform.position.y+0.5f, 0);
     }
     public void OnPointerExit(PointerEventData eventData)
     {

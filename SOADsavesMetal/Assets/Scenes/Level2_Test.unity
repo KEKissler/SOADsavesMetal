@@ -1597,7 +1597,7 @@ GameObject:
   - component: {fileID: 1419642381}
   - component: {fileID: 1419642382}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Stripes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1631,7 +1631,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 450b6fc6f59465b40842e9e0e8a095d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1654,7 +1654,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300002, guid: 23b509b99a3e69f4cb249b70c76ed8b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.4392157}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 5.96, y: 0.08}
   m_AdaptiveModeThreshold: 0.5
