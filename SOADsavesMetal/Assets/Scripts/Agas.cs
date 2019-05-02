@@ -38,7 +38,7 @@ public class Agas : MonoBehaviour
 
     IEnumerator createSpike()
     {
-        Instantiate(spike, new Vector3(player.transform.position.x, -3.72f), Quaternion.identity);
+        Instantiate(spike, new Vector3(player.transform.position.x, -4.82f), Quaternion.identity);
         yield return null;
     }
 

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Cymbal : MonoBehaviour {
 
+    public int damage = 33;
+
     private Rigidbody2D rb;
     private const float DEFAULT_VELOCITY = 38.5f;
     private const int VELOCITY_VARIATION = 6;
@@ -21,7 +23,7 @@ public class Cymbal : MonoBehaviour {
 
 		rb.velocity = new Vector2(DEFAULT_VELOCITY*Mathf.Cos(angle), DEFAULT_VELOCITY*Mathf.Sin(angle));
         rb.velocity = new Vector2(DEFAULT_VELOCITY*Mathf.Cos(angle)+rng.Next(2*VELOCITY_VARIATION+1)-(float)VELOCITY_VARIATION,
-            DEFAULT_VELOCITY*Mathf.Sin(angle)-6.5f+8.3f*(float)rng.NextDouble()+8.3f*(float)rng.NextDouble());
+            DEFAULT_VELOCITY*Mathf.Sin(angle)-3.5f+6.8f*(float)rng.NextDouble()+6.8f*(float)rng.NextDouble());
         Destroy(gameObject, LIFESPAN);
     }
     
@@ -50,6 +52,6 @@ public class Cymbal : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.gameObject.tag == "Boss")	col.gameObject.SendMessage("hit", 29);
+		if(col.gameObject.tag == "Boss")	col.gameObject.SendMessage("hit", damage);
 	}
 }

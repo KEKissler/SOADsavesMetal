@@ -20,8 +20,8 @@ public class JohnAttack : MonoBehaviour {
     public GameObject cymbal;
     private const float SUPER_LENGTH = 3f;
     private const float TIME_BETWEEN_SHOTS_HIGH = 0.09f;
-    private const float TIME_BETWEEN_SHOTS_LOW = 0.005f;
-    private const int FINAL_BURST_SIZE = 40;
+    private const float TIME_BETWEEN_SHOTS_LOW = 0.007f;
+    private const int FINAL_BURST_SIZE = 30;
     private float curr_time_between_shots;
     private float shotTimer = 0.0f;
     
@@ -56,6 +56,10 @@ public class JohnAttack : MonoBehaviour {
         attacking = true;
 
         // Windup period
+        shortRangeHitbox.transform.localScale = new Vector3(0.01f,
+            shortRangeHitbox.transform.localScale.y, shortRangeHitbox.transform.localScale.z);
+        shortRangeHitbox.transform.localPosition = new Vector2(0.8f, 0.18f);
+        shortRangeHitbox.SetActive(true);
         attackTimer = 0.0f;
         while(attackTimer < 0.4f)
         {
@@ -64,9 +68,7 @@ public class JohnAttack : MonoBehaviour {
         }
 
         // Attack
-        shortRangeHitbox.transform.localScale = new Vector3(0.01f,
-            shortRangeHitbox.transform.localScale.y, shortRangeHitbox.transform.localScale.z);
-        shortRangeHitbox.SetActive(true);
+        shortRangeHitbox.transform.localPosition = new Vector2(1.18f, 0.18f);
         attackTimer = 0.0f;
         while(attackTimer < SHORT_ATTACK_HOLD_DURATION)
         {
