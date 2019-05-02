@@ -2,7 +2,7 @@
 
 // Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Custom/DistortionWave"
+Shader "Custom/Distortion"
 {
 	Properties
 	{
@@ -10,7 +10,7 @@ Shader "Custom/DistortionWave"
 		_DistortionTex("Distortion Texture", 2D) = "white" {}
 		_Intensity("Intensity", float) = 0.1
 		_Multiplier("Multiplier", float) = 0.4
-		_Transparent("Transparancy", float) = 1.0
+			_Transparent("Transparancy", float) = 1.0
 	}
 	SubShader
 	{
@@ -52,15 +52,23 @@ Shader "Custom/DistortionWave"
 			float _Multiplier;
 			float _Transparent;
 
+			float nrand(float x, float y)
+			{
+				return frac(sin(dot(float2(x, y), float2(12.9898, 78.233))) * 43758.5453);
+			}
+
 			fixed4 frag (v2f i) : SV_Target
 			{
-				float2 dv = float2(i.uv.x + _Time.x * _Multiplier, i.uv.y + _Time.x * _Multiplier);
+				float2 dv = float2(i.uv.x + sin(_Time.y)*_Multiplier, i.uv.y -nrand(i.uv.y, _Time.w)*_Multiplier);
 				float2 disp = tex2D(_DistortionTex, dv).xy;
 				disp = ((disp * 2) - 1) * _Intensity;
 
 				float4 col = tex2D(_MainTex, i.uv + disp);
-
-				return col;
+				if (col.a == 1.0f) col.a = (sin(_Time.x*10) + 1) / 3 + 0.2f;
+				col.rgb = (col.rgb + tex2D(_DistortionTex, 1-dv).rgb) / 4;
+				col.b = 0.17f;
+				return lerp(float4(0.1f, 0.1f, 0.5f, 0), col, col.a);
+				//return col;
 			}
 			ENDCG
 		}
