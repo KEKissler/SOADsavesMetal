@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: DistortBG
+  m_Name: TVbg2
   m_Shader: {fileID: 4800000, guid: 4e639e9d668eabc4ea968c1012ba1b04, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
@@ -66,7 +66,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Intensity: 0.1
+    - _Intensity: 5
     - _Metallic: 0
     - _Mode: 0
     - _Multiplier: 0.05
@@ -75,9 +75,8 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Transparent: 5
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0, g: 0.36392537, b: 0.3679245, a: 0.015686275}
+    - _Color: {r: 0.6603774, g: 0.4710165, b: 0.21493416, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

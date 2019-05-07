@@ -10,7 +10,7 @@ Shader "Custom/Distortion"
 		_DistortionTex("Distortion Texture", 2D) = "white" {}
 		_Intensity("Intensity", float) = 0.1
 		_Multiplier("Multiplier", float) = 0.4
-			_Transparent("Transparancy", float) = 1.0
+		_Color("Color", Color) = (1,1,1,1)
 	}
 	SubShader
 	{
@@ -51,6 +51,7 @@ Shader "Custom/Distortion"
 			float _Intensity;
 			float _Multiplier;
 			float _Transparent;
+			float4 _Color;
 
 			float nrand(float x, float y)
 			{
@@ -64,10 +65,10 @@ Shader "Custom/Distortion"
 				disp = ((disp * 2) - 1) * _Intensity;
 
 				float4 col = tex2D(_MainTex, i.uv + disp);
-				if (col.a == 1.0f) col.a = (sin(_Time.x*10) + 1) / 3 + 0.2f;
-				col.rgb = (col.rgb + tex2D(_DistortionTex, 1-dv).rgb) / 4;
-				col.b = 0.17f;
-				return lerp(float4(0.1f, 0.1f, 0.5f, 0), col, col.a);
+				if (col.a == 1.0f) col.a = ((sin(_Time.x*10) + 1) / 3 + 0.2f);
+				col.rgb = (col.rgb + 1 - tex2D(_DistortionTex, dv).rgb) / 4;
+				//col.b = _Color[1];
+				return lerp(_Color, col, col.a);
 				//return col;
 			}
 			ENDCG
