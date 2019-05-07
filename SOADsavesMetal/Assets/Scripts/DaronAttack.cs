@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShavoAttack : MonoBehaviour
+public class DaronAttack : MonoBehaviour
 {
     GameObject boss;
 
@@ -10,9 +10,10 @@ public class ShavoAttack : MonoBehaviour
 	private float attackTimer = 0.0f; // General purpose timer
 
 	// Short range attack
+    // Should target nearby enemy if in range, otherwise shoots straight forward
     public GameObject shortRangeHitbox;
     private const float SHORT_ATTACK_WINDUP = 0.25f;
-    private const float SHORT_ATTACK_HOLD_DURATION = 0.25f;
+    private const float SHORT_ATTACK_HOLD_DURATION = 0.26f;
     private const float SHORT_ATTACK_COOLDOWN = 0.01f;
     
     // Long range attack

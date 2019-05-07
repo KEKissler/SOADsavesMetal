@@ -1698,6 +1698,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: currentBandMember
+      value: Shavo
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117497485684326617, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117497485684326617, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 989752454, guid: efc0d8d3460c18043896482f0ba598cb, type: 3}
+      propertyPath: damage
+      value: 187
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc0d8d3460c18043896482f0ba598cb, type: 3}
 --- !u!1 &1819316447
