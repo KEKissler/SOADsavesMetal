@@ -34,6 +34,8 @@ public class SnakeBase : MonoBehaviour
     private float anchorOscillationFreq;
     private float anchorHeadOscillationMult = 1.15f;
 
+    private float medHPthreshold = 13000;
+
     private GameObject player;
 
     // Start is called before the first frame update
@@ -46,7 +48,7 @@ public class SnakeBase : MonoBehaviour
         buildSnake();
         //statueHand.transform.position = (Vector2)transform.position + new Vector2(-5f, -3.4f);
         // indicator.transform.position = (Vector2)transform.position + new Vector2(-5f, -1.5f);
-        StartCoroutine(mediumPattern());
+        StartCoroutine(basicPattern());
     }
 
     // Update is called once per frame
@@ -225,6 +227,14 @@ public class SnakeBase : MonoBehaviour
         bodyRB[bodyLength-1].angularDrag = 8f;
         
         // toggleRotation();
+
+        // Bonus wait time
+        timer = 0f;
+        while(timer < 1.5f)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
         
         attacking = false;
     }
@@ -329,6 +339,9 @@ public class SnakeBase : MonoBehaviour
             timer = 0f;
             // Fire projectile
             GameObject temp = Instantiate(projectile, body[bodyLength-1].transform.position, Quaternion.identity);
+            yield return null;
+            yield return null;
+            temp.GetComponent<Projectile>().Configure(ProjectileType.Gravity, ProjectileSpeed.Fast, 0);
         }
         attacking = false;
     }
@@ -350,7 +363,7 @@ public class SnakeBase : MonoBehaviour
         // Add sinusoidal xVel modifier
         for(int i=0; i<numProjectiles; ++i)
         {
-            temp[i].GetComponent<SnakeProjectile>().Configure(ProjectileType.Gravity, ProjectileSpeed.Fast, yv);
+            temp[i].GetComponent<Projectile>().Configure(ProjectileType.Gravity, ProjectileSpeed.Fast, yv);
             yv += degreeModifier;
         }
 
@@ -387,7 +400,7 @@ public class SnakeBase : MonoBehaviour
             // Add sinusoidal xVel modifier
             for(int i=0; i<numProjectiles; ++i)
             {
-                temp[i].GetComponent<SnakeProjectile>().Configure(ProjectileType.Gravity, ProjectileSpeed.Fast,  yv);
+                temp[i].GetComponent<Projectile>().Configure(ProjectileType.Gravity, ProjectileSpeed.Fast, yv);
                 yv += degreeModifier;
             }
         }
@@ -403,11 +416,13 @@ public class SnakeBase : MonoBehaviour
     {
         float timer = 0f;
         int attackPhase = 0;    // Replace with enum later
-        float waitTime = 2.5f;
+        float waitTime = 3f;
 
         while(true)
         {
             if(attacking)   yield return null;
+
+            // Check if below HP threshold
 
             timer += Time.deltaTime;
             if(timer > waitTime)
@@ -417,7 +432,7 @@ public class SnakeBase : MonoBehaviour
                 {
                     case 0:
                         // 3 projectiles
-                        StartCoroutine(repeatProjectile(4, 0.3f));
+                        StartCoroutine(repeatProjectile(3, 0.35f));
                         break;
                     case 1:
                         // lunge
@@ -425,7 +440,7 @@ public class SnakeBase : MonoBehaviour
                         break;
                     case 2:
                         // fan shape projectiles
-                        StartCoroutine(fanProjectile(5, 1.0f));
+                        StartCoroutine(fanProjectile(3, 8.0f));
                         break;
                     case 3:
                         // statue hand
@@ -444,8 +459,8 @@ public class SnakeBase : MonoBehaviour
     {
         float timer = 0f;
         int attackPhase = 0;    // Replace with enum later
-        float shortWait = 0.5f;
-        float longWait = 2.0f;
+        float shortWait = 1.0f;
+        float longWait = 2.5f;
 
         bool isLongWait = true;
 
@@ -460,9 +475,9 @@ public class SnakeBase : MonoBehaviour
                 switch(attackPhase)
                 {
                     case 0:
-                        // 3 projectiles
-                        StartCoroutine(repeatProjectile(7, 0.15f));
-                        isLongWait = false;
+                        // 5 projectiles
+                        StartCoroutine(repeatProjectile(5, 0.22f));
+                        isLongWait = true;
                         break;
                     case 1:
                         // lunge

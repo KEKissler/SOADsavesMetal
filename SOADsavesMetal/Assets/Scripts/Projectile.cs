@@ -17,14 +17,14 @@ public enum ProjectileSpeed
     Fast
 };
 
-public class SnakeProjectile : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     private GameObject player;
     private Rigidbody2D rb;
 
-    private const float SLOW_VEL = 6.5f;
-    private const float MED_VEL = 9.5f;
-    private const float FAST_VEL = 12.5f;
+    private const float SLOW_VEL = 5.5f;
+    private const float MED_VEL = 8.5f;
+    private const float FAST_VEL = 11.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +47,7 @@ public class SnakeProjectile : MonoBehaviour
     
     public void Configure(ProjectileType pt, ProjectileSpeed ps, float degreeModifier)
     {
+        if(!player) player = GameObject.FindWithTag("Player");
         float a = player.transform.position.x-transform.position.x;
         float b = player.transform.position.y-transform.position.y;
         float angle = Mathf.Atan2(b, a) + degreeModifier*Mathf.Deg2Rad;
@@ -82,7 +83,7 @@ public class SnakeProjectile : MonoBehaviour
                 rb.gravityScale = 0f;
                 break;
             case ProjectileType.Gravity:
-                rb.gravityScale = 0.5f;
+                rb.gravityScale = 0.45f;
                 rb.velocity += new Vector2(0, 2f);
                 break;
             case ProjectileType.Honing:

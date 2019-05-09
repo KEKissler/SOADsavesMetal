@@ -33,7 +33,7 @@ public class CandleEmitter : MonoBehaviour {
 	{
 		GameObject projectileClone = Instantiate(projectile, candleFire.position, transform.rotation);
 		yield return null;
-		projectileClone.GetComponent<SnakeProjectile>().Configure(ProjectileType.Linear, ProjectileSpeed.Slow, 0.0f);
+		projectileClone.GetComponent<Projectile>().Configure(ProjectileType.Linear, ProjectileSpeed.Slow, 0.0f);
 		projectileClone.transform.localScale = new Vector2(3.6f, 3.6f);
 	}
 

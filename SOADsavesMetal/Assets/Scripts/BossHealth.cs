@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct Phase
+{
+    int startHealth;
+    string name;
+}
+
 public class BossHealth : MonoBehaviour
 {
     // Public
