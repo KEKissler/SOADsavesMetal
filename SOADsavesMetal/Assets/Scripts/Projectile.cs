@@ -22,9 +22,9 @@ public class Projectile : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rb;
 
-    private const float SLOW_VEL = 5.5f;
-    private const float MED_VEL = 8.5f;
-    private const float FAST_VEL = 11.0f;
+    private const float SLOW_VEL = 4.5f;
+    private const float MED_VEL = 6.7f;
+    private const float FAST_VEL = 9.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,9 +34,9 @@ public class Projectile : MonoBehaviour
             new Vector3(transform.position.x-player.transform.position.x, transform.position.y-player.transform.position.y, 0));
 
         rb = GetComponent<Rigidbody2D>();
-        Configure(ProjectileType.Gravity, ProjectileSpeed.Fast, 0.0f);
+        Configure(player, ProjectileType.Gravity, ProjectileSpeed.Fast, 0.0f);
         
-        Destroy(gameObject, 2.6f);
+        Destroy(gameObject, 3.7f);
     }
 
     // Update is called once per frame
@@ -45,11 +45,10 @@ public class Projectile : MonoBehaviour
         
     }
     
-    public void Configure(ProjectileType pt, ProjectileSpeed ps, float degreeModifier)
+    public void Configure(GameObject target, ProjectileType pt, ProjectileSpeed ps, float degreeModifier)
     {
-        if(!player) player = GameObject.FindWithTag("Player");
-        float a = player.transform.position.x-transform.position.x;
-        float b = player.transform.position.y-transform.position.y;
+        float a = target.transform.position.x-transform.position.x;
+        float b = target.transform.position.y-transform.position.y;
         float angle = Mathf.Atan2(b, a) + degreeModifier*Mathf.Deg2Rad;
         float v;
 
@@ -83,8 +82,8 @@ public class Projectile : MonoBehaviour
                 rb.gravityScale = 0f;
                 break;
             case ProjectileType.Gravity:
-                rb.gravityScale = 0.45f;
-                rb.velocity += new Vector2(0, 2f);
+                rb.gravityScale = 0.24f;
+                rb.velocity += new Vector2(0, 1.2f);
                 break;
             case ProjectileType.Honing:
                 break;

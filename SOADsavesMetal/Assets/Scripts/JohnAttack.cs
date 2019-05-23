@@ -18,10 +18,10 @@ public class JohnAttack : MonoBehaviour {
 
     // Super attack
     public GameObject cymbal;
-    private const float SUPER_LENGTH = 3f;
-    private const float TIME_BETWEEN_SHOTS_HIGH = 0.09f;
-    private const float TIME_BETWEEN_SHOTS_LOW = 0.007f;
-    private const int FINAL_BURST_SIZE = 30;
+    private const float SUPER_LENGTH = 3.7f;
+    private const float TIME_BETWEEN_SHOTS_HIGH = 0.11f;
+    private const float TIME_BETWEEN_SHOTS_LOW = 0.015f;
+    private const int FINAL_BURST_SIZE = 1;
     private float curr_time_between_shots;
     private float shotTimer = 0.0f;
     
@@ -137,7 +137,7 @@ public class JohnAttack : MonoBehaviour {
         for(int i=0; i<FINAL_BURST_SIZE; ++i)
         {
             GameObject cymbalClone = Instantiate(cymbal, transform.position, transform.parent.rotation);
-            cymbalClone.transform.localScale *= new Vector2(1.25f, 1.25f);
+            cymbalClone.transform.localScale *= new Vector2(1.2f, 1.2f);
         }
 
         attackTimer = 0.0f;

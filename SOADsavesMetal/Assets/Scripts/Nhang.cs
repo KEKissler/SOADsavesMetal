@@ -7,9 +7,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SnakeBase : MonoBehaviour
+public class Nhang : MonoBehaviour
 {
-    // TEMPORARY TEST CODE
     private bool attacking;
 	private float attackTimer = 0.0f;
     public GameObject statueHand;
@@ -23,6 +22,8 @@ public class SnakeBase : MonoBehaviour
     
     // Public vars
     public GameObject[] body; // = new GameObject[bodyLength];
+    public GameObject[] groundTargets; // 0 is closer to snake, large numbers are further
+    public GameObject[] airTargets; // 0 is lower, large numbers are higher
 
     // Internal vars
     Rigidbody2D[] bodyRB;
@@ -42,7 +43,6 @@ public class SnakeBase : MonoBehaviour
     void Start()
     {
         if(!player) player = GameObject.FindWithTag("Player");
-
         bodyLength = body.Length;
         rb = GetComponent<Rigidbody2D>();
         buildSnake();
@@ -54,29 +54,31 @@ public class SnakeBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(false)
-        {
-            if(Input.GetKeyDown(KeyCode.A))
-            {
-                StartCoroutine(slam());
-            }
-
-            if(Input.GetKey(KeyCode.S))
-            {
-                StartCoroutine(spit());
-            }
-
-            if(Input.GetKeyDown(KeyCode.D))
-            {
-                StartCoroutine(hand());
-            }
-
-            if(Input.GetKeyDown(KeyCode.Q))
-            {
-                StartCoroutine(lunge());
-            }
-        }
+//        if(false)
+//        {
+//            if(Input.GetKeyDown(KeyCode.A))
+//            {
+//                StartCoroutine(slam());
+//            }
+//
+//            if(Input.GetKey(KeyCode.S))
+//            {
+//                StartCoroutine(spit());
+//            }
+//
+//            if(Input.GetKeyDown(KeyCode.D))
+//            {
+//                StartCoroutine(hand());
+//            }
+//
+//            if(Input.GetKeyDown(KeyCode.Q))
+//            {
+//                StartCoroutine(lunge());
+//            }
+//        }
     }
+
+    #region SnakeCode
 
     public void buildSnake()
     {
@@ -123,6 +125,12 @@ public class SnakeBase : MonoBehaviour
     {
         return new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 0.75f * partIndex);
     }
+
+    #endregion SnakeCode
+
+    #region Attacks
+
+    #region SnakeMelee
 
     IEnumerator slam()
     {
@@ -239,23 +247,6 @@ public class SnakeBase : MonoBehaviour
         attacking = false;
     }
 
-    IEnumerator spit()
-    {
-        attacking = true;
-
-        GameObject temp = Instantiate(projectile, body[bodyLength-1].transform.position, Quaternion.identity);
-        //temp.GetComponent<SnakeProjectile>().Configure(ProjectileType.Gravity, ProjectileSpeed.Med);
-
-        attackTimer = 0.0f;
-        while(attackTimer < 0.1f)
-        {
-            attackTimer += Time.deltaTime;
-            yield return null;
-        }
-        
-        attacking = false;
-    }
-
     void toggleAnchors()
     {
         anchorsEnabled = !anchorsEnabled;
@@ -274,57 +265,24 @@ public class SnakeBase : MonoBehaviour
         }
     }
 
-    IEnumerator hand()
+    #endregion SnakeMelee
+    #region SnakeRanged
+
+    IEnumerator spit(GameObject target, ProjectileType pt = ProjectileType.Gravity,
+        ProjectileSpeed ps = ProjectileSpeed.Fast, float degreeModifier = 0.0f)
     {
-        // Velocity is a temporary fix, use anchors and forces
-        const float HAND_VELOCITY = 7.6f;
         attacking = true;
-        indicator.SetActive(true);
-        float timer = 0.0f;
-        Rigidbody2D statueRB = statueHand.GetComponent<Rigidbody2D>();
 
-        while(timer < 0.55f)
-        {
-            timer += Time.deltaTime;
-            yield return null;
-        }
-
-        // indicator.SetActive(false);
-        timer = 0.0f;
-        statueRB.velocity = new Vector2(0, HAND_VELOCITY);
-
-        while(timer < 0.76f)
-        {
-            timer += Time.deltaTime;
-            yield return null;
-        }
-
-        statueRB.velocity = new Vector2(0, 0);
-        timer = 0.0f;
-
-        while(timer < 0.25f)
-        {
-            timer += Time.deltaTime;
-            yield return null;
-        }
-
-        statueRB.velocity = new Vector2(0, -HAND_VELOCITY);
-        timer = 0.0f;
-
-        while(timer < 0.76f)
-        {
-            timer += Time.deltaTime;
-            yield return null;
-        }
-
-        statueRB.velocity = new Vector2(0, 0);
-
-        indicator.SetActive(false);
+        GameObject temp = Instantiate(projectile, body[bodyLength-1].transform.position, Quaternion.identity);
+        yield return null;
+        temp.GetComponent<Projectile>().Configure(target, pt, ps, degreeModifier);
+        
         attacking = false;
-
     }
 
-    IEnumerator repeatProjectile(int numRepeats, float waitTime)
+    
+    IEnumerator repeatProjectile(int numRepeats, float waitTime, GameObject target, ProjectileType pt = ProjectileType.Gravity,
+        ProjectileSpeed ps = ProjectileSpeed.Fast, float degreeModifier = 0.0f)
     {
         attacking = true;
         float timer = waitTime;
@@ -341,15 +299,16 @@ public class SnakeBase : MonoBehaviour
             GameObject temp = Instantiate(projectile, body[bodyLength-1].transform.position, Quaternion.identity);
             yield return null;
             yield return null;
-            temp.GetComponent<Projectile>().Configure(ProjectileType.Gravity, ProjectileSpeed.Fast, 0);
+            temp.GetComponent<Projectile>().Configure(player, ProjectileType.Gravity, ProjectileSpeed.Fast, 0);
         }
         attacking = false;
     }
 
-    IEnumerator fanProjectile(int numProjectiles, float degreeModifier)
+    IEnumerator fanProjectile(int numProjectiles, float angularSpacing, GameObject target, ProjectileType pt = ProjectileType.Gravity,
+        ProjectileSpeed ps = ProjectileSpeed.Fast, float degreeModifier = 0.0f)
     {
         if(numProjectiles < 1)  numProjectiles = 1;
-        float yv = -degreeModifier*0.5f*(numProjectiles-1);
+        float yv = -angularSpacing*0.5f*(numProjectiles-1) + degreeModifier;
 
         GameObject[] temp = new GameObject[numProjectiles];
 
@@ -363,14 +322,15 @@ public class SnakeBase : MonoBehaviour
         // Add sinusoidal xVel modifier
         for(int i=0; i<numProjectiles; ++i)
         {
-            temp[i].GetComponent<Projectile>().Configure(ProjectileType.Gravity, ProjectileSpeed.Fast, yv);
-            yv += degreeModifier;
+            temp[i].GetComponent<Projectile>().Configure(target, pt, ps, angularSpacing);
+            yv += angularSpacing;
         }
 
         yield return null;
     }
 
-    IEnumerator repeatFanProjectile(int numRepeats, float waitTime, int numProjectiles, float degreeModifier)
+    IEnumerator repeatFanProjectile(int numRepeats, float waitTime, int numProjectiles, float angularSpacing, GameObject target,
+        ProjectileType pt = ProjectileType.Linear, ProjectileSpeed ps = ProjectileSpeed.Med, float degreeModifier = 0.0f)
     {
         if(numProjectiles < 1)  numProjectiles = 1;
         attacking = true;
@@ -386,7 +346,7 @@ public class SnakeBase : MonoBehaviour
             timer = 0f;
 
             // Fire projectile
-            float yv = -degreeModifier*0.5f*(numProjectiles-1);
+            float yv = -angularSpacing*0.5f*(numProjectiles-1);
 
             GameObject[] temp = new GameObject[numProjectiles];
 
@@ -400,8 +360,8 @@ public class SnakeBase : MonoBehaviour
             // Add sinusoidal xVel modifier
             for(int i=0; i<numProjectiles; ++i)
             {
-                temp[i].GetComponent<Projectile>().Configure(ProjectileType.Gravity, ProjectileSpeed.Fast, yv);
-                yv += degreeModifier;
+                temp[i].GetComponent<Projectile>().Configure(target, pt, ps, yv + degreeModifier);
+                yv += angularSpacing;
             }
         }
         attacking = false;
@@ -409,14 +369,105 @@ public class SnakeBase : MonoBehaviour
         yield return null;
     }
 
+    #endregion SnakeRanged
+    #region StatueHand
 
-    // Attack patterns
+    const float HAND_VELOCITY = 12f;
+    const float HAND_MOVE_TIME = 0.52f;
+    private bool handMoving = false;
+    
+    IEnumerator handUp()
+    {
+        float highVelocity = 2 * HAND_VELOCITY;
+        float minVelocity = 1.5f;
+        handMoving = true;
+        indicator.SetActive(true);
+        float timer = 0.0f;
+        Rigidbody2D statueRB = statueHand.GetComponent<Rigidbody2D>();
+
+        // Time to react to indicator
+        while(timer < 1.0f)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        timer = 0.0f;
+        while(timer < HAND_MOVE_TIME)
+        {
+            timer += Time.deltaTime;
+            statueRB.velocity = new Vector2(0, (highVelocity-minVelocity) * (1 - timer / HAND_MOVE_TIME) + minVelocity * timer / HAND_MOVE_TIME);
+            yield return null;
+        }
+
+        statueRB.velocity = new Vector2(0, 0);
+        handMoving = false;
+    }
+
+    IEnumerator handDown()
+    {
+        handMoving = true;
+        float timer = 0.0f;
+        Rigidbody2D statueRB = statueHand.GetComponent<Rigidbody2D>();
+
+        statueRB.velocity = new Vector2(0, -HAND_VELOCITY);
+
+        while(timer < HAND_MOVE_TIME)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        statueRB.velocity = new Vector2(0, 0);
+        statueHand.transform.localPosition = new Vector2(-1.676f, -4.58f);
+
+        indicator.SetActive(false);
+        handMoving = false;
+    }
+
+    IEnumerator hand()
+    {
+        attacking = true;
+        float timer = 0.0f;
+        Rigidbody2D statueRB = statueHand.GetComponent<Rigidbody2D>();
+
+        handMoving = true;
+        StartCoroutine(handUp());
+        while(handMoving)    yield return null;
+
+        while(timer < 0.8f)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        handMoving = true;
+        StartCoroutine(handDown());
+        while(handMoving)   yield return null;
+        attacking = false;
+    }
+
+    #endregion StatueHand
+
+    #endregion Attacks
+
+    bool isPlayerClose()
+    {
+        return player.transform.position.x > -1f;
+    }
+
+
+    #region AttackPatterns
+
+    #region BasicPatterns
 
     IEnumerator basicPattern()
     {
+        float defaultWait = 3f;
+        
         float timer = 0f;
-        int attackPhase = 0;    // Replace with enum later
-        float waitTime = 3f;
+        int attackPhase = 0;    // Keep track of attack phase
+        float waitTime = defaultWait;
 
         while(true)
         {
@@ -427,33 +478,87 @@ public class SnakeBase : MonoBehaviour
             timer += Time.deltaTime;
             if(timer > waitTime)
             {
+                // Debug.Log(attackPhase);
                 timer = 0f;
                 switch(attackPhase)
                 {
                     case 0:
+                        waitTime = defaultWait;
                         // 3 projectiles
-                        StartCoroutine(repeatProjectile(3, 0.35f));
+                        StartCoroutine(repeatProjectile(3, 0.55f, player));
+                        ++attackPhase;
                         break;
                     case 1:
                         // lunge
-                        StartCoroutine(lunge());
+                        if(isPlayerClose())
+                        {
+                            waitTime = 0.04f;
+                            attackPhase = 10;
+                        }
+                        else
+                        {
+                            StartCoroutine(lunge());
+                            ++attackPhase;
+                        }
                         break;
                     case 2:
-                        // fan shape projectiles
-                        StartCoroutine(fanProjectile(3, 8.0f));
+                        // 4 shots away
+                        if(isPlayerClose())
+                        {
+                            waitTime = 0.04f;
+                            attackPhase = 10;
+                        }
+                        else
+                        {
+                            for(int t = 0; t<4; ++t)
+                            {
+                                StartCoroutine(spit(groundTargets[2], ProjectileType.Linear, ProjectileSpeed.Fast, (t-1.5f) * -19f));
+                                while(timer < 0.1f)
+                                {
+                                    timer += Time.deltaTime;
+                                    yield return null;
+                                }
+                                timer = 0f;
+                            }
+
+                            // StartCoroutine(repeatFanProjectile(2, 0.5f, 3, 30f, player));
+                            ++attackPhase;
+                        }
                         break;
                     case 3:
+                        // hand barrier
+                        if(isPlayerClose())
+                        {
+                            waitTime = 0.04f;
+                            attackPhase = 10;
+                        }
+                        else
+                        {
+                            StartCoroutine(handUp());
+                            ++attackPhase;
+                        }
+                        break;
+                    case 4:
+                        // hand barrier down
+                        waitTime = defaultWait;
+                        StartCoroutine(handDown());
+                        attackPhase = 0;
+                        break;
+                    case 10:
                         // statue hand
+                        waitTime = defaultWait;
                         StartCoroutine(hand());
+                        attackPhase = 0;
                         break;
                 }
-                ++attackPhase;
-                attackPhase %= 4;   // Hard-coded number of phases
             }
 
             yield return null;
         }
     }
+
+    #endregion BasicPatterns
+    #region MediumPatterns
 
     IEnumerator mediumPattern()
     {
@@ -476,7 +581,7 @@ public class SnakeBase : MonoBehaviour
                 {
                     case 0:
                         // 5 projectiles
-                        StartCoroutine(repeatProjectile(5, 0.22f));
+                        //StartCoroutine(repeatProjectile(5, 0.22f));
                         isLongWait = true;
                         break;
                     case 1:
@@ -486,7 +591,7 @@ public class SnakeBase : MonoBehaviour
                         break;
                     case 2:
                         // fan shape projectiles
-                        StartCoroutine(repeatFanProjectile(3, 0.25f, 5, 5.5f));
+                        //StartCoroutine(repeatFanProjectile(3, 0.25f, 5, 5.5f));
                         break;
                     case 3:
                         // statue hand
@@ -500,4 +605,8 @@ public class SnakeBase : MonoBehaviour
             yield return null;
         }
     }
+
+    #endregion MediumPatterns
+
+    #endregion AttackPatterns
 }
