@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rb;
 
-    private const float SLOW_VEL = 4.5f;
+    private const float SLOW_VEL = 5.0f;
     private const float MED_VEL = 6.7f;
     private const float FAST_VEL = 9.0f;
 
@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Configure(player, ProjectileType.Gravity, ProjectileSpeed.Fast, 0.0f);
         
-        Destroy(gameObject, 3.7f);
+        Destroy(gameObject, 3.6f);
     }
 
     // Update is called once per frame

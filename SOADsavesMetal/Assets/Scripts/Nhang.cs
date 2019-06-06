@@ -133,32 +133,28 @@ public class Nhang : MonoBehaviour
 
     #region SnakeMelee
 
-    IEnumerator slam()
+    float snapDrag = 35f;   // snapDrag on
+    float endDrag = 3.2f;
+    bool snakeMoving = false;
+
+    IEnumerator fallToGround()
     {
-        attacking = true;
+        snakeMoving = true;
         float timer = 0f;
 
-        // Indicator before slam
-        while(timer < 1.2f)
-        {
-            for(int i=0; i<bodyLength; ++i)
-                bodyRB[i].AddForce(new Vector2(0f, 20f));
-            timer += Time.deltaTime;
-            yield return null;
-        }
-        
-        timer = 0f;
         toggleAnchors();
-        bodyRB[bodyLength-1].velocity = new Vector2(-1.0f, 1.0f);
+        for(int i=0; i<bodyLength-1; ++i) bodyRB[i].velocity = new Vector2(-1.8f, 0.2f);
+        bodyRB[bodyLength-1].velocity = new Vector2(-1.8f, 0.4f);
         // toggleRotation();
-        while(timer < 0.6f)
+        while(timer < 0.55f)
         {
-            for(int i=0; i<bodyLength; ++i) bodyRB[i].AddForce(new Vector2(-55f, -45f));
-            bodyRB[bodyLength-1].AddForce(new Vector2(-200f, -250f*timer));
+            for(int i=0; i<bodyLength; ++i) bodyRB[i].AddForce(new Vector2(-65f+30f*timer, -25f-55f*timer));
+            bodyRB[bodyLength-1].AddForce(new Vector2(-260f, -40-220f*timer));
             timer += Time.deltaTime;
             yield return null;
         }
 
+        // Lock to ground
         timer = 0f;
         for(int i=0; i<groundAnchors.Length; ++i)
         {
@@ -171,22 +167,83 @@ public class Nhang : MonoBehaviour
         }
 
         timer = 0f;
-        while(timer < 1f)
+        while(timer < 0.2f)
         {
             timer += Time.deltaTime;
             yield return null;
         }
 
+        // Snap position
+        timer = 0f;
+        for(int i=0; i<bodyLength; ++i)
+        {
+            bodyRB[i].drag = snapDrag * 1.2f;
+            while(timer < 0.1f)
+            {
+                timer += Time.deltaTime;
+                yield return null;
+            }
+        }
+
+        snakeMoving = false;
+    }
+
+    IEnumerator rise()
+    {
+        snakeMoving = true;
+        float timer = 0f;
+
         for(int i=0; i<groundAnchors.Length; ++i)
         {
             groundAnchors[i].GetComponent<SpringJoint2D>().enabled = false;
         }
+        for(int i=0; i<bodyLength; ++i)
+        {
+            bodyRB[i].drag = endDrag;
+        }
 
         bodyRB[bodyLength-1].velocity = new Vector2(0.5f, 1f);
         toggleAnchors();
-        // toggleRotation();
+
+        while(timer < 0.45f)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        snakeMoving = false;
+    }
+
+    IEnumerator slam()
+    {
+        attacking = true;
+        float timer = 0f;
+
+        // Indicator before slam
+        while(timer < 1.15f)
+        {
+            for(int i=0; i<bodyLength; ++i)
+                bodyRB[i].AddForce(new Vector2(0f, 20f));
+            timer += Time.deltaTime;
+            yield return null;
+        }
         
-        while(timer < 0.5f)
+        snakeMoving = true;
+        StartCoroutine(fallToGround());
+        while(snakeMoving)  yield return null;
+
+        timer = 0f;
+        while(timer < 0.55f)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        
+        snakeMoving = true;
+        StartCoroutine(rise());
+        while(snakeMoving)  yield return null;
+
+        while(timer < 0.1f)
         {
             timer += Time.deltaTime;
             yield return null;
@@ -195,22 +252,36 @@ public class Nhang : MonoBehaviour
         attacking = false;
     }
 
-    IEnumerator lunge()
+    IEnumerator lunge(GameObject target)
     {
-        float snapDrag = 35f;   // snapDrag on
-        float endDrag = 3.2f;
-
         attacking = true;
-        toggleAnchors();
-        // toggleRotation();
         float timer = 0f;
-        bodyRB[bodyLength-1].velocity += new Vector2(-7.0f, -0.5f);
+
+        // Indicator
+        while(timer < 1.35f)
+        {
+            for(int i=0; i<bodyLength; ++i)
+                bodyRB[i].AddForce(new Vector2(17f+5f*timer, 5f+27f*timer));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        while(timer < 0.1f)
+        {
+            for(int i=0; i<bodyLength; ++i)
+                bodyRB[i].AddForce(new Vector2(10f, 13f));
+            timer += Time.deltaTime;
+            yield return null;
+        }
 
         // Extend
-        float snakeLungeMagnitude = 670f;
-        float veryWellNamedAngle = Mathf.Atan2(player.transform.position.y - body[bodyLength-1].transform.position.y + 0.8f,
-                                                player.transform.position.x - body[bodyLength-1].transform.position.x);
-        Debug.Log(veryWellNamedAngle);
+        toggleAnchors();
+        timer = 0f;
+        bodyRB[bodyLength-1].velocity += new Vector2(-7.0f, -0.5f);
+        float snakeLungeMagnitude = 730f;
+        float veryWellNamedAngle = Mathf.Atan2(target.transform.position.y - body[bodyLength-1].transform.position.y + 0.8f,
+                                                target.transform.position.x - body[bodyLength-1].transform.position.x);
+        // Debug.Log(veryWellNamedAngle);
         while(timer < 0.9f)
         {
             for(int i=0; i<bodyLength-1; ++i)
@@ -244,14 +315,11 @@ public class Nhang : MonoBehaviour
         }
 
         // Retract
-
-        // for(int i=0; i<bodyLength; ++i) bodyRB[i].drag = 3.2f;
-
-        for(int i=0; i<bodyLength-1; ++i)   bodyRB[i].velocity += new Vector2(3.45f, 0f);
+        for(int i=0; i<bodyLength-1; ++i)   bodyRB[i].velocity += new Vector2(3.65f, 0.3f);
         toggleAnchors();
 
         timer = 0f;
-        float timeToLerpAnchor = 1.1f;
+        float timeToLerpAnchor = 1.3f;
         while(timer < timeToLerpAnchor)
         {
             for(int i=0; i<bodyLength-2; ++i) bodyRB[i].AddForce(new Vector2(0f, 18f));
@@ -267,17 +335,29 @@ public class Nhang : MonoBehaviour
             yield return null;
         }
 
-        bodyRB[bodyLength-1].angularDrag = 8f;
-        
-        // toggleRotation();
-
         // Bonus wait time
         timer = 0f;
-        while(timer < 1.5f)
+        while(timer < 0.66f)
         {
             timer += Time.deltaTime;
             yield return null;
         }
+
+        // Prevent snake jello effect
+        bodyRB[bodyLength-1].angularDrag = 8f;
+        for(int i=0; i<bodyLength; ++i)
+            bodyRB[i].drag *= 3f;
+
+        // Bonus wait time
+        timer = 0f;
+        while(timer < 0.67f)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        for(int i=0; i<bodyLength; ++i)
+            bodyRB[i].drag = endDrag;
         
         attacking = false;
     }
@@ -343,23 +423,22 @@ public class Nhang : MonoBehaviour
         ProjectileSpeed ps = ProjectileSpeed.Fast, float degreeModifier = 0.0f)
     {
         if(numProjectiles < 1)  numProjectiles = 1;
-        float yv = -angularSpacing*0.5f*(numProjectiles-1) + degreeModifier;
-
-        GameObject[] temp = new GameObject[numProjectiles];
+        float yv = -angularSpacing*0.5f*(numProjectiles-1);
 
         for(int i=0; i<numProjectiles; ++i)
         {
-            temp[i] = Instantiate(projectile, body[bodyLength-1].transform.position, Quaternion.identity);
-        }
-
-        yield return null;
-
-        // Add sinusoidal xVel modifier
-        for(int i=0; i<numProjectiles; ++i)
-        {
-            temp[i].GetComponent<Projectile>().Configure(target, pt, ps, angularSpacing);
+            StartCoroutine(spit(target, pt, ps, yv + degreeModifier));
             yv += angularSpacing;
         }
+
+        // yield return null;
+
+        // // Add sinusoidal xVel modifier
+        // for(int i=0; i<numProjectiles; ++i)
+        // {
+        //     temp[i].GetComponent<Projectile>().Configure(target, pt, ps, angularSpacing);
+        //     yv += angularSpacing;
+        // }
 
         yield return null;
     }
@@ -431,7 +510,7 @@ public class Nhang : MonoBehaviour
     #endregion SnakeRanged
     #region StatueHand
 
-    const float HAND_VELOCITY = 12f;
+    const float HAND_VELOCITY = 11.5f;
     const float HAND_MOVE_TIME = 0.52f;
     private bool handMoving = false;
     
@@ -478,7 +557,7 @@ public class Nhang : MonoBehaviour
         }
 
         statueRB.velocity = new Vector2(0, 0);
-        statueHand.transform.localPosition = new Vector2(-1.676f, -4.58f);
+        statueHand.transform.localPosition = new Vector2(-1.676f, -3.78f);
 
         indicator.SetActive(false);
         handMoving = false;
@@ -522,7 +601,7 @@ public class Nhang : MonoBehaviour
 
     IEnumerator basicPattern()
     {
-        float defaultWait = 3f;
+        float defaultWait = 2.6f;
         
         float timer = 0f;
         int attackPhase = 0;    // Keep track of attack phase
@@ -544,7 +623,7 @@ public class Nhang : MonoBehaviour
                     case 0:
                         waitTime = defaultWait;
                         // 3 projectiles
-                        StartCoroutine(repeatProjectile(3, 0.55f, player));
+                        StartCoroutine(repeatProjectile(3, 0.45f, player));
                         ++attackPhase;
                         break;
                     case 1:
@@ -556,7 +635,7 @@ public class Nhang : MonoBehaviour
                         }
                         else
                         {
-                            StartCoroutine(lunge());
+                            StartCoroutine(lunge(player));
                             ++attackPhase;
                         }
                         break;
@@ -633,7 +712,16 @@ public class Nhang : MonoBehaviour
                         // statue hand
                         waitTime = defaultWait;
                         StartCoroutine(hand());
+                        ++attackPhase;
+                        break;
+                    case 11:
+                        // 1 slow fan
+                        StartCoroutine(fanProjectile(6, 18f, groundTargets[3],
+                            ProjectileType.Linear, ProjectileSpeed.Slow, -5f));
                         attackPhase = 0;
+                        break;
+                    case 12:
+                        // some projectile attack?
                         break;
                 }
             }
@@ -671,7 +759,7 @@ public class Nhang : MonoBehaviour
                         break;
                     case 1:
                         // lunge
-                        StartCoroutine(lunge());
+                        StartCoroutine(lunge(player));
                         isLongWait = true;
                         break;
                     case 2:
