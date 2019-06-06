@@ -24,6 +24,7 @@ public class Nhang : MonoBehaviour
     public GameObject[] body; // = new GameObject[bodyLength];
     public GameObject[] groundTargets; // 0 is closer to snake, large numbers are further
     public GameObject[] airTargets; // 0 is lower, large numbers are higher
+    public GameObject[] groundAnchors; // 0 is closer, large numbers are further
 
     // Internal vars
     Rigidbody2D[] bodyRB;
@@ -135,28 +136,62 @@ public class Nhang : MonoBehaviour
     IEnumerator slam()
     {
         attacking = true;
-        toggleAnchors();
-        // toggleRotation();
         float timer = 0f;
-        while(timer < 0.75f)
+
+        // Indicator before slam
+        while(timer < 1.2f)
         {
-            for(int i=0; i<bodyLength; ++i) bodyRB[i].AddForce(new Vector2(-28.9f+11.1f*timer-9.9f*(float)i, -15.3f-54f*timer-3.9f*(float)i));
-            bodyRB[bodyLength-1].AddForce(new Vector2(-40f+48f*timer, -48f*timer));
+            for(int i=0; i<bodyLength; ++i)
+                bodyRB[i].AddForce(new Vector2(0f, 20f));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        
+        timer = 0f;
+        toggleAnchors();
+        bodyRB[bodyLength-1].velocity = new Vector2(-1.0f, 1.0f);
+        // toggleRotation();
+        while(timer < 0.6f)
+        {
+            for(int i=0; i<bodyLength; ++i) bodyRB[i].AddForce(new Vector2(-55f, -45f));
+            bodyRB[bodyLength-1].AddForce(new Vector2(-200f, -250f*timer));
             timer += Time.deltaTime;
             yield return null;
         }
 
-        bodyRB[bodyLength-1].velocity = new Vector2(1f, 3.6f);
-        toggleAnchors();
-        // toggleRotation();
-
-        attackTimer = 0.0f;
-        while(attackTimer < 1.5f)
+        timer = 0f;
+        for(int i=0; i<groundAnchors.Length; ++i)
         {
-            attackTimer += Time.deltaTime;
+            groundAnchors[i].GetComponent<SpringJoint2D>().enabled = true;
+            while(timer < 0.1f)
+            {
+                timer += Time.deltaTime;
+                yield return null;
+            }
+        }
+
+        timer = 0f;
+        while(timer < 1f)
+        {
+            timer += Time.deltaTime;
             yield return null;
         }
+
+        for(int i=0; i<groundAnchors.Length; ++i)
+        {
+            groundAnchors[i].GetComponent<SpringJoint2D>().enabled = false;
+        }
+
+        bodyRB[bodyLength-1].velocity = new Vector2(0.5f, 1f);
+        toggleAnchors();
+        // toggleRotation();
         
+        while(timer < 0.5f)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
         attacking = false;
     }
 
@@ -369,6 +404,30 @@ public class Nhang : MonoBehaviour
         yield return null;
     }
 
+    IEnumerator fanSpray(int numRepeats, float waitTime, int numProjectiles, float angularSpacing, GameObject target,
+        ProjectileType pt = ProjectileType.Linear, ProjectileSpeed ps = ProjectileSpeed.Med, float degreeModifier = 0.0f)
+    {
+        attacking = true;
+        float timer = 0.0f;
+        float halfway = (numProjectiles - 1) / 2f;
+
+        for(int repeat = 0; repeat < numRepeats; ++repeat)
+        {
+            for(int p = 0; p < numProjectiles; ++p)
+            {
+                StartCoroutine(spit(target, pt, ps, (p-halfway) * angularSpacing + degreeModifier));
+                while(timer < waitTime)
+                {
+                    timer += Time.deltaTime;
+                    yield return null;
+                }
+                timer = 0f;
+            }
+        }
+        
+        attacking = false;
+    }
+
     #endregion SnakeRanged
     #region StatueHand
 
@@ -379,7 +438,7 @@ public class Nhang : MonoBehaviour
     IEnumerator handUp()
     {
         float highVelocity = 2 * HAND_VELOCITY;
-        float minVelocity = 1.5f;
+        float minVelocity = 6f;
         handMoving = true;
         indicator.SetActive(true);
         float timer = 0.0f;
@@ -510,17 +569,8 @@ public class Nhang : MonoBehaviour
                         }
                         else
                         {
-                            for(int t = 0; t<4; ++t)
-                            {
-                                StartCoroutine(spit(groundTargets[2], ProjectileType.Linear, ProjectileSpeed.Fast, (t-1.5f) * -19f));
-                                while(timer < 0.1f)
-                                {
-                                    timer += Time.deltaTime;
-                                    yield return null;
-                                }
-                                timer = 0f;
-                            }
-
+                            StartCoroutine(fanSpray(1, 0.1f, 4, -19f, groundTargets[2],
+                                ProjectileType.Linear, ProjectileSpeed.Fast, 0.0f));
                             // StartCoroutine(repeatFanProjectile(2, 0.5f, 3, 30f, player));
                             ++attackPhase;
                         }
@@ -535,10 +585,45 @@ public class Nhang : MonoBehaviour
                         else
                         {
                             StartCoroutine(handUp());
+                            waitTime = defaultWait * 0.9f;
                             ++attackPhase;
                         }
                         break;
                     case 4:
+                        // perform some kind of attack
+                        for(int i=0; i<3; ++i)
+                        {
+                            timer = 0f;
+                            attacking = true;
+                            switch(i)
+                            {
+                                case 0:
+                                    StartCoroutine(fanSpray(1, 0.1f, 4, 19f, groundTargets[2],
+                                    ProjectileType.Linear, ProjectileSpeed.Fast, 0.0f));
+                                    break;
+                                case 1:
+                                    StartCoroutine(slam());
+                                    break;
+                                case 2:
+                                    StartCoroutine(fanSpray(1, 0.1f, 5, -21f, groundTargets[2],
+                                    ProjectileType.Linear, ProjectileSpeed.Med, 0.0f));
+                                    break;
+                                case 3:
+                                    StartCoroutine(repeatFanProjectile(3, 0.3f, 3, 30f, player,
+                                    ProjectileType.Linear, ProjectileSpeed.Slow, 3.0f));
+                                    break;
+                            }
+
+                            while(attacking)    yield return null;
+                            while(timer < waitTime)
+                            {
+                                timer += Time.deltaTime;
+                                yield return null;
+                            }
+                        }
+                        ++attackPhase;
+                        break;
+                    case 5:
                         // hand barrier down
                         waitTime = defaultWait;
                         StartCoroutine(handDown());
@@ -599,7 +684,7 @@ public class Nhang : MonoBehaviour
                         break;
                 }
                 ++attackPhase;
-                attackPhase %= 4;   // Hard-coded number of phases
+                attackPhase %= 4;   // Medium pattern to be reworked
             }
 
             yield return null;
