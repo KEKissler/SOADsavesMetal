@@ -1,7 +1,5 @@
 ﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
 Shader "Custom/Distortion"
 {
 	Properties
@@ -16,7 +14,8 @@ Shader "Custom/Distortion"
 	{
 		// No culling or depth
 		Cull Off ZWrite Off ZTest Always
-		Blend SrcAlpha OneMinusSrcAlpha
+		Blend SrcAlpha One
+
 
 		Pass
 		{
@@ -65,10 +64,10 @@ Shader "Custom/Distortion"
 				disp = ((disp * 2) - 1) * _Intensity;
 
 				float4 col = tex2D(_MainTex, i.uv + disp);
-				if (col.a == 1.0f) col.a = ((sin(_Time.x*10) + 1) / 3 + 0.2f);
-				col.rgb = (col.rgb + 1 - tex2D(_DistortionTex, dv).rgb) / 4;
-				//col.b = _Color[1];
-				return lerp(_Color, col, col.a);
+				if (col.a == 1.0f) col.a = ((sin(_Time.x*10) + 1) / 5 + 0.2f);
+				col.rgb =  tex2D(_DistortionTex, i.uv.x+cos(_Time.x)).rgb * 0.75f;
+				col.b = 0.75f;
+				return lerp(_Color, col, 0.5f);
 				//return col;
 			}
 			ENDCG
