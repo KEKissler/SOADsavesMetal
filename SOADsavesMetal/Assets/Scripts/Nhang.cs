@@ -628,28 +628,28 @@ public class Nhang : MonoBehaviour
                         break;
                     case 1:
                         // lunge
+                        StartCoroutine(lunge(player));
                         if(isPlayerClose())
                         {
-                            waitTime = 0.04f;
+                            waitTime = 1.7f;
                             attackPhase = 10;
                         }
                         else
                         {
-                            StartCoroutine(lunge(player));
                             ++attackPhase;
                         }
                         break;
                     case 2:
                         // 4 shots away
+                        StartCoroutine(fanSpray(1, 0.1f, 4, -19f, groundTargets[2],
+                            ProjectileType.Linear, ProjectileSpeed.Fast, 0.0f));
                         if(isPlayerClose())
                         {
-                            waitTime = 0.04f;
+                            waitTime = 1.7f;
                             attackPhase = 10;
                         }
                         else
                         {
-                            StartCoroutine(fanSpray(1, 0.1f, 4, -19f, groundTargets[2],
-                                ProjectileType.Linear, ProjectileSpeed.Fast, 0.0f));
                             // StartCoroutine(repeatFanProjectile(2, 0.5f, 3, 30f, player));
                             ++attackPhase;
                         }
@@ -710,18 +710,37 @@ public class Nhang : MonoBehaviour
                         break;
                     case 10:
                         // statue hand
-                        waitTime = defaultWait;
+                        waitTime = defaultWait * 0.8f;
                         StartCoroutine(hand());
                         ++attackPhase;
                         break;
                     case 11:
-                        // 1 slow fan
-                        StartCoroutine(fanProjectile(6, 18f, groundTargets[3],
+                        // 3 slow fan
+                        StartCoroutine(repeatFanProjectile(3, 0.5f, 5, 20f, player,
                             ProjectileType.Linear, ProjectileSpeed.Slow, -5f));
-                        attackPhase = 0;
+                        waitTime = defaultWait * 0.95f;
+                        ++attackPhase;
                         break;
                     case 12:
-                        // some projectile attack?
+                        // 6 shots away, 2x
+                        StartCoroutine(fanSpray(2, 0.09f, 6, -19f, groundTargets[2],
+                            ProjectileType.Linear, ProjectileSpeed.Fast, 0.0f));
+                        waitTime = 0.3f;
+                        ++attackPhase;
+                        break;
+                    case 13:
+                        // slam, weak
+                        StartCoroutine(fallToGround());
+                        transform.parent.gameObject.SendMessage("changeMultiplier", 2f);
+                        waitTime = 6f;
+                        ++attackPhase;
+                        break;
+                    case 14:
+                        // back to normal
+                        StartCoroutine(rise());
+                        transform.parent.gameObject.SendMessage("changeMultiplier", 1f);
+                        waitTime = defaultWait;
+                        attackPhase = 0;
                         break;
                 }
             }

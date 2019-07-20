@@ -12,6 +12,7 @@ public class BossHealth : MonoBehaviour
 {
     // Public
     public int startingHP = 20000;
+    public float damageMultiplier = 1;
 
     // Should be accessible but not modifiable directly
     int HP;
@@ -30,7 +31,12 @@ public class BossHealth : MonoBehaviour
 
     public void hit(int damage)
     {
-        HP -= damage;
+        HP -= (int)(damage * damageMultiplier + 0.5f);
         Debug.Log(HP);
+    }
+
+    public void changeMultiplier(float multiplier)
+    {
+        damageMultiplier = multiplier;
     }
 }
