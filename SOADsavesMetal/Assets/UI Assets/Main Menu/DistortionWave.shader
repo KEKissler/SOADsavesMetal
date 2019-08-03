@@ -11,6 +11,7 @@ Shader "Custom/DistortionWave"
 		_Intensity("Intensity", float) = 0.1
 		_Multiplier("Multiplier", float) = 0.4
 		_Transparent("Transparancy", float) = 1.0
+		_Color("Color", Color) = (1,1,1,1)
 	}
 	SubShader
 	{
@@ -51,6 +52,7 @@ Shader "Custom/DistortionWave"
 			float _Intensity;
 			float _Multiplier;
 			float _Transparent;
+			float4 _Color;
 
 			fixed4 frag (v2f i) : SV_Target
 			{
@@ -58,7 +60,7 @@ Shader "Custom/DistortionWave"
 				float2 disp = tex2D(_DistortionTex, dv).xy;
 				disp = ((disp * 2) - 1) * _Intensity;
 
-				float4 col = tex2D(_MainTex, i.uv + disp);
+				float4 col = tex2D(_MainTex, i.uv + disp)*_Color;
 
 				return col;
 			}
