@@ -7,9 +7,9 @@ public class DecayOverflow : MonoBehaviour
     private Vector2 raisedPos;
     private Rigidbody2D rb;
 
-    public float speed = 1.0f;
+    public float speed = 0.6f;
 
-    private float travel_distance = 2f;
+    private float travel_distance = 2.3f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class DecayOverflow : MonoBehaviour
         
     }
 
-    public IEnumerator flood()
+    public IEnumerator flood(float durationUp)
     {
         float timer = 0f;
         rb.velocity = new Vector2(0, speed);
@@ -38,7 +38,7 @@ public class DecayOverflow : MonoBehaviour
 
         timer = 0f;
         rb.velocity = new Vector2(0, 0);
-        while(timer < 2f)
+        while(timer < durationUp)
         {
             timer += Time.deltaTime;
             yield return null;

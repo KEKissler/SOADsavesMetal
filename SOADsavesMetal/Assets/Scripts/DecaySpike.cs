@@ -10,7 +10,7 @@ public class DecaySpike : MonoBehaviour
     private float travel_distance = 2.8f;
     
     // Maybe have it move more slowly near start or end of motion?
-    public float speed = 7.0f;
+    public float speed = 5.0f;
 
     // Start is called before the first frame update
     void Start()

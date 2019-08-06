@@ -86,6 +86,8 @@ public class Projectile : MonoBehaviour
                 rb.velocity += new Vector2(0, 1.2f);
                 break;
             case ProjectileType.Honing:
+                // Temporary patch
+                rb.gravityScale = 0f;
                 break;
             default:
                 rb.gravityScale = 0f;

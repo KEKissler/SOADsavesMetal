@@ -76,12 +76,15 @@ public class ShavoAttack : MonoBehaviour
 
         // Attack
         shortRangeHitbox.SetActive(true);
+        yield return null;
         attackTimer = 0.0f;
         while(attackTimer < SHORT_ATTACK_HOLD_DURATION)
         {
         	attackTimer += Time.deltaTime;
         	yield return null;
         }
+        yield return null;
+        shortRangeHitbox.SendMessage("refreshHit");
         shortRangeHitbox.SetActive(false);
 
         // Cooldown period

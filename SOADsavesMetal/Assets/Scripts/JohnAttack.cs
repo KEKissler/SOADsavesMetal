@@ -60,6 +60,8 @@ public class JohnAttack : MonoBehaviour {
             shortRangeHitbox.transform.localScale.y, shortRangeHitbox.transform.localScale.z);
         shortRangeHitbox.transform.localPosition = new Vector2(0.8f, 0.18f);
         shortRangeHitbox.SetActive(true);
+        yield return null;
+        shortRangeHitbox.SendMessage("refreshHit");
         attackTimer = 0.0f;
         while(attackTimer < 0.4f)
         {

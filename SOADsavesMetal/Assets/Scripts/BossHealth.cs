@@ -11,16 +11,16 @@ public struct Phase
 public class BossHealth : MonoBehaviour
 {
     // Public
-    public int startingHP = 20000;
+    public static int startingHP = 2000;
     public float damageMultiplier = 1;
 
     // Should be accessible but not modifiable directly
-    int HP;
+    private int HP = startingHP;
 
     // Start is called before the first frame update
     void Start()
     {
-        HP = startingHP;
+        
     }
 
     // Update is called once per frame
@@ -38,5 +38,15 @@ public class BossHealth : MonoBehaviour
     public void changeMultiplier(float multiplier)
     {
         damageMultiplier = multiplier;
+    }
+
+    public int getHP()
+    {
+        return HP;
+    }
+
+    public float getHPPercentage()
+    {
+        return (float)HP/(float)startingHP * 100f;
     }
 }

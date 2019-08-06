@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShortRangeDmg : MonoBehaviour {
 
 	public int damage = 111;
+	bool canHit = true;
 
 	// Use this for initialization
 	void Start () {
@@ -18,9 +19,28 @@ public class ShortRangeDmg : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.gameObject.tag == "Boss")
+		if(col.gameObject.tag == "Boss" && canHit)
+		{
 			col.gameObject.SendMessage("hit", damage);
+			canHit = false;
+		}
 		else if(col.gameObject.tag == "Projectile")
 			Destroy(col.gameObject);
+	}
+
+	void OnTriggerStay2D(Collider2D col)
+	{
+		if(col.gameObject.tag == "Boss" && canHit)
+		{
+			col.gameObject.SendMessage("hit", damage);
+			canHit = false;
+		}
+		else if(col.gameObject.tag == "Projectile")
+			Destroy(col.gameObject);
+	}
+
+	void refreshHit()
+	{
+		canHit = true;
 	}
 }
