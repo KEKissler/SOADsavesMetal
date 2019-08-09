@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Agas : MonoBehaviour
 {
-    private const float SPIKE_HEIGHT = -4.82f;
-    private const float GROUND_SPACING = 21f;
+    private const float SPIKE_HEIGHT = -4.81f;
+    private const float GROUND_SPACING = 20.95f;
     private const float ARC_SPACING = 16.25f;
     private const float GROUND_Y = -4.75f;
     private const float ARC_Y = 5.15f;
     private float defaultDamageMultiplier = 1f;
     private float defaultWaitTime = 5f;
+    private GameObject[] groundSpikes;
+    private float spikeStart = 4f;
 
     // Prefabs
     public GameObject candle;
@@ -24,6 +26,8 @@ public class Agas : MonoBehaviour
     public GameObject agas;
     public BossHealth healthScript;
     public GameObject goblet;
+    public int numberOfSpikes;
+    public float spikeSpacing;
 
     private bool attacking;
     System.Random randomGen = new System.Random();
@@ -32,6 +36,9 @@ public class Agas : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         attacking = false;
+        groundSpikes = new GameObject[numberOfSpikes];
+        for(int i=0; i<numberOfSpikes; ++i)
+            groundSpikes[i] = Instantiate(spike, new Vector2(spikeStart-spikeSpacing*i, SPIKE_HEIGHT), Quaternion.identity);
         StartCoroutine(basicPattern());
     }
 
@@ -103,22 +110,44 @@ public class Agas : MonoBehaviour
         attacking = false;
     }
 
-    IEnumerator fade(float fadeTime)
+    // Submerge, not fade
+    IEnumerator submerge(float submergeTime)
     {
         float timer = 0f;
-        //healthScript.changeMultiplier(0f);
-        goblet.SetActive(false);
-        agas.SetActive(false);
+        float moveDuration = 1.2f;
+        float moveVelocity = 5.0f;
+        Vector2 startPosition = agas.transform.position;
+        healthScript.changeMultiplier(0.5f * defaultDamageMultiplier);
 
-        while(timer < fadeTime)
+        while(timer < moveDuration)
+        {
+            agas.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -moveVelocity * timer);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        timer = 0f;
+        agas.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        healthScript.changeMultiplier(0f);
+
+        while(timer < submergeTime)
         {
             timer += Time.deltaTime;
             yield return null;
         }
+        timer = 0f;
+        healthScript.changeMultiplier(0.5f * defaultDamageMultiplier);
 
+        while(timer < moveDuration)
+        {
+            agas.GetComponent<Rigidbody2D>().velocity = new Vector2(0, moveVelocity * (moveDuration-timer) - 0.031f);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        timer = 0f;
+        agas.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+
+        agas.transform.position = startPosition;
         healthScript.changeMultiplier(defaultDamageMultiplier);
-        goblet.SetActive(true);
-        agas.SetActive(true);
     }
 
     IEnumerator basicPattern()
@@ -131,7 +160,7 @@ public class Agas : MonoBehaviour
         {
             if(healthScript.getHPPercentage() <= 75f)
             {
-                StartCoroutine(fade(4.5f));
+                StartCoroutine(submerge(4.5f));
                 turnOnInactiveCandle();
                 break;
             }
@@ -188,7 +217,7 @@ public class Agas : MonoBehaviour
             // if(healthScript.getHPPercentage() <= 50f)
             // {
             //     turnOnInactiveCandle();
-            //     StartCoroutine(fade(5f));
+            //     StartCoroutine(submerge(5f));
             //     yield return null;
             //     break;
             // }
@@ -226,6 +255,6 @@ public class Agas : MonoBehaviour
             yield return null;
         }
 
-        StartCoroutine(mediumPattern());
+        // StartCoroutine(mediumPattern());
     }
 }
