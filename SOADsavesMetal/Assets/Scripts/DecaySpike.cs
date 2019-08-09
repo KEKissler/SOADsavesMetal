@@ -16,8 +16,9 @@ public class DecaySpike : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        indicator.SetActive(false);
         // if(speed <= 0.01f) speed = 1.5f;
-        StartCoroutine(attack());
+        // StartCoroutine(attack());
     }
 
     // Update is called once per frame
@@ -28,6 +29,7 @@ public class DecaySpike : MonoBehaviour
 
     IEnumerator attack()
     {
+        indicator.SetActive(true);
         float timer = 0f;
         while(timer < 1.8f)
         {
@@ -61,6 +63,6 @@ public class DecaySpike : MonoBehaviour
         }
 
         rb.velocity = new Vector2(0, 0);
-        Destroy(gameObject, 1f);
+        // Destroy(gameObject, 1f);
     }
 }
