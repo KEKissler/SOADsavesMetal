@@ -10,6 +10,7 @@ Shader "Custom/Overlay Texture Distortion"
 		_Intensity("Intensity", float) = 0.1
 		_Multiplier("Multiplier", float) = 0.4
 		_Color("Color", Color) = (1,1,1,1)
+		_Transparency("Transparency", float) = 1.0
 	}
 	SubShader
 	{
@@ -53,7 +54,7 @@ Shader "Custom/Overlay Texture Distortion"
 			float _Multiplier;
 			float _Transparent;
 			float4 _Color;
-
+			float _Transparency;
 
 			float3 DistUV(float2 uv, float2 vect, float time, int flag) {
 				float prog = frac(time + 0.5*flag);
@@ -77,6 +78,8 @@ Shader "Custom/Overlay Texture Distortion"
 				col *= (disp+disp2) * _Intensity;
 				col.rgb += (disp.rgb + disp2.rgb) * _Multiplier;
 				col *= _Color;
+
+				col.a = _Transparency;
 				return col;
 			}
 			ENDCG
