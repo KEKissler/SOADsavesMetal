@@ -536,7 +536,8 @@ public class Player : MonoBehaviour {
         }
         else if (currentBandMember == "Serj")
         {
-
+            yield return new WaitForSeconds(0.5f);
+            attacking = false;
         }
 
     }
