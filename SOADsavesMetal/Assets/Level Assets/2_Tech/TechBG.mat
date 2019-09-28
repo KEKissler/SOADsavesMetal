@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TechBG
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 9ed071cd95f00784e85e5e7be717cc94, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA PIXELSNAP_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -23,6 +23,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DistortionTex:
+        m_Texture: {fileID: 2800000, guid: 657ee32dbe7585b46a355a3123ec30bf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -30,7 +34,10 @@ Material:
     m_Floats:
     - PixelSnap: 1
     - _EnableExternalAlpha: 0
+    - _Intensity: 2
+    - _Multiplier: 2
+    - _Transparent: 1
     m_Colors:
-    - _Color: {r: 0.116767526, g: 0.6037736, b: 0.5360799, a: 1}
+    - _Color: {r: 0.36672303, g: 0.6320754, b: 0.5965372, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
