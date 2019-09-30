@@ -9,12 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe946d20014c6c34b98994a391e97546, type: 3}
+  m_Script: {fileID: 11500000, guid: bf777509021789d48b901be8f65d5a2a, type: 3}
   m_Name: ElectricShock
   m_EditorClassIdentifier: 
-  name: ElectricShock
-  description: Shocks the player if they are standing on it.
+  name: 
+  description: 
   animation: {fileID: 0}
-  speed: 0
+  projectileSpeed: 0
+  projectileType: 0
   damage: 1
-  duration: 0
+  duration: 5
+  wire: {fileID: 0}
