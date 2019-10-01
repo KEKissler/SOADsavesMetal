@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
     private bool inAir;
     private bool landing;
     private bool attacking;
+    private bool blockHorizontalMovement;
     public bool moving;
 
     //Player Animation Variables
@@ -196,7 +197,7 @@ public class Player : MonoBehaviour {
                 remainingJumps -= 1;
                 if (inAir)
                 {
-                    if (currentBandMember == "John" && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "JohnJumpLegs")
+                    if (currentBandMember == "John")// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "JohnJumpLegs")
                     {
                         if (!attacking)
                         {
@@ -206,7 +207,7 @@ public class Player : MonoBehaviour {
                         inAir = true;
                         rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
                     }
-                    else if (currentBandMember == "Shavo" && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "ShavoJumpLegs")
+                    else if (currentBandMember == "Shavo")// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "ShavoJumpLegs")
                     {
                         if (!attacking)
                         {
@@ -214,15 +215,10 @@ public class Player : MonoBehaviour {
                         }
                         playerLowerAnim.Play("ShavoDashLegs");
                         inAir = true;
-                        StartCoroutine("Dash");
-                        if (gameObject.transform.rotation.y == 0)
-                        {
-                            rb.velocity = new Vector2(1.5f * jumpHeight, 0.0f);
-                        }
-                        else
-                        {
-                            rb.velocity = new Vector2(-1.5f * jumpHeight, 0.0f);
-                        }
+                        StartCoroutine(Dash());
+                        Debug.Log(rb.velocity.x);
+                        var playerRotation = gameObject.transform.rotation;
+                        rb.velocity = new Vector2((playerRotation.y == 0 ? 1 : -1) * 1.5f * jumpHeight, 0.0f);
                     }
                     else if (currentBandMember == "Daron")
                     {
@@ -270,152 +266,7 @@ public class Player : MonoBehaviour {
             {
                 StartCoroutine("superCooldown");
             }
-
-            //Movement
-            //Left and Right Arrow Keys: Movement in respective directions
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                moving = true;
-                if (gameObject.transform.rotation.y != 0)
-                {
-                    gameObject.transform.Rotate(Vector3.up, 180.0f);
-                }
-                if (!inAir)
-                {
-                    if (!attacking)
-                    {
-                        if (currentBandMember == "John")
-                        {
-                            playerUpperAnim.Play("JohnWalk");
-                        }
-                        else if (currentBandMember == "Shavo")
-                        {
-                            playerUpperAnim.Play("ShavoWalk");
-                        }
-                        else if (currentBandMember == "Daron")
-                        {
-                            playerUpperAnim.Play("DaronWalk");
-                        }
-                        else if (currentBandMember == "Serj")
-                        {
-                            playerUpperAnim.Play("SerjWalk");
-                        }
-                    }
-                    if (currentBandMember == "John")
-                    {
-                        playerLowerAnim.Play("JohnWalkLegs");
-                    }
-                    else if (currentBandMember == "Shavo")
-                    {
-                        playerLowerAnim.Play("ShavoWalkLegs");
-                    }
-                    else if (currentBandMember == "Daron")
-                    {
-                        playerLowerAnim.Play("DaronWalkLegs");
-                    }
-                    else if (currentBandMember == "Serj")
-                    {
-                        playerLowerAnim.Play("SerjWalkLegs");
-                    }
-                }
-                rb.velocity = new Vector2(speed, rb.velocity.y);
-            }
-            else if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                moving = true;
-                if (gameObject.transform.rotation.y == 0)
-                {
-                    gameObject.transform.Rotate(Vector3.up, 180.0f);
-                }
-                if (!inAir)
-                {
-                    if (!attacking)
-                    {
-                        if (currentBandMember == "John")
-                        {
-                            playerUpperAnim.Play("JohnWalk");
-                        }
-                        else if (currentBandMember == "Shavo")
-                        {
-                            playerUpperAnim.Play("ShavoWalk");
-                        }
-                        else if (currentBandMember == "Daron")
-                        {
-                            playerUpperAnim.Play("DaronWalk");
-                        }
-                        else if (currentBandMember == "Serj")
-                        {
-                            playerUpperAnim.Play("SerjWalk");
-                        }
-                    }
-                    if (currentBandMember == "John")
-                    {
-                        playerLowerAnim.Play("JohnWalkLegs");
-                    }
-                    else if (currentBandMember == "Shavo")
-                    {
-                        playerLowerAnim.Play("ShavoWalkLegs");
-                    }
-                    else if (currentBandMember == "Daron")
-                    {
-                        playerLowerAnim.Play("DaronWalkLegs");
-                    }
-                    else if (currentBandMember == "Serj")
-                    {
-                        playerLowerAnim.Play("SerjWalkLegs");
-                    }
-                }
-                rb.velocity = new Vector2(-speed, rb.velocity.y);
-            }
-            else if (!inAir)
-            {
-                moving = false;
-                if (!crouched && !attacking)
-                {
-                    if (currentBandMember == "John")
-                    {
-                        playerUpperAnim.Play("JohnIdle");
-                        playerLowerAnim.Play("JohnIdleLegs");
-                    }
-                    else if (currentBandMember == "Shavo")
-                    {
-                        playerUpperAnim.Play("ShavoIdle");
-                        playerLowerAnim.Play("ShavoIdleLegs");
-                    }
-                    else if (currentBandMember == "Daron")
-                    {
-                        playerUpperAnim.Play("DaronIdle");
-                        playerLowerAnim.Play("DaronIdleLegs");
-                    }
-                    else if (currentBandMember == "Serj")
-                    {
-                        playerUpperAnim.Play("SerjIdle");
-                        playerLowerAnim.Play("SerjIdleLegs");
-                    }
-                }
-                else if (attacking)
-                {
-                    if (currentBandMember == "John")
-                    {
-                        playerLowerAnim.Play("JohnLandLegs");
-                    }
-                    else if (currentBandMember == "Shavo")
-                    {
-                        playerLowerAnim.Play("ShavoLandLegs");
-                    }
-                    else if (currentBandMember == "Daron")
-                    {
-                        playerLowerAnim.Play("DaronLandLegs");
-                    }
-                    else if (currentBandMember == "Serj")
-                    {
-                        playerLowerAnim.Play("SerjLandLegs");
-                    }
-
-                }
-                rb.velocity = new Vector2(0, rb.velocity.y);
-            }
-
+            HandleHorizontalMovement();
         }
         else
         {
@@ -426,6 +277,158 @@ public class Player : MonoBehaviour {
                 deathStarted = true;
             }
         }
+    }
+
+    private void HandleHorizontalMovement()
+    {
+        if (blockHorizontalMovement)
+        {
+            return;
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            moving = true;
+            if (gameObject.transform.rotation.y != 0)
+            {
+                gameObject.transform.Rotate(Vector3.up, 180.0f);
+            }
+            if (!inAir)
+            {
+                if (!attacking)
+                {
+                    if (currentBandMember == "John")
+                    {
+                        playerUpperAnim.Play("JohnWalk");
+                    }
+                    else if (currentBandMember == "Shavo")
+                    {
+                        playerUpperAnim.Play("ShavoWalk");
+                    }
+                    else if (currentBandMember == "Daron")
+                    {
+                        playerUpperAnim.Play("DaronWalk");
+                    }
+                    else if (currentBandMember == "Serj")
+                    {
+                        playerUpperAnim.Play("SerjWalk");
+                    }
+                }
+                if (currentBandMember == "John")
+                {
+                    playerLowerAnim.Play("JohnWalkLegs");
+                }
+                else if (currentBandMember == "Shavo")
+                {
+                    playerLowerAnim.Play("ShavoWalkLegs");
+                }
+                else if (currentBandMember == "Daron")
+                {
+                    playerLowerAnim.Play("DaronWalkLegs");
+                }
+                else if (currentBandMember == "Serj")
+                {
+                    playerLowerAnim.Play("SerjWalkLegs");
+                }
+            }
+            rb.velocity = new Vector2(speed, rb.velocity.y);
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            moving = true;
+            if (gameObject.transform.rotation.y == 0)
+            {
+                gameObject.transform.Rotate(Vector3.up, 180.0f);
+            }
+            if (!inAir)
+            {
+                if (!attacking)
+                {
+                    if (currentBandMember == "John")
+                    {
+                        playerUpperAnim.Play("JohnWalk");
+                    }
+                    else if (currentBandMember == "Shavo")
+                    {
+                        playerUpperAnim.Play("ShavoWalk");
+                    }
+                    else if (currentBandMember == "Daron")
+                    {
+                        playerUpperAnim.Play("DaronWalk");
+                    }
+                    else if (currentBandMember == "Serj")
+                    {
+                        playerUpperAnim.Play("SerjWalk");
+                    }
+                }
+                if (currentBandMember == "John")
+                {
+                    playerLowerAnim.Play("JohnWalkLegs");
+                }
+                else if (currentBandMember == "Shavo")
+                {
+                    playerLowerAnim.Play("ShavoWalkLegs");
+                }
+                else if (currentBandMember == "Daron")
+                {
+                    playerLowerAnim.Play("DaronWalkLegs");
+                }
+                else if (currentBandMember == "Serj")
+                {
+                    playerLowerAnim.Play("SerjWalkLegs");
+                }
+            }
+            rb.velocity = new Vector2(-speed, rb.velocity.y);
+        }
+        else if (!inAir)
+        {
+            moving = false;
+            if (!crouched && !attacking)
+            {
+                if (currentBandMember == "John")
+                {
+                    playerUpperAnim.Play("JohnIdle");
+                    playerLowerAnim.Play("JohnIdleLegs");
+                }
+                else if (currentBandMember == "Shavo")
+                {
+                    playerUpperAnim.Play("ShavoIdle");
+                    playerLowerAnim.Play("ShavoIdleLegs");
+                }
+                else if (currentBandMember == "Daron")
+                {
+                    playerUpperAnim.Play("DaronIdle");
+                    playerLowerAnim.Play("DaronIdleLegs");
+                }
+                else if (currentBandMember == "Serj")
+                {
+                    playerUpperAnim.Play("SerjIdle");
+                    playerLowerAnim.Play("SerjIdleLegs");
+                }
+            }
+            else if (attacking)
+            {
+                if (currentBandMember == "John")
+                {
+                    playerLowerAnim.Play("JohnLandLegs");
+                }
+                else if (currentBandMember == "Shavo")
+                {
+                    playerLowerAnim.Play("ShavoLandLegs");
+                }
+                else if (currentBandMember == "Daron")
+                {
+                    playerLowerAnim.Play("DaronLandLegs");
+                }
+                else if (currentBandMember == "Serj")
+                {
+                    playerLowerAnim.Play("SerjLandLegs");
+                }
+
+            }
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+
     }
 
     public void OnCollisionEnter2D(Collision2D coll)
@@ -544,10 +547,13 @@ public class Player : MonoBehaviour {
 
     public IEnumerator Dash()
     {
+        blockHorizontalMovement = true;
         rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         yield return new WaitForSeconds(0.125f);
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        rb.velocity = new Vector2(0.0f, 0.0f);
+        rb.velocity = new Vector2(0f, 0.0f);
+        blockHorizontalMovement = false;
+
     }
 
     public IEnumerator Teleport()

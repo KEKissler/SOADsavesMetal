@@ -1,11 +1,7 @@
 fileFormatVersion: 2
 guid: 577d98e3e87528a4792be28d8eb45daf
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: serj_longrange_spritesheet_0
-    21300002: serj_longrange_spritesheet_1
-    21300004: serj_longrange_spritesheet_2
-    21300006: serj_longrange_spritesheet_3
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -35,7 +31,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -44,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -73,104 +69,13 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: serj_longrange_spritesheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 86
-        height: 45
-      alignment: 9
-      pivot: {x: 0.555, y: 0.08}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fbdf8183dc1afa14d95f96697ca45f75
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: serj_longrange_spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 86
-        y: 0
-        width: 86
-        height: 45
-      alignment: 9
-      pivot: {x: 0.565, y: 0.06}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e49cb7d25519e004f89faea14dab0c7b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: serj_longrange_spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 172
-        y: 0
-        width: 86
-        height: 45
-      alignment: 9
-      pivot: {x: 0.375, y: 0.12249661}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c2893ec5fed38cc4aa2d8a2a54f2b4c0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: serj_longrange_spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 258
-        y: 0
-        width: 86
-        height: 45
-      alignment: 9
-      pivot: {x: 0.435, y: 0.1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bbbb41cb20f143a4cabe74828dd93da7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3f0e41762e7a5654a839d829c65401b4
+    spriteID: 6b7386c2812343e47b89ec5c47be14f2
     vertices: []
     indices: 
     edges: []
