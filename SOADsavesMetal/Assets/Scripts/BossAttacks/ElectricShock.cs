@@ -15,7 +15,7 @@ public class ElectricShock : BossAttacks
         Debug.Log("Shock on");
     }
 
-    protected override IEnumerator Update(float duration)
+    protected override IEnumerator Execute(float duration)
     {
         Debug.Log("Shocking!");
         yield return new WaitForSeconds(duration);

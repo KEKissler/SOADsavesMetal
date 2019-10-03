@@ -18,12 +18,12 @@ public abstract class BossAttacks : ScriptableObject
     public void ExecuteAttack()
     {
         OnStart();
-        CoroutineRunner.instance.StartCoroutine(Update(duration));
+        CoroutineRunner.instance.StartCoroutine(Execute(duration));
         CoroutineRunner.instance.StartCoroutine(EndAttack());
     }
 
     protected abstract void OnStart();
-    protected abstract IEnumerator Update(float duration);
+    protected abstract IEnumerator Execute(float duration);
     protected abstract void OnEnd();
 
     private IEnumerator EndAttack()
