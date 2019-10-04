@@ -10,7 +10,6 @@ public abstract class BossAttacks : ScriptableObject
 
     public ProjectileSpeed projectileSpeed;
     public ProjectileType projectileType;
-    //public int speed;
     public int damage = 1;
     public float duration;
 
@@ -31,5 +30,4 @@ public abstract class BossAttacks : ScriptableObject
         yield return new WaitForSeconds(duration);
         OnEnd();
     }
-
 }

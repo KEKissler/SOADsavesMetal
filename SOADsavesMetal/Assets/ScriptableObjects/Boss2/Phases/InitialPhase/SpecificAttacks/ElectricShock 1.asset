@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf777509021789d48b901be8f65d5a2a, type: 3}
-  m_Name: ElectricShock
+  m_Name: ElectricShock 1
   m_EditorClassIdentifier: 
-  name: 
-  description: 
   animation: {fileID: 0}
   projectileSpeed: 0
   projectileType: 0

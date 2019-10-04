@@ -6,10 +6,12 @@ public class Player : MonoBehaviour {
 
     //Default Player Variables
     public string currentBandMember;
-    public bool dead;
+    public bool Dead { get { return health > 1; } }
+    public int Health {get { return health; } set { health = value; } }
     private Rigidbody2D rb;
     public float jumpHeight;
     public float speed;
+    private int health;
 
     //Player Hitbox Variables
     public GameObject upperBodyHitbox;
@@ -19,7 +21,7 @@ public class Player : MonoBehaviour {
     //Player State
     private int remainingJumps;
     private bool crouched;
-    private bool inAir;
+    public bool inAir;
     private bool landing;
     private bool attacking;
     private bool blockHorizontalMovement;
@@ -36,7 +38,6 @@ public class Player : MonoBehaviour {
     void Start () {
         moving = false;
         attacking = false;
-        dead = false;
         deathStarted = false;
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerUpperAnim = gameObject.GetComponent<Animator>();
@@ -53,7 +54,7 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!dead)
+        if (health > 0)
         {
             //Falling and Jumping Animations
             if (rb.velocity.y < -0.5f)
