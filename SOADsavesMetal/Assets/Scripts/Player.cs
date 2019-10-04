@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
 
     //Default Player Variables
     public string currentBandMember;
-    public bool Dead { get { return health > 1; } }
+    public bool Dead { get { return health < 1; } }
     public int Health {get { return health; } set { health = value; } }
     private Rigidbody2D rb;
     public float jumpHeight;
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (health > 0)
+        if (!Dead)
         {
             //Falling and Jumping Animations
             if (rb.velocity.y < -0.5f)
