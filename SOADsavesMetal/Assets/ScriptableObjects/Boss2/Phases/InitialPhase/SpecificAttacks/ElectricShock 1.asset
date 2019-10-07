@@ -16,5 +16,7 @@ MonoBehaviour:
   projectileSpeed: 0
   projectileType: 0
   damage: 1
-  duration: 5
-  wire: {fileID: 0}
+  duration: 2
+  wirePrefab: {fileID: 6541286465017545709, guid: 6e9dcd044426fc04aa41098a72de7111,
+    type: 3}
+  CycleTime: 2

@@ -5,11 +5,11 @@ using UnityEngine;
 public class AttackOptions : ScriptableObject
 {
     public AttackSelectionType AttackSelectionType;
-    public List<BossAttacks> Attacks;
+    public List<BossAttack> Attacks;
     private int lastAttackSelectedIndex = -1;
     private readonly System.Random RNG = new System.Random();
 
-    public BossAttacks GetNextAttack()
+    public BossAttack GetNextAttack()
     {
         if (Attacks.Count < 1)
         {

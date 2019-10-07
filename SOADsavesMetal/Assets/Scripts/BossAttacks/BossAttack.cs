@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public abstract class BossAttacks : ScriptableObject
+public abstract class BossAttack : ScriptableObject
 {
     public Animation animation;
 
@@ -13,11 +13,13 @@ public abstract class BossAttacks : ScriptableObject
     public int damage = 1;
     public float duration;
 
+    private Coroutine executingAttack;
+
 
     public void ExecuteAttack()
     {
         OnStart();
-        CoroutineRunner.instance.StartCoroutine(Execute(duration));
+        executingAttack = CoroutineRunner.instance.StartCoroutine(Execute(duration));
         CoroutineRunner.instance.StartCoroutine(EndAttack());
     }
 
@@ -28,6 +30,7 @@ public abstract class BossAttacks : ScriptableObject
     private IEnumerator EndAttack()
     {
         yield return new WaitForSeconds(duration);
+        CoroutineRunner.instance.StopCoroutine(executingAttack);
         OnEnd();
     }
 }
