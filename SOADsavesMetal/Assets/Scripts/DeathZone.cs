@@ -18,7 +18,7 @@ public class DeathZone : MonoBehaviour {
     {
         if(coll.tag == "Player")
         {
-            coll.gameObject.GetComponent<Player>().dead = true;
+            coll.gameObject.GetComponent<Player>().Health = 0;
         }
     }
 }
