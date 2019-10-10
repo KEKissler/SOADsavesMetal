@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
     private Rigidbody2D rb;
     public float jumpHeight;
     public float speed;
+    public int startingHealth;
     private int health;
 
     //Player Hitbox Variables
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        health = startingHealth;
         moving = false;
         attacking = false;
         deathStarted = false;
