@@ -6,7 +6,7 @@ using System.Linq;
 public class TsovinarAttackManager : BossAttackManager
 {
     //all prior attack state
-    private BossAttacks attack;
+    private BossAttack attack;
     private AttackOptions options;
     private TsovinarPhase phase;
     private int phaseIndex;
@@ -39,7 +39,7 @@ public class TsovinarAttackManager : BossAttackManager
         }
     }
 
-    private BossAttacks SelectNextAttack()
+    private BossAttack SelectNextAttack()
     {
         //if new phase condition reached, switch phase (or announce end of final phase)
         if (BossHealth.getHPPercentage() < PhaseChangeThreshholds[phaseIndex].HealthPercentThreshhold)

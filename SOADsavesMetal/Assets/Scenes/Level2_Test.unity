@@ -112,6 +112,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &5013283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5013284}
+  m_Layer: 0
+  m_Name: AttackContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5013284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5013283}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &52430930
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,8 +852,6 @@ MonoBehaviour:
   PhaseChangeThreshholds:
   - BossPhase: {fileID: 11400000, guid: 558e20ac75dcadc45a8e2ba13927ecd5, type: 2}
     HealthPercentThreshhold: 0
-  - BossPhase: {fileID: 11400000, guid: 558e20ac75dcadc45a8e2ba13927ecd5, type: 2}
-    HealthPercentThreshhold: 120
   - BossPhase: {fileID: 11400000, guid: 558e20ac75dcadc45a8e2ba13927ecd5, type: 2}
     HealthPercentThreshhold: 120
 --- !u!1 &238696592
@@ -1543,6 +1571,65 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &544025786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 544025788}
+  - component: {fileID: 544025787}
+  m_Layer: 0
+  m_Name: TsovinarAttackInitializer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &544025787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544025786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d00f230351690b408c5b203a0ca38a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackData:
+    attackParent: {fileID: 5013284}
+    wire1: {fileID: 507783419}
+    wire2: {fileID: 1975342152}
+    wire3: {fileID: 1174239263}
+    wire4: {fileID: 424609085}
+    wire5: {fileID: 2137245756}
+    wire6: {fileID: 1715183679}
+    player: {fileID: 0}
+    screen1: {fileID: 0}
+    screen2: {fileID: 0}
+    screen3: {fileID: 0}
+    screen4: {fileID: 0}
+    screen5: {fileID: 0}
+  TsovinarAttacksToInitialize:
+  - {fileID: 11400000, guid: 9b8bfa7877c68db4fa5cefba58081aa4, type: 2}
+--- !u!4 &544025788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544025786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3637843, y: 1.914469, z: 0.084193185}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &596761908
 GameObject:
   m_ObjectHideFlags: 0
@@ -2637,7 +2724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1298453363
 Transform:
   m_ObjectHideFlags: 0
@@ -4131,6 +4218,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: wire_segment
+      objectReference: {fileID: 0}
+    - target: {fileID: 6541286465017545709, guid: 6e9dcd044426fc04aa41098a72de7111,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6541286465017545708, guid: 6e9dcd044426fc04aa41098a72de7111,
         type: 3}
