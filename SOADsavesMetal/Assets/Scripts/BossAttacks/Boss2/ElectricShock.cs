@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
+
 [CreateAssetMenu(menuName = "New Attack/ElectricShockAttack")]
 public class ElectricShock : TsovinarAttack
 {
-    public const string ON_STATE = "wire_on";
-    public const string OFF_STATE = "wire_off";
+    private const string ON_STATE = "wire_on";
+    private const string OFF_STATE = "wire_off";
 
     public GameObject wirePrefab;
     public float CycleTime;
@@ -58,6 +59,7 @@ public class ElectricShock : TsovinarAttack
     protected override IEnumerator Execute(float duration)
     {
         yield return new WaitForEndOfFrame();
+        Debug.Log("Shocking!");
         while (true)
         {
             isOdd = !isOdd;
@@ -81,9 +83,6 @@ public class ElectricShock : TsovinarAttack
             }
             yield return new WaitForSeconds(CycleTime);
         }
-        
-        
-        Debug.Log("Shocking!");
     }
 
     public override void Initialize(TsovinarAttackData data)
