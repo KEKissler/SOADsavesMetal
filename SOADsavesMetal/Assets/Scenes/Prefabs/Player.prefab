@@ -732,12 +732,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentBandMember: Shavo
-  dead: 0
   jumpHeight: 18
   speed: 10
+  startingHealth: 3
   upperBodyHitbox: {fileID: 9117497486007347996}
   shortRangeHitbox: {fileID: 9117497486599704595}
   stick: {fileID: 0}
+  inAir: 0
   moving: 0
   playerLowerAnim: {fileID: 9117497486779350954}
 --- !u!95 &9117497486307095086
