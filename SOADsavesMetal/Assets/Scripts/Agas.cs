@@ -37,8 +37,9 @@ public class Agas : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         attacking = false;
         groundSpikes = new GameObject[numberOfSpikes];
-        for(int i=0; i<numberOfSpikes; ++i)
-            groundSpikes[i] = Instantiate(spike, new Vector2(spikeStart-spikeSpacing*i, SPIKE_HEIGHT), Quaternion.identity);
+        //for(int i=0; i<numberOfSpikes; ++i) {
+        //    groundSpikes[i] = Instantiate(spike, new Vector2(spikeStart-spikeSpacing*i, SPIKE_HEIGHT), Quaternion.identity);
+		//}
         StartCoroutine(basicPattern());
     }
 
@@ -85,7 +86,7 @@ public class Agas : MonoBehaviour
         do
         {
             c = randomGen.Next(6);
-            if(!candles[c].GetComponent<CandleEmitter>().getFire())
+            if(!candles[c].GetComponent<CandleEmitter>().getCandleActive())
             {
                 candles[c].GetComponent<CandleEmitter>().enableFire();
                 foundCandle = true;
@@ -93,8 +94,8 @@ public class Agas : MonoBehaviour
         }
         while(!foundCandle);
 
-        candles[c].GetComponent<CandleEmitter>().setDisableAfter((randomGen.Next(5) + 18.0f)/2f + 0.1f);
-        candles[c].GetComponent<CandleEmitter>().setFirePeriod((randomGen.Next(3) + 7.0f)/4f);
+        candles[c].GetComponent<CandleEmitter>().setMaxShots(randomGen.Next(3) + 4);
+        candles[c].GetComponent<CandleEmitter>().setFirePeriod((randomGen.Next(3) + 14.0f)/4f);
         candles[c].GetComponent<CandleEmitter>().setSpeed(randomGen.Next(2));
     }
 

@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 6372772262343451347}
   m_Layer: 0
   m_Name: FloatingCandle
-  m_TagString: Untagged
+  m_TagString: ShortRangeHittable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -305,6 +305,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1883100758368052, guid: b27990fa57b7cfd40bed143f755e67d6, type: 3}
+  minFireScale: 1
+  maxFireScale: 1.8
 --- !u!1 &1886785510655580
 GameObject:
   m_ObjectHideFlags: 0

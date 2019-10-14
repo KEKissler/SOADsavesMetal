@@ -19,13 +19,16 @@ public class ShortRangeDmg : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.gameObject.tag == "Boss" && canHit)
-		{
+		if(col.gameObject.tag == "Boss" && canHit) {
 			col.gameObject.SendMessage("hit", damage);
 			canHit = false;
 		}
 		else if(col.gameObject.tag == "Projectile")
 			Destroy(col.gameObject);
+		else if(col.gameObject.tag == "ShortRangeHittable") {
+			col.gameObject.SendMessage("hit");
+			Debug.Log("b");
+		}
 	}
 
 	void OnTriggerStay2D(Collider2D col)
@@ -37,6 +40,10 @@ public class ShortRangeDmg : MonoBehaviour {
 		}
 		else if(col.gameObject.tag == "Projectile")
 			Destroy(col.gameObject);
+		else if(col.gameObject.tag == "ShortRangeHittable") {
+			Debug.Log("a");
+			col.gameObject.SendMessage("hit");
+		}
 	}
 
 	void refreshHit()
