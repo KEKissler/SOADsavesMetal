@@ -1102,6 +1102,7 @@ MonoBehaviour:
   currentBandMember: 
   jumpHeight: 0
   speed: 0
+  startingHealth: 0
   upperBodyHitbox: {fileID: 0}
   shortRangeHitbox: {fileID: 0}
   stick: {fileID: 0}
@@ -1616,6 +1617,7 @@ MonoBehaviour:
     screen5: {fileID: 0}
   TsovinarAttacksToInitialize:
   - {fileID: 11400000, guid: 9b8bfa7877c68db4fa5cefba58081aa4, type: 2}
+  - {fileID: 11400000, guid: 5fc5f6e957c70c64a87ba2e07da88413, type: 2}
 --- !u!4 &544025788
 Transform:
   m_ObjectHideFlags: 0

@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "New Attack/ElectricShockAttack")]
-public class ElectricShock : TsovinarAttack
+[CreateAssetMenu(menuName = "New Attack/ElectricShockAttack_oddEven")]
+public class ElectricShock_OddEven : TsovinarAttack
 {
     private const string ON_STATE = "wire_on";
     private const string OFF_STATE = "wire_off";
