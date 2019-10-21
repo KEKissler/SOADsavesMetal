@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "New Attack/ElectricShockAttack_oddEven")]
 public class ElectricShock_OddEven : TsovinarAttack
 {
-    private const string ON_STATE = "wire_on";
+    private const string ON_STATE = "wire_warning";
     private const string OFF_STATE = "wire_off";
 
     public GameObject wirePrefab;
@@ -30,6 +30,12 @@ public class ElectricShock_OddEven : TsovinarAttack
 
     protected override void OnEnd()
     {
+        wire1.Play(OFF_STATE);
+        wire2.Play(OFF_STATE);
+        wire3.Play(OFF_STATE);
+        wire4.Play(OFF_STATE);
+        wire5.Play(OFF_STATE);
+        wire6.Play(OFF_STATE);
         Destroy(wire1.gameObject);
         Destroy(wire2.gameObject);
         Destroy(wire3.gameObject);

@@ -853,7 +853,7 @@ MonoBehaviour:
   - BossPhase: {fileID: 11400000, guid: 558e20ac75dcadc45a8e2ba13927ecd5, type: 2}
     HealthPercentThreshhold: 0
   - BossPhase: {fileID: 11400000, guid: 558e20ac75dcadc45a8e2ba13927ecd5, type: 2}
-    HealthPercentThreshhold: 120
+    HealthPercentThreshhold: 80
 --- !u!1 &238696592
 GameObject:
   m_ObjectHideFlags: 0
@@ -2510,7 +2510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1298453363
 Transform:
   m_ObjectHideFlags: 0
@@ -3415,7 +3415,7 @@ PrefabInstance:
     - target: {fileID: 9117497486307095081, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4554619
+      value: -1.8394887
       objectReference: {fileID: 0}
     - target: {fileID: 9117497486307095081, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}

@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "New Attack/ElectricShockAttack_wave")]
 public class ElectricShock_Wave : TsovinarAttack
 {
-    private const string ON_STATE = "wire_on";
+    private const string ON_STATE = "wire_warning";
     private const string OFF_STATE = "wire_off";
 
     public GameObject wirePrefab;
