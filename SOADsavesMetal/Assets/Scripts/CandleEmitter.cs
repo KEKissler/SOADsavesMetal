@@ -45,15 +45,11 @@ public class CandleEmitter : MonoBehaviour {
 			{
 				timer %= firePeriod;
 				StartCoroutine(createProjectile());
+				StartCoroutine(lerpFlameSizeToMinimum());
 				++currShots;
 			}
 			if(currShots >= maxShots) disableFire();
-			float scaleVelocity = 3 * timer * fireScaleRange / firePeriod * firePeriod;
-			float scale = minFireScale + scaleVelocity;
-			fire1.transform.localScale = new Vector2(scale, scale);
-			fire2.transform.localScale = new Vector2(scale, scale);
-			fire1.transform.position = fire1Start + new Vector2(0, scaleVelocity/2f);
-			fire2.transform.position = fire2Start + new Vector2(0, scaleVelocity/2f);
+			resizeFlameWhileActive();
 		}
 		else
 		{
@@ -63,6 +59,46 @@ public class CandleEmitter : MonoBehaviour {
 			fire1.transform.position = fire1Start;
 			fire2.transform.position = fire2Start;
 		}
+	}
+	
+	void resizeFlameWhileActive()
+	{
+		float timerPower = (float)Math.Pow(timer, 2f);
+		float scaleVelocity = 0.0009f * 3 * timerPower * fireScaleRange;
+		float scale = fire1.transform.localScale.x + scaleVelocity;
+		setFlameSize(scale);
+	}
+	
+	void setFlameSize(float scale)
+	{
+		float scaleDifferentialAboveBase = scale - minFireScale;
+		fire1.transform.localScale = new Vector2(scale, scale);
+		fire2.transform.localScale = new Vector2(scale, scale);
+		fire1.transform.position = fire1Start + new Vector2(0, scaleDifferentialAboveBase/2f);
+		fire2.transform.position = fire2Start + new Vector2(0, scaleDifferentialAboveBase * 0.37f);
+	}
+	
+	void resetFlameSize()
+	{
+		fire1.transform.localScale = new Vector2(minFireScale, minFireScale);
+		fire2.transform.localScale = new Vector2(minFireScale, minFireScale);
+		fire1.transform.position = fire1Start;
+		fire2.transform.position = fire2Start;
+	}
+	
+	IEnumerator lerpFlameSizeToMinimum()
+	{
+		float currentFireScaleRange = fire1.transform.localScale.x - minFireScale;
+		float timer = 0f;
+		float timeToLerp = (0.3f < firePeriod) ? 0.3f : firePeriod;
+		while(timer < timeToLerp)
+		{
+			setFlameSize(minFireScale + (timeToLerp - timer) / timeToLerp * currentFireScaleRange);
+			// Make this shrink a little sharper, more of a bounce
+			timer += Time.deltaTime;
+			yield return null;
+		}
+		resetFlameSize();
 	}
 
 	IEnumerator createProjectile()
@@ -88,15 +124,12 @@ public class CandleEmitter : MonoBehaviour {
 		fire1.SetActive(false);
 		fire2.SetActive(false);
 		candleGlow.gameObject.SetActive(false);
-		fire1.transform.localScale = new Vector2(minFireScale, minFireScale);
-		fire2.transform.localScale = new Vector2(minFireScale, minFireScale);
-		fire1.transform.position = fire1Start;
-		fire2.transform.position = fire2Start;
+		resetFlameSize();
 	}
 
 	public void setFirePeriod(float firePeriod)
 	{
-		firePeriod = firePeriod;
+		this.firePeriod = firePeriod;
 	}
 
 	public void setMaxShots(int maxShots)
