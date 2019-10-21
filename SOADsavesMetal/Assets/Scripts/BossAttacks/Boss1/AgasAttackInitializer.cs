@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TsovinarAttackInitializer : MonoBehaviour
+public class AgasAttackInitializer : MonoBehaviour
 {
-    public TsovinarAttackData AttackData;
+    public AgasAttackData AttackData;
 
-    public List<TsovinarAttack> AttacksToInitialize = new List<TsovinarAttack>();
+    public List<AgasAttack> AttacksToInitialize = new List<AgasAttack>();
 
     private void Start()
     {
@@ -16,4 +16,3 @@ public class TsovinarAttackInitializer : MonoBehaviour
         }
     }
 }
-

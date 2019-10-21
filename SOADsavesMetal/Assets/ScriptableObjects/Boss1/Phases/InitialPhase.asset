@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 283f0b8bca799c34788879c0fbd95b14, type: 3}
+  m_Name: InitialPhase
+  m_EditorClassIdentifier: 
+  BossPosition: {fileID: 0}
+  Player: {fileID: 0}
+  CloseUpDistance: 0
+  NearGroundCutoff: 0
+  DefaultAttacks: {fileID: 11400000, guid: d745e02de35bcca44a0d08292a536511, type: 2}
+  CloseUpAttacks: {fileID: 11400000, guid: 6d85960878c0f754e94403982edd6b11, type: 2}
+  LowPlayerHPAttacks: {fileID: 11400000, guid: 742f685891d978646a4ec971329ad7ec, type: 2}
+  PlayerOnPlatformAttacks: {fileID: 11400000, guid: 2367dd797edf64342825e66ba9e0af15,
+    type: 2}

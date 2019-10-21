@@ -6,11 +6,6 @@ using UnityEngine;
 
 public abstract class BossAttack : ScriptableObject
 {
-    public Animation animation;
-
-    public ProjectileSpeed projectileSpeed;
-    public ProjectileType projectileType;
-    public int damage = 1;
     public float duration;
 
     private Coroutine executingAttack;
