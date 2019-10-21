@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee4057deb479dc742ac4c0e9862d7f1d, type: 3}
-  m_Name: Phase1PlayerOnPlatform
+  m_Script: {fileID: 11500000, guid: 3a74312de8b34584cb7c5995e0f077e2, type: 3}
+  m_Name: ElectircShock_Random
   m_EditorClassIdentifier: 
-  AttackSelectionType: 0
-  Attacks:
-  - {fileID: 11400000, guid: aff30ffa32ef1284ba6bcfc6da6afecb, type: 2}
+  duration: 20
+  wirePrefab: {fileID: 6541286465017545709, guid: 6e9dcd044426fc04aa41098a72de7111,
+    type: 3}
+  CycleTime: 2
+  activeWireCount: 3
