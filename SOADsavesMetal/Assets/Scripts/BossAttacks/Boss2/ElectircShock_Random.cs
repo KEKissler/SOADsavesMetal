@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [CreateAssetMenu(menuName = "New Attack/ElectricShockAttack_random")]
 public class ElectircShock_Random : TsovinarAttack
@@ -13,6 +14,8 @@ public class ElectircShock_Random : TsovinarAttack
 
     [Range(1, 6)]
     public int activeWireCount;
+
+    private bool[] wireOnOff = new bool[5];
 
     private Transform wire1Location;
     private Transform wire2Location;
@@ -83,29 +86,28 @@ public class ElectircShock_Random : TsovinarAttack
         wire6.Play(OFF_STATE);
     }
 
-    private int PositiveMod(int value, int n)
-    {
-        //C# why ;-;
-        var result = value % n;
-        if (result < 0)
-        {
-            return result + n;
-        }
-        return result;
-    }
-
     private void turnOn()
     {
         int randNum;
         for (int i = 0; i < activeWireCount; ++i)
         {
             randNum = Random.Range(0, 5);
-            while (wireMap[randNum].GetCurrentAnimatorStateInfo(0).IsName(ON_STATE))
+            while (wireOnOff[randNum])
             {
                 randNum = Random.Range(0, 5);
             }
-            wireMap[randNum].Play(ON_STATE);
+            wireOnOff[randNum] = true;
         }
+
+        for(int i = 0; i < wireOnOff.Length; ++i)
+        {
+            if (wireOnOff[i])
+            {
+                wireMap[i].Play(ON_STATE);      
+            }
+        }
+
+   
     }
 
     protected override IEnumerator Execute(float duration)
@@ -124,6 +126,11 @@ public class ElectircShock_Random : TsovinarAttack
             wire4.Play(OFF_STATE);
             wire5.Play(OFF_STATE);
             wire6.Play(OFF_STATE);
+
+            for (int i = 0; i < wireOnOff.Length; ++i)
+            {
+                wireOnOff[i] = false;
+            }
         }
     }
 
