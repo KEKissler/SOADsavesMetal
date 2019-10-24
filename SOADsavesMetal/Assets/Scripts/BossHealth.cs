@@ -32,7 +32,6 @@ public class BossHealth : MonoBehaviour
     public void hit(int damage)
     {
         HP -= (int)(damage * damageMultiplier + 0.5f);
-        Debug.Log(HP);
     }
 
     public void changeMultiplier(float multiplier)
