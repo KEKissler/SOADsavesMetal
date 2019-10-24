@@ -70,6 +70,11 @@ public class CandleEmitter : MonoBehaviour {
 		if(!player)	player = GameObject.Find("Player");
 		GameObject projectileClone = Instantiate(projectile, candleGlow.position, transform.rotation);
 		yield return null;
+        if(projectileClone == null)
+        {
+            //the projectile was removed by the player on its first frame after Instatiate
+            yield break;
+        }
 		projectileClone.GetComponent<Projectile>().Configure(player, ProjectileType.Honing, speed, 0.0f);
 		projectileClone.transform.localScale = new Vector2(3.6f, 3.6f);
 	}
