@@ -279,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackData:
     player: {fileID: 1105088042}
+    agasPosition: {fileID: 1323862903}
     attackParent: {fileID: 283002722}
     candle0: {fileID: 1092857749}
     candle1: {fileID: 1301791792}
@@ -288,6 +289,7 @@ MonoBehaviour:
     candle5: {fileID: 1924595298}
   AttacksToInitialize:
   - {fileID: 11400000, guid: b0a91bd191266214988876ad587b92f3, type: 2}
+  - {fileID: 11400000, guid: 38b2736f4a198f345af13a045652ac31, type: 2}
 --- !u!4 &72277651
 Transform:
   m_ObjectHideFlags: 0
@@ -2066,6 +2068,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38ee69a7d243e2408514c598a4f606e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1323862903 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2380804505604382100, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1443309142}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1382112847
 GameObject:
   m_ObjectHideFlags: 0
