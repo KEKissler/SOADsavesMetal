@@ -1,21 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-[CreateAssetMenu(menuName = "New Attack/ElectricShockAttack_wave")]
-public class ElectricShock_Wave : TsovinarAttack
+[CreateAssetMenu(menuName = "New Attack/ElectricShockAttack_random")]
+public class ElectircShock_Random : TsovinarAttack
 {
     private const string ON_STATE = "wire_warning";
     private const string OFF_STATE = "wire_off";
 
     public GameObject wirePrefab;
     public float CycleTime;
-    [Range(0, 5)]
-    public int start;
-    public bool isMovingRight;
-    public int waveWidth;
-        
-    private int first, last;
+
+    [Range(1, 6)]
+    public int activeWireCount;
+
+    private bool[] wireOnOff = new bool[5];
 
     private Transform wire1Location;
     private Transform wire2Location;
@@ -32,11 +32,20 @@ public class ElectricShock_Wave : TsovinarAttack
     private Animator wire5;
     private Animator wire6;
 
+    animationStates currentState;
+
     private readonly Dictionary<int, Animator> wireMap = new Dictionary<int, Animator>();
-    
-    
+
+    public enum animationStates
+    {
+        ON,
+        OFF
+    }
+
     protected override void OnEnd()
     {
+
+        if(currentState == animationStates.ON)
         wire1.Play(OFF_STATE);
         wire2.Play(OFF_STATE);
         wire3.Play(OFF_STATE);
@@ -77,51 +86,51 @@ public class ElectricShock_Wave : TsovinarAttack
         wire6.Play(OFF_STATE);
     }
 
-    private void Advance()
+    private void turnOn()
     {
-        first = PositiveMod((first + (isMovingRight ? 1 : -1)), 6);
-        last = PositiveMod((last + (isMovingRight ? 1 : -1)), 6);
-    }
-
-    private int PositiveMod(int value, int n)
-    {
-        //C# why ;-;
-        var result = value % n;
-        if(result < 0)
+        int randNum;
+        for (int i = 0; i < activeWireCount; ++i)
         {
-            return result + n;
+            randNum = Random.Range(0, 5);
+            while (wireOnOff[randNum])
+            {
+                randNum = Random.Range(0, 5);
+            }
+            wireOnOff[randNum] = true;
         }
-        return result;
+
+        for(int i = 0; i < wireOnOff.Length; ++i)
+        {
+            if (wireOnOff[i])
+            {
+                wireMap[i].Play(ON_STATE);      
+            }
+        }
+
+   
     }
 
     protected override IEnumerator Execute(float duration)
     {
         yield return new WaitForEndOfFrame();
-        first = start;
-        last = start;
-        //go back 2 for last
-        isMovingRight = !isMovingRight;
-        for(int i = 0; i < waveWidth; ++i)
-        {
-            Advance();
-        }
-        first = start;
-        isMovingRight = !isMovingRight;
-
-        for (int i = 0; i < waveWidth; ++i)
-        {
-            wireMap[first].Play(ON_STATE);
-            yield return new WaitForSeconds(CycleTime);
-            Advance();
-        }
 
         Debug.Log("Setup");
         while (true)
         {
-            wireMap[first].Play(ON_STATE);
-            wireMap[last].Play(OFF_STATE);
+            turnOn();  
             yield return new WaitForSeconds(CycleTime);
-            Advance();
+
+            wire1.Play(OFF_STATE);
+            wire2.Play(OFF_STATE);
+            wire3.Play(OFF_STATE);
+            wire4.Play(OFF_STATE);
+            wire5.Play(OFF_STATE);
+            wire6.Play(OFF_STATE);
+
+            for (int i = 0; i < wireOnOff.Length; ++i)
+            {
+                wireOnOff[i] = false;
+            }
         }
     }
 
@@ -136,4 +145,3 @@ public class ElectricShock_Wave : TsovinarAttack
         attackParent = data.attackParent;
     }
 }
-

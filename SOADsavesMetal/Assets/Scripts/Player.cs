@@ -219,7 +219,6 @@ public class Player : MonoBehaviour {
                         playerLowerAnim.Play("ShavoDashLegs");
                         inAir = true;
                         StartCoroutine(Dash());
-                        Debug.Log(rb.velocity.x);
                         var playerRotation = gameObject.transform.rotation;
                         rb.velocity = new Vector2((playerRotation.y == 0 ? 1 : -1) * 1.5f * jumpHeight, 0.0f);
                     }
