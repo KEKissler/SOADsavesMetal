@@ -45,7 +45,7 @@ public class CandleEmitter : MonoBehaviour {
 			{
 				timer %= firePeriod;
 				StartCoroutine(createProjectile());
-				StartCoroutine(lerpFlameSizeToMinimum());
+				StartCoroutine(lerpFlameSizeToMinimum(0.18f));
 				++currShots;
 			}
 			if(currShots >= maxShots) disableFire();
@@ -86,11 +86,11 @@ public class CandleEmitter : MonoBehaviour {
 		fire2.transform.position = fire2Start;
 	}
 	
-	IEnumerator lerpFlameSizeToMinimum()
+	IEnumerator lerpFlameSizeToMinimum(float maxTimeToLerp)
 	{
 		float currentFireScaleRange = fire1.transform.localScale.x - minFireScale;
 		float timer = 0f;
-		float timeToLerp = (0.3f < firePeriod) ? 0.3f : firePeriod;
+		float timeToLerp = (maxTimeToLerp < firePeriod) ? maxTimeToLerp : firePeriod;
 		while(timer < timeToLerp)
 		{
 			setFlameSize(minFireScale + (timeToLerp - timer) / timeToLerp * currentFireScaleRange);
