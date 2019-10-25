@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: TVbg3
   m_Shader: {fileID: 4800000, guid: 4e639e9d668eabc4ea968c1012ba1b04, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -78,5 +79,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.80523014, g: 0, b: 1, a: 1}
+    - _Color: {r: 0.54613847, g: 0.19379672, b: 0.6320754, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

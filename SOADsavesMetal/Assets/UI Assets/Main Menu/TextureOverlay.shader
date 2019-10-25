@@ -75,11 +75,13 @@ Shader "Custom/Overlay Texture Distortion"
 				float4 disp2 = tex2D(_DistortionTex, flow.xy)*flow.z;
 				
 				float4 col = tex2D(_MainTex, i.uv);
+				float4 orig = col;
+
 				col *= (disp+disp2) * _Intensity;
 				col.rgb += (disp.rgb + disp2.rgb) * _Multiplier;
 				col *= _Color;
 
-				col.a = _Transparency;
+				col.a = orig.a * _Transparency;
 				return col;
 			}
 			ENDCG
