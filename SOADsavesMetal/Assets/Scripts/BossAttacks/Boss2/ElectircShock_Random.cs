@@ -92,6 +92,10 @@ public class ElectircShock_Random : TsovinarAttack
         for (int i = 0; i < activeWireCount; ++i)
         {
             randNum = Random.Range(0, 5);
+            if (wireOnOff.All(a => a))
+            {
+                break;
+            }
             while (wireOnOff[randNum])
             {
                 randNum = Random.Range(0, 5);
@@ -117,16 +121,14 @@ public class ElectircShock_Random : TsovinarAttack
         Debug.Log("Setup");
         while (true)
         {
-            turnOn();  
+            turnOn();
             yield return new WaitForSeconds(CycleTime);
-
             wire1.Play(OFF_STATE);
             wire2.Play(OFF_STATE);
             wire3.Play(OFF_STATE);
             wire4.Play(OFF_STATE);
             wire5.Play(OFF_STATE);
             wire6.Play(OFF_STATE);
-
             for (int i = 0; i < wireOnOff.Length; ++i)
             {
                 wireOnOff[i] = false;
