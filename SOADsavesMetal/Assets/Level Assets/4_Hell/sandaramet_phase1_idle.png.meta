@@ -89,18 +89,18 @@ TextureImporter:
       name: sandaramet_phase1_idle_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 13
-        width: 383
-        height: 361
+        x: 0
+        y: 0
+        width: 411
+        height: 387
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a430bf00fb49a3b4e9201acc311f5758
+      spriteID: 2ebb32e1e99b0034fa1b9d7e040a0bff
       vertices: []
       indices: 
       edges: []
@@ -109,18 +109,18 @@ TextureImporter:
       name: sandaramet_phase1_idle_1
       rect:
         serializedVersion: 2
-        x: 428
-        y: 13
-        width: 377
-        height: 361
+        x: 411
+        y: 0
+        width: 411
+        height: 387
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd15bcc17f6fc3c4b9ddf295dfe3af9d
+      spriteID: f7508e5bc073fce4a96dbab623cd3b6e
       vertices: []
       indices: 
       edges: []

@@ -99,18 +99,18 @@ TextureImporter:
       name: sandaramet_phase2_appear_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
         y: 0
-        width: 442
+        width: 471
         height: 427
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a810278c2b916e844b611721597d3fa9
+      spriteID: e693942c160cc0e498d1df956aab00a1
       vertices: []
       indices: 
       edges: []
@@ -119,18 +119,18 @@ TextureImporter:
       name: sandaramet_phase2_appear_1
       rect:
         serializedVersion: 2
-        x: 481
+        x: 471
         y: 0
-        width: 442
+        width: 471
         height: 427
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a73f4c917ba6334ab40ad1ff4374a97
+      spriteID: f93717166606f7e42bae56be548a0053
       vertices: []
       indices: 
       edges: []
@@ -139,18 +139,18 @@ TextureImporter:
       name: sandaramet_phase2_appear_2
       rect:
         serializedVersion: 2
-        x: 626
-        y: 342
-        width: 43
-        height: 71
+        x: 942
+        y: 0
+        width: 471
+        height: 427
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b793d8de57828d6499d4f9224212d358
+      spriteID: d5ff28cee71f7a1429ac2a4fa9904356
       vertices: []
       indices: 
       edges: []
@@ -159,18 +159,18 @@ TextureImporter:
       name: sandaramet_phase2_appear_3
       rect:
         serializedVersion: 2
-        x: 952
+        x: 1413
         y: 0
-        width: 442
+        width: 471
         height: 427
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7adec0b0d7b52642a9d066b4f492b22
+      spriteID: ef1971795ffb1f8468335bedf8c22978
       vertices: []
       indices: 
       edges: []
@@ -179,18 +179,18 @@ TextureImporter:
       name: sandaramet_phase2_appear_4
       rect:
         serializedVersion: 2
-        x: 1424
+        x: 1884
         y: 0
-        width: 442
+        width: 471
         height: 427
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6be2c925a18c8524c99b106cbbcc3c0d
+      spriteID: 9c638a72b1e761b4b87523c8f0026985
       vertices: []
       indices: 
       edges: []
@@ -199,18 +199,18 @@ TextureImporter:
       name: sandaramet_phase2_appear_5
       rect:
         serializedVersion: 2
-        x: 1895
+        x: 2355
         y: 0
-        width: 442
+        width: 471
         height: 427
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7333af30f0e3ed24389d2afb06107197
+      spriteID: 9c6d1900132707f499a90b02b5e7774c
       vertices: []
       indices: 
       edges: []
@@ -219,18 +219,18 @@ TextureImporter:
       name: sandaramet_phase2_appear_6
       rect:
         serializedVersion: 2
-        x: 2038
-        y: 342
-        width: 46
-        height: 71
+        x: 2826
+        y: 0
+        width: 471
+        height: 427
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52e784b9137067a4f97c1a2d6889fbba
+      spriteID: 99043b95cbfa6f347bdcfa8997c37e1b
       vertices: []
       indices: 
       edges: []
@@ -239,18 +239,18 @@ TextureImporter:
       name: sandaramet_phase2_appear_7
       rect:
         serializedVersion: 2
-        x: 2368
+        x: 3297
         y: 0
-        width: 442
+        width: 471
         height: 427
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52df6933a804c9a4e97957c79837aefe
+      spriteID: 2b44b3c215929b041b1cb6aa4792a198
       vertices: []
       indices: 
       edges: []
@@ -259,18 +259,18 @@ TextureImporter:
       name: sandaramet_phase2_appear_8
       rect:
         serializedVersion: 2
-        x: 2843
+        x: 3768
         y: 0
-        width: 442
+        width: 471
         height: 427
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4395da363c9e4d647999bb46428dc926
+      spriteID: 5ac92785c359ff340b979be5ccb3c1a0
       vertices: []
       indices: 
       edges: []
@@ -279,58 +279,18 @@ TextureImporter:
       name: sandaramet_phase2_appear_9
       rect:
         serializedVersion: 2
-        x: 3318
+        x: 4239
         y: 0
-        width: 442
-        height: 427
-      alignment: 9
-      pivot: {x: 0.51879495, y: 0.50000006}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: edcebbe3ecd39b24bb74d4c35b1cd35b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sandaramet_phase2_appear_10
-      rect:
-        serializedVersion: 2
-        x: 3786
-        y: 0
-        width: 442
+        width: 471
         height: 427
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5485ad9880f7648449450f0945495217
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sandaramet_phase2_appear_11
-      rect:
-        serializedVersion: 2
-        x: 4260
-        y: 0
-        width: 442
-        height: 427
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 510a82ac2b6608843aa5d58e65dd3a2d
+      spriteID: 8ba894a7915a5cb49856e9e48d5c372b
       vertices: []
       indices: 
       edges: []

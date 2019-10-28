@@ -1,7 +1,15 @@
 fileFormatVersion: 2
 guid: d004b125e08cee74f9c0210e6132d451
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: serj_superattack_spritesheet_0
+    21300002: serj_superattack_spritesheet_1
+    21300004: serj_superattack_spritesheet_2
+    21300006: serj_superattack_spritesheet_3
+    21300008: serj_superattack_spritesheet_4
+    21300010: serj_superattack_spritesheet_5
+    21300012: serj_superattack_spritesheet_6
+    21300014: serj_superattack_spritesheet_7
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -40,7 +48,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -82,7 +90,167 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: serj_superattack_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 804
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d62c4c1340677184ba5c9268a249def7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: serj_superattack_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 0
+        width: 804
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 597b8a842e61be9479531ddf06d84934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: serj_superattack_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 0
+        width: 804
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d15524bf862340048b283ba27a5cadff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: serj_superattack_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 2412
+        y: 0
+        width: 804
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a50d7385415583439c63f8b60f21992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: serj_superattack_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 3216
+        y: 0
+        width: 804
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9df711bcdbbdf8742bceb6125ad46731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: serj_superattack_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 4020
+        y: 0
+        width: 804
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78dc086a31e81ff469f263486f716da2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: serj_superattack_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 4824
+        y: 0
+        width: 804
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08867c6ead7bd1e4eb6dfa1e90e6fad3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: serj_superattack_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 5628
+        y: 0
+        width: 804
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f65daea3b99bb1c4b9d22df48ebfacbe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

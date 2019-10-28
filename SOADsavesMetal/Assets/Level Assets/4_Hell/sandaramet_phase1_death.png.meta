@@ -102,18 +102,18 @@ TextureImporter:
       name: sandaramet_phase1_death_0
       rect:
         serializedVersion: 2
-        x: 15
+        x: 0
         y: 0
-        width: 411
+        width: 445
         height: 434
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51fb9cf3610abf14a8fe30924df423de
+      spriteID: 69e12cae3465b6c43ab31922da731a40
       vertices: []
       indices: 
       edges: []
@@ -122,18 +122,18 @@ TextureImporter:
       name: sandaramet_phase1_death_1
       rect:
         serializedVersion: 2
-        x: 458
+        x: 445
         y: 0
-        width: 411
+        width: 445
         height: 434
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8892903bcc68dac4c95145497779c141
+      spriteID: 0e69956768713c741844fb67ed889e4f
       vertices: []
       indices: 
       edges: []
@@ -142,18 +142,18 @@ TextureImporter:
       name: sandaramet_phase1_death_2
       rect:
         serializedVersion: 2
-        x: 904
+        x: 890
         y: 0
-        width: 411
+        width: 445
         height: 434
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d386dc698a6c30f41a7b986e6947ff71
+      spriteID: 19ba86318d8984843a0e8e1fbb4c4526
       vertices: []
       indices: 
       edges: []
@@ -162,18 +162,18 @@ TextureImporter:
       name: sandaramet_phase1_death_3
       rect:
         serializedVersion: 2
-        x: 1349
+        x: 1335
         y: 0
-        width: 411
+        width: 445
         height: 434
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b303616179a3ad45bdc8c2f5d1a6012
+      spriteID: 926db0800b76df143952607bd512cdd0
       vertices: []
       indices: 
       edges: []
@@ -182,18 +182,18 @@ TextureImporter:
       name: sandaramet_phase1_death_4
       rect:
         serializedVersion: 2
-        x: 1795
+        x: 1780
         y: 0
-        width: 411
-        height: 432
+        width: 445
+        height: 434
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b839571c9cc8e9d4d91d6e74c4fd44dd
+      spriteID: 13955698d82135149b915d6b25a8494e
       vertices: []
       indices: 
       edges: []
@@ -202,18 +202,18 @@ TextureImporter:
       name: sandaramet_phase1_death_5
       rect:
         serializedVersion: 2
-        x: 2240
+        x: 2225
         y: 0
-        width: 411
+        width: 445
         height: 434
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7005372c8e0a4374bac9b9012fdba949
+      spriteID: a5e5c966ee9d4954cbfb31a309fc0696
       vertices: []
       indices: 
       edges: []
@@ -222,18 +222,18 @@ TextureImporter:
       name: sandaramet_phase1_death_6
       rect:
         serializedVersion: 2
-        x: 2683
+        x: 2670
         y: 0
-        width: 411
+        width: 445
         height: 434
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c93e315023437f54e8fbe58f16439fb4
+      spriteID: 4e3e1b6366ede5945813ed36b67038c4
       vertices: []
       indices: 
       edges: []
@@ -242,18 +242,18 @@ TextureImporter:
       name: sandaramet_phase1_death_7
       rect:
         serializedVersion: 2
-        x: 3129
+        x: 3115
         y: 0
-        width: 411
-        height: 432
+        width: 445
+        height: 434
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1372fe56b9d53544ab3085550cbc57a3
+      spriteID: 084eca88cc2dd614fa7468d82caf567d
       vertices: []
       indices: 
       edges: []
@@ -262,18 +262,18 @@ TextureImporter:
       name: sandaramet_phase1_death_8
       rect:
         serializedVersion: 2
-        x: 3579
-        y: 221
-        width: 21
-        height: 31
+        x: 3560
+        y: 0
+        width: 445
+        height: 434
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28108c217c3ff3a488e8fbc69157bcad
+      spriteID: 2d02ea460144442488fc75df135de520
       vertices: []
       indices: 
       edges: []
@@ -282,118 +282,18 @@ TextureImporter:
       name: sandaramet_phase1_death_9
       rect:
         serializedVersion: 2
-        x: 3572
+        x: 4005
         y: 0
-        width: 411
+        width: 445
         height: 434
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e2536a637bada3499578925e22bdb9a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sandaramet_phase1_death_10
-      rect:
-        serializedVersion: 2
-        x: 4024
-        y: 221
-        width: 22
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 648075ac69baf9c43a5efdb278d397b0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sandaramet_phase1_death_11
-      rect:
-        serializedVersion: 2
-        x: 4042
-        y: 197
-        width: 69
-        height: 59
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41303c0c147535f498d81a42e0bf6af5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sandaramet_phase1_death_12
-      rect:
-        serializedVersion: 2
-        x: 4018
-        y: 0
-        width: 411
-        height: 434
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac2bc9e4a2092d549afaa148757fc8cd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sandaramet_phase1_death_13
-      rect:
-        serializedVersion: 2
-        x: 3581
-        y: 200
-        width: 11
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60b1374acddde2d45b655b581c158ee7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sandaramet_phase1_death_14
-      rect:
-        serializedVersion: 2
-        x: 4026
-        y: 200
-        width: 9
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ee962743af82c64fb90e2ada1094773
+      spriteID: 64198c1d4f5ae0443926a31ae0e0eac6
       vertices: []
       indices: 
       edges: []
