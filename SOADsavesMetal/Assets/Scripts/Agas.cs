@@ -18,6 +18,7 @@ public class Agas : MonoBehaviour
     public GameObject candle;
     public GameObject spike;
     public GameObject ghostball;
+    public GameObject slime;
 
     // Scene objects
     public GameObject overflowLiquid;
@@ -111,7 +112,6 @@ public class Agas : MonoBehaviour
         attacking = false;
     }
 
-    // Submerge, not fade
     IEnumerator submerge(float submergeTime)
     {
         float timer = 0f;
@@ -151,6 +151,23 @@ public class Agas : MonoBehaviour
         healthScript.changeMultiplier(defaultDamageMultiplier);
     }
 
+    IEnumerator agasBodyMoveThroughPosition(Vector2 position)
+    {
+        float timer = 10f;
+        float indicatorDuration = 1.0f;
+        float velocityScale = 1.2f;
+
+        // Indicator
+        while(timer < indicatorDuration)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        // Move
+        agas.GetComponent<Rigidbody2D>().velocity = velocityScale * ((Vector3)position - agas.transform.position);
+    }
+
     IEnumerator basicPattern()
     {
         float timer = 0f;
@@ -175,7 +192,9 @@ public class Agas : MonoBehaviour
                 {
                     case 0:
                         // Enable a random candle
-                        turnOnInactiveCandle();
+                        // turnOnInactiveCandle();
+                        //Debug.Log("agas body moving");
+                        StartCoroutine(agasBodyMoveThroughPosition(new Vector2(-6f, -2f)));
                         break;
                     case 1:
                         // Idk

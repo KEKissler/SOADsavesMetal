@@ -45,7 +45,7 @@ public class CandleEmitter : MonoBehaviour {
 			{
 				timer %= firePeriod;
 				StartCoroutine(createProjectile());
-				StartCoroutine(lerpFlameSizeToMinimum(0.18f));
+				StartCoroutine(lerpFlameSizeToMinimum(0.04f));
 				++currShots;
 			}
 			if(currShots >= maxShots) disableFire();
@@ -63,8 +63,8 @@ public class CandleEmitter : MonoBehaviour {
 	
 	void resizeFlameWhileActive()
 	{
-		float timerPower = (float)Math.Pow(timer, 2f);
-		float scaleVelocity = 0.0009f * 3 * timerPower * fireScaleRange;
+		float timerPower = (float)Math.Pow(timer, 1.8f);
+		float scaleVelocity = 0.00028f * 3 * timerPower * fireScaleRange;
 		float scale = fire1.transform.localScale.x + scaleVelocity;
 		setFlameSize(scale);
 	}
@@ -104,14 +104,14 @@ public class CandleEmitter : MonoBehaviour {
 	IEnumerator createProjectile()
 	{
 		if(!player)	player = GameObject.Find("Player");
-		GameObject projectileClone = Instantiate(projectile, candleGlow.position, transform.rotation);
+		GameObject projectileClone = Instantiate(projectile, candleGlow.position-new Vector3(0,0.11f), transform.rotation);
 		yield return null;
         if(projectileClone == null)
         {
             //the projectile was removed by the player on its first frame after Instatiate
             yield break;
         }
-		projectileClone.GetComponent<Projectile>().Configure(player, ProjectileType.Honing, speed, 0.0f);
+		projectileClone.GetComponent<Projectile>().Configure(player, ProjectileType.Linear, speed, 0.0f);
 		projectileClone.transform.localScale = new Vector2(3.6f, 3.6f);
 	}
 
