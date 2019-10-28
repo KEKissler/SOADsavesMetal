@@ -164,8 +164,10 @@ public class Agas : MonoBehaviour
             yield return null;
         }
 
+        Debug.Log("moving!");
         // Move
-        agas.GetComponent<Rigidbody2D>().velocity = velocityScale * ((Vector3)position - agas.transform.position);
+        LeanTween.move(agas, position, 1).setEase(LeanTweenType.easeInCubic);
+        //agas.GetComponent<Rigidbody2D>().velocity = velocityScale * ((Vector3)position - agas.transform.position);
     }
 
     IEnumerator basicPattern()
