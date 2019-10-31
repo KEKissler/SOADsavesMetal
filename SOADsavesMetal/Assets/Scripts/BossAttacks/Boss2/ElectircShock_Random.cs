@@ -32,20 +32,10 @@ public class ElectircShock_Random : TsovinarAttack
     private Animator wire5;
     private Animator wire6;
 
-    animationStates currentState;
-
     private readonly Dictionary<int, Animator> wireMap = new Dictionary<int, Animator>();
-
-    public enum animationStates
-    {
-        ON,
-        OFF
-    }
 
     protected override void OnEnd()
     {
-
-        if(currentState == animationStates.ON)
         wire1.Play(OFF_STATE);
         wire2.Play(OFF_STATE);
         wire3.Play(OFF_STATE);

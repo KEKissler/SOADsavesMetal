@@ -10,10 +10,11 @@ public class TsovinarAttackData
     public Transform wire4;
     public Transform wire5;
     public Transform wire6;
+    public Transform telescopingAntenna;
     public GameObject player;
-    public Transform screen1;
-    public Transform screen2;
-    public Transform screen3;
-    public Transform screen4;
-    public Transform screen5;
+    public GameObject screen1;
+    public GameObject screen2;
+    public GameObject screen3;
+    public GameObject screen4;
+    public GameObject screen5;
 }

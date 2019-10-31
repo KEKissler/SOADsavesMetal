@@ -2300,16 +2300,18 @@ MonoBehaviour:
     wire4: {fileID: 424609085}
     wire5: {fileID: 2137245756}
     wire6: {fileID: 1715183679}
-    player: {fileID: 0}
-    screen1: {fileID: 0}
-    screen2: {fileID: 0}
-    screen3: {fileID: 0}
-    screen4: {fileID: 0}
-    screen5: {fileID: 0}
+    telescopingAntenna: {fileID: 330428698}
+    player: {fileID: 1221969178}
+    screen1: {fileID: 178704456}
+    screen2: {fileID: 1098130140}
+    screen3: {fileID: 393568745}
+    screen4: {fileID: 2057286168}
+    screen5: {fileID: 525994849}
   AttacksToInitialize:
   - {fileID: 11400000, guid: aff30ffa32ef1284ba6bcfc6da6afecb, type: 2}
   - {fileID: 11400000, guid: 9b8bfa7877c68db4fa5cefba58081aa4, type: 2}
   - {fileID: 11400000, guid: 5fc5f6e957c70c64a87ba2e07da88413, type: 2}
+  - {fileID: 11400000, guid: 12eb885391ebb984b9ad37a30638c20a, type: 2}
 --- !u!4 &971197070
 Transform:
   m_ObjectHideFlags: 0
@@ -2483,13 +2485,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1082080681}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1221969178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9117497486307095087, guid: efc0d8d3460c18043896482f0ba598cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1752698293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1295414931 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
     type: 3}
   m_PrefabInstance: {fileID: 1752698293}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1221969178}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 186017fa9d8dc1a48a1a118bfb460f6b, type: 3}
@@ -3666,6 +3674,7 @@ MonoBehaviour:
     wire4: {fileID: 0}
     wire5: {fileID: 0}
     wire6: {fileID: 0}
+    telescopingAntenna: {fileID: 0}
     player: {fileID: 0}
     screen1: {fileID: 0}
     screen2: {fileID: 0}
