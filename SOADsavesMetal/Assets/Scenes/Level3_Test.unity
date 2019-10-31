@@ -2988,7 +2988,7 @@ PrefabInstance:
     - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: currentBandMember
-      value: Shavo
+      value: John
       objectReference: {fileID: 0}
     - target: {fileID: 9117497485684326617, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
@@ -3708,6 +3708,66 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss_Nhang
       objectReference: {fileID: 0}
+    - target: {fileID: 1039232201454950406, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+        type: 3}
+      propertyPath: m_TagString
+      value: SnakeBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039232201725489908, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+        type: 3}
+      propertyPath: m_TagString
+      value: SnakeBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039232200981647894, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+        type: 3}
+      propertyPath: m_TagString
+      value: SnakeBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039232200172008003, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+        type: 3}
+      propertyPath: m_TagString
+      value: SnakeBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039232200895489608, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+        type: 3}
+      propertyPath: m_TagString
+      value: SnakeBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039232200677090867, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+        type: 3}
+      propertyPath: m_TagString
+      value: SnakeBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039232200710847773, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+        type: 3}
+      propertyPath: m_TagString
+      value: SnakeBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039232201061403653, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+        type: 3}
+      propertyPath: m_TagString
+      value: SnakeBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107210445883350932, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+        type: 3}
+      propertyPath: m_TagString
+      value: SnakeHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039232201990537123, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+        type: 3}
+      propertyPath: m_TagString
+      value: SnakeBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039232201215317312, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+        type: 3}
+      propertyPath: m_TagString
+      value: SnakeBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039232201864702572, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+        type: 3}
+      propertyPath: m_TagString
+      value: SnakeBody
+      objectReference: {fileID: 0}
     - target: {fileID: 8784614907211985895, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4078,67 +4138,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7107210445883350932, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
-        type: 3}
-      propertyPath: m_TagString
-      value: SnakeHead
-      objectReference: {fileID: 0}
     - target: {fileID: 1039232200067284450, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
-        type: 3}
-      propertyPath: m_TagString
-      value: SnakeBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039232200172008003, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
-        type: 3}
-      propertyPath: m_TagString
-      value: SnakeBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039232200677090867, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
-        type: 3}
-      propertyPath: m_TagString
-      value: SnakeBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039232200710847773, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
-        type: 3}
-      propertyPath: m_TagString
-      value: SnakeBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039232200895489608, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
-        type: 3}
-      propertyPath: m_TagString
-      value: SnakeBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039232200981647894, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
-        type: 3}
-      propertyPath: m_TagString
-      value: SnakeBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039232201061403653, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
-        type: 3}
-      propertyPath: m_TagString
-      value: SnakeBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039232201215317312, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
-        type: 3}
-      propertyPath: m_TagString
-      value: SnakeBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039232201454950406, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
-        type: 3}
-      propertyPath: m_TagString
-      value: SnakeBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039232201725489908, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
-        type: 3}
-      propertyPath: m_TagString
-      value: SnakeBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039232201864702572, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
-        type: 3}
-      propertyPath: m_TagString
-      value: SnakeBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039232201990537123, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
         type: 3}
       propertyPath: m_TagString
       value: SnakeBody

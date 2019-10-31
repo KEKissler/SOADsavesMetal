@@ -8,6 +8,8 @@ TagManager:
   - Projectile
   - Boss
   - ShortRangeHittable
+  - SnakeBody
+  - SnakeHead
   layers:
   - Default
   - TransparentFX
