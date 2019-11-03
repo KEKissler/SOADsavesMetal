@@ -4,9 +4,13 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - screens: {instanceID: 0}
-  - antenna: {fileID: 238415299308169165, guid: 2b94725abf95685439dcdb3d867e1c10,
-      type: 3}
+  - whiteNoise: {instanceID: 0}
+  - screen1: {instanceID: 0}
+  - screen2: {instanceID: 0}
+  - screen3: {instanceID: 0}
+  - screen4: {instanceID: 0}
+  - screen5: {instanceID: 0}
+  - antenna: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

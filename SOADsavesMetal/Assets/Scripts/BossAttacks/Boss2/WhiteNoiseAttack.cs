@@ -5,25 +5,23 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "New Attack/White Noise Attack")]
 public class WhiteNoiseAttack : TsovinarAttack
 {
-    private const string STATIC_ON = "static_on";
-    private const string STATIC_OFF = "static_off";
     private const string ANTENNA_UNFOLD = "antenna_unfold";
     private const string ANTENNA_BLINK = "antenna_blinkrapid";
     private const string ANTENNA_FOLD = "antenna_fold";
 
     public Material whiteNoise;
-    public GameObject screens;
+    public GameObject screen1;
+    public GameObject screen2;
+    public GameObject screen3;
+    public GameObject screen4;
+    public GameObject screen5;
     public GameObject antenna;
     public float CycleTime;
 
     private Transform antennaLocation;
 
     private Transform attackParent;
-    private GameObject screen1;
-    private GameObject screen2;
-    private GameObject screen3;
-    private GameObject screen4;
-    private GameObject screen5;
+    
 
     private Material screen1DefaultMat;
     private Material screen2DefaultMat;
@@ -33,7 +31,7 @@ public class WhiteNoiseAttack : TsovinarAttack
 
     private Animator telescopingAntenna;
 
-    private bool antennaActive;
+    private bool antennaActive = true;
 
     public override void Initialize(TsovinarAttackData data)
     {
@@ -48,12 +46,13 @@ public class WhiteNoiseAttack : TsovinarAttack
 
     private void checkAntenna()
     {
-
+        //if(antenna.GetComponent.)
     }
 
     protected override IEnumerator Execute(float duration)
     {
         yield return new WaitForEndOfFrame();
+
         Debug.Log("John Cena");
         while (true)
         {
@@ -61,21 +60,10 @@ public class WhiteNoiseAttack : TsovinarAttack
             if (!antennaActive)
             {
                 telescopingAntenna.Play(ANTENNA_FOLD);
-                screen1.GetComponent<MeshRenderer>().material = screen1DefaultMat;
-                screen2.GetComponent<MeshRenderer>().material = screen2DefaultMat;
-                screen3.GetComponent<MeshRenderer>().material = screen3DefaultMat;
-                screen4.GetComponent<MeshRenderer>().material = screen4DefaultMat;
-                screen5.GetComponent<MeshRenderer>().material = screen5DefaultMat;
             }
             else
             {
                 telescopingAntenna.Play(ANTENNA_BLINK);
-                screen1.GetComponent<MeshRenderer>().material = whiteNoise;
-                screen2.GetComponent<MeshRenderer>().material = whiteNoise;
-                screen3.GetComponent<MeshRenderer>().material = whiteNoise;
-                screen4.GetComponent<MeshRenderer>().material = whiteNoise;
-                screen5.GetComponent<MeshRenderer>().material = whiteNoise;
-
             }
             yield return new WaitForSeconds(CycleTime);
         }
@@ -97,6 +85,11 @@ public class WhiteNoiseAttack : TsovinarAttack
 
         antennaActive = true;
         telescopingAntenna.Play(ANTENNA_UNFOLD);
+        screen1.GetComponent<MeshRenderer>().material = whiteNoise;
+        screen2.GetComponent<MeshRenderer>().material = whiteNoise;
+        screen3.GetComponent<MeshRenderer>().material = whiteNoise;
+        screen4.GetComponent<MeshRenderer>().material = whiteNoise;
+        screen5.GetComponent<MeshRenderer>().material = whiteNoise;
     }
 
     
