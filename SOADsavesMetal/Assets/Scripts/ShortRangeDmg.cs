@@ -41,7 +41,6 @@ public class ShortRangeDmg : MonoBehaviour {
 		else if(col.gameObject.tag == "Projectile")
 			Destroy(col.gameObject);
 		else if(col.gameObject.tag == "ShortRangeHittable") {
-			Debug.Log("a");
 			col.gameObject.SendMessage("hit");
 		}
 	}

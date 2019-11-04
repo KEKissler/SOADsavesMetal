@@ -279,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackData:
     player: {fileID: 1105088042}
+    agas: {fileID: 1036882046}
     agasPosition: {fileID: 1036882049}
     attackParent: {fileID: 283002722}
     candle0: {fileID: 1092857749}
@@ -290,6 +291,10 @@ MonoBehaviour:
   AttacksToInitialize:
   - {fileID: 11400000, guid: b0a91bd191266214988876ad587b92f3, type: 2}
   - {fileID: 11400000, guid: 38b2736f4a198f345af13a045652ac31, type: 2}
+  - {fileID: 11400000, guid: 275ffb615392c934b90c1527f335607b, type: 2}
+  - {fileID: 11400000, guid: 5b73478179a47a4439fc48d722e276ac, type: 2}
+  - {fileID: 11400000, guid: 252454e3ac7418848b0d76edf32b062c, type: 2}
+  - {fileID: 11400000, guid: 5a81f565c055f924b8ec103c6f8f7c2a, type: 2}
 --- !u!4 &72277651
 Transform:
   m_ObjectHideFlags: 0
@@ -2609,6 +2614,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 2380804503749740927, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2380804504558194934, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_IsActive
@@ -2824,7 +2834,7 @@ PrefabInstance:
     - target: {fileID: 2380804504942363380, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2380804505604382101, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
