@@ -12,12 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c798b03c28f33a4594967dfcfd7ae0b, type: 3}
   m_Name: WhiteNoiseAttack
   m_EditorClassIdentifier: 
-  duration: 30
+  duration: 5
   whiteNoise: {fileID: 2100000, guid: ae9204aad3676504ea07d2b76cbda5ea, type: 2}
-  screen1: {fileID: 1829995164133119706, guid: 406c8eb6bc990ef45a6249e80de88d44, type: 3}
-  screen2: {fileID: 7582289286511872321, guid: d72c203c4c00eaa44b9d2ab37a0cce8c, type: 3}
-  screen3: {fileID: 3134336392439969880, guid: 7b2a244bbe4acc649b5c26a77d105c44, type: 3}
-  screen4: {fileID: 2686444155271031248, guid: 86b0e569d8145d947a9ea122d6321cd4, type: 3}
-  screen5: {fileID: 3230190176867755321, guid: 7eb0589efd583cf4b8aa4ddfa9fc2da0, type: 3}
-  antenna: {fileID: 238415299308169165, guid: 2b94725abf95685439dcdb3d867e1c10, type: 3}
-  CycleTime: 30
+  foldClip: {fileID: 7400000, guid: 2bd0c57b7c8714241ba4bb1608a444a1, type: 2}
+  unfoldClip: {fileID: 7400000, guid: 0df07f860ff7d264a9d66f1dd94a8e68, type: 2}
