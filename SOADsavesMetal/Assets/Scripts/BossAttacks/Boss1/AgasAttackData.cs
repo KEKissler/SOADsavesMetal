@@ -4,6 +4,7 @@
 public class AgasAttackData
 {
     public GameObject player;
+    public GameObject agas;
     public Transform agasPosition;
     public Transform attackParent;
     public CandleEmitter candle0;

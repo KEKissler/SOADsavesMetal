@@ -153,21 +153,13 @@ public class Agas : MonoBehaviour
 
     IEnumerator agasBodyMoveThroughPosition(Vector2 position)
     {
-        float timer = 10f;
-        float indicatorDuration = 1.0f;
-        float velocityScale = 1.2f;
-
-        // Indicator
-        while(timer < indicatorDuration)
-        {
-            timer += Time.deltaTime;
-            yield return null;
-        }
+        float delay = 1.0f;
 
         Debug.Log("moving!");
         // Move
-        LeanTween.move(agas, position, 1).setEase(LeanTweenType.easeInCubic);
+        LeanTween.move(agas, position, 1).setEase(LeanTweenType.easeInCubic).setDelay(delay);
         //agas.GetComponent<Rigidbody2D>().velocity = velocityScale * ((Vector3)position - agas.transform.position);
+        yield break;
     }
 
     IEnumerator basicPattern()
