@@ -14,8 +14,6 @@ public class StaticBeamAttack : TsovinarAttack
     private Transform bossLocation;
     private Transform attackParent;
 
-    private Animator beam;
-
     public override void Initialize(TsovinarAttackData data)
     {
         throw new System.NotImplementedException();
