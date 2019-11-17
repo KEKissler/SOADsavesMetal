@@ -10,9 +10,10 @@ public class Player : MonoBehaviour {
     public int Health {get { return health; } set { health = value; } }
     private Rigidbody2D rb;
     public float jumpHeight;
-    public float speed;
     public int startingHealth;
     private int health;
+    public float maxGroundSpeed, groundAccel, groundDecel, groundFrictionDecel;
+    public float maxAirSpeed, airAccel, airDecel, airFrictionDecel;
 
     //Player Hitbox Variables
     public GameObject upperBodyHitbox;
@@ -23,7 +24,7 @@ public class Player : MonoBehaviour {
     private int remainingJumps;
     private bool crouched;
     public bool inAir;
-    private bool landing;
+    // private bool landing;
     private bool attacking;
     private bool blockHorizontalMovement;
     public bool moving;
@@ -35,12 +36,16 @@ public class Player : MonoBehaviour {
     private SpriteRenderer playerSprite;
     private bool deathStarted;
 
-    private string GetAnimName(string playerName, string animSuffix) {
-        return playerName + animSuffix;
-    }
-
     private string GetAnimName(string animSuffix) {
         return currentBandMember + animSuffix;
+    }
+
+    // Handles a common use case regarding playing body and leg animations.
+    private void PlayAnims(string animSuffix) {
+        if (!attacking) {
+            playerUpperAnim.Play(GetAnimName(animSuffix));
+        }
+        playerLowerAnim.Play(GetAnimName(animSuffix + "Legs"));
     }
 
     void Start () {
@@ -63,19 +68,30 @@ public class Player : MonoBehaviour {
 
 	void Update () {
         if (!Dead) {
+            #region Friction
+            float speedReductionThisFrame;
+            if (inAir)
+                speedReductionThisFrame = Time.deltaTime * airFrictionDecel;
+            else
+                speedReductionThisFrame = Time.deltaTime * groundFrictionDecel;
+            if (Mathf.Abs(rb.velocity.x) > speedReductionThisFrame)
+            {
+                rb.velocity += new Vector2(-1 * Mathf.Sign(rb.velocity.x) * speedReductionThisFrame, 0);
+            }
+            else
+            {
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            }
+            #endregion Friction
+
             #region Falling and jumping animations
             if (rb.velocity.y < -0.5f) {
-                landing = true;
-                if (!attacking) {
-                   playerUpperAnim.Play(GetAnimName("Fall")); 
-                }
-                playerLowerAnim.Play(GetAnimName("FallLegs")); 
+                // landing = true;
+                PlayAnims("Fall");
             }
             if (rb.velocity.y > 0.5) {
-                if (!attacking) {
-                    playerUpperAnim.Play(GetAnimName("Jump"));
-                }
-                playerLowerAnim.Play(GetAnimName("JumpLegs"));
+                PlayAnims("Jump");
+
             }
             #endregion Falling and jumping animations
 
@@ -83,10 +99,7 @@ public class Player : MonoBehaviour {
             if (Input.GetKey(KeyCode.DownArrow) && !inAir && !attacking) {
                 if (!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))) {
                     crouched = true;
-                    if (!attacking) {
-                        playerUpperAnim.Play(GetAnimName("Crouch"));
-                    }
-                    playerLowerAnim.Play(GetAnimName("CrouchLegs"));
+                    PlayAnims("Crouch");
                     upperBodyHitbox.SetActive(false);
                 }
                 else {
@@ -104,10 +117,7 @@ public class Player : MonoBehaviour {
             if (!crouched && Input.GetKeyDown(KeyCode.Space) && remainingJumps > 0) {
                 remainingJumps -= 1;
                 if (inAir) {
-                    if(!attacking) {
-                        playerUpperAnim.Play(GetAnimName("Jump"));
-                    }
-                    playerLowerAnim.Play(GetAnimName("JumpLegs"));
+                    PlayAnims("Jump");
                     inAir = true;
 
                     if (currentBandMember == "John") {// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "JohnJumpLegs")
@@ -151,8 +161,9 @@ public class Player : MonoBehaviour {
             else if(Input.GetKeyDown(KeyCode.C)) {
                 StartCoroutine("superCooldown");
             }
-            HandleHorizontalMovement();
             #endregion Attacks
+
+            HandleHorizontalMovement();
         }
         else {
             //Death animation
@@ -168,34 +179,71 @@ public class Player : MonoBehaviour {
             return;
         }
 
-        if (Input.GetKey(KeyCode.RightArrow)) {
+        float oldSpeed = rb.velocity.x; // Grounded can only occur against flat surfaces below player, speed should only be in x dir
+        float input = Input.GetAxisRaw("Horizontal");
+        if(input != 0f) {
             moving = true;
-            if (gameObject.transform.rotation.y != 0) {
-                gameObject.transform.Rotate(Vector3.up, 180.0f);
-            }
-            if (!inAir) {
-                if (!attacking) {
-                    playerUpperAnim.Play(GetAnimName("Walk"));
+            float accel, decel, maxSpeed;
+            // Handle direction-specific code
+            if (input > 0) {
+                // Face right if needed
+                if (gameObject.transform.rotation.y != 0) {
+                    gameObject.transform.Rotate(Vector3.up, 180.0f);
                 }
-                playerLowerAnim.Play(GetAnimName("WalkLegs"));
             }
-            rb.velocity = new Vector2(speed, rb.velocity.y);
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow)) {
-            moving = true;
-            if (gameObject.transform.rotation.y == 0) {
-                gameObject.transform.Rotate(Vector3.up, 180.0f);
-            }
-            if (!inAir) {
-                if (!attacking) {
-                    playerUpperAnim.Play(GetAnimName("Walk"));
+            else {
+                // Face left if needed
+                if (gameObject.transform.rotation.y == 0) {
+                    gameObject.transform.Rotate(Vector3.up, 180.0f);
                 }
-                playerLowerAnim.Play(GetAnimName("WalkLegs"));
             }
-            rb.velocity = new Vector2(-speed, rb.velocity.y);
+
+            // Set parameters for movement
+            if (!inAir)
+            {
+                // Ground movement
+                PlayAnims("Walk");
+                accel = groundAccel;
+                decel = groundDecel;
+                maxSpeed = maxGroundSpeed;
+            }
+            else
+            {
+                // Air movement
+                accel = airAccel;
+                decel = airDecel;
+                maxSpeed = maxAirSpeed;
+            }
+            
+            // Moving in direction of current velocity or when player was not moving before
+            if ((Mathf.Sign(oldSpeed) == Mathf.Sign(input)) || Mathf.Approximately(oldSpeed, 0))
+            {
+                // If applying max accel would not put speed above target limit
+                if (Mathf.Abs(oldSpeed + (input * accel * Time.deltaTime)) < maxSpeed)
+                {
+                    rb.velocity = new Vector3(oldSpeed + (input * accel * Time.deltaTime), rb.velocity.y, 0);
+                }
+                // Would go beyond limit
+                else
+                {
+                    // Set velocity to either the targetWalkSpeed or leave it untouched if player was already traveling faster
+                    if (Mathf.Abs(rb.velocity.x) < maxSpeed)
+                    {
+                        // Debug.Log("Set to target walk speed!");
+                        rb.velocity = new Vector2(Mathf.Sign(oldSpeed) * maxSpeed, rb.velocity.y);
+                    }
+                }
+            }
+            // Fighting velocity
+            else
+            {
+                //no check needed, losing speed and minimum is zero.
+                rb.velocity = new Vector2(oldSpeed + (input * decel * Time.deltaTime), rb.velocity.y);
+            }
+
         }
         else if (!inAir) {
-            moving = false;
+            // moving = false;
             if (!crouched && !attacking) {
                 playerUpperAnim.Play(GetAnimName("Idle"));
                 playerLowerAnim.Play(GetAnimName("IdleLegs"));
@@ -203,9 +251,7 @@ public class Player : MonoBehaviour {
             else if (attacking) {
                 playerLowerAnim.Play(GetAnimName("LandLegs"));
             }
-            rb.velocity = new Vector2(0, rb.velocity.y);
         }
-
     }
 
     public void OnCollisionEnter2D(Collision2D coll) {
@@ -217,7 +263,7 @@ public class Player : MonoBehaviour {
     public void OnCollisionStay2D(Collision2D coll) {
         if(coll.collider.tag == "Floor") {
             inAir = false;
-            landing = false;
+            // landing = false;
             remainingJumps = 1;
         }
     }

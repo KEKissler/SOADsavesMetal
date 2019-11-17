@@ -18,6 +18,8 @@ public class SnakeHitPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        col.GetComponent<Rigidbody2D>().velocity = new Vector2(-16f, 12f);
+		if(col.gameObject.name == "Player") {
+			col.GetComponent<Rigidbody2D>().velocity = new Vector2(-16f, 12f);
+		}
     }
 }
