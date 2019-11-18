@@ -8,11 +8,19 @@ public class Overflow : AgasAttack
 {
     public float floodTime;
 
+    private const string SPILL = "goblet_spill";
+    private const string SPILL_DEFAULT = "goblet_end_flow";
+    private const string SPLASH = "goblet_splash";
+    //private const string SPLASH_DEFAULT = "goblet_no_splash";
+
     private DecayOverflow overflowLiquid;
+    private Animator Spill, Splash;
 
     public override void Initialize(AgasAttackData data)
     {
         overflowLiquid = data.DecayOverflow;
+        Splash = data.Splash;
+        Spill = data.Spill;
     }
 
     protected override IEnumerator Execute(float duration)
@@ -27,6 +35,8 @@ public class Overflow : AgasAttack
 
     protected override void OnStart()
     {
-        CoroutineRunner.instance.StartCoroutine(overflowLiquid.flood(floodTime));
+        CoroutineRunner.instance.StartCoroutine(overflowLiquid.flood(floodTime, Spill, SPILL_DEFAULT));
+        Splash.Play(SPLASH);
+        Spill.Play(SPILL);
     }
 }

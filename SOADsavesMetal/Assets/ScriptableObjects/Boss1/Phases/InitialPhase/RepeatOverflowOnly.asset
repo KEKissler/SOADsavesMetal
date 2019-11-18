@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a89c7ce7d6c9d447be0d91a4329ebdb, type: 3}
-  m_Name: MoveInsideGoblet
+  m_Script: {fileID: 11500000, guid: ee4057deb479dc742ac4c0e9862d7f1d, type: 3}
+  m_Name: RepeatOverflowOnly
   m_EditorClassIdentifier: 
-  duration: 1
-  PlannedPositions:
-  - delayUntilMovingAgain: 1
-    timeSpentMoving: 1
-    position: {x: 5.89, y: -0.8}
+  AttackSelectionType: 0
+  Attacks:
+  - {fileID: 11400000, guid: 1e30570e7f1141941a7e333289e30b58, type: 2}

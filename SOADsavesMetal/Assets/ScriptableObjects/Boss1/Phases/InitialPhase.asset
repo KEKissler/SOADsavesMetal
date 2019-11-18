@@ -16,7 +16,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   CloseUpDistance: 0
   NearGroundCutoff: 0
-  DefaultAttacks: {fileID: 11400000, guid: d745e02de35bcca44a0d08292a536511, type: 2}
+  DefaultAttacks: {fileID: 11400000, guid: db30861cd0b0d5446859bda64feb26d1, type: 2}
   CloseUpAttacks: {fileID: 11400000, guid: 6d85960878c0f754e94403982edd6b11, type: 2}
   LowPlayerHPAttacks: {fileID: 11400000, guid: 742f685891d978646a4ec971329ad7ec, type: 2}
   PlayerOnPlatformAttacks: {fileID: 11400000, guid: 2367dd797edf64342825e66ba9e0af15,

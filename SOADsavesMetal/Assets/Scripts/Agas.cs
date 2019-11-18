@@ -195,7 +195,7 @@ public class Agas : MonoBehaviour
                         break;
                     case 2:
                         // Flood
-                        StartCoroutine(overflowLiquid.GetComponent<DecayOverflow>().flood(5f));
+                        //StartCoroutine(overflowLiquid.GetComponent<DecayOverflow>().flood(5f));
                         waitTime = 9.5f;
                         break;
                     case 3:
@@ -253,7 +253,7 @@ public class Agas : MonoBehaviour
                         break;
                     case 2:
                         // Flood
-                        StartCoroutine(overflowLiquid.GetComponent<DecayOverflow>().flood(5f));
+                        //StartCoroutine(overflowLiquid.GetComponent<DecayOverflow>().flood(5f));
                         waitTime = 5f;
                         break;
                     case 3:

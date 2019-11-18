@@ -6,6 +6,7 @@ using System.Linq;
 [CreateAssetMenu(menuName = "New Attack/Agas/Move")]
 public class Move : AgasAttack
 {
+    [Header("Duration is the sum of all delays below")]
     public List<PlannedPosition> PlannedPositions = new List<PlannedPosition>();
     private GameObject agas;
     private Vector2 startingPosition;

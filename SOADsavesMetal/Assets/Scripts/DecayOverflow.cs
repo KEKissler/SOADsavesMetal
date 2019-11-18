@@ -26,7 +26,7 @@ public class DecayOverflow : MonoBehaviour
         
     }
 
-    public IEnumerator flood(float durationUp)
+    public IEnumerator flood(float durationUp, Animator FlowAnimator, string defaultFlowStateName)
     {
         float timer = 0f;
         rb.velocity = new Vector2(0, speed);
@@ -35,6 +35,8 @@ public class DecayOverflow : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
+        //liquid fully up, stop the flow animation
+        FlowAnimator.Play(defaultFlowStateName);
 
         timer = 0f;
         rb.velocity = new Vector2(0, 0);

@@ -7,7 +7,7 @@ TextureImporter:
     21300004: boss_assets_agas_goblet_overflow_2
     21300006: boss_assets_agas_goblet_overflow_3
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -113,10 +113,10 @@ TextureImporter:
       name: boss_assets_agas_goblet_overflow_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 159
-        height: 126
+        width: 161
+        height: 252
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,7 +124,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf8178c6365061342adaf55affe53d68
+      spriteID: 73a9e475b372df14094c61a958598f3d
       vertices: []
       indices: 
       edges: []
@@ -133,10 +133,10 @@ TextureImporter:
       name: boss_assets_agas_goblet_overflow_1
       rect:
         serializedVersion: 2
-        x: 162
+        x: 161
         y: 0
-        width: 160
-        height: 126
+        width: 161
+        height: 252
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,7 +144,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22fcda4f3e5ea0847a1c185e2c31899b
+      spriteID: 5bc93892509fb704996a7c5f904e25cc
       vertices: []
       indices: 
       edges: []
@@ -153,10 +153,10 @@ TextureImporter:
       name: boss_assets_agas_goblet_overflow_2
       rect:
         serializedVersion: 2
-        x: 323
+        x: 322
         y: 0
-        width: 159
-        height: 126
+        width: 161
+        height: 252
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,7 +164,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a25c818c460e05f4fa2f93dd8e529ca5
+      spriteID: 8e374f0d5fdcf3f4888ddc323917534f
       vertices: []
       indices: 
       edges: []
@@ -176,7 +176,7 @@ TextureImporter:
         x: 483
         y: 0
         width: 161
-        height: 126
+        height: 252
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,7 +184,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dba4a16c2fcfa4d479f800ffac99359f
+      spriteID: 652607152a336184eb627001f8b6f4d1
       vertices: []
       indices: 
       edges: []
