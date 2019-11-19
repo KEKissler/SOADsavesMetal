@@ -5,32 +5,50 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "New Attack/Static Beam Attack")]
 public class StaticBeamAttack : TsovinarAttack
 {
-    private const string BEAM_OFF = "beam_off";
-    private const string BEAM_ON = "beam_on";
+    private const string BEAM_CHARGE = "beam_charge";
+    private const string BEAM_FIRE = "beam_fire";
+    private const string BEAM_STOP = "beam_stop";
 
-    public GameObject boss;
+    public GameObject BeamPrefab;
     public float CycleTime;
+    public AnimationClip beamShrinkClip;
+    public AnimationClip beamChargeClip;
 
-    private Transform bossLocation;
+    private Animator beamAnim;
+    private Transform tsovinarLocation;
+    private Transform playerLocation;
     private Transform attackParent;
+    private GameObject beamObject;
 
     public override void Initialize(TsovinarAttackData data)
     {
-        throw new System.NotImplementedException();
+        playerLocation = data.player.GetComponent<Transform>();
+        tsovinarLocation = data.tsovinar.GetComponent<Transform>();
+        attackParent = data.attackParent;
+        
     }
 
     protected override IEnumerator Execute(float duration)
     {
-        throw new System.NotImplementedException();
+        yield return new WaitForEndOfFrame();
+
+        beamAnim.Play(BEAM_STOP);
+        yield return new WaitForSeconds(beamShrinkClip.length);
     }
 
     protected override void OnEnd()
     {
-        throw new System.NotImplementedException();
+        Destroy(beamObject.gameObject);
+        Debug.Log("Beam gone");
     }
 
     protected override void OnStart()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Charge the weapon!");
+        beamObject = Instantiate(BeamPrefab, tsovinarLocation.position, Quaternion.identity, attackParent);
+        beamAnim = Instantiate(BeamPrefab, tsovinarLocation.position, Quaternion.identity, attackParent).GetComponent<Animator>();
+
+        beamAnim.Play(BEAM_CHARGE);
+
     }
 }
