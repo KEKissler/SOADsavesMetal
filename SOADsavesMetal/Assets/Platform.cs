@@ -6,20 +6,33 @@ using UnityEngine;
 public class Platform : MonoBehaviour
 {
     public Transform Player;
-    public float heightThreshold;
+    public float ActivateThreshold;
+    public float DeactivateThreshold;
 
     private BoxCollider2D platformCollider;
+    private SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
     {
         platformCollider = GetComponent<BoxCollider2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        var abovePlatform = Player.position.y - platformCollider.bounds.max.y > heightThreshold;
-        platformCollider.enabled = abovePlatform;
+        var abovePlatform = Player.position.y - platformCollider.bounds.max.y > ActivateThreshold;
+        var belowPlatform = Player.position.y - platformCollider.bounds.max.y < DeactivateThreshold;
+        if(abovePlatform && !platformCollider.enabled)
+        {
+            platformCollider.enabled = true;
+            sr.enabled = true;
+        }
+        else if (belowPlatform && platformCollider.enabled)
+        {
+            platformCollider.enabled = false;
+            sr.enabled = false;
+        }
     }
 }
