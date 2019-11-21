@@ -15,8 +15,6 @@ public class Nhang : MonoBehaviour
     public GameObject indicator;
 
     // Prefabs
-    public GameObject snakeBody;
-    public GameObject snakeHead;
     public GameObject bodyAnchor;
     public GameObject projectile;
     
@@ -25,6 +23,7 @@ public class Nhang : MonoBehaviour
     public GameObject[] groundTargets; // 0 is closer to snake, large numbers are further
     public GameObject[] airTargets; // 0 is lower, large numbers are higher
     public GameObject[] groundAnchors; // 0 is closer, large numbers are further
+    public BoxCollider2D snakeHeadHitbox;
 
     // Internal vars
     Rigidbody2D[] bodyRB;
@@ -87,7 +86,6 @@ public class Nhang : MonoBehaviour
         anchor = new GameObject[bodyLength];
         for(int i=0; i<bodyLength-1; ++i)
         {
-            // body[i] = Instantiate(snakeBody, bodyPosition(i+1), Quaternion.identity);
             if(i == 0)
             {
                 body[0].GetComponent<SpringJoint2D>().connectedBody = rb;
@@ -108,7 +106,6 @@ public class Nhang : MonoBehaviour
             anchor[i].GetComponent<SpringJoint2D>().connectedBody = bodyRB[i];
         }
         
-        // body[bodyLength-1] = Instantiate(snakeHead, bodyPosition(bodyLength), Quaternion.identity);
         body[bodyLength-1].GetComponent<SpringJoint2D>().connectedBody = body[bodyLength-2].GetComponent<Rigidbody2D>();
         body[bodyLength-1].GetComponent<SpringJoint2D>().distance = (body[bodyLength-2].transform.position - body[bodyLength-1].transform.position).magnitude;
         bodyRB[bodyLength-1] = body[bodyLength-1].GetComponent<Rigidbody2D>();
@@ -140,16 +137,17 @@ public class Nhang : MonoBehaviour
     IEnumerator fallToGround()
     {
         snakeMoving = true;
+        canHitPlayer(true);
         float timer = 0f;
 
         toggleAnchors();
-        for(int i=0; i<bodyLength-1; ++i) bodyRB[i].velocity = new Vector2(-1.8f, 0.2f);
-        bodyRB[bodyLength-1].velocity = new Vector2(-1.8f, 0.4f);
+        for(int i=0; i<bodyLength-1; ++i) bodyRB[i].velocity = new Vector2(-2.2f, 0.2f);
+        bodyRB[bodyLength-1].velocity = new Vector2(-2.4f, 0.4f);
         // toggleRotation();
         while(timer < 0.55f)
         {
-            for(int i=0; i<bodyLength; ++i) bodyRB[i].AddForce(new Vector2(-65f+30f*timer, -25f-55f*timer));
-            bodyRB[bodyLength-1].AddForce(new Vector2(-260f, -40-220f*timer));
+            for(int i=0; i<bodyLength; ++i) bodyRB[i].AddForce(new Vector2(-85f+85f*timer, -10f-105f*timer));
+            bodyRB[bodyLength-1].AddForce(new Vector2(-350f+130f*timer, -10f-440f*timer));
             timer += Time.deltaTime;
             yield return null;
         }
@@ -186,6 +184,7 @@ public class Nhang : MonoBehaviour
         }
 
         snakeMoving = false;
+        canHitPlayer(false);
     }
 
     IEnumerator rise()
@@ -255,6 +254,7 @@ public class Nhang : MonoBehaviour
     IEnumerator lunge(GameObject target)
     {
         attacking = true;
+        snakeHeadHitbox.enabled = false;
         float timer = 0f;
 
         // Indicator
@@ -276,10 +276,11 @@ public class Nhang : MonoBehaviour
 
         // Extend
         toggleAnchors();
+        canHitPlayer(true);
         timer = 0f;
-        bodyRB[bodyLength-1].velocity += new Vector2(-7.0f, -0.5f);
-        float snakeLungeMagnitude = 730f;
-        float veryWellNamedAngle = Mathf.Atan2(target.transform.position.y - body[bodyLength-1].transform.position.y + 0.8f,
+        bodyRB[bodyLength-1].velocity += new Vector2(-7.7f, -0.7f);
+        float snakeLungeMagnitude = 877f;
+        float veryWellNamedAngle = Mathf.Atan2(target.transform.position.y - body[bodyLength-1].transform.position.y + 0.77f,
                                                 target.transform.position.x - body[bodyLength-1].transform.position.x);
         // Debug.Log(veryWellNamedAngle);
         while(timer < 0.9f)
@@ -293,6 +294,7 @@ public class Nhang : MonoBehaviour
                 snakeLungeMagnitude * Mathf.Cos(veryWellNamedAngle),
                 snakeLungeMagnitude * Mathf.Sin(veryWellNamedAngle)
                 ));
+            bodyRB[bodyLength-1].velocity += new Vector2(-0.05f, 0);
             timer += Time.deltaTime;
             yield return null;
         }
@@ -300,7 +302,7 @@ public class Nhang : MonoBehaviour
         // Snap
         for(int i=0; i<bodyLength; ++i)
         {
-            bodyRB[i].velocity = new Vector2(-1.5f, 0.2f);
+            bodyRB[i].velocity = new Vector2(-0.9f, 0.2f);
             bodyRB[i].drag = snapDrag;
         }
         bodyRB[bodyLength-1].angularDrag = 99f;
@@ -308,11 +310,12 @@ public class Nhang : MonoBehaviour
 
         // Hold
         timer = 0f;
-        while(timer < 0.05f)
+        while(timer < 0.07f)
         {
             timer += Time.deltaTime;
             yield return null;
         }
+        canHitPlayer(false);
 
         // Retract
         for(int i=0; i<bodyLength-1; ++i)   bodyRB[i].velocity += new Vector2(3.65f, 0.3f);
@@ -358,7 +361,8 @@ public class Nhang : MonoBehaviour
 
         for(int i=0; i<bodyLength; ++i)
             bodyRB[i].drag = endDrag;
-        
+
+        snakeHeadHitbox.enabled = true;
         attacking = false;
     }
 
@@ -589,6 +593,18 @@ public class Nhang : MonoBehaviour
 
     #endregion Attacks
 
+    #region HitPlayer
+
+    public void canHitPlayer(bool hitPlayer)
+    {
+        for(int i=0; i<bodyLength; ++i)
+        {
+            body[i].GetComponent<SnakeHitPlayer>().snakeAttacking = hitPlayer;
+        }
+    }
+
+    #endregion HitPlayer
+
     bool isPlayerClose()
     {
         return player.transform.position.x > -1f;
@@ -725,7 +741,7 @@ public class Nhang : MonoBehaviour
                         // 6 shots away, 2x
                         StartCoroutine(fanSpray(2, 0.09f, 6, -19f, groundTargets[2],
                             ProjectileType.Linear, ProjectileSpeed.Fast, 0.0f));
-                        waitTime = 0.3f;
+                        waitTime = 0.7f;
                         ++attackPhase;
                         break;
                     case 13:

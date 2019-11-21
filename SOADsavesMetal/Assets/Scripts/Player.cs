@@ -319,6 +319,18 @@ public class Player : MonoBehaviour {
 
     }
 
+    public IEnumerator blockMovement(float duration)
+    {
+        blockHorizontalMovement = true;
+        float timer = 0f;
+        while(timer < duration)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        blockHorizontalMovement = false;
+    }
+
     public IEnumerator Teleport() {
         rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         upperBodyHitbox.GetComponent<BoxCollider2D>().enabled = false;
