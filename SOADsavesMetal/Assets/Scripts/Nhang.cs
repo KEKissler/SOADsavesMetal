@@ -279,7 +279,7 @@ public class Nhang : MonoBehaviour
         canHitPlayer(true);
         timer = 0f;
         bodyRB[bodyLength-1].velocity += new Vector2(-7.7f, -0.7f);
-        float snakeLungeMagnitude = 877f;
+        float startLungeMagnitude = 777f;
         float veryWellNamedAngle = Mathf.Atan2(target.transform.position.y - body[bodyLength-1].transform.position.y + 0.77f,
                                                 target.transform.position.x - body[bodyLength-1].transform.position.x);
         // Debug.Log(veryWellNamedAngle);
@@ -290,9 +290,10 @@ public class Nhang : MonoBehaviour
                 // bodyRB[i].AddForce(new Vector2(5.3f-4.9f*timer+6.2f*(float)i, 0.9f-2.5f*timer-0.4f*(float)i));
             }
             // bodyRB[bodyLength-1].AddForce(new Vector2(-259.3f-485f*timer-3.9f*(float)(bodyLength-1), -20.3f-24f*timer-2.2f*(float)(bodyLength-1)));
+            float currLungeMagnitude = startLungeMagnitude * (1 + timer / 7f);
             bodyRB[bodyLength-1].AddForce(new Vector2(
-                snakeLungeMagnitude * Mathf.Cos(veryWellNamedAngle),
-                snakeLungeMagnitude * Mathf.Sin(veryWellNamedAngle)
+                currLungeMagnitude * Mathf.Cos(veryWellNamedAngle),
+                currLungeMagnitude * Mathf.Sin(veryWellNamedAngle)
                 ));
             bodyRB[bodyLength-1].velocity += new Vector2(-0.05f, 0);
             timer += Time.deltaTime;
@@ -302,11 +303,11 @@ public class Nhang : MonoBehaviour
         // Snap
         for(int i=0; i<bodyLength; ++i)
         {
-            bodyRB[i].velocity = new Vector2(-0.9f, 0.2f);
+            bodyRB[i].velocity += new Vector2(-0.2f, 0.2f);
             bodyRB[i].drag = snapDrag;
         }
         bodyRB[bodyLength-1].angularDrag = 99f;
-        bodyRB[bodyLength-1].velocity += new Vector2(-2.0f, -0.2f);
+        bodyRB[bodyLength-1].velocity += new Vector2(-0.2f, 0.1f);
 
         // Hold
         timer = 0f;
