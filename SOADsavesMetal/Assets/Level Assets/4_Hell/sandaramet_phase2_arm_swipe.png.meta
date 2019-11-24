@@ -1,11 +1,7 @@
 fileFormatVersion: 2
 guid: 96e3adeb1fc433f46a2391a1d8cb2a5d
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: sandaramet_phase2_arm_swipe_0
-    21300002: sandaramet_phase2_arm_swipe_1
-    21300004: sandaramet_phase2_arm_swipe_2
-    21300006: sandaramet_phase2_arm_swipe_3
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -35,7 +31,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -44,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -73,104 +69,13 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: sandaramet_phase2_arm_swipe_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 367
-        height: 162
-      alignment: 8
-      pivot: {x: 1, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 157d1a41bbbd6874f9cddc63154b0160
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sandaramet_phase2_arm_swipe_1
-      rect:
-        serializedVersion: 2
-        x: 367
-        y: 0
-        width: 367
-        height: 162
-      alignment: 8
-      pivot: {x: 1, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 376460fe25a829c449b87df4178a0df5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sandaramet_phase2_arm_swipe_2
-      rect:
-        serializedVersion: 2
-        x: 734
-        y: 0
-        width: 367
-        height: 162
-      alignment: 8
-      pivot: {x: 1, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c59333f69b27004bbd0f3c3e5cf2293
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sandaramet_phase2_arm_swipe_3
-      rect:
-        serializedVersion: 2
-        x: 1101
-        y: 0
-        width: 367
-        height: 162
-      alignment: 8
-      pivot: {x: 1, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0cd70f294826e4743a0b07e1fd03d3eb
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c05c483eb1d692c4a92c519dba91ca5c
+    spriteID: f651f91d282db9248b490d448499a753
     vertices: []
     indices: 
     edges: []
