@@ -202,7 +202,7 @@ public class Player : MonoBehaviour {
             }
 
             // Set parameters for movement
-            if (!inAir)
+            if (!inAir && !Dead)
             {
                 // Ground movement
                 PlayAnims("Walk");
@@ -245,9 +245,9 @@ public class Player : MonoBehaviour {
             }
 
         }
-        else if (!inAir) {
+        else if (!inAir && !Dead) {
             // moving = false;
-            if (!crouched && !attacking) {
+            if (!crouched && !attacking && !Dead) {
                 playerUpperAnim.Play(GetAnimName("Idle"));
                 playerLowerAnim.Play(GetAnimName("IdleLegs"));
             }
@@ -258,7 +258,7 @@ public class Player : MonoBehaviour {
     }
 
     public void OnCollisionEnter2D(Collision2D coll) {
-        if (coll.collider.tag == "Floor") {
+        if (coll.collider.tag == "Floor" && !Dead) {
             playerLowerAnim.Play(GetAnimName("LandLegs"));
         }
     }
@@ -288,7 +288,7 @@ public class Player : MonoBehaviour {
             playerUpperAnim.pivotPosition.Set(0.49f, 0.83f, 0.0f);
         }
         playerUpperAnim.Play(GetAnimName("Short"));
-        if (!moving && !crouched && !inAir) {
+        if (!moving && !crouched && !inAir && !Dead) {
             playerLowerAnim.Play(GetAnimName("ShortLegs"));
         }
         if (currentBandMember == "John") {
@@ -380,7 +380,7 @@ public class Player : MonoBehaviour {
 
     public IEnumerator Kill() {
         playerUpperAnim.Play(GetAnimName("Death"));
-        playerLowerAnim.Play(GetAnimName("DashLegs"));
+        playerLowerAnim.Play("ShavoDashLegs");
         yield return new WaitForSeconds(1.0f);
     }
 }
