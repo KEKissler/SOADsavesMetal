@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee4057deb479dc742ac4c0e9862d7f1d, type: 3}
-  m_Name: Phase1Default
+  m_Name: Platform
   m_EditorClassIdentifier: 
-  AttackSelectionType: 0
+  AttackSelectionType: 1
   Attacks:
-  - {fileID: 11400000, guid: 38b2736f4a198f345af13a045652ac31, type: 2}
-  - {fileID: 11400000, guid: b0a91bd191266214988876ad587b92f3, type: 2}
+  - {fileID: 11400000, guid: bd0cc8fee7f9a8747925660d26260a0d, type: 2}
+  - {fileID: 11400000, guid: 522bd03552990cc498493b8028e93367, type: 2}

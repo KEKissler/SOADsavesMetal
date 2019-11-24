@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee4057deb479dc742ac4c0e9862d7f1d, type: 3}
-  m_Name: Phase1Default
+  m_Script: {fileID: 11500000, guid: a8fe7dc6894ff824a8ac9307cf3857d4, type: 3}
+  m_Name: FastLightCandle
   m_EditorClassIdentifier: 
-  AttackSelectionType: 0
-  Attacks:
-  - {fileID: 11400000, guid: 38b2736f4a198f345af13a045652ac31, type: 2}
-  - {fileID: 11400000, guid: b0a91bd191266214988876ad587b92f3, type: 2}
+  duration: 1
+  Min_MaxShots: 4
+  Max_MaxShots: 7
+  Min_FirePeriod: 3.5
+  Max_FirePeriod: 4
+  Min_Speed: 0
+  Max_Speed: 1

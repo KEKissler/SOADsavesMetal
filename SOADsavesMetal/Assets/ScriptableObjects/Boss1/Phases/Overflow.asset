@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 283f0b8bca799c34788879c0fbd95b14, type: 3}
+  m_Name: Overflow
+  m_EditorClassIdentifier: 
+  BossPosition: {fileID: 0}
+  Player: {fileID: 0}
+  CloseUpDistance: 0
+  NearGroundCutoff: 0
+  DefaultAttacks: {fileID: 11400000, guid: 0f963022601eedf49ac128863b2ebfc5, type: 2}
+  CloseUpAttacks: {fileID: 11400000, guid: 915b1516fb7e5554c892a78b5c387753, type: 2}
+  LowPlayerHPAttacks: {fileID: 11400000, guid: 7361b31217d3e7641b535fda53479ef0, type: 2}
+  PlayerOnPlatformAttacks: {fileID: 11400000, guid: 5c8f63e523aaf9944aa9311125ff3a5b,
+    type: 2}
