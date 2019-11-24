@@ -10,13 +10,11 @@ public class Platform : MonoBehaviour
     public float DeactivateThreshold;
 
     private BoxCollider2D platformCollider;
-    private SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
     {
         platformCollider = GetComponent<BoxCollider2D>();
-        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -27,12 +25,10 @@ public class Platform : MonoBehaviour
         if(abovePlatform && !platformCollider.enabled)
         {
             platformCollider.enabled = true;
-            sr.enabled = true;
         }
         else if (belowPlatform && platformCollider.enabled)
         {
             platformCollider.enabled = false;
-            sr.enabled = false;
         }
     }
 }
