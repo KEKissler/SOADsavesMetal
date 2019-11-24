@@ -4,6 +4,8 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: sandaramet_phase2_arm_idle_0
     21300002: sandaramet_phase2_arm_idle_1
+    21300004: sandaramet_phase2_arm_idle_2
+    21300006: sandaramet_phase2_arm_idle_3
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -33,7 +35,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -91,16 +93,16 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 230
-        height: 122
-      alignment: 8
-      pivot: {x: 1, y: 0}
+        width: 512
+        height: 408
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a889bc56e00a23045aacf93a82bfc279
+      spriteID: 5a40c2d2e95959f468e115c4084bb065
       vertices: []
       indices: 
       edges: []
@@ -109,18 +111,58 @@ TextureImporter:
       name: sandaramet_phase2_arm_idle_1
       rect:
         serializedVersion: 2
-        x: 230
+        x: 512
         y: 0
-        width: 230
-        height: 122
-      alignment: 8
-      pivot: {x: 1, y: 0}
+        width: 512
+        height: 408
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4b662471910e9849a2f4edd58b33cb9
+      spriteID: e3580316eb798b14d8da14ec3f916395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandaramet_phase2_arm_idle_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 408
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a7f47af7a854bc418168a912401fd4a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandaramet_phase2_arm_idle_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 408
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf592fbd1691c54eb560e7d005ba70c
       vertices: []
       indices: 
       edges: []
@@ -128,7 +170,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b6f7660a441059d4999983d790d918be
+    spriteID: 7c7b3f9eb5a36784cb188db21f86ae8a
     vertices: []
     indices: 
     edges: []

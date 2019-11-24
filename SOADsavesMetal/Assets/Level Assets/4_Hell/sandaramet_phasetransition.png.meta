@@ -1,22 +1,20 @@
 fileFormatVersion: 2
-guid: 606337a034d75f049876cdbaa935ec6f
+guid: f077f2aba26c6474b8497494ea25c482
 TextureImporter:
   fileIDToRecycleName:
-    21300000: sandaramet_phase1_death_0
-    21300002: sandaramet_phase1_death_1
-    21300004: sandaramet_phase1_death_2
-    21300006: sandaramet_phase1_death_3
-    21300008: sandaramet_phase1_death_4
-    21300010: sandaramet_phase1_death_5
-    21300012: sandaramet_phase1_death_6
-    21300014: sandaramet_phase1_death_7
-    21300016: sandaramet_phase1_death_8
-    21300018: sandaramet_phase1_death_9
-    21300020: sandaramet_phase1_death_10
-    21300022: sandaramet_phase1_death_11
-    21300024: sandaramet_phase1_death_12
-    21300026: sandaramet_phase1_death_13
-    21300028: sandaramet_phase1_death_14
+    21300000: sandaramet_phasetransition_0
+    21300002: sandaramet_phasetransition_1
+    21300004: sandaramet_phasetransition_2
+    21300006: sandaramet_phasetransition_3
+    21300008: sandaramet_phasetransition_4
+    21300010: sandaramet_phasetransition_5
+    21300012: sandaramet_phasetransition_6
+    21300014: sandaramet_phasetransition_7
+    21300016: sandaramet_phasetransition_8
+    21300018: sandaramet_phasetransition_9
+    21300020: sandaramet_phasetransition_10
+    21300022: sandaramet_phasetransition_11
+    21300024: sandaramet_phasetransition_12
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -99,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sandaramet_phase1_death_0
+      name: sandaramet_phasetransition_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 445
-        height: 434
+        width: 477
+        height: 416
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,19 +111,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69e12cae3465b6c43ab31922da731a40
+      spriteID: 097029db41d54eb49991fc4e83f99d38
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sandaramet_phase1_death_1
+      name: sandaramet_phasetransition_1
       rect:
         serializedVersion: 2
-        x: 445
+        x: 477
         y: 0
-        width: 445
-        height: 434
+        width: 477
+        height: 416
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,19 +131,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e69956768713c741844fb67ed889e4f
+      spriteID: c878a5b32ca0c2f4eb4e56cff47b1686
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sandaramet_phase1_death_2
+      name: sandaramet_phasetransition_2
       rect:
         serializedVersion: 2
-        x: 890
+        x: 954
         y: 0
-        width: 445
-        height: 434
+        width: 477
+        height: 416
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,19 +151,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19ba86318d8984843a0e8e1fbb4c4526
+      spriteID: 47ebbc10bc586f445a4b3e16d29cd9fa
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sandaramet_phase1_death_3
+      name: sandaramet_phasetransition_3
       rect:
         serializedVersion: 2
-        x: 1335
+        x: 1431
         y: 0
-        width: 445
-        height: 434
+        width: 477
+        height: 416
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,19 +171,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 926db0800b76df143952607bd512cdd0
+      spriteID: ceb9707e8959599438a0a0136ce2dcc9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sandaramet_phase1_death_4
+      name: sandaramet_phasetransition_4
       rect:
         serializedVersion: 2
-        x: 1780
+        x: 1908
         y: 0
-        width: 445
-        height: 434
+        width: 477
+        height: 416
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,19 +191,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13955698d82135149b915d6b25a8494e
+      spriteID: 78348fb55abefb74795cd5b11b689256
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sandaramet_phase1_death_5
+      name: sandaramet_phasetransition_5
       rect:
         serializedVersion: 2
-        x: 2225
+        x: 2385
         y: 0
-        width: 445
-        height: 434
+        width: 477
+        height: 416
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,19 +211,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5e5c966ee9d4954cbfb31a309fc0696
+      spriteID: 9398032aeac279b4c838724e6d9e53cd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sandaramet_phase1_death_6
+      name: sandaramet_phasetransition_6
       rect:
         serializedVersion: 2
-        x: 2670
+        x: 2862
         y: 0
-        width: 445
-        height: 434
+        width: 477
+        height: 416
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,19 +231,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e3e1b6366ede5945813ed36b67038c4
+      spriteID: 6f5363428e583ef41aaf4d9115a65cff
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sandaramet_phase1_death_7
+      name: sandaramet_phasetransition_7
       rect:
         serializedVersion: 2
-        x: 3115
+        x: 3339
         y: 0
-        width: 445
-        height: 434
+        width: 477
+        height: 416
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,19 +251,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 084eca88cc2dd614fa7468d82caf567d
+      spriteID: 028fdb90de9778a4c96cbd8439bf6902
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sandaramet_phase1_death_8
+      name: sandaramet_phasetransition_8
       rect:
         serializedVersion: 2
-        x: 3560
+        x: 3816
         y: 0
-        width: 445
-        height: 434
+        width: 477
+        height: 416
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,19 +271,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d02ea460144442488fc75df135de520
+      spriteID: 40bad8ab7032082498158ee260824269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sandaramet_phase1_death_9
+      name: sandaramet_phasetransition_9
       rect:
         serializedVersion: 2
-        x: 4005
+        x: 4293
         y: 0
-        width: 445
-        height: 434
+        width: 477
+        height: 416
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,7 +291,67 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64198c1d4f5ae0443926a31ae0e0eac6
+      spriteID: bbba7ef25cce6f144910367f84626ed8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandaramet_phasetransition_10
+      rect:
+        serializedVersion: 2
+        x: 4770
+        y: 0
+        width: 477
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70eda06eab15bc94e83fff9173de1c97
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandaramet_phasetransition_11
+      rect:
+        serializedVersion: 2
+        x: 5247
+        y: 0
+        width: 477
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4ccbf233dc04f242b0c39ec88faf11b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandaramet_phasetransition_12
+      rect:
+        serializedVersion: 2
+        x: 5724
+        y: 0
+        width: 477
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea7545151fa98b458952dce85d65792
       vertices: []
       indices: 
       edges: []
@@ -301,7 +359,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1d58550efb0d7bc469e37c0be3fe5e36
+    spriteID: 4462a86ad072eaf408ed37f38573ebde
     vertices: []
     indices: 
     edges: []

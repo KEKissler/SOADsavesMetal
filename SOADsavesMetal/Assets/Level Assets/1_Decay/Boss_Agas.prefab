@@ -189,6 +189,8 @@ GameObject:
   - component: {fileID: 2380804503749740927}
   - component: {fileID: 2380804503749740921}
   - component: {fileID: 2380804503749740926}
+  - component: {fileID: 6134038596496736852}
+  - component: {fileID: 2076804672328146653}
   m_Layer: 0
   m_Name: Agas
   m_TagString: Untagged
@@ -277,6 +279,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &6134038596496736852
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2380804503749740924}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000023841858, y: 0.00000011920929}
+  serializedVersion: 2
+  m_Radius: 0.1
+--- !u!114 &2076804672328146653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2380804503749740924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb269e8136c87845ba6d4ee68d27fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2380804504221159820
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +476,8 @@ GameObject:
   - component: {fileID: 2380804504558194929}
   - component: {fileID: 2380804504558194928}
   - component: {fileID: 2380804504558194931}
+  - component: {fileID: 1944043208692453105}
+  - component: {fileID: 3338966506030257156}
   m_Layer: 0
   m_Name: OverflowLiquid
   m_TagString: Untagged
@@ -507,6 +539,44 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &1944043208692453105
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2380804504558194934}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 3, y: -2.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 22, y: 6}
+  m_EdgeRadius: 0
+--- !u!114 &3338966506030257156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2380804504558194934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb269e8136c87845ba6d4ee68d27fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2380804504650341394
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,7 +705,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   candle: {fileID: 1883100758368052, guid: bfc94cc7610841b418c48574685289b9, type: 3}
   spike: {fileID: 4219256326595800565, guid: 8979e7bb6d8193f4a8ceb1e502be3750, type: 3}
+  ghostball: {fileID: 0}
+  slime: {fileID: 0}
   overflowLiquid: {fileID: 2380804504558194934}
+  candles: []
+  agas: {fileID: 0}
+  healthScript: {fileID: 0}
+  goblet: {fileID: 0}
+  numberOfSpikes: 0
+  spikeSpacing: 0
 --- !u!114 &573222039197791906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,7 +726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eeec4cad5755ae42a06ebbcefc4926c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHP: 20000
+  damageMultiplier: 1
 --- !u!1 &2380804505280400123
 GameObject:
   m_ObjectHideFlags: 0

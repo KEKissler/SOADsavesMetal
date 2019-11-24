@@ -301,6 +301,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3123a12516ced404d8a7bf1d6f7dd5ad, type: 2}
   - {fileID: 11400000, guid: f27cf3dede625cf4281ddb4a9c958872, type: 2}
   - {fileID: 11400000, guid: 1e30570e7f1141941a7e333289e30b58, type: 2}
+  - {fileID: 11400000, guid: bd0cc8fee7f9a8747925660d26260a0d, type: 2}
 --- !u!4 &72277651
 Transform:
   m_ObjectHideFlags: 0
@@ -1963,6 +1964,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1374328336026479313, guid: 1b1b9a1123fdb054bac5fcc7ca015781,
         type: 3}
+      propertyPath: PhasesToInitialize.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374328336026479313, guid: 1b1b9a1123fdb054bac5fcc7ca015781,
+        type: 3}
       propertyPath: BossPosition
       value: 
       objectReference: {fileID: 236957682}
@@ -1976,6 +1982,18 @@ PrefabInstance:
       propertyPath: PhasesToInitialize.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: c89656a8bd3b5554eb37e3decf090c20,
+        type: 2}
+    - target: {fileID: 1374328336026479313, guid: 1b1b9a1123fdb054bac5fcc7ca015781,
+        type: 3}
+      propertyPath: PhasesToInitialize.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: b25ee52cf376f3f42ab5f9af76cf5c1a,
+        type: 2}
+    - target: {fileID: 1374328336026479313, guid: 1b1b9a1123fdb054bac5fcc7ca015781,
+        type: 3}
+      propertyPath: PhasesToInitialize.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6358de506353be643912a55095d0252a,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1b9a1123fdb054bac5fcc7ca015781, type: 3}
@@ -2925,9 +2943,13 @@ MonoBehaviour:
   BossHealth: {fileID: 1443309143}
   PhaseChangeThreshholds:
   - BossPhase: {fileID: 11400000, guid: c89656a8bd3b5554eb37e3decf090c20, type: 2}
-    HealthPercentThreshhold: 0
-  - BossPhase: {fileID: 11400000, guid: c89656a8bd3b5554eb37e3decf090c20, type: 2}
+    HealthPercentThreshhold: 100
+  - BossPhase: {fileID: 11400000, guid: b25ee52cf376f3f42ab5f9af76cf5c1a, type: 2}
     HealthPercentThreshhold: 80
+  - BossPhase: {fileID: 11400000, guid: 6358de506353be643912a55095d0252a, type: 2}
+    HealthPercentThreshhold: 79
+  - BossPhase: {fileID: 11400000, guid: 6358de506353be643912a55095d0252a, type: 2}
+    HealthPercentThreshhold: 0
 --- !u!4 &1519348930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2380804504558194929, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,

@@ -15,7 +15,6 @@ public class Move : AgasAttack
     {
         agas = data.agas;
         duration = PlannedPositions.Select(a => a.delayUntilMovingAgain).Aggregate(0f, (a, c) => a + c);
-        Debug.Log("total time for this movement: " + duration + "");
     }
 
     protected override void OnStart()
