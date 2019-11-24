@@ -9,14 +9,15 @@ public class Platform : MonoBehaviour
     public float ActivateThreshold;
     public float DeactivateThreshold;
 
-    private BoxCollider2D platformCollider;
+    private CapsuleCollider2D platformCollider;
     private SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
     {
-        platformCollider = GetComponent<BoxCollider2D>();
+        platformCollider = GetComponent<CapsuleCollider2D>();
         sr = GetComponent<SpriteRenderer>();
+        Player = GameObject.Find("Player").transform;
     }
 
     // Update is called once per frame
@@ -32,7 +33,7 @@ public class Platform : MonoBehaviour
         else if (belowPlatform && platformCollider.enabled)
         {
             platformCollider.enabled = false;
-            sr.enabled = false;
+            // sr.enabled = false;
         }
     }
 }

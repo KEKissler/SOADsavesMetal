@@ -734,14 +734,14 @@ MonoBehaviour:
   currentBandMember: Shavo
   jumpHeight: 18
   startingHealth: 3
-  maxGroundSpeed: 11
-  groundAccel: 120
-  groundDecel: 35
-  groundFrictionDecel: 39
+  maxGroundSpeed: 10.9
+  groundAccel: 140
+  groundDecel: 40
+  groundFrictionDecel: 47
   maxAirSpeed: 10.5
-  airAccel: 103
-  airDecel: 30
-  airFrictionDecel: 25
+  airAccel: 123
+  airDecel: 40
+  airFrictionDecel: 42
   upperBodyHitbox: {fileID: 9117497486007347996}
   shortRangeHitbox: {fileID: 9117497486599704595}
   stick: {fileID: 0}

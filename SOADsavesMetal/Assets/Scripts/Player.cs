@@ -85,13 +85,18 @@ public class Player : MonoBehaviour {
             #endregion Friction
 
             #region Falling and jumping animations
-            if (rb.velocity.y < -0.5f) {
-                // landing = true;
-                PlayAnims("Fall");
-            }
-            if (rb.velocity.y > 0.5) {
-                PlayAnims("Jump");
+            if(!blockHorizontalMovement)  // Or any other special condition is in effect
+            {
+                if (rb.velocity.y < -0.5f)
+                {
+                    // landing = true;
+                    PlayAnims("Fall");
+                }
+                if (rb.velocity.y > 0.5)
+                {
+                    PlayAnims("Jump");
 
+                }
             }
             #endregion Falling and jumping animations
 
@@ -125,8 +130,6 @@ public class Player : MonoBehaviour {
                     }
                     else if (currentBandMember == "Shavo") {// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "ShavoJumpLegs")
                         StartCoroutine(Dash());
-                        var playerRotation = gameObject.transform.rotation;
-                        rb.velocity = new Vector2((playerRotation.y == 0 ? 1 : -1) * 1.5f * jumpHeight, 0.0f);
                     }
                     else if (currentBandMember == "Daron") {
                         StartCoroutine("Teleport");
@@ -310,11 +313,15 @@ public class Player : MonoBehaviour {
     }
 
     public IEnumerator Dash() {
+        float dashPower = 18f;
         blockHorizontalMovement = true;
-        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-        yield return new WaitForSeconds(0.125f);
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        rb.velocity = new Vector2(0f, 0.0f);
+        PlayAnims("Dash");
+        rb.velocity = new Vector2(0, 0.1f);
+        yield return new WaitForSeconds(0.13f);
+        var playerRotation = gameObject.transform.rotation;
+        rb.velocity = new Vector2((playerRotation.y == 0 ? 1 : -1) * 1.5f * dashPower, 0.5f * dashPower);
+        yield return new WaitForSeconds(0.21f);
+        rb.velocity *= 0.2f;
         blockHorizontalMovement = false;
 
     }
