@@ -10,10 +10,11 @@ public class StaticBeamAnimation : MonoBehaviour
     public float yAttackSize;
     public float chargeDuration;
     public float attackDuration;
-    public float flashTime;
+    public float flashDuration;
     public float endDuration;
     public Color startingColor;
     public Color attackColor;
+    public Color flashColor;
     public Transform player;
 
     private float postYLength = 0;
@@ -47,7 +48,7 @@ public class StaticBeamAnimation : MonoBehaviour
     private IEnumerator Coalesce()
     {
         transform.LeanScaleY(yAttackSize, chargeDuration);
-        var a = StartCoroutine(LerpColor(alpha, startingColor, attackColor, chargeDuration));
+        var a = StartCoroutine(LerpColor(alpha, startingColor, flashColor, chargeDuration));
 
         yield return new WaitForSeconds(chargeDuration);
         tracking = false;
@@ -66,15 +67,28 @@ public class StaticBeamAnimation : MonoBehaviour
             sprite.color = Color.Lerp(from, to, duration/time);
             duration += Time.deltaTime;
             yield return new WaitForEndOfFrame();
+        }     
+        sprite.color = to;
+    }
+
+    private IEnumerator LerpColorWarn(SpriteRenderer sprite, Color from, Color to, float time)
+    {
+        float duration = 0;
+        while (duration < time)
+        {
+            sprite.color = Color.Lerp(from, to, duration / time);
+            duration += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
         }
         sprite.color = to;
     }
 
     private IEnumerator Warning()
     {
-        alpha.color = startingColor;
-        yield return new WaitForSeconds(flashTime);
-        alpha.color = attackColor;
+        StartCoroutine(LerpColorWarn(alpha, flashColor, attackColor, flashDuration));
+        //alpha.color = flashColor;
+        yield return new WaitForSeconds(flashDuration);
+        //alpha.color = attackColor;
         StartCoroutine(Firing());
     }
 

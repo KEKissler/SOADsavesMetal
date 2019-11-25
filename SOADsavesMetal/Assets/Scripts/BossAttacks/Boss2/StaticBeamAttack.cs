@@ -11,10 +11,11 @@ public class StaticBeamAttack : TsovinarAttack
     public float yAttackSize;
     public float chargeDuration;
     public float attackDuration;
-    public float flashTime;
+    public float flashDuration;
     public float endDuration;
     public Color startingColor;
     public Color attackColor;
+    public Color flashColor;
 
 
     
@@ -50,10 +51,11 @@ public class StaticBeamAttack : TsovinarAttack
         beamObject.yAttackSize = yAttackSize;
         beamObject.chargeDuration = chargeDuration;
         beamObject.attackDuration = attackDuration;
-        beamObject.flashTime = flashTime;
+        beamObject.flashDuration = flashDuration;
         beamObject.endDuration = endDuration;
         beamObject.startingColor = startingColor;
         beamObject.attackColor = attackColor;
+        beamObject.flashColor = flashColor;
         beamObject.player = playerLocation;
 
     }
