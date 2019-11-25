@@ -16,6 +16,7 @@ public class JohnAttack : MonoBehaviour {
     // Long range attack
     public GameObject drumstick;
     private const float LONG_ATTACK_COOLDOWN = 0.111f;
+    public const float DRUMSTICK_FORWARD_OFFSET = 0.08f;
 
     // Super attack
     public GameObject cymbal;
@@ -25,7 +26,10 @@ public class JohnAttack : MonoBehaviour {
     private const int FINAL_BURST_SIZE = 3;
     private float curr_time_between_shots;
     private float shotTimer = 0.0f;
-    
+
+    // Amount to lower the spawn location of projectiles when John is crouching
+    public const float WE_DONT_LIKE_EYE_LASER_DRUMSTICKS = -0.84f;
+
 	// Use this for initialization
 	void Start () {
         playerScript = gameObject.GetComponentInParent<Player>();
@@ -98,10 +102,13 @@ public class JohnAttack : MonoBehaviour {
     {
     	attacking = true;
 
-        
+        float weDontLikeEyeLaserDrumsticks = 0f;
+        if (playerScript.isCrouching()) weDontLikeEyeLaserDrumsticks = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
 
     	// Create projectile (drumstick)
-    	GameObject dsClone = Instantiate(drumstick, transform.position, transform.parent.rotation);
+    	GameObject dsClone = Instantiate(drumstick, transform.position +
+            new Vector3(DRUMSTICK_FORWARD_OFFSET, weDontLikeEyeLaserDrumsticks, 0),
+            transform.parent.rotation);
 
         // Cooldown period
         attackTimer = 0.0f;
@@ -118,11 +125,15 @@ public class JohnAttack : MonoBehaviour {
     {
         attacking = true;
 
+        float weDontLikeEyeLaserDrumsticks = 0f;
+
         curr_time_between_shots = TIME_BETWEEN_SHOTS_HIGH;
         attackTimer = 0.0f;
         shotTimer = 0.0f;
         while(attackTimer < SUPER_LENGTH)
         {
+            if (playerScript.isCrouching()) weDontLikeEyeLaserDrumsticks = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
+            else weDontLikeEyeLaserDrumsticks = 0f;
             shotTimer += Time.deltaTime;
             attackTimer += Time.deltaTime;
             
@@ -133,14 +144,16 @@ public class JohnAttack : MonoBehaviour {
             {
                 shotTimer %= curr_time_between_shots;
                 // Debug.Log(shotTimer);
-                GameObject cymbalClone = Instantiate(cymbal, transform.position, transform.parent.rotation);
+                GameObject cymbalClone = Instantiate(cymbal, transform.position + 
+                    new Vector3(DRUMSTICK_FORWARD_OFFSET, weDontLikeEyeLaserDrumsticks, 0), transform.parent.rotation);
             }
             yield return null;
         }
 
         for(int i=0; i<FINAL_BURST_SIZE; ++i)
         {
-            GameObject cymbalClone = Instantiate(cymbal, transform.position, transform.parent.rotation);
+            GameObject cymbalClone = Instantiate(cymbal, transform.position + 
+                new Vector3(DRUMSTICK_FORWARD_OFFSET, weDontLikeEyeLaserDrumsticks, 0), transform.parent.rotation);
             cymbalClone.transform.localScale *= new Vector2(1.2f, 1.2f);
         }
 

@@ -158,7 +158,8 @@ public class Player : MonoBehaviour {
                 StartCoroutine("shortRangeCooldown");
             }
             else if(Input.GetKeyDown(KeyCode.X) && !attacking) {
-                if (name != "John")
+
+                if (currentBandMember != "John")
                 {
                     attacking = true;
                     StartCoroutine("longRangeCooldown");
@@ -385,5 +386,10 @@ public class Player : MonoBehaviour {
         playerUpperAnim.Play(GetAnimName("Death"));
         playerLowerAnim.Play("ShavoDashLegs");
         yield return new WaitForSeconds(1.0f);
+    }
+
+    public bool isCrouching()
+    {
+        return crouched;
     }
 }
