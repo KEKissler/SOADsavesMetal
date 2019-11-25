@@ -317,10 +317,10 @@ public class Player : MonoBehaviour {
         blockHorizontalMovement = true;
         PlayAnims("Dash");
         rb.velocity = new Vector2(0, 0.1f);
-        yield return new WaitForSeconds(0.13f);
+        yield return new WaitForSeconds(0.12f);
         var playerRotation = gameObject.transform.rotation;
-        rb.velocity = new Vector2((playerRotation.y == 0 ? 1 : -1) * 1.5f * dashPower, 0.5f * dashPower);
-        yield return new WaitForSeconds(0.21f);
+        rb.velocity = new Vector2((playerRotation.y == 0 ? 1 : -1) * 1.6f * dashPower, 0.4f * dashPower);
+        yield return new WaitForSeconds(0.22f);
         rb.velocity *= 0.2f;
         blockHorizontalMovement = false;
 
