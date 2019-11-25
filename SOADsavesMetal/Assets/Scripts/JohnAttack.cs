@@ -5,6 +5,7 @@ using UnityEngine;
 public class JohnAttack : MonoBehaviour {
 	
 	private bool attacking;
+    private Player playerScript;
 	private float attackTimer = 0.0f; // General purpose timer
 
 	// Short range attack
@@ -14,19 +15,20 @@ public class JohnAttack : MonoBehaviour {
     
     // Long range attack
     public GameObject drumstick;
-    private const float LONG_ATTACK_COOLDOWN = 0.047f;
+    private const float LONG_ATTACK_COOLDOWN = 0.111f;
 
     // Super attack
     public GameObject cymbal;
-    private const float SUPER_LENGTH = 3.7f;
-    private const float TIME_BETWEEN_SHOTS_HIGH = 0.11f;
-    private const float TIME_BETWEEN_SHOTS_LOW = 0.015f;
-    private const int FINAL_BURST_SIZE = 1;
+    private const float SUPER_LENGTH = 3f;
+    private const float TIME_BETWEEN_SHOTS_HIGH = 0.12f;
+    private const float TIME_BETWEEN_SHOTS_LOW = 0.03f;
+    private const int FINAL_BURST_SIZE = 3;
     private float curr_time_between_shots;
     private float shotTimer = 0.0f;
     
 	// Use this for initialization
 	void Start () {
+        playerScript = gameObject.GetComponentInParent<Player>();
         shortRangeHitbox.SetActive(false);
         attacking = false;
 	}
@@ -34,17 +36,17 @@ public class JohnAttack : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if(!attacking)
+		if(!attacking && !playerScript.Dead)
 		{
-			if(Input.GetKey(KeyCode.Z))
+			if(Input.GetKeyDown(KeyCode.Z))
 			{
 				StartCoroutine(AttackShort());
 			}
-			else if(Input.GetKey(KeyCode.X))
+			else if(Input.GetKeyDown(KeyCode.X))
 			{
 				StartCoroutine(AttackLong());
 			}
-            else if(Input.GetKey(KeyCode.C))
+            else if(Input.GetKeyDown(KeyCode.C))
             {
                 StartCoroutine(AttackSuper());
             }

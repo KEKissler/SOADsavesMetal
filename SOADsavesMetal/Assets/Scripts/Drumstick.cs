@@ -6,13 +6,13 @@ public enum Direction {Default, Right, Down, Left, Up};
 
 public class Drumstick : MonoBehaviour {
  
-	public float velocity = 33.4f;
+	public float velocity = 23.4f;
 	public Direction direction = Direction.Default;
 	public bool rotateWithPlayer = true;
-	public int damage = 17;
+	public int damage = 26;
 
 	private Rigidbody2D rb;
-	private const float LIFESPAN = 0.65f;
+	private const float LIFESPAN = 0.75f;
 
 	// Use this for initialization
 	void Start () {

@@ -119,7 +119,7 @@ public class Player : MonoBehaviour {
             #endregion Crouching
 
             #region Jump and double jump
-            if (!crouched && Input.GetKeyDown(KeyCode.Space) && remainingJumps > 0) {
+            if (!crouched && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && remainingJumps > 0) {
                 remainingJumps -= 1;
                 if (inAir) {
                     PlayAnims("Jump");
@@ -158,8 +158,11 @@ public class Player : MonoBehaviour {
                 StartCoroutine("shortRangeCooldown");
             }
             else if(Input.GetKeyDown(KeyCode.X) && !attacking) {
-                attacking = true;
-                StartCoroutine("longRangeCooldown");
+                if (name != "John")
+                {
+                    attacking = true;
+                    StartCoroutine("longRangeCooldown");
+                }
             }
             else if(Input.GetKeyDown(KeyCode.C)) {
                 StartCoroutine("superCooldown");
@@ -319,7 +322,7 @@ public class Player : MonoBehaviour {
         rb.velocity = new Vector2(0, 0.1f);
         yield return new WaitForSeconds(0.12f);
         var playerRotation = gameObject.transform.rotation;
-        rb.velocity = new Vector2((playerRotation.y == 0 ? 1 : -1) * 1.6f * dashPower, 0.4f * dashPower);
+        rb.velocity = new Vector2((playerRotation.y == 0 ? 1 : -1) * 1.6f * dashPower, 0.42f * dashPower);
         yield return new WaitForSeconds(0.22f);
         rb.velocity *= 0.2f;
         blockHorizontalMovement = false;
@@ -343,7 +346,7 @@ public class Player : MonoBehaviour {
         upperBodyHitbox.GetComponent<BoxCollider2D>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         yield return new WaitForSeconds(0.125f);
-        upperBodyHitbox.GetComponent<BoxCollider2D>().enabled = true ;
+        upperBodyHitbox.GetComponent<BoxCollider2D>().enabled = true;
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.velocity = new Vector2(0.0f, 0.0f);
@@ -370,7 +373,7 @@ public class Player : MonoBehaviour {
                 playerLowerAnim.Play("SerjLongLegs");
             }
         }
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.07f);
         attacking = false;
     }
 

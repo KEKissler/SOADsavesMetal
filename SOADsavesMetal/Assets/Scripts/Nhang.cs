@@ -283,7 +283,7 @@ public class Nhang : MonoBehaviour
         float veryWellNamedAngle = Mathf.Atan2(target.transform.position.y - body[bodyLength-1].transform.position.y + 0.77f,
                                                 target.transform.position.x - body[bodyLength-1].transform.position.x);
         // Debug.Log(veryWellNamedAngle);
-        while(timer < 0.9f)
+        while(timer < 0.777f)
         {
             for(int i=0; i<bodyLength-1; ++i)
             {
@@ -303,11 +303,11 @@ public class Nhang : MonoBehaviour
         // Snap
         for(int i=0; i<bodyLength; ++i)
         {
-            bodyRB[i].velocity += new Vector2(-0.2f, 0.2f);
+            bodyRB[i].velocity += new Vector2(-0.07f, 0.2f);
             bodyRB[i].drag = snapDrag;
         }
         bodyRB[bodyLength-1].angularDrag = 99f;
-        bodyRB[bodyLength-1].velocity += new Vector2(-0.2f, 0.1f);
+        bodyRB[bodyLength-1].velocity += new Vector2(-0.07f, 0.1f);
 
         // Hold
         timer = 0f;
