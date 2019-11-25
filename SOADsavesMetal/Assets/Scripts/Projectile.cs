@@ -44,12 +44,24 @@ public class Projectile : MonoBehaviour
     {
         
     }
-    
-    public void Configure(GameObject target, ProjectileType pt, ProjectileSpeed ps, float degreeModifier)
+    //why is every unity project does this show up.
+    private float PosMod(float angle)
+    {
+        var newAngle = Mathf.Rad2Deg * angle % 360;
+        newAngle = newAngle < 0 ? newAngle + 360 : newAngle;
+        return newAngle * Mathf.Deg2Rad;
+    }
+
+    public void Configure(GameObject target, ProjectileType pt, ProjectileSpeed ps, float degreeModifier, float? presetAngle = null)
     {
         float a = target.transform.position.x-transform.position.x;
         float b = target.transform.position.y-transform.position.y;
-        float angle = Mathf.Atan2(b, a) + degreeModifier*Mathf.Deg2Rad;
+        float angle = Mathf.Atan2(b, a) + degreeModifier * Mathf.Deg2Rad;
+        if (presetAngle != null)
+        {
+            angle = presetAngle.Value * Mathf.Deg2Rad;
+        }
+        angle = PosMod(angle);
         float v;
 
         switch(ps)
@@ -73,7 +85,7 @@ public class Projectile : MonoBehaviour
         
         a = Mathf.Cos(angle)*v;
         b = Mathf.Sin(angle)*v;
-        // float m = (transform.position-player.transform.position).magnitude;
+
         rb.velocity = new Vector2(a, b);
 
         switch(pt)

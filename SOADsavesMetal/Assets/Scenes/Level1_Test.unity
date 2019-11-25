@@ -2952,7 +2952,7 @@ MonoBehaviour:
   - BossPhase: {fileID: 11400000, guid: b25ee52cf376f3f42ab5f9af76cf5c1a, type: 2}
     HealthPercentThreshhold: 80
   - BossPhase: {fileID: 11400000, guid: 6358de506353be643912a55095d0252a, type: 2}
-    HealthPercentThreshhold: 79
+    HealthPercentThreshhold: 65
   - BossPhase: {fileID: 11400000, guid: 6358de506353be643912a55095d0252a, type: 2}
     HealthPercentThreshhold: 0
 --- !u!4 &1519348930 stripped

@@ -104,15 +104,24 @@ public class CandleEmitter : MonoBehaviour {
 	IEnumerator createProjectile()
 	{
 		if(!player)	player = GameObject.Find("Player");
-		GameObject projectileClone = Instantiate(projectile, candleGlow.position-new Vector3(0,0.11f), transform.rotation);
-		yield return null;
-        if(projectileClone == null)
+        List<GameObject> projectileClones = new List<GameObject>();
+        projectileClones.Add(Instantiate(projectile, candleGlow.position - new Vector3(0, 0.11f), transform.rotation));
+        projectileClones.Add(Instantiate(projectile, candleGlow.position - new Vector3(0, 0.11f), transform.rotation));
+        projectileClones.Add(Instantiate(projectile, candleGlow.position - new Vector3(0, 0.11f), transform.rotation));
+        projectileClones.Add(Instantiate(projectile, candleGlow.position - new Vector3(0, 0.11f), transform.rotation));
+        yield return null;
+        var angle = 0;
+        foreach(var projectileClone in projectileClones)
         {
-            //the projectile was removed by the player on its first frame after Instatiate
-            yield break;
+            if (projectileClone == null)
+            {
+                //the projectile was removed by the player on its first frame after Instatiate
+                continue;
+            }
+            projectileClone.GetComponent<Projectile>().Configure(player, ProjectileType.Linear, speed, 0.0f, angle);
+            angle += 90;
+            projectileClone.transform.localScale = new Vector2(3.6f, 3.6f);
         }
-		projectileClone.GetComponent<Projectile>().Configure(player, ProjectileType.Linear, speed, 0.0f);
-		projectileClone.transform.localScale = new Vector2(3.6f, 3.6f);
 	}
 
 	public void enableFire()
