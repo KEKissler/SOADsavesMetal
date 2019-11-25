@@ -57,6 +57,5 @@ public class StaticBeamAttack : TsovinarAttack
         beamObject.attackColor = attackColor;
         beamObject.flashColor = flashColor;
         beamObject.player = playerLocation;
-
     }
 }

@@ -12,6 +12,8 @@ public class ElectircShock_Random : TsovinarAttack
     public GameObject wirePrefab;
     public float CycleTime;
 
+    public AnimationClip setupClip;
+
     [Range(1, 6)]
     public int activeWireCount;
 
@@ -50,6 +52,7 @@ public class ElectircShock_Random : TsovinarAttack
         Destroy(wire6.gameObject);
         wireMap.Clear();
         Debug.Log("Shock off");
+        
     }
 
     protected override void OnStart()
@@ -73,7 +76,7 @@ public class ElectircShock_Random : TsovinarAttack
         wire3.Play(OFF_STATE);
         wire4.Play(OFF_STATE);
         wire5.Play(OFF_STATE);
-        wire6.Play(OFF_STATE);
+        wire6.Play(OFF_STATE);        
     }
 
     private void TurnOn()
@@ -97,7 +100,7 @@ public class ElectircShock_Random : TsovinarAttack
         {
             if (wireOnOff[i])
             {
-                wireMap[i].Play(ON_STATE);      
+                wireMap[i].Play(ON_STATE);
             }
         }
 
@@ -111,6 +114,7 @@ public class ElectircShock_Random : TsovinarAttack
         Debug.Log("Setup");
         while (true)
         {
+
             TurnOn();
             yield return new WaitForSeconds(CycleTime);
             wire1.Play(OFF_STATE);
@@ -119,6 +123,7 @@ public class ElectircShock_Random : TsovinarAttack
             wire4.Play(OFF_STATE);
             wire5.Play(OFF_STATE);
             wire6.Play(OFF_STATE);
+
             for (int i = 0; i < wireOnOff.Length; ++i)
             {
                 wireOnOff[i] = false;

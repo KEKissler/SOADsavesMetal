@@ -26,7 +26,6 @@ public class ElectricShock_OddEven : TsovinarAttack
     private Animator wire6;
 
     private bool isOdd;
-    
 
     protected override void OnEnd()
     {

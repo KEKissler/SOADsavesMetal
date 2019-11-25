@@ -15,6 +15,7 @@ public class BossAttackHitBox : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<Player>().Health -= 1;
+            Debug.Log(gameObject.name);
         }
     }
 }

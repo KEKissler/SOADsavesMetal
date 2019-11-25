@@ -17,6 +17,7 @@ public class StaticBeamAnimation : MonoBehaviour
     public Color flashColor;
     public Transform player;
 
+    private BoxCollider2D beamHitBox;
     private float postYLength = 0;
     private SpriteRenderer alpha;
     private bool tracking = true;
@@ -27,6 +28,8 @@ public class StaticBeamAnimation : MonoBehaviour
         alpha = GetComponent<SpriteRenderer>();
         transform.localScale = new Vector3(X_LENGTH, preYLength, 1);
         alpha.color = startingColor;
+        beamHitBox = GetComponent<BoxCollider2D>();
+        beamHitBox.enabled = false;
         StartCoroutine(Coalesce());
         
     }
@@ -94,13 +97,17 @@ public class StaticBeamAnimation : MonoBehaviour
 
     private IEnumerator Firing()
     {
+        beamHitBox.enabled = true;
         yield return new WaitForSeconds(attackDuration);
+        beamHitBox.enabled = false;
         StartCoroutine(Shrink());
     }
 
     private IEnumerator Shrink()
     {
         transform.LeanScaleY(0, endDuration);
-        yield return new WaitForSeconds(endDuration);
+        yield return new WaitForSeconds(endDuration);      
     }
+
+    
 }
