@@ -44,6 +44,7 @@ public class Projectile : MonoBehaviour
     {
         
     }
+
     //why is every unity project does this show up.
     private float PosMod(float angle)
     {
@@ -62,6 +63,11 @@ public class Projectile : MonoBehaviour
             angle = presetAngle.Value * Mathf.Deg2Rad;
         }
         angle = PosMod(angle);
+
+        Quaternion newRotation = new Quaternion();
+        newRotation.eulerAngles = new Vector3(0, 0, angle * Mathf.Rad2Deg + 90);
+        transform.rotation = newRotation;
+
         float v;
 
         switch(ps)
