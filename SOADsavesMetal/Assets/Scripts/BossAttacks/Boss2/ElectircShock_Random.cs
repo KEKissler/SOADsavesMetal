@@ -76,7 +76,7 @@ public class ElectircShock_Random : TsovinarAttack
         wire6.Play(OFF_STATE);
     }
 
-    private void turnOn()
+    private void TurnOn()
     {
         int randNum;
         for (int i = 0; i < activeWireCount; ++i)
@@ -111,7 +111,7 @@ public class ElectircShock_Random : TsovinarAttack
         Debug.Log("Setup");
         while (true)
         {
-            turnOn();
+            TurnOn();
             yield return new WaitForSeconds(CycleTime);
             wire1.Play(OFF_STATE);
             wire2.Play(OFF_STATE);

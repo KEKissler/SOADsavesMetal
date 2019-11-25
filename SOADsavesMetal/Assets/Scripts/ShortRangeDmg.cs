@@ -17,6 +17,7 @@ public class ShortRangeDmg : MonoBehaviour {
 		
 	}
 
+    // Handles hitting bosses and interactive objects
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		if(col.gameObject.tag == "Boss" && canHit) {

@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     private int health;
     public float maxGroundSpeed, groundAccel, groundDecel, groundFrictionDecel;
     public float maxAirSpeed, airAccel, airDecel, airFrictionDecel;
+    private bool listeningForDoubleDownTap;
 
     //Player Hitbox Variables
     public GameObject upperBodyHitbox;
@@ -35,6 +36,8 @@ public class Player : MonoBehaviour {
     private Animator shortRange;
     private SpriteRenderer playerSprite;
     private bool deathStarted;
+
+    public Platform[] platforms;
 
     private string GetAnimName(string animSuffix) {
         return currentBandMember + animSuffix;
@@ -60,6 +63,7 @@ public class Player : MonoBehaviour {
         remainingJumps = 1;
         inAir = false;
         crouched = false;
+        listeningForDoubleDownTap = false;
         if(currentBandMember == "")
         {
             currentBandMember = "John";
@@ -101,8 +105,8 @@ public class Player : MonoBehaviour {
             #endregion Falling and jumping animations
 
             #region Crouching
-            if (Input.GetKey(KeyCode.DownArrow) && !inAir && !attacking) {
-                if (!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))) {
+            if (Input.GetKey(KeyCode.DownArrow) && !inAir) { // This line used to have !attacking
+                if (!attacking) { //(!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))) {
                     crouched = true;
                     PlayAnims("Crouch");
                     upperBodyHitbox.SetActive(false);
@@ -110,7 +114,11 @@ public class Player : MonoBehaviour {
                 else {
                     crouched = false;
                 }
-
+                if (!listeningForDoubleDownTap)
+                {
+                    listeningForDoubleDownTap = true;
+                    StartCoroutine(listenForDoubleDownTap());
+                }
             }
             else {
                 crouched = false;
@@ -119,7 +127,7 @@ public class Player : MonoBehaviour {
             #endregion Crouching
 
             #region Jump and double jump
-            if (!crouched && Input.GetKeyDown(KeyCode.Space) && remainingJumps > 0) {
+            if (!crouched && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && remainingJumps > 0) {
                 remainingJumps -= 1;
                 if (inAir) {
                     PlayAnims("Jump");
@@ -158,8 +166,12 @@ public class Player : MonoBehaviour {
                 StartCoroutine("shortRangeCooldown");
             }
             else if(Input.GetKeyDown(KeyCode.X) && !attacking) {
-                attacking = true;
-                StartCoroutine("longRangeCooldown");
+
+                if (currentBandMember != "John")
+                {
+                    attacking = true;
+                    StartCoroutine("longRangeCooldown");
+                }
             }
             else if(Input.GetKeyDown(KeyCode.C)) {
                 StartCoroutine("superCooldown");
@@ -178,7 +190,7 @@ public class Player : MonoBehaviour {
     }
 
     private void HandleHorizontalMovement() {
-        if (blockHorizontalMovement) {
+        if (blockHorizontalMovement || crouched) {
             return;
         }
 
@@ -319,7 +331,7 @@ public class Player : MonoBehaviour {
         rb.velocity = new Vector2(0, 0.1f);
         yield return new WaitForSeconds(0.12f);
         var playerRotation = gameObject.transform.rotation;
-        rb.velocity = new Vector2((playerRotation.y == 0 ? 1 : -1) * 1.6f * dashPower, 0.4f * dashPower);
+        rb.velocity = new Vector2((playerRotation.y == 0 ? 1 : -1) * 1.6f * dashPower, 0.42f * dashPower);
         yield return new WaitForSeconds(0.22f);
         rb.velocity *= 0.2f;
         blockHorizontalMovement = false;
@@ -343,7 +355,7 @@ public class Player : MonoBehaviour {
         upperBodyHitbox.GetComponent<BoxCollider2D>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         yield return new WaitForSeconds(0.125f);
-        upperBodyHitbox.GetComponent<BoxCollider2D>().enabled = true ;
+        upperBodyHitbox.GetComponent<BoxCollider2D>().enabled = true;
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.velocity = new Vector2(0.0f, 0.0f);
@@ -370,7 +382,7 @@ public class Player : MonoBehaviour {
                 playerLowerAnim.Play("SerjLongLegs");
             }
         }
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.07f);
         attacking = false;
     }
 
@@ -382,5 +394,48 @@ public class Player : MonoBehaviour {
         playerUpperAnim.Play(GetAnimName("Death"));
         playerLowerAnim.Play("ShavoDashLegs");
         yield return new WaitForSeconds(1.0f);
+    }
+
+    public bool isCrouching()
+    {
+        return crouched;
+    }
+
+    private IEnumerator listenForDoubleDownTap()
+    {
+        Debug.Log("Listening for double tap");
+        yield return null;
+        float timer = 0f;
+        while(timer < 0.30f)
+        {
+            timer += Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                Debug.Log("Detected");
+                // Toggle platform colliders
+                for (int i=0; i<platforms.Length; ++i)
+                {
+                    platforms[i].setColliderEnabled(false);
+                }
+
+                float timer2 = 0f;
+                while (timer2 < 0.09f)
+                {
+                    timer2 += Time.deltaTime;
+                    yield return null;
+                }
+
+                // Toggle them on again
+                for (int i = 0; i < platforms.Length; ++i)
+                {
+                    platforms[i].setColliderEnabled(true);
+                }
+                listeningForDoubleDownTap = false;
+                yield break;
+            }
+            yield return null;
+        }
+        Debug.Log("Not Detected");
+        listeningForDoubleDownTap = false;
     }
 }

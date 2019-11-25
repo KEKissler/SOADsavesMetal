@@ -27,6 +27,13 @@ public class WhiteNoiseAttack : TsovinarAttack
 
     private Animator telescopingAntenna;
 
+    private GameObject tsovinar;
+    private SpriteRenderer faceVisable;
+    private CapsuleCollider2D tsovinarHitBox;
+    private CapsuleCollider2D antennaHitBox;
+
+
+
     public override void Initialize(TsovinarAttackData data)
     {
         screen1 = data.screen1;
@@ -40,18 +47,26 @@ public class WhiteNoiseAttack : TsovinarAttack
         screen3DefaultMat = screen3.GetComponent<SpriteRenderer>().sharedMaterial;
         screen4DefaultMat = screen4.GetComponent<SpriteRenderer>().sharedMaterial;
         screen5DefaultMat = screen5.GetComponent<SpriteRenderer>().sharedMaterial;
-        
+        tsovinar = data.tsovinar;
+        tsovinarHitBox = tsovinar.GetComponent<CapsuleCollider2D>();
+        antennaHitBox = telescopingAntenna.GetComponent<CapsuleCollider2D>();
     }
 
     protected override IEnumerator Execute(float duration)
     {
+        if (telescopingAntenna.GetCurrentAnimatorStateInfo(0).IsName(ANTENNA_BLINK))
+        {
+            Debug.Log("KEEP BLINKING");
+            yield break;
+        }
+
         yield return new WaitForEndOfFrame();
         telescopingAntenna.Play(ANTENNA_UNFOLD);
         yield return new WaitForSeconds(unfoldClip.length);
         ScreenOff();
-        yield return new WaitForSeconds(duration - foldClip.length - unfoldClip.length);
-        telescopingAntenna.Play(ANTENNA_FOLD);
-        ScreenOn();
+        //yield return new WaitForSeconds(duration - foldClip.length - unfoldClip.length);
+        //telescopingAntenna.Play(ANTENNA_FOLD);
+        //ScreenOn();
     }
 
     protected override void OnEnd()
@@ -61,17 +76,12 @@ public class WhiteNoiseAttack : TsovinarAttack
 
     protected override void OnStart()
     {
+        faceVisable = tsovinar.GetComponent<SpriteRenderer>();
+
         Debug.Log("Antenna Up");
     }
 
-    private void ScreenOn()
-    {
-        screen1.GetComponent<SpriteRenderer>().sharedMaterial = screen1DefaultMat;
-        screen2.GetComponent<SpriteRenderer>().sharedMaterial = screen2DefaultMat;
-        screen3.GetComponent<SpriteRenderer>().sharedMaterial = screen3DefaultMat;
-        screen4.GetComponent<SpriteRenderer>().sharedMaterial = screen4DefaultMat;
-        screen5.GetComponent<SpriteRenderer>().sharedMaterial = screen5DefaultMat;
-    }
+    
 
     private void ScreenOff()
     {
@@ -80,5 +90,25 @@ public class WhiteNoiseAttack : TsovinarAttack
         screen3.GetComponent<SpriteRenderer>().sharedMaterial = whiteNoise;
         screen4.GetComponent<SpriteRenderer>().sharedMaterial = whiteNoise;
         screen5.GetComponent<SpriteRenderer>().sharedMaterial = whiteNoise;
+        faceVisable.enabled = false;
+        tsovinarHitBox.enabled = false;
+        antennaHitBox.enabled = true;
+
+        var script = telescopingAntenna.GetComponent<AntennaWatcher>();
+
+        script.screen1DefaultMat = screen1DefaultMat;
+        script.screen2DefaultMat = screen2DefaultMat;
+        script.screen3DefaultMat = screen3DefaultMat;
+        script.screen4DefaultMat = screen4DefaultMat;
+        script.screen5DefaultMat = screen5DefaultMat;
+        script.screen1 = screen1;
+        script.screen2 = screen2;
+        script.screen3 = screen3;
+        script.screen4 = screen4;
+        script.screen5 = screen5;
+        script.faceVisable = faceVisable;
+        script.tsovinarHitBox = tsovinarHitBox;
+        script.antennaHitBox = antennaHitBox;
+
     }
 }

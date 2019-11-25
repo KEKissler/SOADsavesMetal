@@ -9,11 +9,13 @@ public class Platform : MonoBehaviour
     public float ActivateThreshold;
     public float DeactivateThreshold;
 
+    private bool canActivateCollider;
     private CapsuleCollider2D platformCollider;
 
     // Start is called before the first frame update
     void Start()
     {
+        canActivateCollider = true;
         platformCollider = GetComponent<CapsuleCollider2D>();
         Player = GameObject.Find("Player").transform;
     }
@@ -23,7 +25,7 @@ public class Platform : MonoBehaviour
     {
         var abovePlatform = Player.position.y - platformCollider.bounds.max.y > ActivateThreshold;
         var belowPlatform = Player.position.y - platformCollider.bounds.max.y < DeactivateThreshold;
-        if(abovePlatform && !platformCollider.enabled)
+        if(abovePlatform && !platformCollider.enabled && canActivateCollider)
         {
             platformCollider.enabled = true;
         }
@@ -31,5 +33,11 @@ public class Platform : MonoBehaviour
         {
             platformCollider.enabled = false;
         }
+    }
+
+    public void setColliderEnabled(bool enabled)
+    {
+        canActivateCollider = enabled;
+        platformCollider.enabled = enabled;
     }
 }

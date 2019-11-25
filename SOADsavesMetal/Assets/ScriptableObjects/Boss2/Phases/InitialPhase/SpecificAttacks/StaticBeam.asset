@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9ef3044271ba643966525ef0967db1, type: 3}
   m_Name: StaticBeam
   m_EditorClassIdentifier: 
-  duration: 20
+  duration: 10
   BeamPrefab: {fileID: 5406669656197480969, guid: 65098df1da3e23644a3336afa36879f4,
     type: 3}
-  CycleTime: 10
+  CycleTime: 5
   preYLength: 40
   yAttackSize: 0.15
   chargeDuration: 2
   attackDuration: 5
-  flashTime: 0.5
-  endDuration: 1
+  flashDuration: 0.5
+  endDuration: 0.5
   startingColor: {r: 1, g: 1, b: 1, a: 0}
   attackColor: {r: 1, g: 1, b: 0.39215687, a: 1}
+  flashColor: {r: 0.5686275, g: 0.047058824, b: 0.047058824, a: 0.39215687}
