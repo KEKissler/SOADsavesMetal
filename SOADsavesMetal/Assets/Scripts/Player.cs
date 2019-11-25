@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     private int health;
     public float maxGroundSpeed, groundAccel, groundDecel, groundFrictionDecel;
     public float maxAirSpeed, airAccel, airDecel, airFrictionDecel;
+    private bool listeningForDoubleDownTap;
 
     //Player Hitbox Variables
     public GameObject upperBodyHitbox;
@@ -35,6 +36,8 @@ public class Player : MonoBehaviour {
     private Animator shortRange;
     private SpriteRenderer playerSprite;
     private bool deathStarted;
+
+    public Platform[] platforms;
 
     private string GetAnimName(string animSuffix) {
         return currentBandMember + animSuffix;
@@ -60,6 +63,7 @@ public class Player : MonoBehaviour {
         remainingJumps = 1;
         inAir = false;
         crouched = false;
+        listeningForDoubleDownTap = false;
         if(currentBandMember == "")
         {
             currentBandMember = "John";
@@ -101,8 +105,8 @@ public class Player : MonoBehaviour {
             #endregion Falling and jumping animations
 
             #region Crouching
-            if (Input.GetKey(KeyCode.DownArrow) && !inAir && !attacking) {
-                if (!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))) {
+            if (Input.GetKey(KeyCode.DownArrow) && !inAir) { // This line used to have !attacking
+                if (!attacking) { //(!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))) {
                     crouched = true;
                     PlayAnims("Crouch");
                     upperBodyHitbox.SetActive(false);
@@ -110,7 +114,11 @@ public class Player : MonoBehaviour {
                 else {
                     crouched = false;
                 }
-
+                if (!listeningForDoubleDownTap)
+                {
+                    listeningForDoubleDownTap = true;
+                    StartCoroutine(listenForDoubleDownTap());
+                }
             }
             else {
                 crouched = false;
@@ -182,7 +190,7 @@ public class Player : MonoBehaviour {
     }
 
     private void HandleHorizontalMovement() {
-        if (blockHorizontalMovement) {
+        if (blockHorizontalMovement || crouched) {
             return;
         }
 
@@ -391,5 +399,43 @@ public class Player : MonoBehaviour {
     public bool isCrouching()
     {
         return crouched;
+    }
+
+    private IEnumerator listenForDoubleDownTap()
+    {
+        Debug.Log("Listening for double tap");
+        yield return null;
+        float timer = 0f;
+        while(timer < 0.30f)
+        {
+            timer += Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                Debug.Log("Detected");
+                // Toggle platform colliders
+                for (int i=0; i<platforms.Length; ++i)
+                {
+                    platforms[i].setColliderEnabled(false);
+                }
+
+                float timer2 = 0f;
+                while (timer2 < 0.09f)
+                {
+                    timer2 += Time.deltaTime;
+                    yield return null;
+                }
+
+                // Toggle them on again
+                for (int i = 0; i < platforms.Length; ++i)
+                {
+                    platforms[i].setColliderEnabled(true);
+                }
+                listeningForDoubleDownTap = false;
+                yield break;
+            }
+            yield return null;
+        }
+        Debug.Log("Not Detected");
+        listeningForDoubleDownTap = false;
     }
 }
