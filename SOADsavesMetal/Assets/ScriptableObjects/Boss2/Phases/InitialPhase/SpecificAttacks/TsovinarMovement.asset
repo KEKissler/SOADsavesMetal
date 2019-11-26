@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: TsovinarMovement
   m_EditorClassIdentifier: 
   duration: 6
-  bossSizeScreen1: {x: 1.25, y: 1.25, z: 1.25}
-  bossSizeScreen2: {x: 0.3, y: 0.3, z: 0.3}
-  bossSizeScreen3: {x: 0.4, y: 0.4, z: 0.4}
-  bossSizeScreen4: {x: 0.6, y: 0.6, z: 0.6}
-  bossSizeScreen5: {x: 0.8, y: 0.8, z: 0.8}
+  bossSizeScreen1: {x: 3.5, y: 3.5, z: 3.5}
+  bossSizeScreen2: {x: 0.8, y: 0.8, z: 0.8}
+  bossSizeScreen3: {x: 1.2, y: 1.2, z: 1.2}
+  bossSizeScreen4: {x: 1.6, y: 1.6, z: 1.6}
+  bossSizeScreen5: {x: 2, y: 2, z: 2}
+  bossRotationScreen1: {x: -23.002, y: -16.236, z: -7.614, w: 90}
+  bossRotationAllOtherScreens: {x: 0, y: 0, z: 0, w: 0}
   visibleColor: {r: 1, g: 1, b: 1, a: 1}
   fadeColor: {r: 0, g: 0, b: 0, a: 0}
   fadeDuration: 1

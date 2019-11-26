@@ -10,6 +10,8 @@ public class TsovinarMovement : TsovinarAttack
     public Vector3 bossSizeScreen3;
     public Vector3 bossSizeScreen4;
     public Vector3 bossSizeScreen5;
+    public Quaternion bossRotationScreen1;
+    public Quaternion bossRotationAllOtherScreens;
     public Color visibleColor;
     public Color fadeColor;
     public float fadeDuration;
@@ -68,26 +70,31 @@ public class TsovinarMovement : TsovinarAttack
         {
             case 0:
                 tsovinar.transform.localScale = bossSizeScreen1;
+                tsovinar.transform.rotation = bossRotationScreen1;
                 tsovinar.transform.position = screen1.position;
                 break;
 
             case 1:
                 tsovinar.transform.localScale = bossSizeScreen2;
+                tsovinar.transform.rotation = bossRotationAllOtherScreens;
                 tsovinar.transform.position = screen2.position;
                 break;
 
             case 2:
                 tsovinar.transform.localScale = bossSizeScreen3;
+                tsovinar.transform.rotation = bossRotationAllOtherScreens;
                 tsovinar.transform.position = screen3.position;
                 break;
 
             case 3:
                 tsovinar.transform.localScale = bossSizeScreen4;
+                tsovinar.transform.rotation = bossRotationAllOtherScreens;
                 tsovinar.transform.position = screen4.position;
                 break;
 
             case 4:
                 tsovinar.transform.localScale = bossSizeScreen5;
+                tsovinar.transform.rotation = bossRotationAllOtherScreens;
                 tsovinar.transform.position = screen5.position;
                 break;
 
