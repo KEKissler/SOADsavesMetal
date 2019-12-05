@@ -56,6 +56,7 @@ public class AntennaWatcher : MonoBehaviour
 
     public void hit()
     {
+        Debug.Log(hitCount);
         if (hitDelay <= hitTime)
         {
             return;
@@ -95,6 +96,6 @@ public class AntennaWatcher : MonoBehaviour
 
     private void OnHit()
     {
-        
+        hit();
     }
 }
