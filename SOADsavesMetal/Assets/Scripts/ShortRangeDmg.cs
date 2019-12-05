@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Handles both parrying and short range damage against bosses.
+ * These two features could probably be separated.
+ * Damage against bosses is similar between short range and long range attacks, so
+ * a single script could possibly handle any type of damage against bosses.
+ */
 public class ShortRangeDmg : MonoBehaviour {
 
 	public int damage = 111;
@@ -20,7 +25,7 @@ public class ShortRangeDmg : MonoBehaviour {
     // Handles hitting bosses and interactive objects
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.gameObject.tag == "Boss" && canHit) {
+		if(col.gameObject.tag == "BossHittable" && canHit) {
 			col.gameObject.SendMessage("hit", damage);
 			canHit = false;
 		}
@@ -33,7 +38,7 @@ public class ShortRangeDmg : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D col)
 	{
-		if(col.gameObject.tag == "Boss" && canHit)
+		if(col.gameObject.tag == "BossHittable" && canHit)
 		{
 			col.gameObject.SendMessage("hit", damage);
 			canHit = false;

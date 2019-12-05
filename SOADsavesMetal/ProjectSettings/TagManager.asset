@@ -10,6 +10,7 @@ TagManager:
   - ShortRangeHittable
   - SnakeBody
   - SnakeHead
+  - BossHittable
   layers:
   - Default
   - TransparentFX

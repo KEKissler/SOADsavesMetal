@@ -55,6 +55,6 @@ public class Drumstick : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.gameObject.tag == "Boss")	col.gameObject.SendMessage("hit", damage);
+		if(col.gameObject.tag == "BossHittable")	col.gameObject.SendMessage("hit", damage);
 	}
 }
