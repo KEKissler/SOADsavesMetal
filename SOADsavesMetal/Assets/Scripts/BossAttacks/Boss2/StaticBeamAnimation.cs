@@ -108,6 +108,4 @@ public class StaticBeamAnimation : MonoBehaviour
         transform.LeanScaleY(0, endDuration);
         yield return new WaitForSeconds(endDuration);      
     }
-
-    
 }
