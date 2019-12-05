@@ -403,7 +403,7 @@ public class Player : MonoBehaviour {
 
     private IEnumerator listenForDoubleDownTap()
     {
-        Debug.Log("Listening for double tap");
+        // Debug.Log("Listening for double tap");
         yield return null;
         float timer = 0f;
         while(timer < 0.30f)
@@ -411,7 +411,7 @@ public class Player : MonoBehaviour {
             timer += Time.deltaTime;
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                Debug.Log("Detected");
+                // Debug.Log("Detected");
                 // Toggle platform colliders
                 for (int i=0; i<platforms.Length; ++i)
                 {
@@ -419,7 +419,7 @@ public class Player : MonoBehaviour {
                 }
 
                 float timer2 = 0f;
-                while (timer2 < 0.09f)
+                while (timer2 < 0.18f)
                 {
                     timer2 += Time.deltaTime;
                     yield return null;
@@ -435,7 +435,7 @@ public class Player : MonoBehaviour {
             }
             yield return null;
         }
-        Debug.Log("Not Detected");
+        // Debug.Log("Not Detected");
         listeningForDoubleDownTap = false;
     }
 }

@@ -38,6 +38,8 @@ public class Platform : MonoBehaviour
     public void setColliderEnabled(bool enabled)
     {
         canActivateCollider = enabled;
-        platformCollider.enabled = enabled;
+        if(enabled == false)
+            platformCollider.enabled = enabled;
+        // Debug.Log("platform" + enabled);
     }
 }

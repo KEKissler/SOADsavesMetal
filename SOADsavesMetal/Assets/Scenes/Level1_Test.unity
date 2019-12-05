@@ -1458,6 +1458,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38ee69a7d243e2408514c598a4f606e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &929484366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6977039927035601482, guid: 05f055b78c6159a4c8745b1f6e9a8886,
+    type: 3}
+  m_PrefabInstance: {fileID: 1700609796}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86d9b406b5fa8f4885b4dac688a449b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &959762773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,9 +1972,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
+      propertyPath: platforms.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
       propertyPath: currentBandMember
       value: Shavo
       objectReference: {fileID: 0}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: platforms.Array.data[0]
+      value: 
+      objectReference: {fileID: 929484366}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: platforms.Array.data[1]
+      value: 
+      objectReference: {fileID: 1112076965}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc0d8d3460c18043896482f0ba598cb, type: 3}
 --- !u!114 &1105088041 stripped
@@ -1989,6 +2016,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1105088040}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1112076965 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6977039927035601482, guid: 05f055b78c6159a4c8745b1f6e9a8886,
+    type: 3}
+  m_PrefabInstance: {fileID: 406281930}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86d9b406b5fa8f4885b4dac688a449b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1136686226
 PrefabInstance:
   m_ObjectHideFlags: 0
