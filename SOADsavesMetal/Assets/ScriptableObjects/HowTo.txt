@@ -1,0 +1,6 @@
+Adding a new phase:
+Adding a new type of attack:
+Adding a new version of an existing attack:
+Removing an attack:
+Adding an attack sequence:
+Making an attack overlap with another attack:
