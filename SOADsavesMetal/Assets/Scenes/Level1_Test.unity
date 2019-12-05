@@ -2642,6 +2642,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss_Agas
       objectReference: {fileID: 0}
+    - target: {fileID: 2380804504942363386, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2380804504942363381, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_LocalPosition.x

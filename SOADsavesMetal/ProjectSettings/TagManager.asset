@@ -6,11 +6,11 @@ TagManager:
   tags:
   - Floor
   - Projectile
-  - Boss
   - ShortRangeHittable
   - SnakeBody
   - SnakeHead
   - BossHittable
+  - Boss
   layers:
   - Default
   - TransparentFX
