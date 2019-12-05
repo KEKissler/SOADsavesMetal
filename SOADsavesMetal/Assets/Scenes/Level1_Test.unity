@@ -2690,7 +2690,7 @@ PrefabInstance:
     - target: {fileID: 2380804503749740924, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_TagString
-      value: Boss
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2380804503749740927, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
