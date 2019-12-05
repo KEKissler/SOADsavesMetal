@@ -1011,7 +1011,7 @@ CapsuleCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 3.73}
@@ -1054,12 +1054,26 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.41, y: 0.7099999}
   m_Direction: 0
+--- !u!114 &357887070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357887065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f20ca29573c63b45be16dc0390e7651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthScript: {fileID: 1545064847}
+  damageMultiplier: 1
 --- !u!1 &393568745 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3134336392439969880, guid: 7b2a244bbe4acc649b5c26a77d105c44,
@@ -3054,7 +3068,7 @@ GameObject:
   - component: {fileID: 1545064847}
   m_Layer: 0
   m_Name: Tsovinar_Boss
-  m_TagString: Untagged
+  m_TagString: BossHittable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3867,69 +3881,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e9dcd044426fc04aa41098a72de7111, type: 3}
---- !u!1 &2043322899
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2043322900}
-  - component: {fileID: 2043322902}
-  - component: {fileID: 2043322901}
-  m_Layer: 0
-  m_Name: AntennaHitBox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2043322900
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043322899}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.57, y: 1.12, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2043322901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043322899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64a1d5b7e13984c43ad354ac3997f36e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foldClip: {fileID: 7400000, guid: 2bd0c57b7c8714241ba4bb1608a444a1, type: 2}
-  maxHits: 3
-  hitTime: 0.4
---- !u!70 &2043322902
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043322899}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.4, y: 0.25}
-  m_Direction: 1
 --- !u!1 &2047552660
 GameObject:
   m_ObjectHideFlags: 0
@@ -4542,6 +4493,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TsovinarFace
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901354206816873161, guid: 10bcffa748c9e6447a40c503b5740878,
+        type: 3}
+      propertyPath: m_TagString
+      value: BossHittable
       objectReference: {fileID: 0}
     - target: {fileID: 7901354206816873162, guid: 10bcffa748c9e6447a40c503b5740878,
         type: 3}
