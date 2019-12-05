@@ -70,13 +70,13 @@ Material:
     - _Intensity: 4
     - _Metallic: 0
     - _Mode: 0
-    - _Multiplier: 1
+    - _Multiplier: 0.57
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Transparent: 1
+    - _Transparent: 0.5
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

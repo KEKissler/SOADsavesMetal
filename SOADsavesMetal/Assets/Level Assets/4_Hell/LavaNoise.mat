@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LavaOverlay
-  m_Shader: {fileID: 4800000, guid: 9ed071cd95f00784e85e5e7be717cc94, type: 3}
+  m_Name: LavaNoise
+  m_Shader: {fileID: 4800000, guid: 4fa2b7215b41e7148a036072302bb1c1, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -35,8 +35,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DistortTex:
+        m_Texture: {fileID: 2800000, guid: 037df1decbe46e240b619a8625b65d8e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DistortionTex:
-        m_Texture: {fileID: 2800000, guid: 18c8ba79c575d624cb6919008810844a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 657ee32dbe7585b46a355a3123ec30bf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -52,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: cbc26ac180d4c42488e3ffeb0cfa25b7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -63,27 +67,44 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ShapeTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - SHAPE: 0
+    - SHAPEX: 0
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
+    - _Distort: 1
     - _DstBlend: 0
+    - _Edge: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Intensity: 0.4
+    - _Hard: 2.8
+    - _Height: 0.75
+    - _Intensity: 0.15
     - _Metallic: 0
     - _Mode: 0
-    - _Multiplier: 0.37
+    - _Multiplier: 0.86
     - _OcclusionStrength: 1
+    - _Offset: 0.11
     - _Parallax: 0.02
+    - _ScrollX: -7.15
+    - _ScrollY: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Transparent: 0.37
+    - _Transparent: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0.49019608}
-    - _Color2: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 0.6455341, b: 0.39999998, a: 1}
+    - _Color2: {r: 1, g: 0.26704967, b: 0, a: 1}
+    - _ColorA: {r: 1, g: 0, b: 0.3758855, a: 1}
+    - _ColorB: {r: 1, g: 0.7748438, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _TintA: {r: 1, g: 0.6273585, b: 0.6273585, a: 1}
+    - _TintB: {r: 1, g: 0.97461206, b: 0.7028302, a: 1}
