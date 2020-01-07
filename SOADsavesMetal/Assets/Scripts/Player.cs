@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     //Default Player Variables
+    [Header("Player General Properties")]
     public string currentBandMember;
     public bool Dead { get { return health < 1; } }
     public int Health {get { return health; } set { health = value; } }
@@ -17,11 +18,13 @@ public class Player : MonoBehaviour {
     private bool listeningForDoubleDownTap;
 
     //Player Hitbox Variables
+    [Header("Player Hitbox Variables")]
     public GameObject upperBodyHitbox;
     public GameObject shortRangeHitbox;
     public GameObject stick;
 
     //Player State
+    [Header("Player State")]
     private int remainingJumps;
     private bool crouched;
     public bool inAir;
@@ -31,6 +34,7 @@ public class Player : MonoBehaviour {
     public bool moving;
 
     //Player Animation Variables
+    [Header("Player Animation Variables")]
     private Animator playerUpperAnim;
     public Animator playerLowerAnim;
     private Animator shortRange;
@@ -38,6 +42,43 @@ public class Player : MonoBehaviour {
     private bool deathStarted;
 
     public Platform[] platforms;
+
+    private AudioSource auso;
+    #region
+    [Header("General SFX")]
+    public AudioClip[] JumpSounds;
+    public AudioClip[] TakeDamageSounds;
+    public AudioClip[] DieSounds;
+
+    [Header("John - Drums")]
+    public AudioClip[] JohnDoubleJump;
+    public AudioClip[] JohnShortRange;
+    public AudioClip[] JohnLongRange;
+    public AudioClip JohnSuper;
+
+    [Header("Shavo - Bass")]
+    public AudioClip ShavoDash;
+    public AudioClip[] ShavoShortRange;
+    public AudioClip ShavoLongRange;
+    public AudioClip ShavoSuperStomp;       // will condense to just 1 sound effect with 4 variations and no parts - waiting on final super animation
+    public AudioClip ShavoSuperSwing;       // will condense to just 1 sound effect with 4 variations and no parts - waiting on final super animation
+
+    [Header("Daron - Guitar")]
+    public AudioClip DaronTeleport;
+    public AudioClip DaronShortRange;
+    public AudioClip[] DaronLongRangeThrow;     // may condense to just 1 sound effect
+    public AudioClip DaronLongRangeHit;         // may condense to just 1 sound effect
+    public AudioClip[] DaronSuper;
+
+    [Header("Serj - Vocals")]
+    public AudioClip SerjWingSprout;
+    public AudioClip[] SerjWingFlap;
+    public AudioClip SerjWingDecay;
+    public AudioClip[] SerjShortRange;
+    public AudioClip[] SerjLongRange;
+    public AudioClip SerjSuperLightbeam;    // will condense to just 1 sound effect with 4 variations and no parts - waiting on final super animation
+    public AudioClip[] SerjSuperVocal;      // will condense to just 1 sound effect with 4 variations and no parts - waiting on final super animation
+    #endregion
 
     private string GetAnimName(string animSuffix) {
         return currentBandMember + animSuffix;
@@ -60,6 +101,7 @@ public class Player : MonoBehaviour {
         playerUpperAnim = gameObject.GetComponent<Animator>();
         shortRange = shortRangeHitbox.GetComponent<Animator>();
         playerSprite = gameObject.GetComponent<SpriteRenderer>();
+        auso = gameObject.GetComponent<AudioSource>();
         remainingJumps = 1;
         inAir = false;
         crouched = false;
@@ -68,6 +110,10 @@ public class Player : MonoBehaviour {
         {
             currentBandMember = "John";
         }
+    }
+
+    AudioClip GetRandomSoundEffect(AudioClip[] array) {
+        return array[Random.Range(0,array.Length)];
     }
 
 	void Update () {
@@ -99,7 +145,6 @@ public class Player : MonoBehaviour {
                 if (rb.velocity.y > 0.5)
                 {
                     PlayAnims("Jump");
-
                 }
             }
             #endregion Falling and jumping animations
@@ -129,18 +174,25 @@ public class Player : MonoBehaviour {
             #region Jump and double jump
             if (!crouched && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && remainingJumps > 0) {
                 remainingJumps -= 1;
+                auso.PlayOneShot(GetRandomSoundEffect(JumpSounds));
                 if (inAir) {
                     PlayAnims("Jump");
                     inAir = true;
 
                     if (currentBandMember == "John") {// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "JohnJumpLegs")
                         rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+                        auso.Stop();
+                        auso.PlayOneShot(GetRandomSoundEffect(JohnDoubleJump));
                     }
                     else if (currentBandMember == "Shavo") {// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "ShavoJumpLegs")
                         StartCoroutine(Dash());
+                        auso.Stop();
+                        auso.PlayOneShot(ShavoDash);
                     }
                     else if (currentBandMember == "Daron") {
                         StartCoroutine("Teleport");
+                        auso.Stop();
+                        auso.PlayOneShot(DaronTeleport);
                         if (gameObject.transform.rotation.y == 0) {
                             rb.velocity = new Vector2(1.5f * jumpHeight, 0.0f);
                         }

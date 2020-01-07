@@ -1,0 +1,20 @@
+LR = Long Range
+SR = Short Range
+
+LETTERS represent different parts of the same ACTION:
+	Person_LR_A.wav
+	Person_LR_B.wav
+		Person's Long Range attack has two different-sounding parts: a throwing sound and an impact sound, for example.
+
+NUMBERS indicate different variations of the same SOUND:
+	Person_SR_1.wav
+	Person_SR_2.wav
+		Person's Short Range attack has only one part, but with two similar-sounding versions.
+
+These can be used together:
+	Person_Super_A_1.wav
+	Person_Super_A_2.wav
+	Person_Super_B.wav
+		Person's Super attack has two parts: A and B.
+		The A part of the Super has two different variations, 1 and 2.
+		The B part has no variation.

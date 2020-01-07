@@ -1987,16 +1987,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
-      propertyPath: platforms.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: currentBandMember
-      value: Shavo
-      objectReference: {fileID: 0}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
       propertyPath: platforms.Array.data[0]
       value: 
       objectReference: {fileID: 929484366}
