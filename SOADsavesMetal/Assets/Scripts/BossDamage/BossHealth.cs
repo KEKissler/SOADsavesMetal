@@ -21,16 +21,16 @@ public struct Phase
 public class BossHealth : MonoBehaviour
 {
     // Public
-    public static float startingHP = 2000f;
+    public float startingHP = 2000f;
     public float damageMultiplier = 1f;
 
     // Should be accessible but not modifiable directly
-    private float HP = startingHP;
+    private float HP;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        HP = startingHP;
     }
 
     // Update is called once per frame

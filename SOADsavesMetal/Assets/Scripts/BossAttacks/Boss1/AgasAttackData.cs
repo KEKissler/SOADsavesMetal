@@ -15,4 +15,5 @@ public class AgasAttackData
     public CandleEmitter candle3;
     public CandleEmitter candle4;
     public CandleEmitter candle5;
+    public CandleEmitter candle6;
 }

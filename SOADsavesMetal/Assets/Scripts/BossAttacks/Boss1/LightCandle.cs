@@ -13,7 +13,7 @@ public class LightCandle : AgasAttack
     public int Min_Speed;
     public int Max_Speed;
 
-    private readonly CandleEmitter[] candles = new CandleEmitter[6];
+    private readonly CandleEmitter[] candles = new CandleEmitter[7];
 
     public override void Initialize(AgasAttackData data)
     {
@@ -23,6 +23,7 @@ public class LightCandle : AgasAttack
         candles[3] = data.candle3;
         candles[4] = data.candle4;
         candles[5] = data.candle5;
+        candles[6] = data.candle6;
     }
 
     protected override IEnumerator Execute(float duration)
