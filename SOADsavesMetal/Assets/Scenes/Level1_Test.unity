@@ -294,7 +294,7 @@ MonoBehaviour:
     candle6: {fileID: 850896336}
   AttacksToInitialize:
   - {fileID: 11400000, guid: b0a91bd191266214988876ad587b92f3, type: 2}
-  - {fileID: 11400000, guid: 38b2736f4a198f345af13a045652ac31, type: 2}
+  - {fileID: 11400000, guid: 523828fab6aa95545b3cb90a93fa2781, type: 2}
   - {fileID: 11400000, guid: 275ffb615392c934b90c1527f335607b, type: 2}
   - {fileID: 11400000, guid: 5b73478179a47a4439fc48d722e276ac, type: 2}
   - {fileID: 11400000, guid: 252454e3ac7418848b0d76edf32b062c, type: 2}
@@ -303,6 +303,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f27cf3dede625cf4281ddb4a9c958872, type: 2}
   - {fileID: 11400000, guid: 1e30570e7f1141941a7e333289e30b58, type: 2}
   - {fileID: 11400000, guid: bd0cc8fee7f9a8747925660d26260a0d, type: 2}
+  - {fileID: 11400000, guid: 523828fab6aa95545b3cb90a93fa2781, type: 2}
 --- !u!4 &72277651
 Transform:
   m_ObjectHideFlags: 0
@@ -1570,7 +1571,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1061172576}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1819086207}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d38ee69a7d243e2408514c598a4f606e, type: 3}
@@ -3229,7 +3230,7 @@ PrefabInstance:
     - target: {fileID: 2380804503749740927, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 2380804504558194934, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
@@ -3340,7 +3341,7 @@ PrefabInstance:
     - target: {fileID: 2380804504942363380, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: candles.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2380804504942363380, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
@@ -3448,6 +3449,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2380804504942363380, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+        type: 3}
+      propertyPath: candles.Array.data[6]
+      value: 
+      objectReference: {fileID: 1819086207}
     - target: {fileID: 2380804505604382101, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_IsActive
@@ -4162,6 +4168,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6396f28b444526448a69a730d68b97ad, type: 3}
+--- !u!1 &1819086207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1883100758368052, guid: bfc94cc7610841b418c48574685289b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1061172576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1819316447
 GameObject:
   m_ObjectHideFlags: 0
