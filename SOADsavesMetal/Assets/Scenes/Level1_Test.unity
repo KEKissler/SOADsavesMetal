@@ -3622,11 +3622,11 @@ MonoBehaviour:
   - BossPhase: {fileID: 11400000, guid: c89656a8bd3b5554eb37e3decf090c20, type: 2}
     HealthPercentThreshhold: 100
   - BossPhase: {fileID: 11400000, guid: b25ee52cf376f3f42ab5f9af76cf5c1a, type: 2}
-    HealthPercentThreshhold: 80
+    HealthPercentThreshhold: 75
   - BossPhase: {fileID: 11400000, guid: 6358de506353be643912a55095d0252a, type: 2}
-    HealthPercentThreshhold: 65
+    HealthPercentThreshhold: 50
   - BossPhase: {fileID: 11400000, guid: 6358de506353be643912a55095d0252a, type: 2}
-    HealthPercentThreshhold: 0
+    HealthPercentThreshhold: 25
 --- !u!1 &1515053675
 GameObject:
   m_ObjectHideFlags: 0
