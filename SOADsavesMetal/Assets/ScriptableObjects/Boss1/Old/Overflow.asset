@@ -15,7 +15,7 @@ MonoBehaviour:
   BossPosition: {fileID: 0}
   Player: {fileID: 0}
   CloseUpDistance: 0
-  NearGroundCutoff: 0
+  NearGroundCutoff: 0.5
   DefaultAttacks: {fileID: 11400000, guid: 0f963022601eedf49ac128863b2ebfc5, type: 2}
   CloseUpAttacks: {fileID: 11400000, guid: 915b1516fb7e5554c892a78b5c387753, type: 2}
   LowPlayerHPAttacks: {fileID: 11400000, guid: 7361b31217d3e7641b535fda53479ef0, type: 2}
