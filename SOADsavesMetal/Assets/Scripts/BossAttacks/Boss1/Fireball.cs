@@ -31,7 +31,7 @@ public class Fireball : AgasAttack
     protected override IEnumerator Execute(float duration)
     {
         yield return null;
-        if(fixedAngle == -float.MinValue)
+        if(fixedAngle == float.MinValue)
         {
             fireballObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier);
         }
