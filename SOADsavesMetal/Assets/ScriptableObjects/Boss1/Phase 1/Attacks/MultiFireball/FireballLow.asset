@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5a8fd58623805419b4b49403843ea2, type: 3}
   m_Name: FireballLow
   m_EditorClassIdentifier: 
-  duration: 3
+  duration: 1
   FireballPrefab: {fileID: 1883100758368052, guid: cc1e07ece144cd241a99931749565888,
     type: 3}
   ProjectileSpeed: 3
   ProjectileType: 0
   degreeModifier: 0
-  fixedAngle: 180
+  fixedAngle: 215
