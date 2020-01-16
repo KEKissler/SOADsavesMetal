@@ -442,13 +442,20 @@ public class Player : MonoBehaviour {
         if (currentBandMember == "Shavo")
         {
             float initialAnimSpeed;  // Change the animation timing to account for jumping, i.e. wait a bit longer if you just started a jump
-            if (rb.velocity.y > 0) initialAnimSpeed = 0.2f;
+            if (inAir) initialAnimSpeed = 0.1f;
             else initialAnimSpeed = 0.7f;
             playerUpperAnim.speed = initialAnimSpeed;
             playerLowerAnim.speed = initialAnimSpeed;
             playerUpperAnim.Play("ShavoSuper");
             playerLowerAnim.Play("ShavoSuper");
-            yield return new WaitForSeconds(0.3f);
+            float timeWaited = 0f;
+            while (inAir)
+            {
+                yield return new WaitForSeconds(0.03f);
+                timeWaited += 0.03f;
+            }
+            if(timeWaited < 0.3f)
+            yield return new WaitForSeconds(0.3f - timeWaited);
             playerUpperAnim.speed = 0.8f;
             playerLowerAnim.speed = 0.8f;
             yield return new WaitForSeconds(1.15f);
