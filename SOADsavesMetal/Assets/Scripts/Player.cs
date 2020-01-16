@@ -30,8 +30,10 @@ public class Player : MonoBehaviour {
     public bool inAir;
     // private bool landing;
     private bool attacking;
+    private bool isSuperActive;
     private bool blockHorizontalMovement;
     public bool moving;
+    private bool movedWhileAttacking;
 
     //Player Animation Variables
     [Header("Player Animation Variables")]
@@ -97,6 +99,8 @@ public class Player : MonoBehaviour {
         moving = false;
         attacking = false;
         deathStarted = false;
+        movedWhileAttacking = false;
+        isSuperActive = false;
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerUpperAnim = gameObject.GetComponent<Animator>();
         shortRange = shortRangeHitbox.GetComponent<Animator>();
@@ -135,7 +139,7 @@ public class Player : MonoBehaviour {
             #endregion Friction
 
             #region Falling and jumping animations
-            if(!blockHorizontalMovement)  // Or any other special condition is in effect
+            if(!blockHorizontalMovement && !isSuperActive)  // Or any other special condition is in effect
             {
                 if (rb.velocity.y < -0.5f)
                 {
@@ -172,19 +176,22 @@ public class Player : MonoBehaviour {
             #endregion Crouching
 
             #region Jump and double jump
-            if (!crouched && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && remainingJumps > 0) {
+            if (!isSuperActive && !crouched && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+                    && remainingJumps > 0) {
                 remainingJumps -= 1;
                 auso.PlayOneShot(GetRandomSoundEffect(JumpSounds));
                 if (inAir) {
-                    PlayAnims("Jump");
-                    inAir = true;
 
                     if (currentBandMember == "John") {// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "JohnJumpLegs")
+                        PlayAnims("Jump");
                         rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
                         auso.Stop();
                         auso.PlayOneShot(GetRandomSoundEffect(JohnDoubleJump));
                     }
                     else if (currentBandMember == "Shavo") {// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "ShavoJumpLegs")
+                        // PlayAnims("Dash");
+                        if(!attacking)  playerUpperAnim.Play(GetAnimName("Dash"));
+                        playerLowerAnim.Play(GetAnimName("Dash"));
                         StartCoroutine(Dash());
                         auso.Stop();
                         auso.PlayOneShot(ShavoDash);
@@ -215,18 +222,13 @@ public class Player : MonoBehaviour {
             #region Attacks
             //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
             if (Input.GetKeyDown(KeyCode.Z) && !crouched && !attacking) {
-                StartCoroutine("shortRangeCooldown");
+                StartCoroutine("shortRangeAttackAnims");
             }
             else if(Input.GetKeyDown(KeyCode.X) && !attacking) {
-
-                if (currentBandMember != "John")
-                {
-                    attacking = true;
-                    StartCoroutine("longRangeCooldown");
-                }
+                StartCoroutine("longRangeAttackAnims");
             }
             else if(Input.GetKeyDown(KeyCode.C)) {
-                StartCoroutine("superCooldown");
+                StartCoroutine("superAttackAnims");
             }
             #endregion Attacks
 
@@ -242,7 +244,7 @@ public class Player : MonoBehaviour {
     }
 
     private void HandleHorizontalMovement() {
-        if (blockHorizontalMovement || crouched) {
+        if (blockHorizontalMovement || crouched || isSuperActive) {
             return;
         }
 
@@ -250,6 +252,7 @@ public class Player : MonoBehaviour {
         float input = Input.GetAxisRaw("Horizontal");
         if(input != 0f) {
             moving = true;
+            if (attacking) movedWhileAttacking = true;
             float accel, decel, maxSpeed;
             // Handle direction-specific code
             if (input > 0) {
@@ -315,14 +318,14 @@ public class Player : MonoBehaviour {
                 playerUpperAnim.Play(GetAnimName("Idle"));
                 playerLowerAnim.Play(GetAnimName("IdleLegs"));
             }
-            else if (attacking) {
-                playerLowerAnim.Play(GetAnimName("LandLegs"));
+            else if (attacking && movedWhileAttacking) {
+                 playerLowerAnim.Play(GetAnimName("LandLegs"));
             }
         }
     }
 
     public void OnCollisionEnter2D(Collision2D coll) {
-        if (coll.collider.tag == "Floor" && !Dead) {
+        if (coll.collider.tag == "Floor" && !Dead && !isSuperActive) {
             playerLowerAnim.Play(GetAnimName("LandLegs"));
         }
     }
@@ -341,45 +344,38 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public void PlayerFreeze() {
-        
-    }
-
-    public IEnumerator shortRangeCooldown() {
+    public IEnumerator shortRangeAttackAnims() {
         attacking = true;
         if (crouched) {
             //playerSprite.sprite.pivot.Set
             playerUpperAnim.pivotPosition.Set(0.49f, 0.83f, 0.0f);
         }
         playerUpperAnim.Play(GetAnimName("Short"));
-        if (!moving && !crouched && !inAir && !Dead) {
+        if (!inAir && !Dead) {
             playerLowerAnim.Play(GetAnimName("ShortLegs"));
         }
         if (currentBandMember == "John") {
             shortRange.Play("SoundWave");
             yield return new WaitForSeconds(1.0f);
             shortRange.Play("BaseSound");
-            attacking = false;
         }
         else if (currentBandMember == "Shavo") {
+            playerLowerAnim.pivotPosition.Set(0.0f, -0.83f, 0.0f);
             yield return new WaitForSeconds(0.5f);
-            attacking = false;
         }
         else if (currentBandMember == "Daron") {
             yield return new WaitForSeconds(0.5f);
-            attacking = false;
         }
         else if (currentBandMember == "Serj") {
             yield return new WaitForSeconds(0.5f);
-            attacking = false;
         }
-
+        attacking = false;
+        movedWhileAttacking = false;
     }
 
     public IEnumerator Dash() {
         float dashPower = 18f;
         blockHorizontalMovement = true;
-        PlayAnims("Dash");
         rb.velocity = new Vector2(0, 0.1f);
         yield return new WaitForSeconds(0.12f);
         var playerRotation = gameObject.transform.rotation;
@@ -413,7 +409,8 @@ public class Player : MonoBehaviour {
         rb.velocity = new Vector2(0.0f, 0.0f);
     }
 
-    public IEnumerator longRangeCooldown() {
+    public IEnumerator longRangeAttackAnims() {
+        attacking = true;
         //GameObject projectile = Instantiate(stick, new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation) as GameObject;
         //projectile.GetComponent<DrumStick>().SendMessage("Fire");
         if (currentBandMember == "Shavo") {
@@ -421,6 +418,7 @@ public class Player : MonoBehaviour {
             if (!moving && !crouched && !inAir) {
                 playerLowerAnim.Play("ShavoLongLegs");
             }
+            yield return new WaitForSeconds(0.4f);
         }
         else if (currentBandMember == "Daron") {
             playerUpperAnim.Play("DaronLong");
@@ -438,8 +436,43 @@ public class Player : MonoBehaviour {
         attacking = false;
     }
 
-    public IEnumerator superCooldown() {
-        yield return new WaitForSeconds(1.0f);
+    public IEnumerator superAttackAnims() {
+        attacking = true;
+        isSuperActive = true;
+        if (currentBandMember == "Shavo")
+        {
+            float initialAnimSpeed;  // Change the animation timing to account for jumping, i.e. wait a bit longer if you just started a jump
+            if (rb.velocity.y > 0) initialAnimSpeed = 0.2f;
+            else initialAnimSpeed = 0.7f;
+            playerUpperAnim.speed = initialAnimSpeed;
+            playerLowerAnim.speed = initialAnimSpeed;
+            playerUpperAnim.Play("ShavoSuper");
+            playerLowerAnim.Play("ShavoSuper");
+            yield return new WaitForSeconds(0.3f);
+            playerUpperAnim.speed = 0.8f;
+            playerLowerAnim.speed = 0.8f;
+            yield return new WaitForSeconds(1.15f);
+            playerUpperAnim.speed = 1f;
+            playerLowerAnim.speed = 1f;
+        }
+        else if (currentBandMember == "Daron")
+        {
+            playerUpperAnim.Play("DaronLong");
+            if (!moving && !crouched && !inAir)
+            {
+                playerLowerAnim.Play("DaronAttackLegs");
+            }
+        }
+        else if (currentBandMember == "Serj")
+        {
+            playerUpperAnim.Play("SerjLong");
+            if (!moving && !crouched && !inAir)
+            {
+                playerLowerAnim.Play("SerjLongLegs");
+            }
+        }
+        attacking = false;
+        isSuperActive = false;
     }
 
     public IEnumerator Kill() {
