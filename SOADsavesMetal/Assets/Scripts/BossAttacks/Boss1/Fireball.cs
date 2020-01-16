@@ -43,9 +43,6 @@ public class Fireball : AgasAttack
 
     protected override void OnEnd()
     {
-        if(fireballObject != null)
-        {
-            Destroy(fireballObject);
-        }
+        
     }
 }
