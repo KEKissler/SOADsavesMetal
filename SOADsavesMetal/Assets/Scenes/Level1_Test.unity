@@ -293,16 +293,8 @@ MonoBehaviour:
     candle5: {fileID: 1924595298}
     candle6: {fileID: 850896336}
   AttacksToInitialize:
-  - {fileID: 11400000, guid: b0a91bd191266214988876ad587b92f3, type: 2}
   - {fileID: 11400000, guid: 523828fab6aa95545b3cb90a93fa2781, type: 2}
-  - {fileID: 11400000, guid: 275ffb615392c934b90c1527f335607b, type: 2}
-  - {fileID: 11400000, guid: 5b73478179a47a4439fc48d722e276ac, type: 2}
-  - {fileID: 11400000, guid: 252454e3ac7418848b0d76edf32b062c, type: 2}
-  - {fileID: 11400000, guid: 5a81f565c055f924b8ec103c6f8f7c2a, type: 2}
-  - {fileID: 11400000, guid: 3123a12516ced404d8a7bf1d6f7dd5ad, type: 2}
-  - {fileID: 11400000, guid: f27cf3dede625cf4281ddb4a9c958872, type: 2}
-  - {fileID: 11400000, guid: 1e30570e7f1141941a7e333289e30b58, type: 2}
-  - {fileID: 11400000, guid: bd0cc8fee7f9a8747925660d26260a0d, type: 2}
+  - {fileID: 11400000, guid: b0a91bd191266214988876ad587b92f3, type: 2}
   - {fileID: 11400000, guid: 523828fab6aa95545b3cb90a93fa2781, type: 2}
 --- !u!4 &72277651
 Transform:
