@@ -9,6 +9,7 @@ public class Fireball : AgasAttack
     public ProjectileSpeed ProjectileSpeed;
     public ProjectileType ProjectileType;
     public float degreeModifier;
+    public float fixedAngle = float.MinValue;
 
     private Transform attackParent;
     private Transform playerPosition;
@@ -30,14 +31,18 @@ public class Fireball : AgasAttack
     protected override IEnumerator Execute(float duration)
     {
         yield return null;
-        fireballObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier);
+        if(fixedAngle == float.MinValue)
+        {
+            fireballObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier);
+        }
+        else
+        {
+            fireballObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier, fixedAngle);
+        }
     }
 
     protected override void OnEnd()
     {
-        if(fireballObject != null)
-        {
-            Destroy(fireballObject);
-        }
+        
     }
 }

@@ -112,4 +112,15 @@ public class Projectile : MonoBehaviour
                 break;
         }
     }
+
+    //This handles destroying boss projectiles when they hit a player
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponent<Player>().Health -= 1;
+            Debug.Log(gameObject.name);
+            Destroy(this.gameObject);
+        }
+    }
 }

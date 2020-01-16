@@ -293,9 +293,13 @@ MonoBehaviour:
     candle5: {fileID: 1924595298}
     candle6: {fileID: 850896336}
   AttacksToInitialize:
-  - {fileID: 11400000, guid: 523828fab6aa95545b3cb90a93fa2781, type: 2}
-  - {fileID: 11400000, guid: b0a91bd191266214988876ad587b92f3, type: 2}
-  - {fileID: 11400000, guid: 523828fab6aa95545b3cb90a93fa2781, type: 2}
+  - {fileID: 11400000, guid: e0a7a724ebe828d458ca67c3c745a05c, type: 2}
+  - {fileID: 11400000, guid: cf5b4f485af94774cbdd9ed6e660bd34, type: 2}
+  - {fileID: 11400000, guid: 4e72073afac65bc49bb80fbdfe68a2ea, type: 2}
+  - {fileID: 11400000, guid: 905756f6785e9e340b6554db806432bf, type: 2}
+  - {fileID: 11400000, guid: b781abcba9b450f479790d96cf287afe, type: 2}
+  - {fileID: 11400000, guid: 970c126515607264680be34d56daad12, type: 2}
+  - {fileID: 11400000, guid: 77130b988c3af4e41902ce1fe45e9e54, type: 2}
 --- !u!4 &72277651
 Transform:
   m_ObjectHideFlags: 0
@@ -2509,7 +2513,7 @@ PrefabInstance:
     - target: {fileID: 1374328336026479313, guid: 1b1b9a1123fdb054bac5fcc7ca015781,
         type: 3}
       propertyPath: PhasesToInitialize.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1374328336026479313, guid: 1b1b9a1123fdb054bac5fcc7ca015781,
         type: 3}
@@ -2525,19 +2529,25 @@ PrefabInstance:
         type: 3}
       propertyPath: PhasesToInitialize.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: c89656a8bd3b5554eb37e3decf090c20,
+      objectReference: {fileID: 11400000, guid: 5e9a0c5a43ad44f4c954e9014f4c4f79,
         type: 2}
     - target: {fileID: 1374328336026479313, guid: 1b1b9a1123fdb054bac5fcc7ca015781,
         type: 3}
       propertyPath: PhasesToInitialize.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: b25ee52cf376f3f42ab5f9af76cf5c1a,
+      objectReference: {fileID: 11400000, guid: 4c539f79d8b469a41a40e303b4799316,
         type: 2}
     - target: {fileID: 1374328336026479313, guid: 1b1b9a1123fdb054bac5fcc7ca015781,
         type: 3}
       propertyPath: PhasesToInitialize.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 6358de506353be643912a55095d0252a,
+      objectReference: {fileID: 11400000, guid: c717ab2e46a44614e8c022492f2800b3,
+        type: 2}
+    - target: {fileID: 1374328336026479313, guid: 1b1b9a1123fdb054bac5fcc7ca015781,
+        type: 3}
+      propertyPath: PhasesToInitialize.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6a160b053b1d24346a63ec0820972f5f,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1b9a1123fdb054bac5fcc7ca015781, type: 3}
@@ -3617,13 +3627,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossHealth: {fileID: 1443309143}
   PhaseChangeThreshholds:
-  - BossPhase: {fileID: 11400000, guid: c89656a8bd3b5554eb37e3decf090c20, type: 2}
+  - BossPhase: {fileID: 11400000, guid: 5e9a0c5a43ad44f4c954e9014f4c4f79, type: 2}
     HealthPercentThreshhold: 100
-  - BossPhase: {fileID: 11400000, guid: b25ee52cf376f3f42ab5f9af76cf5c1a, type: 2}
+  - BossPhase: {fileID: 11400000, guid: 4c539f79d8b469a41a40e303b4799316, type: 2}
     HealthPercentThreshhold: 75
-  - BossPhase: {fileID: 11400000, guid: 6358de506353be643912a55095d0252a, type: 2}
+  - BossPhase: {fileID: 11400000, guid: c717ab2e46a44614e8c022492f2800b3, type: 2}
     HealthPercentThreshhold: 50
-  - BossPhase: {fileID: 11400000, guid: 6358de506353be643912a55095d0252a, type: 2}
+  - BossPhase: {fileID: 11400000, guid: 6a160b053b1d24346a63ec0820972f5f, type: 2}
     HealthPercentThreshhold: 25
 --- !u!1 &1515053675
 GameObject:
