@@ -246,17 +246,14 @@ public class Player : MonoBehaviour {
     }
 
     private void HandleHorizontalMovement() {
-        if (blockHorizontalMovement || crouched || isSuperActive) {
+        if (blockHorizontalMovement || crouched) {
             return;
         }
 
         float oldSpeed = rb.velocity.x; // Grounded can only occur against flat surfaces below player, speed should only be in x dir
         float input = Input.GetAxisRaw("Horizontal");
         if(input != 0f) {
-            moving = true;
-            if (attacking) movedWhileAttacking = true;
-            float accel, decel, maxSpeed;
-            // Handle direction-specific code
+            // Handle changing direction
             if (input > 0) {
                 // Face right if needed
                 if (gameObject.transform.rotation.y != 0) {
@@ -269,6 +266,13 @@ public class Player : MonoBehaviour {
                     gameObject.transform.Rotate(Vector3.up, 180.0f);
                 }
             }
+
+            // If super, don't move
+            if (isSuperActive) return;
+
+            moving = true;
+            if (attacking) movedWhileAttacking = true;
+            float accel, decel, maxSpeed;
 
             // Set parameters for movement
             if (!inAir && !Dead)
