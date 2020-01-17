@@ -124,10 +124,12 @@ public class Player : MonoBehaviour {
         if (!Dead) {
             #region Friction
             float speedReductionThisFrame;
+            float frictionMultiplier = 1f;
+            if (isSuperActive) frictionMultiplier = 0.55f;
             if (inAir)
-                speedReductionThisFrame = Time.deltaTime * airFrictionDecel;
+                speedReductionThisFrame = Time.deltaTime * airFrictionDecel * frictionMultiplier;
             else
-                speedReductionThisFrame = Time.deltaTime * groundFrictionDecel;
+                speedReductionThisFrame = Time.deltaTime * groundFrictionDecel * frictionMultiplier;
             if (Mathf.Abs(rb.velocity.x) > speedReductionThisFrame)
             {
                 rb.velocity += new Vector2(-1 * Mathf.Sign(rb.velocity.x) * speedReductionThisFrame, 0);
@@ -442,8 +444,8 @@ public class Player : MonoBehaviour {
         if (currentBandMember == "Shavo")
         {
             float initialAnimSpeed;  // Change the animation timing to account for jumping, i.e. wait a bit longer if you just started a jump
-            if (inAir) initialAnimSpeed = 0.1f;
-            else initialAnimSpeed = 0.7f;
+            if (inAir) initialAnimSpeed = 0.01f;
+            else initialAnimSpeed = 0.8f;
             playerUpperAnim.speed = initialAnimSpeed;
             playerLowerAnim.speed = initialAnimSpeed;
             playerUpperAnim.Play("ShavoSuper");
@@ -454,11 +456,16 @@ public class Player : MonoBehaviour {
                 yield return new WaitForSeconds(0.03f);
                 timeWaited += 0.03f;
             }
-            if(timeWaited < 0.3f)
-            yield return new WaitForSeconds(0.3f - timeWaited);
+            if(timeWaited < 0.06f)   yield return new WaitForSeconds(0.06f - timeWaited);
+            else
+            {
+                playerUpperAnim.speed = 5f;
+                playerLowerAnim.speed = 5f;
+                yield return new WaitForSeconds(0.01f);
+            }
             playerUpperAnim.speed = 0.8f;
             playerLowerAnim.speed = 0.8f;
-            yield return new WaitForSeconds(1.15f);
+            yield return new WaitForSeconds(0.95f);
             playerUpperAnim.speed = 1f;
             playerLowerAnim.speed = 1f;
         }
