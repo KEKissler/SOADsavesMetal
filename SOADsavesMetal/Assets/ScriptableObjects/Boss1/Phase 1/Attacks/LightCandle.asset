@@ -15,8 +15,8 @@ MonoBehaviour:
   duration: 1
   Min_MaxShots: 4
   Max_MaxShots: 7
-  Min_FirePeriod: 3.5
-  Max_FirePeriod: 4
+  Min_FirePeriod: 5
+  Max_FirePeriod: 5
   Min_Speed: 0
   Max_Speed: 1
   Number_of_Candles_Lit: 1
