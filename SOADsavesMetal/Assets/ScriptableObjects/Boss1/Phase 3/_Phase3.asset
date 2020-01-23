@@ -16,7 +16,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   CloseUpDistance: 1
   NearGroundCutoff: 0.5
-  HasLeft: 0
+  HasLeft: 1
   DefaultAttacks: {fileID: 11400000, guid: 608860954a68f034bb06b39df9b10ca3, type: 2}
   CloseUpAttacks: {fileID: 11400000, guid: 608860954a68f034bb06b39df9b10ca3, type: 2}
   LowPlayerHPAttacks: {fileID: 11400000, guid: 608860954a68f034bb06b39df9b10ca3, type: 2}

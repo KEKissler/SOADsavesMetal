@@ -9,7 +9,7 @@ TextureImporter:
     21300008: decay_assets1_candle_glow
     21300010: decay_assets1_ground
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0

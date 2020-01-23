@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Overflow : AgasAttack
 {
-    public float floodTime;
 
     private const string SPILL = "goblet_spill";
     private const string SPILL_DEFAULT = "goblet_end_flow";
@@ -35,7 +34,7 @@ public class Overflow : AgasAttack
 
     protected override void OnStart()
     {
-        CoroutineRunner.instance.StartCoroutine(overflowLiquid.flood(floodTime, Spill, SPILL_DEFAULT));
+        CoroutineRunner.instance.StartCoroutine(overflowLiquid.flood(Spill, SPILL_DEFAULT));
         Splash.Play(SPLASH);
         Spill.Play(SPILL);
     }
