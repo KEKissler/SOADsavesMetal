@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SaveScript: MonoBehaviour
+public class StaticData: MonoBehaviour
 {
     static public string playerSelected = "";
     static public int levelSelect = 0;
+    static public bool firstLoad = true;
+    static public bool[] characterUnlocks = {false, false, false};
+    static public bool[] shavoUnlock = {false, false};
+    static public bool[] daronUnlock = {false, false};
+    static public bool[] serjUnlock = {false, false, false};
 
     public void setPlayer(string name)
     {
@@ -25,14 +30,31 @@ public class SaveScript: MonoBehaviour
 
     public void loadLevel() //loads the selected level
     {
-        if(levelSelect != 0)
         {
             SceneManager.LoadScene(levelSelect);
         }
-        else
+    }
+
+    public void loadLevel(string sceneName)
+    {
         {
-            print("No level selected!");
+            SceneManager.LoadScene(sceneName);
         }
+    }
+
+    public void SaveGame() //saves current static data
+    {
+        SaveSystem.SaveGame();
+    }
+
+    public void LoadGame() //loads saved data onto static data
+    {
+        SaveData data = SaveSystem.LoadGame();
+        firstLoad = data.firstLoad;
+        characterUnlocks = data.characterUnlocks;
+        shavoUnlock = data.shavoUnlock;
+        daronUnlock = data.daronUnlock;
+        serjUnlock = data.serjUnlock;
     }
 
     void Awake()
