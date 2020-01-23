@@ -10,6 +10,8 @@ public class Fireball : AgasAttack
     public ProjectileType ProjectileType;
     public float degreeModifier;
     public float fixedAngle = float.MinValue;
+    [SerializeField]
+    private float Y_offset;
 
     private Transform attackParent;
     private Transform playerPosition;
@@ -25,7 +27,7 @@ public class Fireball : AgasAttack
 
     protected override void OnStart()
     {
-        fireballObject = Instantiate(FireballPrefab, agasPosition.position, Quaternion.identity, attackParent);
+        fireballObject = Instantiate(FireballPrefab, agasPosition.position + new Vector3(0,Y_offset), Quaternion.identity, attackParent);
     }
 
     protected override IEnumerator Execute(float duration)
