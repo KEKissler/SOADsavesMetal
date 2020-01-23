@@ -1815,6 +1815,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthScript: {fileID: 1443309143}
   damageMultiplier: 1
+  damageAnim: {fileID: 0}
+  deathAnim: {fileID: 0}
 --- !u!58 &1036882051
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1984,6 +1986,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthScript: {fileID: 1443309143}
   damageMultiplier: 0.05
+  damageAnim: {fileID: 0}
+  deathAnim: {fileID: 0}
 --- !u!60 &1055610343
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2254,6 +2258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthScript: {fileID: 1443309143}
   damageMultiplier: 0.05
+  damageAnim: {fileID: 0}
+  deathAnim: {fileID: 0}
 --- !u!50 &1104068726
 Rigidbody2D:
   serializedVersion: 4
@@ -3629,12 +3635,17 @@ MonoBehaviour:
   PhaseChangeThreshholds:
   - BossPhase: {fileID: 11400000, guid: 5e9a0c5a43ad44f4c954e9014f4c4f79, type: 2}
     HealthPercentThreshhold: 100
+    ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: 4c539f79d8b469a41a40e303b4799316, type: 2}
     HealthPercentThreshhold: 75
+    ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: c717ab2e46a44614e8c022492f2800b3, type: 2}
     HealthPercentThreshhold: 50
+    ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: 6a160b053b1d24346a63ec0820972f5f, type: 2}
     HealthPercentThreshhold: 25
+    ExecuteOnPhaseStart: {fileID: 11400000, guid: 92f5d7c28ef6a124d97b35c15796e105,
+      type: 2}
 --- !u!1 &1515053675
 GameObject:
   m_ObjectHideFlags: 0
