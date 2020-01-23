@@ -18,4 +18,4 @@ MonoBehaviour:
   ProjectileSpeed: 3
   ProjectileType: 0
   degreeModifier: 0
-  fixedAngle: 180
+  fixedAngle: 0
