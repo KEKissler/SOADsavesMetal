@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc5a8fd58623805419b4b49403843ea2, type: 3}
-  m_Name: FireballLow
+  m_Script: {fileID: 11500000, guid: a8fe7dc6894ff824a8ac9307cf3857d4, type: 3}
+  m_Name: LightCandle 1
   m_EditorClassIdentifier: 
   duration: 1
-  FireballPrefab: {fileID: 1883100758368052, guid: cc1e07ece144cd241a99931749565888,
-    type: 3}
-  ProjectileSpeed: 3
-  ProjectileType: 0
-  degreeModifier: 0
-  fixedAngle: 325
+  Min_MaxShots: 4
+  Max_MaxShots: 7
+  Min_FirePeriod: 5
+  Max_FirePeriod: 5
+  Min_Speed: 0
+  Max_Speed: 1
+  Number_of_Candles_Lit: 1

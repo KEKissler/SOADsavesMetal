@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 3
   Attacks:
-  - Attack: {fileID: 11400000, guid: 970c126515607264680be34d56daad12, type: 2}
+  - Attack: {fileID: 11400000, guid: 3594f8ce21d42cd43bc9108accca5aed, type: 2}
     duration: 1
-  - Attack: {fileID: 11400000, guid: 77130b988c3af4e41902ce1fe45e9e54, type: 2}
+  - Attack: {fileID: 11400000, guid: e845af5ad6b35344cb0ab595c3c618f5, type: 2}
     duration: 1
-  - Attack: {fileID: 11400000, guid: b781abcba9b450f479790d96cf287afe, type: 2}
+  - Attack: {fileID: 11400000, guid: d694b2fe792db924c93e0e40bb940571, type: 2}
     duration: 1
