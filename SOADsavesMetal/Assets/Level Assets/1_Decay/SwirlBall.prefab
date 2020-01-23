@@ -468,4 +468,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  time_to_destroy: 10
+  time_to_destroy: 100
+  Left: 0
