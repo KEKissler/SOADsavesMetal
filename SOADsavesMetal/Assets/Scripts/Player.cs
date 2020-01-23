@@ -192,8 +192,6 @@ public class Player : MonoBehaviour {
                     }
                     else if (currentBandMember == "Shavo") {// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "ShavoJumpLegs")
                         // PlayAnims("Dash");
-                        if(!attacking)  playerUpperAnim.Play(GetAnimName("Dash"));
-                        playerLowerAnim.Play(GetAnimName("Dash"));
                         StartCoroutine(Dash());
                         auso.Stop();
                         auso.PlayOneShot(ShavoDash);
@@ -202,15 +200,9 @@ public class Player : MonoBehaviour {
                         StartCoroutine("Teleport");
                         auso.Stop();
                         auso.PlayOneShot(DaronTeleport);
-                        if (gameObject.transform.rotation.y == 0) {
-                            rb.velocity = new Vector2(1.5f * jumpHeight, 0.0f);
-                        }
-                        else {
-                            rb.velocity = new Vector2(-1.5f * jumpHeight, 0.0f);
-                        }
                     }
                     else if (currentBandMember == "Serj") {
-
+                        StartCoroutine(Hover());
                     }
                 }
                 else {
@@ -244,6 +236,61 @@ public class Player : MonoBehaviour {
             }
         }
     }
+
+    #region Double jump coroutines
+    public IEnumerator Dash()
+    {
+        float dashPower = 18f;
+        yield return new WaitForSeconds(0.06f);
+        blockHorizontalMovement = true;
+        if (!attacking) playerUpperAnim.Play(GetAnimName("Dash"));
+        playerLowerAnim.Play(GetAnimName("Dash"));
+        rb.velocity = new Vector2(rb.velocity.x * 0.3f, 0.1f);
+        yield return new WaitForSeconds(0.12f);
+        var playerRotation = gameObject.transform.rotation;
+        rb.velocity = new Vector2((playerRotation.y == 0 ? 1 : -1) * 1.5f * dashPower, 0.43f * dashPower);
+        yield return new WaitForSeconds(0.25f);
+        rb.velocity *= 0.33f;
+        blockHorizontalMovement = false;
+
+    }
+
+    public IEnumerator Teleport()
+    {
+        blockHorizontalMovement = true;
+        if (!attacking) playerUpperAnim.Play(GetAnimName("Teleport"));
+        playerLowerAnim.Play(GetAnimName("Teleport"));
+        yield return new WaitForSeconds(0.04f);
+        float dashPower = 15f;
+        var playerRotation = gameObject.transform.rotation;
+        rb.velocity = new Vector2((playerRotation.y == 0 ? 1 : -1) * 1.5f * dashPower, 0f);
+
+        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        upperBodyHitbox.GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(0.25f);
+
+        upperBodyHitbox.GetComponent<BoxCollider2D>().enabled = true;
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        transform.position -= new Vector3(0f, 0.05f, 0f);
+        rb.velocity = new Vector2(rb.velocity.x * -0.15f, -2.5f);
+        blockHorizontalMovement = false;
+    }
+
+    public IEnumerator Hover()
+    {
+        playerUpperAnim.Play("SerjWings");
+        playerLowerAnim.Play("SerjIdleLegs");
+        float timer = 0f;
+        while (timer < 2f)
+        {
+            rb.velocity = new Vector2(0, 0.3f);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+    #endregion Double jump coroutines
 
     private void HandleHorizontalMovement() {
         if (blockHorizontalMovement || crouched) {
@@ -357,7 +404,7 @@ public class Player : MonoBehaviour {
             playerUpperAnim.pivotPosition.Set(0.49f, 0.83f, 0.0f);
         }
         playerUpperAnim.Play(GetAnimName("Short"));
-        if (!inAir && !Dead) {
+        if (currentBandMember != "Daron" && !inAir && !Dead) {
             playerLowerAnim.Play(GetAnimName("ShortLegs"));
         }
         if (currentBandMember == "John") {
@@ -370,26 +417,13 @@ public class Player : MonoBehaviour {
             yield return new WaitForSeconds(0.5f);
         }
         else if (currentBandMember == "Daron") {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.38f);
         }
         else if (currentBandMember == "Serj") {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.55f);
         }
         attacking = false;
         movedWhileAttacking = false;
-    }
-
-    public IEnumerator Dash() {
-        float dashPower = 18f;
-        blockHorizontalMovement = true;
-        rb.velocity = new Vector2(0, 0.1f);
-        yield return new WaitForSeconds(0.12f);
-        var playerRotation = gameObject.transform.rotation;
-        rb.velocity = new Vector2((playerRotation.y == 0 ? 1 : -1) * 1.6f * dashPower, 0.42f * dashPower);
-        yield return new WaitForSeconds(0.22f);
-        rb.velocity *= 0.2f;
-        blockHorizontalMovement = false;
-
     }
 
     public IEnumerator blockMovement(float duration)
@@ -402,17 +436,6 @@ public class Player : MonoBehaviour {
             yield return null;
         }
         blockHorizontalMovement = false;
-    }
-
-    public IEnumerator Teleport() {
-        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-        upperBodyHitbox.GetComponent<BoxCollider2D>().enabled = false;
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        yield return new WaitForSeconds(0.125f);
-        upperBodyHitbox.GetComponent<BoxCollider2D>().enabled = true;
-        gameObject.GetComponent<BoxCollider2D>().enabled = true;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        rb.velocity = new Vector2(0.0f, 0.0f);
     }
 
     public IEnumerator longRangeAttackAnims() {
@@ -431,12 +454,14 @@ public class Player : MonoBehaviour {
             if (!moving && !crouched && !inAir) {
                 playerLowerAnim.Play("DaronAttackLegs");
             }
+            yield return new WaitForSeconds(0.6f);
         }
         else if (currentBandMember == "Serj") {
             playerUpperAnim.Play("SerjLong");
             if (!moving && !crouched && !inAir) {
                 playerLowerAnim.Play("SerjLongLegs");
             }
+            yield return new WaitForSeconds(0.45f);
         }
         yield return new WaitForSeconds(0.07f);
         attacking = false;
@@ -475,19 +500,20 @@ public class Player : MonoBehaviour {
         }
         else if (currentBandMember == "Daron")
         {
-            playerUpperAnim.Play("DaronLong");
+            yield return null;
+            playerLowerAnim.Play("DaronIdleLegs");
+            playerUpperAnim.Play("DaronSuper");
             if (!moving && !crouched && !inAir)
             {
-                playerLowerAnim.Play("DaronAttackLegs");
             }
+            yield return new WaitForSeconds(2.25f);
+
         }
         else if (currentBandMember == "Serj")
         {
-            playerUpperAnim.Play("SerjLong");
-            if (!moving && !crouched && !inAir)
-            {
-                playerLowerAnim.Play("SerjLongLegs");
-            }
+            playerLowerAnim.Play("SerjLongLegs");
+            playerUpperAnim.Play("SerjSuper");
+            yield return new WaitForSeconds(1.27f);
         }
         attacking = false;
         isSuperActive = false;
