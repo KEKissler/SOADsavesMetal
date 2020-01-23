@@ -26,7 +26,7 @@ public class DecayOverflow : MonoBehaviour
         
     }
 
-    public IEnumerator flood(float durationUp, Animator FlowAnimator, string defaultFlowStateName)
+    public IEnumerator flood(Animator FlowAnimator, string defaultFlowStateName)
     {
         float timer = 0f;
         rb.velocity = new Vector2(0, speed);
@@ -39,21 +39,6 @@ public class DecayOverflow : MonoBehaviour
         FlowAnimator.Play(defaultFlowStateName);
 
         timer = 0f;
-        rb.velocity = new Vector2(0, 0);
-        while(timer < durationUp)
-        {
-            timer += Time.deltaTime;
-            yield return null;
-        }
-
-        timer = 0f;
-        rb.velocity = new Vector2(0, -speed);
-        while(timer < travel_distance/speed)
-        {
-            timer += Time.deltaTime;
-            yield return null;
-        }
-
         rb.velocity = new Vector2(0, 0);
     }
 }
