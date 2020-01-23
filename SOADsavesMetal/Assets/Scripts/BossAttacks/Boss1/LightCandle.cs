@@ -12,6 +12,7 @@ public class LightCandle : AgasAttack
     public float Max_FirePeriod;
     public int Min_Speed;
     public int Max_Speed;
+    public int Number_of_Candles_Lit;
 
     private readonly CandleEmitter[] candles = new CandleEmitter[7];
 
@@ -28,17 +29,20 @@ public class LightCandle : AgasAttack
 
     protected override IEnumerator Execute(float duration)
     {
-        yield return new WaitForEndOfFrame();
-        var candle = GetRandomUnlitCandle();
-        if(candle == null)
+        for (int i = 0;i < Number_of_Candles_Lit; i++)
         {
-            Debug.Log("Could not find a candle to light.");
-            yield break;
+            yield return new WaitForEndOfFrame();
+            var candle = GetRandomUnlitCandle();
+            if (candle == null)
+            {
+                Debug.Log("Could not find a candle to light.");
+                yield break;
+            }
+            candle.enableFire();
+            candle.setMaxShots(Random.Range(Min_MaxShots, Max_MaxShots + 1));
+            candle.setFirePeriod(Random.Range(Min_FirePeriod, Max_FirePeriod));
+            candle.setSpeed(Random.Range(Min_Speed, Max_Speed + 1));
         }
-        candle.enableFire();
-        candle.setMaxShots(Random.Range(Min_MaxShots, Max_MaxShots + 1));
-        candle.setFirePeriod(Random.Range(Min_FirePeriod, Max_FirePeriod));
-        candle.setSpeed(Random.Range(Min_Speed, Max_Speed + 1));
     }
 
     protected override void OnEnd()

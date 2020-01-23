@@ -622,7 +622,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404447960}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.47, z: -60}
+  m_LocalPosition: {x: 0, y: -2.54, z: -60}
   m_LocalScale: {x: 7.7, y: 7, z: 1}
   m_Children: []
   m_Father: {fileID: 686882561}
@@ -1547,7 +1547,7 @@ PrefabInstance:
     - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: currentBandMember
-      value: Serj
+      value: Daron
       objectReference: {fileID: 0}
     - target: {fileID: 9117497486307095082, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
@@ -1564,6 +1564,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 0.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117497486307095082, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc0d8d3460c18043896482f0ba598cb, type: 3}
@@ -2587,7 +2592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856027358}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.505, z: -50}
+  m_LocalPosition: {x: 0.11, y: 4.43, z: -50}
   m_LocalScale: {x: 3.9, y: 3.9, z: 1}
   m_Children: []
   m_Father: {fileID: 773661264}
