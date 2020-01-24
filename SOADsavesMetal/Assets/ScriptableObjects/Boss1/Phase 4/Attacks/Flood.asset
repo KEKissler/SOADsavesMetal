@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74da52dd9d62ccc46871becf1054ce91, type: 3}
   m_Name: Flood
   m_EditorClassIdentifier: 
-  duration: 10
-  floodTime: 5
+  duration: 3

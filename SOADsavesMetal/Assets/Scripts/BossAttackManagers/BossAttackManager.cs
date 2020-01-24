@@ -51,6 +51,10 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
             if (phaseIndex < PhaseChangeThreshholds.Count - 1)
             {
                 phaseIndex++;
+                if(PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart)
+                {
+                    PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart.ExecuteAttack();
+                }
             }
             else
             {
@@ -81,4 +85,5 @@ public class PhaseChangeThreshhold
 {
     public BossPhase BossPhase;
     public int HealthPercentThreshhold;
+    public BossAttack ExecuteOnPhaseStart;
 }

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8fe7dc6894ff824a8ac9307cf3857d4, type: 3}
-  m_Name: LightTwoCandles
+  m_Name: HardLightTwoCandles
   m_EditorClassIdentifier: 
   duration: 1
   Min_MaxShots: 4
   Max_MaxShots: 7
-  Min_FirePeriod: 5
-  Max_FirePeriod: 5
+  Min_FirePeriod: 3
+  Max_FirePeriod: 4
   Min_Speed: 0
   Max_Speed: 1
   Number_of_Candles_Lit: 2

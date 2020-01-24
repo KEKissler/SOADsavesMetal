@@ -35,11 +35,13 @@ public class Fireball : AgasAttack
         yield return null;
         if(fixedAngle == float.MinValue)
         {
-            fireballObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier);
+            if(fireballObject.GetComponent<Projectile>() != null)
+                fireballObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier);
         }
         else
         {
-            fireballObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier, fixedAngle);
+            if (fireballObject.GetComponent<Projectile>() != null)
+                fireballObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier, fixedAngle);
         }
     }
 
