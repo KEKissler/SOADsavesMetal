@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttackManager : MonoBehaviour
 {
     public GameObject JohnAttack;
     public GameObject ShavoAttack;
