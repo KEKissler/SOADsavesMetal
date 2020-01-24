@@ -52,6 +52,39 @@ public class BossHit : MonoBehaviour
                 bossAnimations.Play(TSOVINAR_DEATH);
             }
         }
+        else if(name == "Agas")
+        {
+            if (HP > 0)
+            {
+                bossAnimations.Play(AGAS_DAMAGE);
+            }
+            else
+            {
+                bossAnimations.Play(AGAS_DEATH);
+            }
+        }
+        else if(name == "Boss_Nhang")
+        {
+            if(HP > 0)
+            {
+                bossAnimations.Play(NHANG_DAMAGE);
+            }
+            else
+            {
+                bossAnimations.Play(NHANG_DEATH);
+            }
+        }
+        else if(name == "sandaramet")
+        {
+            if(HP > 0)
+            {
+                bossAnimations.Play(SANDARAMET_DAMAGE);
+            }
+            else
+            {
+                bossAnimations.Play(SANDARAMET_DEATH);
+            }
+        }
 
     }
 }
