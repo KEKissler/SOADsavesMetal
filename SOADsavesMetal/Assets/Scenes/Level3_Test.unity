@@ -1132,6 +1132,7 @@ MonoBehaviour:
   healthScript: {fileID: 2062823193}
   damageMultiplier: 0.15
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!1 &773661263
 GameObject:
@@ -6426,8 +6427,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthScript: {fileID: 2062823193}
   damageMultiplier: 0.2
-  damageAnim: {fileID: 0}
-  deathAnim: {fileID: 0}
+  damageAnim: {fileID: 7400000, guid: 98cabd67da300804ab9aec30f9270120, type: 2}
+  damageAnim2: {fileID: 0}
+  deathAnim: {fileID: 7400000, guid: 2821a2e75bf4e1247b73af98405ff58a, type: 2}
 --- !u!1001 &1069490232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8713,6 +8715,7 @@ MonoBehaviour:
   healthScript: {fileID: 2062823193}
   damageMultiplier: 0.3
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!114 &2062823207
 MonoBehaviour:
@@ -8729,6 +8732,7 @@ MonoBehaviour:
   healthScript: {fileID: 2062823193}
   damageMultiplier: 0.3
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!114 &2062823208
 MonoBehaviour:
@@ -8745,6 +8749,7 @@ MonoBehaviour:
   healthScript: {fileID: 2062823193}
   damageMultiplier: 0.3
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!114 &2062823209
 MonoBehaviour:
@@ -8761,6 +8766,7 @@ MonoBehaviour:
   healthScript: {fileID: 2062823193}
   damageMultiplier: 0.3
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!114 &2062823210
 MonoBehaviour:
@@ -8777,6 +8783,7 @@ MonoBehaviour:
   healthScript: {fileID: 2062823193}
   damageMultiplier: 0.3
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!114 &2062823211
 MonoBehaviour:
@@ -8793,6 +8800,7 @@ MonoBehaviour:
   healthScript: {fileID: 2062823193}
   damageMultiplier: 0.3
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!114 &2062823212
 MonoBehaviour:
@@ -8809,6 +8817,7 @@ MonoBehaviour:
   healthScript: {fileID: 2062823193}
   damageMultiplier: 0.3
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!114 &2062823213
 MonoBehaviour:
@@ -8825,6 +8834,7 @@ MonoBehaviour:
   healthScript: {fileID: 2062823193}
   damageMultiplier: 0.3
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!114 &2062823214
 MonoBehaviour:
@@ -8841,6 +8851,7 @@ MonoBehaviour:
   healthScript: {fileID: 2062823193}
   damageMultiplier: 0.3
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!114 &2062823215
 MonoBehaviour:
@@ -8857,6 +8868,7 @@ MonoBehaviour:
   healthScript: {fileID: 2062823193}
   damageMultiplier: 0.3
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!114 &2062823216
 MonoBehaviour:
@@ -8873,6 +8885,7 @@ MonoBehaviour:
   healthScript: {fileID: 2062823193}
   damageMultiplier: 0.3
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!114 &2062823217
 MonoBehaviour:
@@ -8889,6 +8902,7 @@ MonoBehaviour:
   healthScript: {fileID: 2062823193}
   damageMultiplier: 0.3
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!114 &2062823218
 MonoBehaviour:
@@ -8905,6 +8919,7 @@ MonoBehaviour:
   healthScript: {fileID: 2062823193}
   damageMultiplier: 0.3
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!1 &2067567396
 GameObject:

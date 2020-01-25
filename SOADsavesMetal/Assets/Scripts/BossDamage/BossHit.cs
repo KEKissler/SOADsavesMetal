@@ -13,13 +13,15 @@ public class BossHit : MonoBehaviour
     private const string NHANG_DAMAGE = "nhang_damage";
     private const string NHANG_DEATH = "nhang_death";
 
-    private const string SANDARAMET_DAMAGE = "sandaramet_damage";
+    private const string SANDARAMET_DAMAGE1 = "sandaramet_phase1_damage";
+    private const string SANDARAMET_DAMAGE2 = "sandaramet_phase2_damage";
     private const string SANDARAMET_DEATH = "sandaramet_death";
 
 
     public BossHealth healthScript;
     public float damageMultiplier = 1f;
     public AnimationClip damageAnim;
+    public AnimationClip damageAnim2;
     public AnimationClip deathAnim;
 
     private Animator bossAnimations;
@@ -39,7 +41,8 @@ public class BossHit : MonoBehaviour
 
     public void hit(int damage)
     {
-        int HP = healthScript.getHP();
+        float HP = healthScript.getHP();
+        float startHP = healthScript.startingHP;
         healthScript.hit(damage * damageMultiplier);
         if(name == "TsovinarFace")
         {
@@ -78,7 +81,14 @@ public class BossHit : MonoBehaviour
         {
             if(HP > 0)
             {
-                bossAnimations.Play(SANDARAMET_DAMAGE);
+                if (HP > startHP/2)
+                {
+                    bossAnimations.Play(SANDARAMET_DAMAGE1);
+                }
+                else
+                {
+                    bossAnimations.Play(SANDARAMET_DAMAGE2);
+                }
             }
             else
             {

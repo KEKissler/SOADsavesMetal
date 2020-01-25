@@ -1816,7 +1816,8 @@ MonoBehaviour:
   healthScript: {fileID: 1443309143}
   damageMultiplier: 1
   damageAnim: {fileID: 7400000, guid: 9d149a108af95a348a65b7f6c2dcdd95, type: 2}
-  deathAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
+  deathAnim: {fileID: 7400000, guid: 9f67567e93c5f65498bc93aa80d4bd33, type: 2}
 --- !u!58 &1036882051
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1987,6 +1988,7 @@ MonoBehaviour:
   healthScript: {fileID: 1443309143}
   damageMultiplier: 0.05
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!60 &1055610343
 PolygonCollider2D:
@@ -2259,6 +2261,7 @@ MonoBehaviour:
   healthScript: {fileID: 1443309143}
   damageMultiplier: 0.05
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!50 &1104068726
 Rigidbody2D:
