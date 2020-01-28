@@ -34,7 +34,10 @@ public class Projectile : MonoBehaviour
             new Vector3(transform.position.x-player.transform.position.x, transform.position.y-player.transform.position.y, 0));
 
         rb = GetComponent<Rigidbody2D>();
-        Configure(player, ProjectileType.Gravity, ProjectileSpeed.Fast, 0.0f);
+        
+        //If the projectile has no rigidbody it can still do damage on tigger enter.
+        if(rb != null)
+            Configure(player, ProjectileType.Gravity, ProjectileSpeed.Fast, 0.0f);
         
         Destroy(gameObject, 3.6f);
     }
