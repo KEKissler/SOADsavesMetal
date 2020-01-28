@@ -6,16 +6,29 @@ public enum Direction {Default, Right, Left};
 
 public class PlayerProjectile : MonoBehaviour
 {
-    private const float LIFESPAN = 3f;
-    // Start is called before the first frame update
-    void Start()
+    public int damage;
+
+    protected float velocity;
+    protected Direction direction;
+
+    public void setDamage(int damage)
     {
-        
+        this.damage = damage;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void setVelocity(float velocity)
     {
-        
+        this.velocity = velocity;
+    }
+
+    public void setDirection(Direction direction)
+    {
+        this.direction = direction;
+    }
+
+    // Lets the projectile travel around 25 units before destroying
+    protected void DestroyWhenOffScreen()
+    {
+        Destroy(this, 25f / velocity);
     }
 }

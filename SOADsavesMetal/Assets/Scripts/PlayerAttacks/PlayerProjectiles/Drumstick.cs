@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Drumstick : MonoBehaviour {
+public class Drumstick : PlayerProjectile {
  
-	public float velocity = 23.4f;
 	public Direction direction = Direction.Default;
 	public bool rotateWithPlayer = true;
-	public int damage = 26;
 
 	private Rigidbody2D rb;
-	private const float LIFESPAN = 0.75f;
 
 	// Use this for initialization
 	void Start () {
+        setDamage(26);
+        setVelocity(23.4f);
+        setDirection(Direction.Default);
 		rb = GetComponent<Rigidbody2D>();
 		if(!rotateWithPlayer)	transform.rotation = Quaternion.identity;
 
@@ -31,7 +31,7 @@ public class Drumstick : MonoBehaviour {
 				break;
 		}
 		
-		Destroy(gameObject, LIFESPAN);
+		DestroyWhenOffScreen();
 	}
 	
 	// Update is called once per frame
