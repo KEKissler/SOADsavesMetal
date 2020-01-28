@@ -10,13 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee4057deb479dc742ac4c0e9862d7f1d, type: 3}
-  m_Name: Default
+  m_Name: Default 1
   m_EditorClassIdentifier: 
-  AttackSelectionType: 0
+  AttackSelectionType: 1
   Attacks:
-  - {fileID: 11400000, guid: 011665aba2e45c843ae5c81bf1ea1fe5, type: 2}
-  - {fileID: 11400000, guid: c99132ff79d84a648abf43c742c9536f, type: 2}
-  - {fileID: 11400000, guid: e0a7a724ebe828d458ca67c3c745a05c, type: 2}
-  - {fileID: 11400000, guid: 905756f6785e9e340b6554db806432bf, type: 2}
-  - {fileID: 11400000, guid: 1636ef37e6ce6054ca2cb6ef3eb23c38, type: 2}
-  - {fileID: 11400000, guid: 1636ef37e6ce6054ca2cb6ef3eb23c38, type: 2}
+  - attack: {fileID: 11400000, guid: cf5b4f485af94774cbdd9ed6e660bd34, type: 2}
+    percentThreshold: 0
+  - attack: {fileID: 11400000, guid: 4e72073afac65bc49bb80fbdfe68a2ea, type: 2}
+    percentThreshold: 0
+  - attack: {fileID: 11400000, guid: 905756f6785e9e340b6554db806432bf, type: 2}
+    percentThreshold: 0
+  - attack: {fileID: 11400000, guid: e0a7a724ebe828d458ca67c3c745a05c, type: 2}
+    percentThreshold: 0
+  - attack: {fileID: 11400000, guid: 31c4a779cb51b2a449a14fe128fba9d6, type: 2}
+    percentThreshold: 0
+  - attack: {fileID: 11400000, guid: a1bd05e45b5bada419be2f92642c3cb9, type: 2}
+    percentThreshold: 0
