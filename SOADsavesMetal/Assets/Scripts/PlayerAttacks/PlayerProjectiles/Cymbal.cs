@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class Cymbal : MonoBehaviour {
+public class Cymbal : PlayerProjectile {
 
     public int damage = 33;
 
@@ -24,7 +24,7 @@ public class Cymbal : MonoBehaviour {
 		rb.velocity = new Vector2(DEFAULT_VELOCITY*Mathf.Cos(angle), DEFAULT_VELOCITY*Mathf.Sin(angle));
         rb.velocity = new Vector2(DEFAULT_VELOCITY*Mathf.Cos(angle)+rng.Next(2*VELOCITY_VARIATION+1)-(float)VELOCITY_VARIATION,
             DEFAULT_VELOCITY*Mathf.Sin(angle)-3.5f+6.8f*(float)rng.NextDouble()+6.8f*(float)rng.NextDouble());
-        Destroy(gameObject, LIFESPAN);
+        DestroyWhenOffScreen();
     }
     
     // Update is called once per frame
