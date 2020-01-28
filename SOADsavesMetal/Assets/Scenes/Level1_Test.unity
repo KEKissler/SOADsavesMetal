@@ -1815,8 +1815,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthScript: {fileID: 1443309143}
   damageMultiplier: 1
-  damageAnim: {fileID: 0}
-  deathAnim: {fileID: 0}
+  damageAnim: {fileID: 7400000, guid: 9d149a108af95a348a65b7f6c2dcdd95, type: 2}
+  damageAnim2: {fileID: 0}
+  deathAnim: {fileID: 7400000, guid: 9f67567e93c5f65498bc93aa80d4bd33, type: 2}
 --- !u!58 &1036882051
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1987,6 +1988,7 @@ MonoBehaviour:
   healthScript: {fileID: 1443309143}
   damageMultiplier: 0.05
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!60 &1055610343
 PolygonCollider2D:
@@ -2200,27 +2202,27 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 1886785510655580, guid: bfc94cc7610841b418c48574685289b9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1886785510655580, guid: bfc94cc7610841b418c48574685289b9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1667028602197272, guid: bfc94cc7610841b418c48574685289b9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1667028602197272, guid: bfc94cc7610841b418c48574685289b9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 1852164792773256, guid: bfc94cc7610841b418c48574685289b9, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1410718778648636, guid: bfc94cc7610841b418c48574685289b9, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886785510655580, guid: bfc94cc7610841b418c48574685289b9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886785510655580, guid: bfc94cc7610841b418c48574685289b9, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1667028602197272, guid: bfc94cc7610841b418c48574685289b9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1667028602197272, guid: bfc94cc7610841b418c48574685289b9, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
@@ -2259,6 +2261,7 @@ MonoBehaviour:
   healthScript: {fileID: 1443309143}
   damageMultiplier: 0.05
   damageAnim: {fileID: 0}
+  damageAnim2: {fileID: 0}
   deathAnim: {fileID: 0}
 --- !u!50 &1104068726
 Rigidbody2D:
@@ -3240,6 +3243,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.12
       objectReference: {fileID: 0}
+    - target: {fileID: 2380804503749740927, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380804503749740927, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380804503749740927, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2380804504558194934, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_IsActive
@@ -3552,6 +3570,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7f4e33e53fc41654a8866a1186bb2719, type: 2}
+    - target: {fileID: 2380804503749740921, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380804503749740921, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380804503749740921, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2380804505285666473, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3644,7 +3677,8 @@ MonoBehaviour:
     ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: 6a160b053b1d24346a63ec0820972f5f, type: 2}
     HealthPercentThreshhold: 25
-    ExecuteOnPhaseStart: {fileID: 0}
+    ExecuteOnPhaseStart: {fileID: 11400000, guid: 92f5d7c28ef6a124d97b35c15796e105,
+      type: 2}
 --- !u!1 &1515053675
 GameObject:
   m_ObjectHideFlags: 0

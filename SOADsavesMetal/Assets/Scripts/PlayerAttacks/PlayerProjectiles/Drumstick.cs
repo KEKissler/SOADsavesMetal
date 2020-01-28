@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Direction {Default, Right, Down, Left, Up};
-
 public class Drumstick : MonoBehaviour {
  
 	public float velocity = 23.4f;
@@ -28,15 +26,9 @@ public class Drumstick : MonoBehaviour {
 			case Direction.Right:
 				rb.velocity = new Vector2(velocity, 0f);
 				break;
-			case Direction.Down:
-				rb.velocity = new Vector2(0f, -velocity);
-				break;
 			case Direction.Left:
 				rb.velocity = new Vector2(-velocity, 0f);
 				break;
-			case Direction.Up:
-				rb.velocity = new Vector2(0f, velocity);
-				break;		
 		}
 		
 		Destroy(gameObject, LIFESPAN);
