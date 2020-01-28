@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5a8fd58623805419b4b49403843ea2, type: 3}
   m_Name: Middle_LeftSwirlball 1
   m_EditorClassIdentifier: 
-  duration: 2
+  duration: 0
   FireballPrefab: {fileID: 4488509576414208621, guid: 637d1293b6274a640981e7c0b13eb6e3,
     type: 3}
   ProjectileSpeed: 0
