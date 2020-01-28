@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e9ef3044271ba643966525ef0967db1, type: 3}
-  m_Name: StaticBeam
+  m_Name: Laser
   m_EditorClassIdentifier: 
   duration: 10
   BeamPrefab: {fileID: 5406669656197480969, guid: 65098df1da3e23644a3336afa36879f4,
