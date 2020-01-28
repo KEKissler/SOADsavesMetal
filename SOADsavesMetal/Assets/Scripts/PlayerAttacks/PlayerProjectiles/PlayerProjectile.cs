@@ -2,33 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Direction {Default, Right, Left};
-
 public class PlayerProjectile : MonoBehaviour
 {
-    public int damage;
+    protected Rigidbody2D rb;
+    protected int damage;
+    protected float speed;
 
-    protected float velocity;
-    protected Direction direction;
-
-    public void setDamage(int damage)
-    {
-        this.damage = damage;
-    }
-
-    public void setVelocity(float velocity)
-    {
-        this.velocity = velocity;
-    }
-
-    public void setDirection(Direction direction)
-    {
-        this.direction = direction;
-    }
-
-    // Lets the projectile travel around 25 units before destroying
+    // Lets the projectile travel a bit over 25 units before destroying it
     protected void DestroyWhenOffScreen()
     {
-        Destroy(this, 25f / velocity);
+        Destroy(this, 27f / speed);
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "BossHittable") col.gameObject.SendMessage("hit", damage);
     }
 }
