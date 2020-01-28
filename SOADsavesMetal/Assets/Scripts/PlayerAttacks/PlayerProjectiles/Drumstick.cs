@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Drumstick : PlayerProjectile {
  
-	public Direction direction = Direction.Default;
 	public bool rotateWithPlayer = true;
 
 	private Rigidbody2D rb;

@@ -5,12 +5,9 @@ using UnityEngine;
 
 public class Cymbal : PlayerProjectile {
 
-    public int damage = 33;
-
     private Rigidbody2D rb;
     private const float DEFAULT_VELOCITY = 38.5f;
     private const int VELOCITY_VARIATION = 6;
-    private const float LIFESPAN = 0.58f;
     private System.Random rng = new System.Random();
 
     // Testing code for reflectors
@@ -18,6 +15,7 @@ public class Cymbal : PlayerProjectile {
 
     // Use this for initialization
     void Start () {
+        setDamage(33);
         rb = GetComponent<Rigidbody2D>();
         float angle = Mathf.Deg2Rad*transform.rotation.y*-180f;
 
