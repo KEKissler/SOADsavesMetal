@@ -10,7 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d65bb999a6aa9084c952f73e90c174e5, type: 3}
-  m_Name: LaserSeries
+  m_Name: LaserSequence
   m_EditorClassIdentifier: 
-  duration: 0
-  Attacks: []
+  duration: 8
+  Attacks:
+  - Attack: {fileID: 11400000, guid: 63622e1d3cc99154abd0b6bc8b84c39c, type: 2}
+    duration: 1.5
+  - Attack: {fileID: 11400000, guid: 63622e1d3cc99154abd0b6bc8b84c39c, type: 2}
+    duration: 1.5
+  - Attack: {fileID: 11400000, guid: 63622e1d3cc99154abd0b6bc8b84c39c, type: 2}
+    duration: 1.5
