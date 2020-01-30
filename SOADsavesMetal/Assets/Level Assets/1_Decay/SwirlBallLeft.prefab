@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 415435693819514088}
   - component: {fileID: 263702082493924233}
   m_Layer: 0
-  m_Name: SwirlBallLTR
+  m_Name: SwirlBallLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -482,4 +482,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   time_to_destroy: 1000
-  Left: 1
+  Left: 0

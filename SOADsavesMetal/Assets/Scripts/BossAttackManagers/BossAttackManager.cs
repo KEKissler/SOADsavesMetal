@@ -47,14 +47,13 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
 
     private BossAttack SelectNextAttack()
     {
-        Debug.Log("The Phase is: " + phase);
+        
         //if new phase condition reached, switch phase (or announce end of final phase)
         if (BossHealth.getHPPercentage() < PhaseChangeThreshholds[phaseIndex].HealthPercentThreshhold)
         {
             if (phaseIndex < PhaseChangeThreshholds.Count - 1)
             {
                 phaseIndex++;
-                Debug.Log(phaseIndex);
                 if(PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart)
                 {
                     PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart.ExecuteAttack();
@@ -65,7 +64,7 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
                 FinalPhaseEnded();
             }
             phase = GetNextPhase(PhaseChangeThreshholds, phaseIndex);
-            Debug.Log("The Phase is: " + phase);
+            Debug.Log("The Health% is: " + BossHealth.getHPPercentage());
         }
         //get current attack options from phase
         options = GetNextOptions(phase);
