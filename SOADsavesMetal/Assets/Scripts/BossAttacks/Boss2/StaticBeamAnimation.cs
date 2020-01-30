@@ -44,7 +44,6 @@ public class StaticBeamAnimation : MonoBehaviour
         {
             float toAngle = Mathf.Rad2Deg * Mathf.Atan2(transform.position.y - player.position.y, transform.position.x - player.position.x);
             transform.eulerAngles += new Vector3(0, 0, Mathf.Sign(toAngle - transform.eulerAngles.z) * trackingSpeed);
-            Debug.Log(transform.position);
         }
         
     }
