@@ -12,6 +12,7 @@ public class StaticBeamAnimation : MonoBehaviour
     public float attackDuration;
     public float flashDuration;
     public float endDuration;
+    public float trackingSpeed;
     public Color startingColor;
     public Color attackColor;
     public Color flashColor;
@@ -31,7 +32,9 @@ public class StaticBeamAnimation : MonoBehaviour
         beamHitBox = GetComponent<BoxCollider2D>();
         beamHitBox.enabled = false;
         StartCoroutine(Coalesce());
-        
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x,
+                                            transform.eulerAngles.y, 
+                                            Mathf.Rad2Deg * Mathf.Atan2(transform.position.y - player.position.y, transform.position.x - player.position.x));
     }
 
     // Update is called once per frame
@@ -39,11 +42,9 @@ public class StaticBeamAnimation : MonoBehaviour
     {
         if(tracking)
         {
-            float angle = Mathf.Rad2Deg * Mathf.Atan2(transform.position.y - player.position.y, transform.position.x - player.position.x);
-            Quaternion newRotate = new Quaternion();
-            newRotate.eulerAngles = new Vector3(0, 0, angle);
-            transform.rotation = newRotate;
-            Debug.Log(angle);
+            float toAngle = Mathf.Rad2Deg * Mathf.Atan2(transform.position.y - player.position.y, transform.position.x - player.position.x);
+            transform.eulerAngles += new Vector3(0, 0, Mathf.Sign(toAngle - transform.eulerAngles.z) * trackingSpeed);
+            Debug.Log(transform.position);
         }
         
     }
