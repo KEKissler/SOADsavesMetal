@@ -53,7 +53,7 @@ public class BossHit : MonoBehaviour
             else
             {
                 bossAnimations.Play(TSOVINAR_DEATH);
-                
+                //gameObject.
             }
         }
         else if(name == "Agas")
