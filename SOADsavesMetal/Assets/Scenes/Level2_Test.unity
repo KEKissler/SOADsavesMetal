@@ -788,11 +788,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossHealth: {fileID: 1545064847}
   PhaseChangeThreshholds:
-  - BossPhase: {fileID: 11400000, guid: 558e20ac75dcadc45a8e2ba13927ecd5, type: 2}
-    HealthPercentThreshhold: 0
+  - BossPhase: {fileID: 11400000, guid: b4d23e8cf1e88664b9203ae35acd8f12, type: 2}
+    HealthPercentThreshhold: 100
     ExecuteOnPhaseStart: {fileID: 0}
-  - BossPhase: {fileID: 11400000, guid: 558e20ac75dcadc45a8e2ba13927ecd5, type: 2}
-    HealthPercentThreshhold: 80
+  - BossPhase: {fileID: 11400000, guid: 3c6351ec5c28a1b4182c13734ac47b2c, type: 2}
+    HealthPercentThreshhold: 75
+    ExecuteOnPhaseStart: {fileID: 0}
+  - BossPhase: {fileID: 11400000, guid: 5b94bd7d283c9484eb20161fd791152b, type: 2}
+    HealthPercentThreshhold: 50
+    ExecuteOnPhaseStart: {fileID: 0}
+  - BossPhase: {fileID: 11400000, guid: 57b232e42a219764a949f865bfc0c69e, type: 2}
+    HealthPercentThreshhold: 25
     ExecuteOnPhaseStart: {fileID: 0}
 --- !u!1 &238696592
 GameObject:
@@ -1206,7 +1212,7 @@ PrefabInstance:
     - target: {fileID: 6977039927035601485, guid: 05f055b78c6159a4c8745b1f6e9a8886,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.68
+      value: -3.35
       objectReference: {fileID: 0}
     - target: {fileID: 6977039927035601485, guid: 05f055b78c6159a4c8745b1f6e9a8886,
         type: 3}
@@ -2631,12 +2637,8 @@ MonoBehaviour:
     screen4: {fileID: 2057286168}
     screen5: {fileID: 525994849}
   AttacksToInitialize:
-  - {fileID: 11400000, guid: aff30ffa32ef1284ba6bcfc6da6afecb, type: 2}
-  - {fileID: 11400000, guid: 9b8bfa7877c68db4fa5cefba58081aa4, type: 2}
-  - {fileID: 11400000, guid: 5fc5f6e957c70c64a87ba2e07da88413, type: 2}
-  - {fileID: 11400000, guid: 12eb885391ebb984b9ad37a30638c20a, type: 2}
-  - {fileID: 11400000, guid: 29c6851519bef9946be1d253e02342cb, type: 2}
-  - {fileID: 11400000, guid: ce1cc73acf40d2b4f885b7646b9935c4, type: 2}
+  - {fileID: 11400000, guid: 63622e1d3cc99154abd0b6bc8b84c39c, type: 2}
+  - {fileID: 0}
 --- !u!4 &971197070
 Transform:
   m_ObjectHideFlags: 0
@@ -4262,6 +4264,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1374328336026479313, guid: 1b1b9a1123fdb054bac5fcc7ca015781,
         type: 3}
+      propertyPath: PhasesToInitialize.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374328336026479313, guid: 1b1b9a1123fdb054bac5fcc7ca015781,
+        type: 3}
       propertyPath: BossPosition
       value: 
       objectReference: {fileID: 1545064846}
@@ -4270,6 +4277,30 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1295414931}
+    - target: {fileID: 1374328336026479313, guid: 1b1b9a1123fdb054bac5fcc7ca015781,
+        type: 3}
+      propertyPath: PhasesToInitialize.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: b4d23e8cf1e88664b9203ae35acd8f12,
+        type: 2}
+    - target: {fileID: 1374328336026479313, guid: 1b1b9a1123fdb054bac5fcc7ca015781,
+        type: 3}
+      propertyPath: PhasesToInitialize.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c6351ec5c28a1b4182c13734ac47b2c,
+        type: 2}
+    - target: {fileID: 1374328336026479313, guid: 1b1b9a1123fdb054bac5fcc7ca015781,
+        type: 3}
+      propertyPath: PhasesToInitialize.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5b94bd7d283c9484eb20161fd791152b,
+        type: 2}
+    - target: {fileID: 1374328336026479313, guid: 1b1b9a1123fdb054bac5fcc7ca015781,
+        type: 3}
+      propertyPath: PhasesToInitialize.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 57b232e42a219764a949f865bfc0c69e,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1b9a1123fdb054bac5fcc7ca015781, type: 3}
 --- !u!1001 &1829995164227110546
