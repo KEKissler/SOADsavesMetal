@@ -4749,6 +4749,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: BossHittable
       objectReference: {fileID: 0}
+    - target: {fileID: 7901354206816873161, guid: 10bcffa748c9e6447a40c503b5740878,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7901354206816873162, guid: 10bcffa748c9e6447a40c503b5740878,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4818,6 +4823,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901354206816873163, guid: 10bcffa748c9e6447a40c503b5740878,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901354206816873163, guid: 10bcffa748c9e6447a40c503b5740878,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10bcffa748c9e6447a40c503b5740878, type: 3}
