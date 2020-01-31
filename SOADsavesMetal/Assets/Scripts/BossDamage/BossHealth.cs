@@ -23,6 +23,7 @@ public class BossHealth : MonoBehaviour
     // Public
     public float startingHP = 2000f;
     public float damageMultiplier = 1f;
+    public BossAttackManager<BossPhase> attackManager;
 
     // Should be accessible but not modifiable directly
     private float HP;
@@ -30,6 +31,7 @@ public class BossHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        attackManager = gameObject.GetComponentInChildren<BossAttackManager<BossPhase>>();
         HP = startingHP;
     }
 
@@ -42,6 +44,7 @@ public class BossHealth : MonoBehaviour
     public void hit(float damage)
     {
         HP -= damage * damageMultiplier;
+        attackManager.bossHit();
         Debug.Log(HP);
     }
 

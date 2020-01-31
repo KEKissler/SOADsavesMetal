@@ -14,6 +14,7 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
 
     //switch phases depending on game state, for now just based on boss health
     public BossHealth BossHealth;
+    public ScreenShake screenShake;
     public List<PhaseChangeThreshhold> PhaseChangeThreshholds = new List<PhaseChangeThreshhold>();
    
 
@@ -47,6 +48,14 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
 
     private BossAttack SelectNextAttack()
     {
+        //get current attack options from phase
+        options = GetNextOptions(phase);
+        //get current attack from options
+        return options.GetNextAttack();
+    }
+
+    public void bossHit()
+    {
         Debug.Log("The Phase is: " + phase);
         //if new phase condition reached, switch phase (or announce end of final phase)
         if (BossHealth.getHPPercentage() < PhaseChangeThreshholds[phaseIndex].HealthPercentThreshhold)
@@ -54,8 +63,9 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
             if (phaseIndex < PhaseChangeThreshholds.Count - 1)
             {
                 phaseIndex++;
+                screenShake.shake();
                 Debug.Log(phaseIndex);
-                if(PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart)
+                if (PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart)
                 {
                     PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart.ExecuteAttack();
                 }
@@ -67,10 +77,6 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
             phase = GetNextPhase(PhaseChangeThreshholds, phaseIndex);
             Debug.Log("The Phase is: " + phase);
         }
-        //get current attack options from phase
-        options = GetNextOptions(phase);
-        //get current attack from options
-        return options.GetNextAttack();
     }
 
     protected abstract AttackOptions GetNextOptions(T phase);
