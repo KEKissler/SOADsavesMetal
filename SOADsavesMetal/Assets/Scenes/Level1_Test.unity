@@ -248,6 +248,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &62412576 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6977039927035601482, guid: 05f055b78c6159a4c8745b1f6e9a8886,
+    type: 3}
+  m_PrefabInstance: {fileID: 1565066069}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86d9b406b5fa8f4885b4dac688a449b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &72277649
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +316,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d021d57b95c21fd469cc8d38ff57613d, type: 2}
   - {fileID: 11400000, guid: 0acea9c22c6945943976efdebc338c0b, type: 2}
   - {fileID: 11400000, guid: c30c8f0094423104d8ecc2ece5e95fc5, type: 2}
+  - {fileID: 11400000, guid: a1bd05e45b5bada419be2f92642c3cb9, type: 2}
+  - {fileID: 11400000, guid: 1636ef37e6ce6054ca2cb6ef3eb23c38, type: 2}
+  - {fileID: 11400000, guid: 31c4a779cb51b2a449a14fe128fba9d6, type: 2}
+  - {fileID: 11400000, guid: 2e8a5ebe862d569439ae220e5118495a, type: 2}
+  - {fileID: 11400000, guid: 0d2282f5e4e36db478e8519bb3b4c7bd, type: 2}
+  - {fileID: 11400000, guid: 782b23ddda6296f40b77cd754f78ff78, type: 2}
+  - {fileID: 11400000, guid: 66cb888b3172aee49a73f8e0dd51a3cf, type: 2}
+  - {fileID: 11400000, guid: 92f5d7c28ef6a124d97b35c15796e105, type: 2}
 --- !u!4 &72277651
 Transform:
   m_ObjectHideFlags: 0
@@ -1863,7 +1883,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040912959}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12, y: -2.8199997, z: -0.118472286}
+  m_LocalPosition: {x: 12, y: -1.7799997, z: -0.118472286}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1519348930}
@@ -2410,6 +2430,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
+      propertyPath: platforms.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
       propertyPath: platforms.Array.data[0]
       value: 
       objectReference: {fileID: 929484366}
@@ -2418,6 +2443,11 @@ PrefabInstance:
       propertyPath: platforms.Array.data[1]
       value: 
       objectReference: {fileID: 1112076965}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: platforms.Array.data[2]
+      value: 
+      objectReference: {fileID: 62412576}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc0d8d3460c18043896482f0ba598cb, type: 3}
 --- !u!114 &1105088041 stripped
@@ -2532,7 +2562,7 @@ PrefabInstance:
         type: 3}
       propertyPath: BossPosition
       value: 
-      objectReference: {fileID: 236957682}
+      objectReference: {fileID: 1036882049}
     - target: {fileID: 1374328336026479313, guid: 1b1b9a1123fdb054bac5fcc7ca015781,
         type: 3}
       propertyPath: Player
@@ -3492,7 +3522,7 @@ PrefabInstance:
     - target: {fileID: 2380804504650341485, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.78
+      value: -1.74
       objectReference: {fileID: 0}
     - target: {fileID: 2380804504650341485, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
@@ -3507,7 +3537,7 @@ PrefabInstance:
     - target: {fileID: 2380804505280400122, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.78
+      value: -1.74
       objectReference: {fileID: 0}
     - target: {fileID: 2380804505280400122, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
@@ -3517,7 +3547,7 @@ PrefabInstance:
     - target: {fileID: 2380804505423045766, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.78
+      value: -1.74
       objectReference: {fileID: 0}
     - target: {fileID: 2380804505423045766, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
@@ -3527,7 +3557,7 @@ PrefabInstance:
     - target: {fileID: 2380804504221159823, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.78
+      value: -1.74
       objectReference: {fileID: 0}
     - target: {fileID: 2380804504221159823, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
@@ -3537,7 +3567,7 @@ PrefabInstance:
     - target: {fileID: 2380804504269248985, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8199997
+      value: -1.7799997
       objectReference: {fileID: 0}
     - target: {fileID: 2380804504269248985, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
@@ -3547,7 +3577,7 @@ PrefabInstance:
     - target: {fileID: 2380804503726455727, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.82
+      value: -1.78
       objectReference: {fileID: 0}
     - target: {fileID: 2380804503726455727, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
@@ -3598,6 +3628,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 2076804672328146653, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ee5c10a8273f2e4b8db6ef183e941a0, type: 3}
@@ -3650,7 +3685,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453949194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 236957682}
@@ -3671,16 +3706,16 @@ MonoBehaviour:
   BossHealth: {fileID: 1443309143}
   PhaseChangeThreshholds:
   - BossPhase: {fileID: 11400000, guid: 5e9a0c5a43ad44f4c954e9014f4c4f79, type: 2}
-    HealthPercentThreshhold: 100
-    ExecuteOnPhaseStart: {fileID: 0}
-  - BossPhase: {fileID: 11400000, guid: 4c539f79d8b469a41a40e303b4799316, type: 2}
     HealthPercentThreshhold: 75
     ExecuteOnPhaseStart: {fileID: 0}
-  - BossPhase: {fileID: 11400000, guid: c717ab2e46a44614e8c022492f2800b3, type: 2}
+  - BossPhase: {fileID: 11400000, guid: 4c539f79d8b469a41a40e303b4799316, type: 2}
     HealthPercentThreshhold: 50
     ExecuteOnPhaseStart: {fileID: 0}
-  - BossPhase: {fileID: 11400000, guid: 6a160b053b1d24346a63ec0820972f5f, type: 2}
+  - BossPhase: {fileID: 11400000, guid: c717ab2e46a44614e8c022492f2800b3, type: 2}
     HealthPercentThreshhold: 25
+    ExecuteOnPhaseStart: {fileID: 0}
+  - BossPhase: {fileID: 11400000, guid: 6a160b053b1d24346a63ec0820972f5f, type: 2}
+    HealthPercentThreshhold: 0
     ExecuteOnPhaseStart: {fileID: 11400000, guid: 92f5d7c28ef6a124d97b35c15796e105,
       type: 2}
 --- !u!1 &1515053675

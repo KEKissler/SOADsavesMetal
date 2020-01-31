@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc5a8fd58623805419b4b49403843ea2, type: 3}
-  m_Name: RightSwirlball
+  m_Name: Middle_RightSwirlball
   m_EditorClassIdentifier: 
   duration: 0
-  FireballPrefab: {fileID: 4488509576414208621, guid: 9580204057a191e4c81c11f9c0ec71e5,
+  FireballPrefab: {fileID: 4488509576414208621, guid: f2f3155a6faf6b940b4351bb7ecc6404,
     type: 3}
   ProjectileSpeed: 0
   ProjectileType: 0
   degreeModifier: 0
   fixedAngle: -3.4028235e+38
-  Y_offset: 0
+  Y_offset: -1

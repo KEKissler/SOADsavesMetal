@@ -75,7 +75,7 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
                 FinalPhaseEnded();
             }
             phase = GetNextPhase(PhaseChangeThreshholds, phaseIndex);
-            Debug.Log("The Phase is: " + phase);
+            Debug.Log("The Health% is: " + BossHealth.getHPPercentage());
         }
     }
 

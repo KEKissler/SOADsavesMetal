@@ -29,10 +29,11 @@ public class AgasPhase : BossPhase
     //meant to be called when selecting a new attack, decides if the boss changes the set of attacks it pulls from to decide its next attack
     public AttackOptions SelectNextAttackOption()
     {
+        
         //todo maybe: make priorities reorderable
         if(BossPosition.position.x < 0 && HasLeft)
         {
-
+            Debug.Log("YOU ARE IN LEFT PHASE");
             if (TooCloseToPlayer())
             {
                 return LeftCloseUpAttacks;
