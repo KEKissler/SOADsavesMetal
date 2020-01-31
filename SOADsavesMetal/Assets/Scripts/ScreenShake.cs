@@ -13,7 +13,7 @@ public class ScreenShake : MonoBehaviour
         position = transform.position;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(shakeAmount > 0)
         {
