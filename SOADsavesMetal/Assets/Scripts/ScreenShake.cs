@@ -15,10 +15,10 @@ public class ScreenShake : MonoBehaviour
 
     private void Update()
     {
-        float randomAngle = (float)random.NextDouble() * 360f;
-        transform.position = position + new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0);
         if(shakeAmount > 0)
         {
+            float randomAngle = (float)random.NextDouble() * 360f;
+            transform.position = position + new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0) * shakeAmount;
             shakeAmount -= 0.01f;
         }
     }
