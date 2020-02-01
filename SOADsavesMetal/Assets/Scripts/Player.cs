@@ -62,8 +62,7 @@ public class Player : MonoBehaviour {
     public AudioClip ShavoDash;
     public AudioClip[] ShavoShortRange;
     public AudioClip ShavoLongRange;
-    public AudioClip ShavoSuperStomp;       // will condense to just 1 sound effect with 4 variations and no parts - waiting on final super animation
-    public AudioClip ShavoSuperSwing;       // will condense to just 1 sound effect with 4 variations and no parts - waiting on final super animation
+    public AudioClip ShavoSuper;
 
     [Header("Daron - Guitar")]
     public AudioClip DaronTeleport;
@@ -178,17 +177,17 @@ public class Player : MonoBehaviour {
             #endregion Crouching
 
             #region Jump and double jump
-            if (!isSuperActive && !crouched && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            if (!(currentBandMember != "John" && isSuperActive) && !crouched && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
                     && remainingJumps > 0) {
                 remainingJumps -= 1;
+                
                 auso.PlayOneShot(GetRandomSoundEffect(JumpSounds));
-                if (inAir) {
 
+                if (inAir) {
                     if (currentBandMember == "John") {// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "JohnJumpLegs")
                         PlayAnims("Jump");
                         rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
-                        auso.Stop();
-                        auso.PlayOneShot(GetRandomSoundEffect(JohnDoubleJump));
+                        auso.PlayOneShot(GetRandomSoundEffect(JohnDoubleJump)); // problem: basic jump plays at the same time. can't auso.Stop() because if the super is active, it cancels that too....
                     }
                     else if (currentBandMember == "Shavo") {// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "ShavoJumpLegs")
                         // PlayAnims("Dash");
@@ -216,12 +215,15 @@ public class Player : MonoBehaviour {
             #region Attacks
             //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
             if (Input.GetKeyDown(KeyCode.Z) && !crouched && !attacking) {
+                auso.Stop();
                 StartCoroutine("shortRangeAttackAnims");
             }
             else if(Input.GetKeyDown(KeyCode.X) && !attacking) {
+                auso.Stop();
                 StartCoroutine("longRangeAttackAnims");
             }
-            else if(Input.GetKeyDown(KeyCode.C)) {
+            else if(Input.GetKeyDown(KeyCode.C) && !attacking && !isSuperActive) {
+                auso.Stop();
                 StartCoroutine("superAttackAnims");
             }
             #endregion Attacks
@@ -229,6 +231,7 @@ public class Player : MonoBehaviour {
             HandleHorizontalMovement();
         }
         else {
+            auso.Stop();
             //Death animation
             if (!deathStarted) {
                 StartCoroutine("Kill");
@@ -314,8 +317,8 @@ public class Player : MonoBehaviour {
                 }
             }
 
-            // If super, don't move
-            if (isSuperActive) return;
+            // If super, don't move (unless the player is John, the drummer)
+            if (currentBandMember != "John" && isSuperActive) return;
 
             moving = true;
             if (attacking) movedWhileAttacking = true;
@@ -409,11 +412,13 @@ public class Player : MonoBehaviour {
         }
         if (currentBandMember == "John") {
             shortRange.Play("SoundWave");
+            auso.PlayOneShot(GetRandomSoundEffect(JohnShortRange));
             yield return new WaitForSeconds(1.0f);
             shortRange.Play("BaseSound");
         }
         else if (currentBandMember == "Shavo") {
             playerLowerAnim.pivotPosition.Set(0.0f, -0.83f, 0.0f);
+            auso.PlayOneShot(GetRandomSoundEffect(ShavoShortRange));
             yield return new WaitForSeconds(0.5f);
         }
         else if (currentBandMember == "Daron") {
@@ -447,7 +452,13 @@ public class Player : MonoBehaviour {
             if (!moving && !crouched && !inAir) {
                 playerLowerAnim.Play("ShavoLongLegs");
             }
+            auso.PlayOneShot(ShavoLongRange);
             yield return new WaitForSeconds(0.4f);
+        }
+        else if (currentBandMember == "John") {
+            //Debug.Log("john is doing a long range attack mmhm");
+            // not sure where the stick cannon behavior is
+            auso.PlayOneShot(GetRandomSoundEffect(JohnLongRange));
         }
         else if (currentBandMember == "Daron") {
             playerUpperAnim.Play("DaronLong");
@@ -492,11 +503,17 @@ public class Player : MonoBehaviour {
                 playerLowerAnim.speed = 5f;
                 yield return new WaitForSeconds(0.01f);
             }
+            auso.PlayOneShot(ShavoSuper);   // may need tweaking
             playerUpperAnim.speed = 0.8f;
             playerLowerAnim.speed = 0.8f;
             yield return new WaitForSeconds(0.95f);
             playerUpperAnim.speed = 1f;
             playerLowerAnim.speed = 1f;
+        }
+        else if (currentBandMember == "John") {
+            //Debug.Log("john is doing a super attack yes");
+            auso.PlayOneShot(JohnSuper);
+            yield return new WaitForSeconds(3.0f);
         }
         else if (currentBandMember == "Daron")
         {
