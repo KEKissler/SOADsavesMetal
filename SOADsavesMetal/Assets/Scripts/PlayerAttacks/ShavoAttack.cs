@@ -17,8 +17,8 @@ public class ShavoAttack : MonoBehaviour
     
     // Long range attack
     public GameObject musicNote;
-    private const float LONG_ATTACK_WINDUP = 0.33f;
-    private const float LONG_ATTACK_COOLDOWN = 0.47f;
+    private const float LONG_ATTACK_WINDUP = 0.1f;
+    private const float LONG_ATTACK_COOLDOWN = 0.27f;
 
     // Super attack
     public GameObject cymbal;
@@ -110,7 +110,9 @@ public class ShavoAttack : MonoBehaviour
         }
 
     	// Create projectile (musicNote)
-    	GameObject dsClone = Instantiate(musicNote, getTarget().transform.position + new Vector3(0, 4f, 0), transform.parent.rotation);
+    	GameObject mNote = Instantiate(musicNote, transform.parent.position, Quaternion.identity);
+        mNote.GetComponent<MusicNote>().playerRotationY = transform.parent.rotation.y;
+        mNote.SetActive(true);
 
         // Cooldown period
         attackTimer = 0.0f;

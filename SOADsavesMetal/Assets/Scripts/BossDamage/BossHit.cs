@@ -41,9 +41,11 @@ public class BossHit : MonoBehaviour
 
     public void hit(int damage)
     {
-        float HP = healthScript.getHP();
+        float HP;
         float startHP = healthScript.startingHP;
+        float cutoff = 0.5F;
         healthScript.hit(damage * damageMultiplier);
+        HP = healthScript.getHP();
         if(name == "TsovinarFace")
         {
             if(HP > 0)
@@ -53,6 +55,7 @@ public class BossHit : MonoBehaviour
             else
             {
                 bossAnimations.Play(TSOVINAR_DEATH);
+                Destroy(gameObject, deathAnim.length-cutoff);
                 //gameObject.
             }
         }
