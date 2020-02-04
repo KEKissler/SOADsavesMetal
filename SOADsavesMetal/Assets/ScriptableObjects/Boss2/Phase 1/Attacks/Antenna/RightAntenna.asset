@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c798b03c28f33a4594967dfcfd7ae0b, type: 3}
-  m_Name: WhiteNoiseAttack
+  m_Name: RightAntenna
   m_EditorClassIdentifier: 
   duration: 5
   whiteNoise: {fileID: 2100000, guid: ae9204aad3676504ea07d2b76cbda5ea, type: 2}
