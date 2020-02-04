@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerAttackManager : MonoBehaviour
 {
+    // Figures out which attack script to enable
     public GameObject JohnAttack;
     public GameObject ShavoAttack;
     public GameObject DaronAttack;
     public GameObject SerjAttack;
 
-    // Start is called before the first frame update
     void Start()
     {
         JohnAttack.SetActive(false);
@@ -37,11 +37,5 @@ public class PlayerAttackManager : MonoBehaviour
                 JohnAttack.SetActive(true);
                 break;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

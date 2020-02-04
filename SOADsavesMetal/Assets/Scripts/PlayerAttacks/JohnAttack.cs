@@ -10,7 +10,7 @@ public class JohnAttack : MonoBehaviour {
 
 	// Short range attack
     public GameObject shortRangeHitbox;
-    private const float SHORT_ATTACK_HOLD_DURATION = 0.35f;
+    private const float SHORT_ATTACK_HOLD_DURATION = 0.4f;
     private const float SHORT_ATTACK_COOLDOWN = 0.1f;
     
     // Long range attack
@@ -69,7 +69,7 @@ public class JohnAttack : MonoBehaviour {
         yield return null;
         shortRangeHitbox.SendMessage("refreshHit");
         attackTimer = 0.0f;
-        while(attackTimer < 0.4f)
+        while(attackTimer < 0.1f)
         {
             attackTimer += Time.deltaTime;
             yield return null;

@@ -412,7 +412,7 @@ public class Player : MonoBehaviour {
         if (currentBandMember == "John") {
             shortRange.Play("SoundWave");
             auso.PlayOneShot(GetRandomSoundEffect(JohnShortRange));
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(0.6f);
             shortRange.Play("BaseSound");
         }
         else if (currentBandMember == "Shavo") {

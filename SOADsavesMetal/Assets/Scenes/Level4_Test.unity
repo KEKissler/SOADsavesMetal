@@ -1547,7 +1547,7 @@ PrefabInstance:
     - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: currentBandMember
-      value: Shavo
+      value: John
       objectReference: {fileID: 0}
     - target: {fileID: 9117497486307095082, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
