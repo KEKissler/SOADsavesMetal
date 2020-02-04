@@ -2961,7 +2961,8 @@ MonoBehaviour:
     wire4: {fileID: 424609085}
     wire5: {fileID: 2137245756}
     wire6: {fileID: 1715183679}
-    antennaAnimator: {fileID: 330428697}
+    antennaAnimatorLeft: {fileID: 0}
+    antennaAnimatorRight: {fileID: 0}
     screen1: {fileID: 178704456}
     screen2: {fileID: 1098130140}
     screen3: {fileID: 393568745}
@@ -4250,6 +4251,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
+      propertyPath: platforms.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
       propertyPath: startingHealth
       value: 3
       objectReference: {fileID: 0}
@@ -4491,7 +4497,8 @@ MonoBehaviour:
     wire4: {fileID: 0}
     wire5: {fileID: 0}
     wire6: {fileID: 0}
-    antennaAnimator: {fileID: 0}
+    antennaAnimatorLeft: {fileID: 0}
+    antennaAnimatorRight: {fileID: 0}
     screen1: {fileID: 0}
     screen2: {fileID: 0}
     screen3: {fileID: 0}

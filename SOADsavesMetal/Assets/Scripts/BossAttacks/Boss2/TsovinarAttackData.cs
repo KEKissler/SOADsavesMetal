@@ -12,7 +12,8 @@ public class TsovinarAttackData
     public Transform wire4;
     public Transform wire5;
     public Transform wire6;
-    public Animator antennaAnimator;    
+    public Animator antennaAnimatorLeft;
+    public Animator antennaAnimatorRight;
     public GameObject screen1;
     public GameObject screen2;
     public GameObject screen3;
