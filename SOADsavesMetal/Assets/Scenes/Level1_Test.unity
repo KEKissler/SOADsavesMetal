@@ -2443,11 +2443,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
-      propertyPath: platforms.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
       propertyPath: platforms.Array.data[0]
       value: 
       objectReference: {fileID: 929484366}
@@ -2461,16 +2456,6 @@ PrefabInstance:
       propertyPath: platforms.Array.data[2]
       value: 
       objectReference: {fileID: 62412576}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: currentBandMember
-      value: John
-      objectReference: {fileID: 0}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: ShavoSuper
-      value: 
-      objectReference: {fileID: 8300000, guid: cc293e62523e2df4ead859efe9dffc44, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc0d8d3460c18043896482f0ba598cb, type: 3}
 --- !u!114 &1105088041 stripped

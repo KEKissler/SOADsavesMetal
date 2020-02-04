@@ -50,7 +50,7 @@ public class Player : MonoBehaviour {
     [Header("General SFX")]
     public AudioClip[] JumpSounds;
     public AudioClip[] TakeDamageSounds;
-    public AudioClip[] DieSounds;
+    public AudioClip DeathSound;
 
     [Header("John - Drums")]
     public AudioClip[] JohnDoubleJump;
@@ -231,7 +231,6 @@ public class Player : MonoBehaviour {
             HandleHorizontalMovement();
         }
         else {
-            auso.Stop();
             //Death animation
             if (!deathStarted) {
                 StartCoroutine("Kill");
@@ -422,6 +421,7 @@ public class Player : MonoBehaviour {
             yield return new WaitForSeconds(0.5f);
         }
         else if (currentBandMember == "Daron") {
+            auso.PlayOneShot(DaronShortRange);
             yield return new WaitForSeconds(0.38f);
         }
         else if (currentBandMember == "Serj") {
@@ -456,8 +456,6 @@ public class Player : MonoBehaviour {
             yield return new WaitForSeconds(0.4f);
         }
         else if (currentBandMember == "John") {
-            //Debug.Log("john is doing a long range attack mmhm");
-            // not sure where the stick cannon behavior is
             auso.PlayOneShot(GetRandomSoundEffect(JohnLongRange));
         }
         else if (currentBandMember == "Daron") {
@@ -465,6 +463,7 @@ public class Player : MonoBehaviour {
             if (!moving && !crouched && !inAir) {
                 playerLowerAnim.Play("DaronAttackLegs");
             }
+            auso.PlayOneShot(GetRandomSoundEffect(DaronLongRangeThrow));
             yield return new WaitForSeconds(0.6f);
         }
         else if (currentBandMember == "Serj") {
@@ -511,13 +510,13 @@ public class Player : MonoBehaviour {
             playerLowerAnim.speed = 1f;
         }
         else if (currentBandMember == "John") {
-            //Debug.Log("john is doing a super attack yes");
             auso.PlayOneShot(JohnSuper);
             yield return new WaitForSeconds(3.0f);
         }
         else if (currentBandMember == "Daron")
         {
             yield return null;
+            auso.PlayOneShot(GetRandomSoundEffect(DaronSuper));
             playerLowerAnim.Play("DaronIdleLegs");
             playerUpperAnim.Play("DaronSuper");
             if (!moving && !crouched && !inAir)
@@ -539,6 +538,7 @@ public class Player : MonoBehaviour {
     public IEnumerator Kill() {
         playerUpperAnim.Play(GetAnimName("Death"));
         playerLowerAnim.Play("ShavoDashLegs");
+        auso.PlayOneShot(DeathSound);
         yield return new WaitForSeconds(1.0f);
     }
 

@@ -376,7 +376,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0.15}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.32}
+    pivot: {x: 0.5, y: 0.321}
     oldSize: {x: 1.69, y: 1.2}
     newSize: {x: 1.69, y: 1.2}
     adaptiveTilingThreshold: 0.5
@@ -732,7 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186017fa9d8dc1a48a1a118bfb460f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentBandMember: Shavo
+  currentBandMember: John
   jumpHeight: 18
   startingHealth: 3
   maxGroundSpeed: 10.2
@@ -752,12 +752,14 @@ MonoBehaviour:
   platforms:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   JumpSounds:
   - {fileID: 8300000, guid: 52d2f4a2bfe493b4d9fee2c50634358a, type: 3}
   - {fileID: 8300000, guid: 4b93506bb9b98084e82dd3e601006159, type: 3}
   - {fileID: 8300000, guid: 3db50b06bb244bc4da4f7aacec8eba2e, type: 3}
-  TakeDamageSounds: []
-  DieSounds: []
+  TakeDamageSounds:
+  - {fileID: 8300000, guid: c56cbec58e23a724eb4fbf01cbcf679d, type: 3}
+  DeathSound: {fileID: 8300000, guid: 569d7fd1c15fa754b967e8d471bb2b93, type: 3}
   JohnDoubleJump:
   - {fileID: 8300000, guid: b7b57f9640cc03445bf7b50eabc8259e, type: 3}
   - {fileID: 8300000, guid: b790a7aa9e85f7b4288abc45ab5513db, type: 3}
@@ -776,8 +778,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7578d8240bdcd8040ad728cc5f1317ee, type: 3}
   - {fileID: 8300000, guid: a31a0df7a18d77440bd1a057c823ab05, type: 3}
   ShavoLongRange: {fileID: 8300000, guid: e5e9701e519f45943869b6905a3b7f8e, type: 3}
-  ShavoSuperStomp: {fileID: 8300000, guid: 2c1d7dc09582d404f9a5b2a4dd4dd8ed, type: 3}
-  ShavoSuperSwing: {fileID: 8300000, guid: 22e5d7d794594be4080f815eb59cc368, type: 3}
+  ShavoSuper: {fileID: 8300000, guid: cc293e62523e2df4ead859efe9dffc44, type: 3}
   DaronTeleport: {fileID: 8300000, guid: 813abdf15ccfa3b4093f0ec37caea9dd, type: 3}
   DaronShortRange: {fileID: 8300000, guid: c7e128cbf8de6674ebbc03679ddd72e8, type: 3}
   DaronLongRangeThrow:
