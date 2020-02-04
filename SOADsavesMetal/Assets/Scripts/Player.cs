@@ -412,7 +412,7 @@ public class Player : MonoBehaviour {
         if (currentBandMember == "John") {
             shortRange.Play("SoundWave");
             auso.PlayOneShot(GetRandomSoundEffect(JohnShortRange));
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(0.55f);
             shortRange.Play("BaseSound");
         }
         else if (currentBandMember == "Shavo") {
@@ -557,11 +557,12 @@ public class Player : MonoBehaviour {
             timer += Time.deltaTime;
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                // Debug.Log("Detected");
+                Debug.Log("platform off");
                 // Toggle platform colliders
                 for (int i=0; i<platforms.Length; ++i)
                 {
-                    platforms[i].setColliderEnabled(false);
+                    if (platforms[i] != null)
+                        platforms[i].setColliderEnabled(false);
                 }
 
                 float timer2 = 0f;
@@ -571,10 +572,12 @@ public class Player : MonoBehaviour {
                     yield return null;
                 }
 
+                Debug.Log("platform on");
                 // Toggle them on again
                 for (int i = 0; i < platforms.Length; ++i)
                 {
-                    platforms[i].setColliderEnabled(true);
+                    if (platforms[i] != null)
+                        platforms[i].setColliderEnabled(true);
                 }
                 listeningForDoubleDownTap = false;
                 yield break;
