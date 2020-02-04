@@ -12,6 +12,9 @@ public class WhiteNoiseAttack : TsovinarAttack
     public Material whiteNoise;
     public AnimationClip foldClip;
     public AnimationClip unfoldClip;
+    public TsovinarAttack lightningBolt;
+    public float projectileFrequency = 1f;
+    public bool isLeft;
 
     private GameObject screen1;
     private GameObject screen2;
@@ -41,7 +44,14 @@ public class WhiteNoiseAttack : TsovinarAttack
         screen3 = data.screen3;
         screen4 = data.screen4;
         screen5 = data.screen5;
-        telescopingAntenna = data.antennaAnimator;
+        if(isLeft)
+        {
+            telescopingAntenna = data.antennaAnimatorLeft;
+        }
+        else
+        {
+            telescopingAntenna = data.antennaAnimatorRight;
+        }
         screen1DefaultMat = screen1.GetComponent<SpriteRenderer>().sharedMaterial;
         screen2DefaultMat = screen2.GetComponent<SpriteRenderer>().sharedMaterial;
         screen3DefaultMat = screen3.GetComponent<SpriteRenderer>().sharedMaterial;
