@@ -1,0 +1,53 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[CreateAssetMenu(menuName = "New Attack/Tsovinar/AntennaBolt")]
+public class AntennaBolt : TsovinarAttack
+{
+    public GameObject FireballPrefab;
+    public ProjectileSpeed ProjectileSpeed;
+    public ProjectileType ProjectileType;
+    public float degreeModifier;
+    public float fixedAngle = float.MinValue;
+    [SerializeField]
+    private float Y_offset;
+    [HideInInspector]
+    public Transform spawnPosition;
+
+    private Transform attackParent;
+    private Transform playerPosition;
+    private GameObject fireballObject;
+
+    public override void Initialize(TsovinarAttackData data)
+    {
+        attackParent = data.attackParent;
+        playerPosition = data.player.transform;
+        spawnPosition = data.tsovinar.transform;
+    }
+
+    protected override void OnStart()
+    {
+        fireballObject = Instantiate(FireballPrefab, spawnPosition.position + new Vector3(0,Y_offset), Quaternion.identity, attackParent);
+    }
+
+    protected override IEnumerator Execute(float duration)
+    {
+        yield return null;
+        if(fixedAngle == float.MinValue)
+        {
+            if(fireballObject.GetComponent<Projectile>() != null)
+                fireballObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier);
+        }
+        else
+        {
+            if (fireballObject.GetComponent<Projectile>() != null)
+                fireballObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier, fixedAngle);
+        }
+    }
+
+    protected override void OnEnd()
+    {
+        
+    }
+}

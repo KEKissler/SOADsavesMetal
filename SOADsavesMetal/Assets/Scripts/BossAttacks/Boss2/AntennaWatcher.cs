@@ -7,6 +7,7 @@ public class AntennaWatcher : MonoBehaviour
     private const string ANTENNA_FOLD = "antenna_fold";
 
     public AnimationClip foldClip;
+    public Transform spawnPosition;
     public int maxHits;
     public float hitTime;
 
