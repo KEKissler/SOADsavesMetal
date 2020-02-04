@@ -68,6 +68,7 @@ public class BossHit : MonoBehaviour
             else
             {
                 bossAnimations.Play(AGAS_DEATH);
+                Destroy(gameObject, deathAnim.length - 1);
             }
         }
         else if(name == "Boss_Nhang")
