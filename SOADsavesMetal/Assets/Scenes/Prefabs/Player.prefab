@@ -646,6 +646,7 @@ GameObject:
   - component: {fileID: 4703557384345037940}
   - component: {fileID: 5604230919890263573}
   - component: {fileID: 6821749221337675965}
+  - component: {fileID: 1787599692000143368}
   m_Layer: 0
   m_Name: Player_Attack
   m_TagString: Untagged
@@ -744,6 +745,19 @@ MonoBehaviour:
   ShavoAttack: {fileID: 267264919}
   DaronAttack: {fileID: 1592019094}
   SerjAttack: {fileID: 1592019094}
+--- !u!114 &1787599692000143368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8606488155122572079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 166288f24da03c0469c2cb8246ce6e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!1 &9117497486007347996
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,6 +830,8 @@ GameObject:
   - component: {fileID: 9117497486307095085}
   - component: {fileID: 9117497486307095086}
   - component: {fileID: 1105088044}
+  - component: {fileID: 4277835215915131891}
+  - component: {fileID: 6645908540677337094}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -949,6 +965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentBandMember: John
+  rb: {fileID: 0}
   jumpHeight: 18
   startingHealth: 3
   maxGroundSpeed: 10.2
@@ -962,13 +979,24 @@ MonoBehaviour:
   upperBodyHitbox: {fileID: 9117497486007347996}
   shortRangeHitbox: {fileID: 9117497486599704595}
   stick: {fileID: 0}
+  remainingJumps: 0
+  crouched: 0
   inAir: 0
+  attacking: 0
+  isSuperActive: 0
+  blockHorizontalMovement: 0
   moving: 0
+  movedWhileAttacking: 0
+  deathStarted: 0
+  listeningForDoubleDownTap: 0
+  playerUpperAnim: {fileID: 0}
   playerLowerAnim: {fileID: 9117497486779350954}
+  shortRange: {fileID: 0}
   platforms:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  auso: {fileID: 0}
   JumpSounds:
   - {fileID: 8300000, guid: 52d2f4a2bfe493b4d9fee2c50634358a, type: 3}
   - {fileID: 8300000, guid: 4b93506bb9b98084e82dd3e601006159, type: 3}
@@ -1141,6 +1169,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4277835215915131891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117497486307095087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ac5402542df9440b013dc5e11e4831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ps: {fileID: 0}
+--- !u!114 &6645908540677337094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117497486307095087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6683258910050914eaee256ed6443c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!1 &9117497486599704595
 GameObject:
   m_ObjectHideFlags: 0

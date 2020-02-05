@@ -11,7 +11,7 @@ public class PlayerProjectile : MonoBehaviour
     // Lets the projectile travel a bit over 25 units before destroying it
     protected void DestroyWhenOffScreen()
     {
-        Destroy(this, 27f / speed);
+        Destroy(gameObject, 11f);
     }
 
     void OnTriggerEnter2D(Collider2D col)
