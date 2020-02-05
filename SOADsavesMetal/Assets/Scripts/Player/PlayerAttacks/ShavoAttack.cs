@@ -19,6 +19,7 @@ public class ShavoAttack : MonoBehaviour
     public GameObject musicNote;
     private const float LONG_ATTACK_WINDUP = 0.1f;
     private const float LONG_ATTACK_COOLDOWN = 0.27f;
+    private System.Random rand;
 
     // Super attack
     public GameObject cymbal;
@@ -34,6 +35,7 @@ public class ShavoAttack : MonoBehaviour
         boss = GameObject.FindWithTag("Boss");
         shortRangeHitbox.SetActive(false);
         attacking = false;
+        rand = new System.Random();
 	}
 
 	// Update is called once per frame
@@ -111,7 +113,11 @@ public class ShavoAttack : MonoBehaviour
 
     	// Create projectile (musicNote)
     	GameObject mNote = Instantiate(musicNote, transform.parent.position, Quaternion.identity);
-        mNote.GetComponent<MusicNote>().playerRotationY = transform.parent.rotation.y;
+        MusicNote mnScript = mNote.GetComponent<MusicNote>();
+        mnScript.playerRotationY = transform.parent.rotation.y;
+        mnScript.startTime = (float)rand.NextDouble() * 2f;
+        mnScript.oscillationPeriod = (float)rand.NextDouble() * 2f + 2f;
+        mnScript.setSpeed((float)rand.NextDouble() * 2f + 5.8f);
         mNote.SetActive(true);
 
         // Cooldown period

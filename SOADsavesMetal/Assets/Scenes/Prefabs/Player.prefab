@@ -107,7 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shortRangeHitbox: {fileID: 7072049019509825791}
-  musicNote: {fileID: 1934037792989198, guid: f37d6057c3286eb439e273aa52c6f2ed, type: 3}
+  musicNote: {fileID: 3085386667858968886, guid: 51fc87d4b1e7a7d44bc2b9515669fee4,
+    type: 3}
   cymbal: {fileID: 1312487970120966, guid: 8f9c7732d14746745b38e29d40bf5efd, type: 3}
 --- !u!1 &1592019094
 GameObject:
