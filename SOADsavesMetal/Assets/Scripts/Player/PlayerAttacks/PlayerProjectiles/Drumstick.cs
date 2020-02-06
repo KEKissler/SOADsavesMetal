@@ -13,7 +13,7 @@ public class Drumstick : PlayerProjectile {
         float angle = Mathf.Deg2Rad * transform.rotation.y * -180f;
         rb.velocity = new Vector2(speed * Mathf.Cos(angle), speed * Mathf.Sin(angle));
 
-		DestroyWhenOffScreen();
+		DestroyAfter(25f / speed);
 	}
 	
 	// Update is called once per frame
