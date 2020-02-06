@@ -12,6 +12,9 @@ public class WhiteNoiseAttack : TsovinarAttack
     public Material whiteNoise;
     public AnimationClip foldClip;
     public AnimationClip unfoldClip;
+    public AntennaBolt antennaBolt;
+    public float projectileFrequency = 1f;
+    public bool isLeft;
 
     private GameObject screen1;
     private GameObject screen2;
@@ -32,6 +35,9 @@ public class WhiteNoiseAttack : TsovinarAttack
     private CapsuleCollider2D tsovinarHitBox;
     private CapsuleCollider2D antennaHitBox;
 
+    private Transform spawnTransform;
+    private float angleOffset = 0;
+
 
 
     public override void Initialize(TsovinarAttackData data)
@@ -41,7 +47,14 @@ public class WhiteNoiseAttack : TsovinarAttack
         screen3 = data.screen3;
         screen4 = data.screen4;
         screen5 = data.screen5;
-        telescopingAntenna = data.antennaAnimator;
+        if(isLeft)
+        {
+            telescopingAntenna = data.antennaAnimatorLeft;
+        }
+        else
+        {
+            telescopingAntenna = data.antennaAnimatorRight;
+        }
         screen1DefaultMat = screen1.GetComponent<SpriteRenderer>().sharedMaterial;
         screen2DefaultMat = screen2.GetComponent<SpriteRenderer>().sharedMaterial;
         screen3DefaultMat = screen3.GetComponent<SpriteRenderer>().sharedMaterial;
@@ -59,6 +72,14 @@ public class WhiteNoiseAttack : TsovinarAttack
             Debug.Log("KEEP BLINKING");
             yield break;
         }
+        
+        for(int i = 0; i < 360; i+=90)
+        {
+            antennaBolt.spawnPosition = spawnTransform;
+            antennaBolt.fixedAngle = i + angleOffset;
+            antennaBolt.ExecuteAttack();
+        }
+        angleOffset += 30;
 
         yield return new WaitForEndOfFrame();
         telescopingAntenna.Play(ANTENNA_UNFOLD);
@@ -77,7 +98,8 @@ public class WhiteNoiseAttack : TsovinarAttack
     protected override void OnStart()
     {
         faceVisable = tsovinar.GetComponent<SpriteRenderer>();
-
+        angleOffset = 0;
+        spawnTransform = telescopingAntenna.gameObject.GetComponent<AntennaWatcher>().spawnPosition;
         Debug.Log("Antenna Up");
     }
 
