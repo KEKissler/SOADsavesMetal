@@ -20,7 +20,7 @@ public class Cymbal : PlayerProjectile {
             DEFAULT_VELOCITY*Mathf.Sin(angle)-3.5f+6.8f*(float)rng.NextDouble()+6.8f*(float)rng.NextDouble());
         speed = rb.velocity.magnitude;
 
-        DestroyWhenOffScreen();
+        DestroyAfter(26f / speed);
     }
     
     // Update is called once per frame

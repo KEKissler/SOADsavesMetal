@@ -9,9 +9,9 @@ public class PlayerProjectile : MonoBehaviour
     protected float speed;
 
     // Lets the projectile travel a bit over 25 units before destroying it
-    protected void DestroyWhenOffScreen()
+    protected void DestroyAfter(float ttl)
     {
-        Destroy(gameObject, 9.5f);
+        Destroy(gameObject, ttl);
     }
 
     public void setSpeed(float speed)
