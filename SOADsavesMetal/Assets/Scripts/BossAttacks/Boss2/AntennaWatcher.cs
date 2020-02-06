@@ -77,6 +77,13 @@ public class AntennaWatcher : MonoBehaviour
 
     }
 
+    public void OnEnd()
+    {
+        StartCoroutine(FoldAntenna());
+        ScreenOn();
+        hitCount = 0;
+    }
+
     IEnumerator FoldAntenna()
     {
         yield return new WaitForSeconds(foldClip.length);
