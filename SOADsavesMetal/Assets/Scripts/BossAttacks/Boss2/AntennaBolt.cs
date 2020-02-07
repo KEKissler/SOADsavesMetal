@@ -14,35 +14,46 @@ public class AntennaBolt : TsovinarAttack
     private float Y_offset;
     [HideInInspector]
     public Transform spawnPosition;
+    [HideInInspector]
+    public float angleOffset;
 
     private Transform attackParent;
     private Transform playerPosition;
-    private GameObject fireballObject;
+    private GameObject[] fireballObject;
 
     public override void Initialize(TsovinarAttackData data)
     {
         attackParent = data.attackParent;
         playerPosition = data.player.transform;
         spawnPosition = data.tsovinar.transform;
+        fireballObject = new GameObject[4];
     }
 
     protected override void OnStart()
     {
-        fireballObject = Instantiate(FireballPrefab, spawnPosition.position + new Vector3(0,Y_offset), Quaternion.identity, attackParent);
+        for (int i = 0; i < 4; ++i)
+        {
+            fireballObject[i] = Instantiate(FireballPrefab, spawnPosition.position + new Vector3(0, Y_offset), Quaternion.identity, attackParent);
+        }
     }
 
     protected override IEnumerator Execute(float duration)
     {
         yield return null;
-        if(fixedAngle == float.MinValue)
+
+        for (int i = 0; i < 4; ++i)
         {
-            if(fireballObject.GetComponent<Projectile>() != null)
-                fireballObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier);
-        }
-        else
-        {
-            if (fireballObject.GetComponent<Projectile>() != null)
-                fireballObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier, fixedAngle);
+            fixedAngle = (i*90 + angleOffset) % 360;
+            if (fixedAngle == float.MinValue)
+            {
+                if (fireballObject[i].GetComponent<Projectile>() != null)
+                    fireballObject[i].GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier);
+            }
+            else
+            {
+                if (fireballObject[i].GetComponent<Projectile>() != null)
+                    fireballObject[i].GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier, fixedAngle);
+            }
         }
     }
 
