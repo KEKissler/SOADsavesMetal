@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerProjectile : MonoBehaviour
 {
     protected Rigidbody2D rb;
-    protected int damage;
+    public int damage = 30;
     protected float speed;
 
     // Lets the projectile travel a bit over 25 units before destroying it
