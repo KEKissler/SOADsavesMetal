@@ -291,11 +291,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackData:
     player: {fileID: 1105088042}
-    agas: {fileID: 1036882046}
+    agas: {fileID: 1512805395}
     DecayOverflow: {fileID: 1443309144}
     Splash: {fileID: 513712901}
     Spill: {fileID: 834805085}
-    agasPosition: {fileID: 1036882049}
+    agasPosition: {fileID: 1512805396}
     attackParent: {fileID: 283002722}
     candle0: {fileID: 1092857749}
     candle1: {fileID: 1301791792}
@@ -1028,6 +1028,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &632819267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 632819268}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &632819268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632819267}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.91, y: 4.83, z: -0.017578125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &636720856
 GameObject:
   m_ObjectHideFlags: 0
@@ -3642,6 +3672,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 573222039197791906, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+        type: 3}
+      propertyPath: startingHP
+      value: 8000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ee5c10a8273f2e4b8db6ef183e941a0, type: 3}
 --- !u!114 &1443309143 stripped
@@ -3728,6 +3763,18 @@ MonoBehaviour:
     HealthPercentThreshhold: 0
     ExecuteOnPhaseStart: {fileID: 11400000, guid: 92f5d7c28ef6a124d97b35c15796e105,
       type: 2}
+--- !u!1 &1512805395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2380804505604382101, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1443309142}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1512805396 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2380804505604382100, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1443309142}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1515053675
 GameObject:
   m_ObjectHideFlags: 0
