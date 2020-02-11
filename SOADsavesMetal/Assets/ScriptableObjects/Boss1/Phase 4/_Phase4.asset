@@ -17,14 +17,14 @@ MonoBehaviour:
   CloseUpDistance: 1
   NearGroundCutoff: 0.5
   HasLeft: 1
-  DefaultAttacks: {fileID: 11400000, guid: eabbf775093ddae45beeebbbeda18126, type: 2}
-  CloseUpAttacks: {fileID: 11400000, guid: eabbf775093ddae45beeebbbeda18126, type: 2}
-  LowPlayerHPAttacks: {fileID: 11400000, guid: eabbf775093ddae45beeebbbeda18126, type: 2}
-  PlayerOnPlatformAttacks: {fileID: 11400000, guid: eabbf775093ddae45beeebbbeda18126,
+  DefaultAttacks: {fileID: 11400000, guid: 8951413cb77495c4cb140dce930e6824, type: 2}
+  CloseUpAttacks: {fileID: 11400000, guid: 8951413cb77495c4cb140dce930e6824, type: 2}
+  LowPlayerHPAttacks: {fileID: 11400000, guid: 8951413cb77495c4cb140dce930e6824, type: 2}
+  PlayerOnPlatformAttacks: {fileID: 11400000, guid: 8951413cb77495c4cb140dce930e6824,
     type: 2}
-  LeftDefaultAttacks: {fileID: 11400000, guid: a9939b4aada9d1c4c8cf3e7a82898207, type: 2}
-  LeftCloseUpAttacks: {fileID: 11400000, guid: a9939b4aada9d1c4c8cf3e7a82898207, type: 2}
-  LeftLowPlayerHPAttacks: {fileID: 11400000, guid: a9939b4aada9d1c4c8cf3e7a82898207,
+  LeftDefaultAttacks: {fileID: 11400000, guid: 5600a617d243f8147ab7556dff87c488, type: 2}
+  LeftCloseUpAttacks: {fileID: 11400000, guid: 5600a617d243f8147ab7556dff87c488, type: 2}
+  LeftLowPlayerHPAttacks: {fileID: 11400000, guid: 5600a617d243f8147ab7556dff87c488,
     type: 2}
-  LeftPlayerOnPlatformAttacks: {fileID: 11400000, guid: a9939b4aada9d1c4c8cf3e7a82898207,
+  LeftPlayerOnPlatformAttacks: {fileID: 11400000, guid: 5600a617d243f8147ab7556dff87c488,
     type: 2}

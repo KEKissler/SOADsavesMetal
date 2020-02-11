@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour
         if(rb != null)
             Configure(player, ProjectileType.Gravity, ProjectileSpeed.Fast, 0.0f);
         
-        Destroy(gameObject, 3.6f);
+        Destroy(gameObject, 10f);
     }
 
     // Update is called once per frame
@@ -122,7 +122,7 @@ public class Projectile : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<Player>().Health -= 1;
-            Debug.Log(gameObject.name);
+            //Debug.Log(gameObject.name);
             Destroy(this.gameObject);
         }
     }

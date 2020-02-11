@@ -22,7 +22,7 @@ public class SnakeHitPlayer : MonoBehaviour
     {
 		if(col.gameObject.name == "Player" && snakeAttacking) {
 			col.GetComponent<Rigidbody2D>().velocity = new Vector2(-18f, 13.37f);
-            StartCoroutine(col.gameObject.GetComponent<Player>().blockMovement(0.37f));
+            col.gameObject.GetComponent<Player>().blockMovement(0.37f);
         }
     }
 }

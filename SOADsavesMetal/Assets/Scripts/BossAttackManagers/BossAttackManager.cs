@@ -14,6 +14,7 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
 
     //switch phases depending on game state, for now just based on boss health
     public BossHealth BossHealth;
+    public ScreenShake screenShake;
     public List<PhaseChangeThreshhold> PhaseChangeThreshholds = new List<PhaseChangeThreshhold>();
    
 
@@ -25,10 +26,12 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
             return;
         }
         phase = GetNextPhase(PhaseChangeThreshholds, 0);
+        /*
         if (phaseIndex < PhaseChangeThreshholds.Count - 1)
         {
             phaseIndex++;
         }
+        */
         attackManager = StartCoroutine(ManageAttacks());
     }
 
@@ -45,13 +48,24 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
 
     private BossAttack SelectNextAttack()
     {
+        //get current attack options from phase
+        options = GetNextOptions(phase);
+        //get current attack from options
+        return options.GetNextAttack();
+    }
+
+    public void bossHit()
+    {
+        Debug.Log("The Phase is: " + phase);
         //if new phase condition reached, switch phase (or announce end of final phase)
         if (BossHealth.getHPPercentage() < PhaseChangeThreshholds[phaseIndex].HealthPercentThreshhold)
         {
             if (phaseIndex < PhaseChangeThreshholds.Count - 1)
             {
                 phaseIndex++;
-                if(PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart)
+                screenShake.shake();
+                Debug.Log(phaseIndex);
+                if (PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart)
                 {
                     PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart.ExecuteAttack();
                 }
@@ -61,11 +75,8 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
                 FinalPhaseEnded();
             }
             phase = GetNextPhase(PhaseChangeThreshholds, phaseIndex);
+            Debug.Log("The Health% is: " + BossHealth.getHPPercentage());
         }
-        //get current attack options from phase
-        options = GetNextOptions(phase);
-        //get current attack from options
-        return options.GetNextAttack();
     }
 
     protected abstract AttackOptions GetNextOptions(T phase);

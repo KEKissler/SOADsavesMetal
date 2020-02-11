@@ -25,7 +25,11 @@ public abstract class BossAttack : ScriptableObject
     private IEnumerator EndAttack()
     {
         yield return new WaitForSeconds(duration);
-        CoroutineRunner.instance.StopCoroutine(executingAttack);
+        if (executingAttack != null)
+        {
+            Debug.LogWarning("Cannot stop a null Coroutine");
+            CoroutineRunner.instance.StopCoroutine(executingAttack);
+        }
         OnEnd();
     }
 }

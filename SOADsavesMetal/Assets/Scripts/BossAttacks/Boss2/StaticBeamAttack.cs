@@ -13,6 +13,8 @@ public class StaticBeamAttack : TsovinarAttack
     public float attackDuration;
     public float flashDuration;
     public float endDuration;
+    public float trackingSpeed;
+    public float laserHeight = 10;
     public Color startingColor;
     public Color attackColor;
     public Color flashColor;
@@ -23,12 +25,15 @@ public class StaticBeamAttack : TsovinarAttack
     private Transform playerLocation;
     private Transform attackParent;
 
+    private Vector3 topMiddle;
+
 
     public override void Initialize(TsovinarAttackData data)
     {
         playerLocation = data.player.transform;
         tsovinarLocation = data.tsovinar.transform;
-        attackParent = data.attackParent;     
+        attackParent = data.attackParent;
+        topMiddle = new Vector3(0, laserHeight, 0);
     }
 
     protected override IEnumerator Execute(float duration)
@@ -44,7 +49,7 @@ public class StaticBeamAttack : TsovinarAttack
     protected override void OnStart()
     {
         Debug.Log("Charge the weapon!");
-        var beamObject = Instantiate(BeamPrefab, tsovinarLocation.position, Quaternion.identity, attackParent).GetComponent<StaticBeamAnimation>();
+        var beamObject = Instantiate(BeamPrefab, topMiddle, Quaternion.identity, attackParent).GetComponent<StaticBeamAnimation>();
 
         beamObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
         beamObject.preYLength = preYLength;
@@ -53,6 +58,7 @@ public class StaticBeamAttack : TsovinarAttack
         beamObject.attackDuration = attackDuration;
         beamObject.flashDuration = flashDuration;
         beamObject.endDuration = endDuration;
+        beamObject.trackingSpeed = trackingSpeed;
         beamObject.startingColor = startingColor;
         beamObject.attackColor = attackColor;
         beamObject.flashColor = flashColor;

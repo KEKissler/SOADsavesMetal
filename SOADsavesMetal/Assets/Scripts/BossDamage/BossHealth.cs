@@ -23,6 +23,9 @@ public class BossHealth : MonoBehaviour
     // Public
     public float startingHP = 2000f;
     public float damageMultiplier = 1f;
+    public BossAttackManager<AgasPhase> agasAttackManager;
+    public BossAttackManager<TsovinarPhase> tsovinarAttackManager;
+    //public BossAttackManager<NhangPhase> nhangAttackManager;
 
     // Should be accessible but not modifiable directly
     private float HP;
@@ -30,6 +33,16 @@ public class BossHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BossAttackManager<AgasPhase> temp1 = gameObject.GetComponentInChildren<AgasAttackManager>();
+        if(temp1)
+        {
+            agasAttackManager = temp1;
+        }
+        BossAttackManager<TsovinarPhase> temp2 = gameObject.GetComponentInChildren<TsovinarAttackManager>();
+        if (temp2)
+        {
+            tsovinarAttackManager = temp2;
+        }
         HP = startingHP;
     }
 
@@ -42,6 +55,14 @@ public class BossHealth : MonoBehaviour
     public void hit(float damage)
     {
         HP -= damage * damageMultiplier;
+        if(agasAttackManager)
+        {
+            agasAttackManager.bossHit();
+        }
+        else if (tsovinarAttackManager)
+        {
+            tsovinarAttackManager.bossHit();
+        }
         Debug.Log(HP);
     }
 

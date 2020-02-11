@@ -15,12 +15,12 @@ MonoBehaviour:
   AttackSelectionType: 1
   Attacks:
   - attack: {fileID: 11400000, guid: cf5b4f485af94774cbdd9ed6e660bd34, type: 2}
-    percentThreshold: 0
+    percentThreshold: 10
   - attack: {fileID: 11400000, guid: 4e72073afac65bc49bb80fbdfe68a2ea, type: 2}
-    percentThreshold: 0
+    percentThreshold: 20
   - attack: {fileID: 11400000, guid: 905756f6785e9e340b6554db806432bf, type: 2}
-    percentThreshold: 0
+    percentThreshold: 60
   - attack: {fileID: 11400000, guid: e0a7a724ebe828d458ca67c3c745a05c, type: 2}
-    percentThreshold: 0
-  - attack: {fileID: 11400000, guid: 31c4a779cb51b2a449a14fe128fba9d6, type: 2}
-    percentThreshold: 0
+    percentThreshold: 70
+  - attack: {fileID: 11400000, guid: 782b23ddda6296f40b77cd754f78ff78, type: 2}
+    percentThreshold: 100

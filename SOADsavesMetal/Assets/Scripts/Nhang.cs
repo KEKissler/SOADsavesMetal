@@ -48,7 +48,8 @@ public class Nhang : MonoBehaviour
         buildSnake();
         //statueHand.transform.position = (Vector2)transform.position + new Vector2(-5f, -3.4f);
         // indicator.transform.position = (Vector2)transform.position + new Vector2(-5f, -1.5f);
-        StartCoroutine(basicPattern());
+        Debug.Log("The stuff below can make the boss do attacks");
+        //StartCoroutine(basicPattern());
     }
 
     // Update is called once per frame
