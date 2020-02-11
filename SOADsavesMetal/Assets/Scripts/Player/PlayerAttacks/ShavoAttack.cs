@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShavoAttack : MonoBehaviour
 {
-    GameObject boss;
+    private Player ps;
 
 	private bool attacking;
 	private float attackTimer = 0.0f; // General purpose timer
@@ -22,17 +22,11 @@ public class ShavoAttack : MonoBehaviour
     private System.Random rand;
 
     // Super attack
-    public GameObject cymbal;
-    private const float SUPER_LENGTH = 3f;
-    private const float TIME_BETWEEN_SHOTS_HIGH = 0.07f;
-    private const float TIME_BETWEEN_SHOTS_LOW = 0.006f;
-    private const int FINAL_BURST_SIZE = 70;
-    private float curr_time_between_shots;
-    private float shotTimer = 0.0f;
+    public GameObject rocks;
     
 	// Use this for initialization
 	void Start () {
-        boss = GameObject.FindWithTag("Boss");
+        ps = GameObject.FindWithTag("Player").GetComponent<Player>();
         shortRangeHitbox.SetActive(false);
         attacking = false;
         rand = new System.Random();
@@ -57,12 +51,6 @@ public class ShavoAttack : MonoBehaviour
             }
 		}
 	}
-
-    // Returns the enemy that should be targeted by the long range attack
-    GameObject getTarget()
-    {
-        return boss;
-    }
 
     IEnumerator AttackShort()
     {
@@ -131,10 +119,36 @@ public class ShavoAttack : MonoBehaviour
     	attacking = false;
     }
 
-    // Maybe super bleeds / distracts boss if it hits?
-    // (Disrupts attack patterns but that would require attack patterns to be created first)
     IEnumerator AttackSuper()
     {
-        yield return null;
+        attacking = true;
+
+        while (ps.blockAttackProgress) yield return null;
+
+        GameObject superRocksParent = Instantiate(rocks, transform.position + new Vector3(0.35f, -1.5f, 0), Quaternion.identity);
+        List<Rigidbody2D> rbRocks = new List<Rigidbody2D>();
+        foreach (Transform child in superRocksParent.transform)
+        {
+            rbRocks.Add(child.gameObject.GetComponent<Rigidbody2D>());
+        }
+
+        foreach (Rigidbody2D rb in rbRocks)
+        {
+            rb.velocity = new Vector2(1.3f, 7.2f);
+        }
+
+        yield return new WaitForSeconds(0.05f);
+        
+        while (ps.blockAttackProgress) yield return null;
+
+        foreach (Rigidbody2D rb in rbRocks)
+        {
+            rb.velocity = new Vector2(17f + 2.5f * (float)rand.NextDouble() + 2.5f * (float)rand.NextDouble(),
+                3.5f + 3.5f * (float)rand.NextDouble() + 3f * (float)rand.NextDouble());
+        }
+
+        while (ps.attacking) yield return null;
+
+        attacking = false;
     }
 }

@@ -109,7 +109,7 @@ MonoBehaviour:
   shortRangeHitbox: {fileID: 7072049019509825791}
   musicNote: {fileID: 3085386667858968886, guid: 51fc87d4b1e7a7d44bc2b9515669fee4,
     type: 3}
-  cymbal: {fileID: 1312487970120966, guid: 8f9c7732d14746745b38e29d40bf5efd, type: 3}
+  rocks: {fileID: 825972060332195034, guid: 32ead459c4be15644a1386cca12a7938, type: 3}
 --- !u!1 &1592019094
 GameObject:
   m_ObjectHideFlags: 0

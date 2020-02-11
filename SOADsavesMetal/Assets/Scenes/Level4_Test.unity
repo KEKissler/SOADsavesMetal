@@ -3038,15 +3038,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShavoSuperRocks
       objectReference: {fileID: 0}
+    - target: {fileID: 825972060332195034, guid: 32ead459c4be15644a1386cca12a7938,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 825972060332195013, guid: 32ead459c4be15644a1386cca12a7938,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: -4.67
       objectReference: {fileID: 0}
     - target: {fileID: 825972060332195013, guid: 32ead459c4be15644a1386cca12a7938,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.66
+      value: -3.62
       objectReference: {fileID: 0}
     - target: {fileID: 825972060332195013, guid: 32ead459c4be15644a1386cca12a7938,
         type: 3}

@@ -87,6 +87,7 @@ public class PlayerAttackAnims : MonoBehaviour
     }
     public IEnumerator superAttackAnims()
     {
+        ps.blockAttackProgress = true;
         ps.attacking = true;
         ps.isSuperActive = true;
         if (ps.currentBandMember == "Shavo")
@@ -96,25 +97,28 @@ public class PlayerAttackAnims : MonoBehaviour
             else initialAnimSpeed = 0.8f;
             ps.playerUpperAnim.speed = initialAnimSpeed;
             ps.playerLowerAnim.speed = initialAnimSpeed;
-            ps.playerUpperAnim.Play("ShavoSuper");
-            ps.playerLowerAnim.Play("ShavoSuper");
+            ps.playerUpperAnim.Play("ShavoSuperIdle");
+            ps.playerLowerAnim.Play("ShavoSuperIdle");
             float timeWaited = 0f;
             while (ps.inAir)
             {
-                yield return new WaitForSeconds(0.03f);
-                timeWaited += 0.03f;
-            }
-            if (timeWaited < 0.06f) yield return new WaitForSeconds(0.06f - timeWaited);
-            else
-            {
-                ps.playerUpperAnim.speed = 5f;
-                ps.playerLowerAnim.speed = 5f;
                 yield return new WaitForSeconds(0.01f);
+                timeWaited += 0.01f;
             }
+            if (timeWaited < 0.32f) yield return new WaitForSeconds(0.32f - timeWaited);
+            ps.playerUpperAnim.Play("ShavoSuper");
+            ps.playerLowerAnim.Play("ShavoSuper");
+            yield return new WaitForSeconds(0.03f);
+            ps.blockAttackProgress = false;
             ps.auso.PlayOneShot(ps.ShavoSuper);   // may need tweaking
-            ps.playerUpperAnim.speed = 0.8f;
-            ps.playerLowerAnim.speed = 0.8f;
-            yield return new WaitForSeconds(0.95f);
+            yield return null;
+            ps.blockAttackProgress = true;
+            ps.playerUpperAnim.speed = 0.77f;
+            ps.playerLowerAnim.speed = 0.77f;
+            yield return new WaitForSeconds(0.65f);
+            ps.blockAttackProgress = false;
+            yield return new WaitForSeconds(0.5f);
+            ps.blockAttackProgress = true;
             ps.playerUpperAnim.speed = 1f;
             ps.playerLowerAnim.speed = 1f;
         }
