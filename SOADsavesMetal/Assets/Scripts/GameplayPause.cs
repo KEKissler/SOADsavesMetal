@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class GameplayPause : MonoBehaviour
 {
-    public bool paused = false;
+    private bool paused = false;
     public GameObject pauseMenu;
-    private float timeScale; 
-
     private void Start()
     {
-        timeScale = Time.timeScale;
+        pauseMenu.SetActive(false);
+    }
+
+    private void Awake()
+    {
+        Time.timeScale = 1f;
     }
     private void Update()
     {
@@ -40,7 +43,7 @@ public class GameplayPause : MonoBehaviour
 
     private void Play()
     {
-        Time.timeScale = timeScale;
+        Time.timeScale = 1f;
         paused = false;
         pauseMenu.SetActive(false);
     }
