@@ -27,9 +27,9 @@ public class tutorialDummy : MonoBehaviour
         shortHit = false;
         longHit = false;
         superHit = false;
-        shortCheck = true;
-        longCheck = true;
-        superCheck = true;
+        shortCheck = false;
+        longCheck = false;
+        superCheck = false;
         startingPos = transform.position;
     }
 
