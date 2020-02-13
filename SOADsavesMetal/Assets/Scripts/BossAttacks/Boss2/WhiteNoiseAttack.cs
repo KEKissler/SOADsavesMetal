@@ -75,14 +75,16 @@ public class WhiteNoiseAttack : TsovinarAttack
 
         ScreenOff();
         telescopingAntenna.Play(ANTENNA_UNFOLD);
-        yield return new WaitForSeconds(unfoldClip.length);
+
+        float clipLength = unfoldClip.length;
+        yield return new WaitForSeconds(clipLength);
 
         for (int i = 0; i < projectileCount; ++i)
         {
             antennaBolt.spawnPosition = spawnTransform;
             antennaBolt.ExecuteAttack();
             antennaBolt.angleOffset += 60;
-            yield return new WaitForSeconds(1 / projectileFrequency);
+            yield return new WaitForSeconds((duration - clipLength)/projectileCount);
         }
 
     }
