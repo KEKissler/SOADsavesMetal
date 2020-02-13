@@ -111,7 +111,6 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         screen3.GetComponent<SpriteRenderer>().sharedMaterial = whiteNoise;
         screen4.GetComponent<SpriteRenderer>().sharedMaterial = whiteNoise;
         screen5.GetComponent<SpriteRenderer>().sharedMaterial = whiteNoise;
-        Debug.Log(faceVisable);
         faceVisable.enabled = false;
         tsovinarHitBox.enabled = false;
         antennaHitBox.enabled = true;
