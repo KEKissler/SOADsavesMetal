@@ -42,7 +42,6 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
         {
             attack = SelectNextAttack();
             attack.ExecuteAttack();
-            Debug.Log(attack.duration);
             yield return new WaitForSeconds(attack.duration);
         }
     }

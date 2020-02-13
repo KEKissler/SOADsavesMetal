@@ -29,20 +29,20 @@ public class TsovinarPhase : BossPhase
         //todo maybe: make priorities reorderable
         if (TooCloseToPlayer())
         {
-            Debug.Log("Attack - Player is close up");
+            //Debug.Log("Attack - Player is close up");
             return CloseUpAttacks; 
         }
         if (PlayerIsLowHealth())
         {
-            Debug.Log("Attack - Player is low hp");
+            //Debug.Log("Attack - Player is low hp");
             return LowPlayerHPAttacks;
         }
         if (PlayerOnPlatform())
         {
-            Debug.Log("Attack - Player on Platform");
+            //Debug.Log("Attack - Player on Platform");
             return PlayerOnPlatformAttacks;
         }
-        Debug.Log("Attaack - Default");
+        //Debug.Log("Attack - Default");
         return DefaultAttacks;
     }
 }
