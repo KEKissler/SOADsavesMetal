@@ -9,14 +9,14 @@ public class AntennaBolt : TsovinarAttack
     public ProjectileSpeed ProjectileSpeed;
     public ProjectileType ProjectileType;
     public float degreeModifier;
-    public float fixedAngle = float.MinValue;
-    [SerializeField]
-    private float Y_offset;
     [HideInInspector]
     public Transform spawnPosition;
-    [HideInInspector]
-    public float angleOffset;
+    [SerializeField]
+    private float Y_offset;
+    [SerializeField]
+    private float angleOffset;
 
+    private float fixedAngle;
     private Transform attackParent;
     private Transform playerPosition;
     private GameObject[] fireballObject;
@@ -25,7 +25,6 @@ public class AntennaBolt : TsovinarAttack
     {
         attackParent = data.attackParent;
         playerPosition = data.player.transform;
-        spawnPosition = data.tsovinar.transform;
         fireballObject = new GameObject[4];
     }
 
@@ -44,16 +43,9 @@ public class AntennaBolt : TsovinarAttack
         for (int i = 0; i < 4; ++i)
         {
             fixedAngle = (i*90 + angleOffset) % 360;
-            if (fixedAngle == float.MinValue)
-            {
-                if (fireballObject[i].GetComponent<Projectile>() != null)
-                    fireballObject[i].GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier);
-            }
-            else
-            {
-                if (fireballObject[i].GetComponent<Projectile>() != null)
-                    fireballObject[i].GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier, fixedAngle);
-            }
+
+            if (fireballObject[i].GetComponent<Projectile>() != null)
+                fireballObject[i].GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier, fixedAngle);
         }
     }
 
