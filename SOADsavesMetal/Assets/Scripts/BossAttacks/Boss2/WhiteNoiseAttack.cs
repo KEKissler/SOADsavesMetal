@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "New Attack/White Noise Attack")]
-public class WhiteNoiseAttack : TsovinarAttack
+public class WhiteNoiseAttack : TsovinarAttackSequence
 {
     private const string ANTENNA_UNFOLD = "antenna_unfold";
     private const string ANTENNA_BLINK = "antenna_blinkrapid";
@@ -12,9 +12,6 @@ public class WhiteNoiseAttack : TsovinarAttack
     public Material whiteNoise;
     public AnimationClip foldClip;
     public AnimationClip unfoldClip;
-    public AntennaBolt antennaBolt;
-    public float projectileFrequency = 1f;
-    public int projectileCount = 4;
     public bool isLeft;
 
     private GameObject screen1;
@@ -63,6 +60,8 @@ public class WhiteNoiseAttack : TsovinarAttack
         tsovinar = data.tsovinar;
         tsovinarHitBox = tsovinar.GetComponent<CapsuleCollider2D>();
         antennaHitBox = telescopingAntenna.GetComponent<CapsuleCollider2D>();
+        
+        base.Initialize(data);
     }
 
     protected override IEnumerator Execute(float duration)
@@ -75,28 +74,32 @@ public class WhiteNoiseAttack : TsovinarAttack
 
         ScreenOff();
         telescopingAntenna.Play(ANTENNA_UNFOLD);
-        yield return new WaitForSeconds(unfoldClip.length);
 
-        for (int i = 0; i < projectileCount; ++i)
+        float clipLength = unfoldClip.length;
+        yield return new WaitForSeconds(clipLength);
+
+        while(true)
         {
-            antennaBolt.spawnPosition = spawnTransform;
-            antennaBolt.ExecuteAttack();
-            antennaBolt.angleOffset += 60;
-            yield return new WaitForSeconds(1 / projectileFrequency);
+            yield return base.Execute(duration);
         }
-
     }
 
     protected override void OnEnd()
     {
         telescopingAntenna.gameObject.GetComponent<AntennaWatcher>().OnEnd();
+        base.OnEnd();
     }
 
     protected override void OnStart()
     {
         faceVisable = tsovinar.GetComponent<SpriteRenderer>();
-        antennaBolt.angleOffset = 30;
         spawnTransform = telescopingAntenna.GetComponent<AntennaWatcher>().spawnPosition;
+        foreach (var subAttack in Attacks)
+        {
+            ((AntennaBolt)subAttack.Attack).spawnPosition = spawnTransform;
+        }
+
+        base.OnStart();
     }
 
     
@@ -108,7 +111,6 @@ public class WhiteNoiseAttack : TsovinarAttack
         screen3.GetComponent<SpriteRenderer>().sharedMaterial = whiteNoise;
         screen4.GetComponent<SpriteRenderer>().sharedMaterial = whiteNoise;
         screen5.GetComponent<SpriteRenderer>().sharedMaterial = whiteNoise;
-        Debug.Log(faceVisable);
         faceVisable.enabled = false;
         tsovinarHitBox.enabled = false;
         antennaHitBox.enabled = true;

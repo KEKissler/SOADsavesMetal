@@ -43,12 +43,10 @@ public class StaticBeamAttack : TsovinarAttack
 
     protected override void OnEnd()
     {
-        Debug.Log("Beam gone");
     }
 
     protected override void OnStart()
     {
-        Debug.Log("Charge the weapon!");
         var beamObject = Instantiate(BeamPrefab, topMiddle, Quaternion.identity, attackParent).GetComponent<StaticBeamAnimation>();
 
         beamObject.GetComponent<SpriteRenderer>().sortingOrder = 2;

@@ -79,7 +79,8 @@ public class AntennaWatcher : MonoBehaviour
 
     public void OnEnd()
     {
-        StartCoroutine(FoldAntenna());
+        //StartCoroutine(FoldAntenna());
+        telescopingAntenna.Play(ANTENNA_FOLD);
         ScreenOn();
         hitCount = 0;
     }
@@ -87,7 +88,7 @@ public class AntennaWatcher : MonoBehaviour
     IEnumerator FoldAntenna()
     {
         yield return new WaitForSeconds(foldClip.length);
-        telescopingAntenna.Play(ANTENNA_FOLD);
+        //telescopingAntenna.Play(ANTENNA_FOLD);
     }
 
     private void ScreenOn()
