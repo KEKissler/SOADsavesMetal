@@ -11,6 +11,7 @@ TagManager:
   - SnakeHead
   - BossHittable
   - Boss
+  - Pause Menu
   layers:
   - Default
   - TransparentFX
