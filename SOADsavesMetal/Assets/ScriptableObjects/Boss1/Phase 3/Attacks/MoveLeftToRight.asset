@@ -15,14 +15,14 @@ MonoBehaviour:
   duration: 2
   PlannedPositions:
   - delayUntilMovingAgain: 0.5
-    timeSpentMoving: 0.25
+    timeSpentMoving: 0.35
     position: {x: -7.18, y: 4.6}
   - delayUntilMovingAgain: 0.5
-    timeSpentMoving: 0.25
+    timeSpentMoving: 0.6
     position: {x: -3.29, y: -2.85}
   - delayUntilMovingAgain: 0.5
-    timeSpentMoving: 0.25
+    timeSpentMoving: 0.6
     position: {x: 0.87, y: 4.6}
   - delayUntilMovingAgain: 0.5
-    timeSpentMoving: 0.25
+    timeSpentMoving: 0.35
     position: {x: 5.3, y: 2.69}

@@ -19,7 +19,7 @@ public class Move : AgasAttack
 
     protected override void OnStart()
     {
-
+        
     }
 
     protected override IEnumerator Execute(float duration)

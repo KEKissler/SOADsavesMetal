@@ -36,6 +36,9 @@ public class Player : MonoBehaviour {
     public bool deathStarted;
     public bool listeningForDoubleDownTap;
 
+    //Attack state
+    public bool blockAttackProgress;
+
     //Scripts
     private PlayerHorizontalMovement phm;
     private PlayerJump pj;
@@ -110,6 +113,9 @@ public class Player : MonoBehaviour {
         crouched = false;
         listeningForDoubleDownTap = false;
         remainingJumps = 1;
+
+        // Player-specific attack
+        blockAttackProgress = true;
 
         // Get components from gameobjects
         rb = gameObject.GetComponent<Rigidbody2D>();
