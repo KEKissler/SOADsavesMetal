@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "New Attack/Nhang/TrackBoly")]
+[CreateAssetMenu(menuName = "New Attack/Nhang/TrackBolt")]
 public class TrackBolt : NhangAttack
 {
     [SerializeField]

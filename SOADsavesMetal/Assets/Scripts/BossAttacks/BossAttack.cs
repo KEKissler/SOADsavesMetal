@@ -16,7 +16,7 @@ public abstract class BossAttack : ScriptableObject
         OnStart();
         IEnumerator temp = Execute(duration);
         if(temp != null)
-            executingAttack = CoroutineRunner.instance.StartCoroutine(Execute(duration));
+            executingAttack = CoroutineRunner.instance.StartCoroutine(temp);
         CoroutineRunner.instance.StartCoroutine(EndAttack());
     }
 
