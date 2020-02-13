@@ -18,7 +18,6 @@ MonoBehaviour:
   ProjectileSpeed: 2
   ProjectileType: 0
   degreeModifier: 0
-  fixedAngle: 30
   spawnPosition: {fileID: 0}
   Y_offset: 0
   angleOffset: 30
