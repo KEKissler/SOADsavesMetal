@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e20c21afb7ce5a43964918fd61a9b8d, type: 3}
-  m_Name: AntennaBolt
+  m_Name: AntennaBolt 60
   m_EditorClassIdentifier: 
-  duration: 3
+  duration: 1
   FireballPrefab: {fileID: 1883100758368052, guid: 9788eabbb9b1c3a41bdc36e37946df9f,
     type: 3}
   ProjectileSpeed: 2
   ProjectileType: 0
   degreeModifier: 0
-  fixedAngle: 180
-  Y_offset: 0
+  fixedAngle: 60
   spawnPosition: {fileID: 0}
-  angleOffset: 30
+  Y_offset: 0
+  angleOffset: 60
