@@ -14,7 +14,9 @@ public abstract class BossAttack : ScriptableObject
     public void ExecuteAttack()
     {
         OnStart();
-        executingAttack = CoroutineRunner.instance.StartCoroutine(Execute(duration));
+        IEnumerator temp = Execute(duration);
+        if(temp != null)
+            executingAttack = CoroutineRunner.instance.StartCoroutine(Execute(duration));
         CoroutineRunner.instance.StartCoroutine(EndAttack());
     }
 
@@ -27,11 +29,8 @@ public abstract class BossAttack : ScriptableObject
         yield return new WaitForSeconds(duration);
         if (executingAttack != null)
         {
-            CoroutineRunner.instance.StopCoroutine(executingAttack);
-        }
-        else
-        {
             Debug.LogWarning("Cannot stop a null Coroutine");
+            CoroutineRunner.instance.StopCoroutine(executingAttack);
         }
         OnEnd();
     }
