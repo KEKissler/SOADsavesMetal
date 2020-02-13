@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class StaticData: MonoBehaviour
 {
     static public string playerSelected = "";
-    static public int levelSelect = 0;
+    static public string levelSelect = "";
     static public bool firstLoad = true;
     static public bool[] characterUnlocks = {false, false, false};
     static public bool[] shavoUnlock = {false, false};
@@ -18,28 +18,30 @@ public class StaticData: MonoBehaviour
         playerSelected = name;
     }
 
-    public void setLevel(int level)
+    public void setLevel(string levelName)
     {
-        levelSelect = level;
+        levelSelect = levelName;
     }
 
-    public void printName(string name)
+    public void printName(string name) //debuging
     {
-        print(name);
+        Debug.Log(name);
     }
 
     public void loadLevel() //loads the selected level
     {
-        {
-            SceneManager.LoadScene(levelSelect);
-        }
+        SceneManager.LoadScene(levelSelect);
     }
 
-    public void loadLevel(string sceneName)
+    public void loadLevel(string sceneName) //loads a level by name
     {
-        {
-            SceneManager.LoadScene(sceneName);
-        }
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void reloadLevel()
+    {
+        string currentLevel = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentLevel);
     }
 
     public void SaveGame() //saves current static data
@@ -59,7 +61,7 @@ public class StaticData: MonoBehaviour
 
     void Awake()
     {
-        GameObject playerObject = GameObject.Find("Player"); //find an obejct in the scene named player
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player"); //find an obejct in the scene tagged player
         if(playerObject != null)
         {
             Player playerScript = playerObject.GetComponent<Player>(); //gets Player component

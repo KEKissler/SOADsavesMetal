@@ -61,10 +61,6 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         tsovinarHitBox = tsovinar.GetComponent<CapsuleCollider2D>();
         antennaHitBox = telescopingAntenna.GetComponent<CapsuleCollider2D>();
         
-        foreach (var subAttack in Attacks)
-        {
-            ((AntennaBolt)subAttack.Attack).spawnPosition = spawnTransform;
-        }
         base.Initialize(data);
     }
 
@@ -98,6 +94,10 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
     {
         faceVisable = tsovinar.GetComponent<SpriteRenderer>();
         spawnTransform = telescopingAntenna.GetComponent<AntennaWatcher>().spawnPosition;
+        foreach (var subAttack in Attacks)
+        {
+            ((AntennaBolt)subAttack.Attack).spawnPosition = spawnTransform;
+        }
 
         base.OnStart();
     }
