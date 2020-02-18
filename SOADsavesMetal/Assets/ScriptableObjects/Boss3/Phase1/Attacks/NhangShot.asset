@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bf867d909284342a618465fc0f22a5, type: 3}
   m_Name: NhangShot
   m_EditorClassIdentifier: 
-  duration: 0
+  duration: 0.5
   fireboltPrefab: {fileID: 1883100758368052, guid: b27d30de718206f4a8b66182f56e876d,
     type: 3}
   ProjectileSpeed: 2
