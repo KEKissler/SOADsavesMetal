@@ -6,7 +6,6 @@ public class Drumstick : PlayerProjectile {
  
 	// Use this for initialization
 	void Start () {
-        damage = 26;
         speed = 23.4f;
 		rb = GetComponent<Rigidbody2D>();
 
