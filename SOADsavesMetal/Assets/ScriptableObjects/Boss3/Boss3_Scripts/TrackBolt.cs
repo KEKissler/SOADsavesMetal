@@ -33,13 +33,13 @@ public class TrackBolt : NhangAttack
         yield return null;
         if (fireboltObject.GetComponent<Projectile>() != null)
             fireboltObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed,
-                degreeModifier, fixedAngle);
+                degreeModifier);
 
     }
 
     protected override void OnEnd()
     {
-        throw new System.NotImplementedException();
+        //
     }
 
     protected override void OnStart()
