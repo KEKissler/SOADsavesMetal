@@ -52,7 +52,7 @@ public class BossHealth : MonoBehaviour
         
     }
 
-    public void hit(float damage)
+    public void hitF(float damage)
     {
         HP -= damage * damageMultiplier;
         if(agasAttackManager)
