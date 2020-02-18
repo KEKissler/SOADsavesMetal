@@ -990,6 +990,7 @@ MonoBehaviour:
   movedWhileAttacking: 0
   deathStarted: 0
   listeningForDoubleDownTap: 0
+  blockAttackProgress: 0
   playerUpperAnim: {fileID: 0}
   playerLowerAnim: {fileID: 9117497486779350954}
   shortRange: {fileID: 0}

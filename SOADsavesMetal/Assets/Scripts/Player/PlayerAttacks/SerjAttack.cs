@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DaronAttack : PlayerAttack
+public class SerjAttack : PlayerAttack
 {
     GameObject boss;
 

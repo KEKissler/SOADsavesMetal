@@ -7,7 +7,7 @@ public class ShavoSuperRocks : PlayerProjectile
     // Start is called before the first frame update
     void Start()
     {
-        damage = 479;
+        damage = 48;
         DestroyAfter(2.5f);
     }
 
