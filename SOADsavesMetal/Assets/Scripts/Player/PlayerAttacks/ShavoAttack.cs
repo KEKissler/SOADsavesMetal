@@ -61,7 +61,10 @@ public class ShavoAttack : PlayerAttack
 
         // Attack
         shortRangeHitbox.SetActive(true);
+        Vector3 oldScale = shortRangeHitbox.transform.localScale;
+        shortRangeHitbox.transform.localScale = new Vector3(0.01f, 0.01f, oldScale.z);
         yield return null;
+        shortRangeHitbox.transform.localScale = oldScale;
         attackTimer = 0.0f;
         while(attackTimer < SHORT_ATTACK_HOLD_DURATION)
         {
