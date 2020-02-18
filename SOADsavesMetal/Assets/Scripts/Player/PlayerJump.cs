@@ -8,10 +8,11 @@ public class PlayerJump : MonoBehaviour
 
     public void HandleJump()
     {
-        if (!(ps.currentBandMember != "John" && ps.isSuperActive) && !ps.crouched &&
+        if (!ps.crouched && (ps.currentBandMember == "John" || !ps.isSuperActive) &&
             (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
                     && ps.remainingJumps > 0)
         {
+            ps.PlayAnims("Jump");
             ps.remainingJumps -= 1;
 
             ps.auso.PlayOneShot(ps.GetRandomSoundEffect(ps.JumpSounds));

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 50596864638449764}
   m_Layer: 0
   m_Name: Drumstick
-  m_TagString: Projectile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,9 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7932b2e4390330d4984727011dbc323a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 33.4
-  direction: 0
-  rotateWithPlayer: 1
   damage: 17
 --- !u!61 &61618785881774772
 BoxCollider2D:

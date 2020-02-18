@@ -35,7 +35,7 @@ public class PlayerHorizontalMovement : MonoBehaviour
                 }
             }
 
-            // If super, don't move (unless the player is John, the drummer)
+            // If currently executing super, don't move (unless the player is John, the drummer)
             if (ps.currentBandMember != "John" && ps.isSuperActive) return;
 
             ps.moving = true;

@@ -2,23 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShavoAttack : MonoBehaviour
+public class ShavoAttack : PlayerAttack
 {
-    private Player ps;
-
-	private bool attacking;
 	private float attackTimer = 0.0f; // General purpose timer
 
 	// Short range attack
     public GameObject shortRangeHitbox;
-    private const float SHORT_ATTACK_WINDUP = 0.25f;
-    private const float SHORT_ATTACK_HOLD_DURATION = 0.25f;
-    private const float SHORT_ATTACK_COOLDOWN = 0.01f;
+    private const float SHORT_ATTACK_WINDUP = 0.06f;
+    private const float SHORT_ATTACK_HOLD_DURATION = 0.19f;
     
     // Long range attack
     public GameObject musicNote;
     private const float LONG_ATTACK_WINDUP = 0.1f;
-    private const float LONG_ATTACK_COOLDOWN = 0.27f;
     private System.Random rand;
 
     // Super attack
@@ -28,10 +23,10 @@ public class ShavoAttack : MonoBehaviour
 	void Start () {
         ps = GameObject.FindWithTag("Player").GetComponent<Player>();
         shortRangeHitbox.SetActive(false);
-        attacking = false;
         rand = new System.Random();
 	}
 
+    /*
 	// Update is called once per frame
 	void Update ()
 	{
@@ -51,10 +46,10 @@ public class ShavoAttack : MonoBehaviour
             }
 		}
 	}
+    */
 
-    IEnumerator AttackShort()
+    public override IEnumerator AttackShort()
     {
-        attacking = true;
 
         // Windup period
         attackTimer = 0.0f;
@@ -76,21 +71,10 @@ public class ShavoAttack : MonoBehaviour
         yield return null;
         shortRangeHitbox.SendMessage("refreshHit");
         shortRangeHitbox.SetActive(false);
-
-        // Cooldown period
-        attackTimer = 0.0f;
-        while(attackTimer < SHORT_ATTACK_COOLDOWN)
-        {
-        	attackTimer += Time.deltaTime;
-        	yield return null;
-        }
-
-        attacking = false;
     }
 
-    IEnumerator AttackLong()
+    public override IEnumerator AttackLong()
     {
-    	attacking = true;
 
         attackTimer = 0.0f;
         while(attackTimer < LONG_ATTACK_WINDUP)
@@ -103,29 +87,23 @@ public class ShavoAttack : MonoBehaviour
     	GameObject mNote = Instantiate(musicNote, transform.parent.position, Quaternion.identity);
         MusicNote mnScript = mNote.GetComponent<MusicNote>();
         mnScript.playerRotationY = transform.parent.rotation.y;
-        mnScript.startTime = (float)rand.NextDouble() * 2f;
+        mnScript.startTime = (float)rand.NextDouble() * 4f;
         mnScript.oscillationPeriod = (float)rand.NextDouble() * 2f + 2f;
         mnScript.setSpeed((float)rand.NextDouble() * 2f + 5.8f);
         mNote.SetActive(true);
-
-        // Cooldown period
-        attackTimer = 0.0f;
-        while(attackTimer < LONG_ATTACK_COOLDOWN)
-        {
-        	attackTimer += Time.deltaTime;
-        	yield return null;
-        }
-
-    	attacking = false;
     }
 
-    IEnumerator AttackSuper()
+    public override IEnumerator AttackSuper()
     {
-        attacking = true;
-
         while (ps.blockAttackProgress) yield return null;
 
-        GameObject superRocksParent = Instantiate(rocks, transform.position + new Vector3(0.35f, -1.5f, 0), Quaternion.identity);
+        float xOffset = 0.35f, xSlowVelocity = 1.3f, xFastVelocity;
+        if (ps.FacingLeft())
+        {
+            xOffset *= -1f;
+            xSlowVelocity *= -1f;
+        }
+        GameObject superRocksParent = Instantiate(rocks, transform.position + new Vector3(xOffset, -1.5f, 0), Quaternion.identity);
         List<Rigidbody2D> rbRocks = new List<Rigidbody2D>();
         foreach (Transform child in superRocksParent.transform)
         {
@@ -134,7 +112,7 @@ public class ShavoAttack : MonoBehaviour
 
         foreach (Rigidbody2D rb in rbRocks)
         {
-            rb.velocity = new Vector2(1.3f, 7.2f);
+            rb.velocity = new Vector2(xSlowVelocity, 7.2f);
         }
 
         yield return new WaitForSeconds(0.05f);
@@ -143,12 +121,11 @@ public class ShavoAttack : MonoBehaviour
 
         foreach (Rigidbody2D rb in rbRocks)
         {
-            rb.velocity = new Vector2(17f + 2.5f * (float)rand.NextDouble() + 2.5f * (float)rand.NextDouble(),
+            xFastVelocity = 17f + 2.5f * (float)rand.NextDouble() + 2.5f * (float)rand.NextDouble();
+            if (ps.FacingLeft())
+                xFastVelocity *= -1f;
+            rb.velocity = new Vector2(xFastVelocity,
                 3.5f + 3.5f * (float)rand.NextDouble() + 3f * (float)rand.NextDouble());
         }
-
-        while (ps.attacking) yield return null;
-
-        attacking = false;
     }
 }
