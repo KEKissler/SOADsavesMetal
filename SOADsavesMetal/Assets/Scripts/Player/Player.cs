@@ -78,7 +78,7 @@ public class Player : MonoBehaviour {
     public AudioClip DaronShortRange;
     public AudioClip[] DaronLongRangeThrow;     // may condense to just 1 sound effect
     public AudioClip DaronLongRangeHit;         // may condense to just 1 sound effect
-    public AudioClip[] DaronSuper;
+    public AudioClip DaronSuper;
 
     [Header("Serj - Vocals")]
     public AudioClip SerjWingSprout;
