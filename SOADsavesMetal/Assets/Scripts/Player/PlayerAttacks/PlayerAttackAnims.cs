@@ -147,7 +147,7 @@ public class PlayerAttackAnims : MonoBehaviour
         else if (ps.currentBandMember == "Daron")
         {
             yield return null;
-            ps.auso.PlayOneShot(ps.GetRandomSoundEffect(ps.DaronSuper));
+            ps.auso.PlayOneShot(ps.DaronSuper);
             ps.playerLowerAnim.Play("DaronIdleLegs");
             ps.playerUpperAnim.Play("DaronSuper");
             if (!ps.moving && !ps.crouched && !ps.inAir)

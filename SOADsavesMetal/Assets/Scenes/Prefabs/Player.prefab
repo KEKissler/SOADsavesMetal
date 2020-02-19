@@ -1035,9 +1035,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1210e395e606ed04c880b92314e2abef, type: 3}
   - {fileID: 8300000, guid: c4092adb68853ce4cb2736d61f55060c, type: 3}
   DaronLongRangeHit: {fileID: 8300000, guid: 6680835b4594bed44914a9c92d57519a, type: 3}
-  DaronSuper:
-  - {fileID: 8300000, guid: ad6d68eb9c1929249b24ad93f80297cd, type: 3}
-  - {fileID: 8300000, guid: 85f496cad581bcc44bb9934fc2ba0151, type: 3}
+  DaronSuper: {fileID: 8300000, guid: 0310d728752f73646aebf93ee75a52b1, type: 3}
   SerjWingSprout: {fileID: 8300000, guid: 2bc4c9c6471733942833089f95626dc6, type: 3}
   SerjWingFlap:
   - {fileID: 8300000, guid: 089dd7e5fad9be5469015dcc3d36e537, type: 3}
