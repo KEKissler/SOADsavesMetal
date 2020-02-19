@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4057deb479dc742ac4c0e9862d7f1d, type: 3}
   m_Name: Defualt
   m_EditorClassIdentifier: 
-  AttackSelectionType: 0
+  AttackSelectionType: 1
   Attacks:
-  - attack: {fileID: 11400000, guid: 09b309e73025b1d4389ee8d14a7af82a, type: 2}
+  - attack: {fileID: 11400000, guid: ba13f7c423dc1c54e8dd115ae36ea948, type: 2}
+    percentThreshold: 50
+  - attack: {fileID: 11400000, guid: 86ba7dc11774efa439bc629b6a6b5a3c, type: 2}
     percentThreshold: 100

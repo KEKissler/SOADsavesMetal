@@ -67,7 +67,7 @@ public class StaticData: MonoBehaviour
             Player playerScript = playerObject.GetComponent<Player>(); //gets Player component
             if(playerScript != null)
             {
-                playerScript.currentBandMember = playerSelected; // sets player to selected player
+                // playerScript.currentBandMember = playerSelected; // sets player to selected player
             }
         }
     }
