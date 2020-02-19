@@ -29,8 +29,11 @@ public abstract class BossAttack : ScriptableObject
         yield return new WaitForSeconds(duration);
         if (executingAttack != null)
         {
-            Debug.LogWarning("Cannot stop a null Coroutine");
             CoroutineRunner.instance.StopCoroutine(executingAttack);
+        }
+        else
+        {
+            Debug.LogWarning("Cannot stop a null Coroutine");
         }
         OnEnd();
     }
