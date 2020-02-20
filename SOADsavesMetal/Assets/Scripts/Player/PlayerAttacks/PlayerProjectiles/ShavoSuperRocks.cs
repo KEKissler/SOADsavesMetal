@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ShavoSuperRocks : PlayerProjectile
 {
+    private bool hasHitBoss;
+
     // Start is called before the first frame update
     void Start()
     {
-        damage = 479;
+        hasHitBoss = false;
         DestroyAfter(2.5f);
     }
 
@@ -15,5 +17,14 @@ public class ShavoSuperRocks : PlayerProjectile
     void Update()
     {
         
+    }
+
+    public void hitBoss(Collider2D col)
+    {
+        if (!hasHitBoss)
+        {
+            hasHitBoss = true;
+            col.gameObject.SendMessage("hit", damage);
+        }
     }
 }

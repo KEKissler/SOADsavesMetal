@@ -135,7 +135,7 @@ public class Nhang : MonoBehaviour
     float endDrag = 3.2f;
     bool snakeMoving = false;
 
-    IEnumerator fallToGround()
+    public IEnumerator fallToGround()
     {
         snakeMoving = true;
         canHitPlayer(true);
@@ -214,7 +214,7 @@ public class Nhang : MonoBehaviour
         snakeMoving = false;
     }
 
-    IEnumerator slam()
+    public IEnumerator slam()
     {
         attacking = true;
         float timer = 0f;
@@ -252,8 +252,10 @@ public class Nhang : MonoBehaviour
         attacking = false;
     }
 
-    IEnumerator lunge(GameObject target)
+    public IEnumerator lunge(GameObject target)
     {
+
+        Debug.Log("LUNGE");
         attacking = true;
         snakeHeadHitbox.enabled = false;
         float timer = 0f;

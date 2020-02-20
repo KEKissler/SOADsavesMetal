@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "New Attack/Nhang/TrackBoly")]
+[CreateAssetMenu(menuName = "New Attack/Nhang/TrackBolt")]
 public class TrackBolt : NhangAttack
 {
     [SerializeField]
@@ -33,13 +33,13 @@ public class TrackBolt : NhangAttack
         yield return null;
         if (fireboltObject.GetComponent<Projectile>() != null)
             fireboltObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed,
-                degreeModifier, fixedAngle);
+                degreeModifier);
 
     }
 
     protected override void OnEnd()
     {
-        throw new System.NotImplementedException();
+        //
     }
 
     protected override void OnStart()

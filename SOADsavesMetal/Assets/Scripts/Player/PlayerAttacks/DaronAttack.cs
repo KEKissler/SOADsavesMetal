@@ -2,24 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DaronAttack : MonoBehaviour
+public class DaronAttack : PlayerAttack
 {
-    GameObject boss;
-
-	private bool attacking;
 	private float attackTimer = 0.0f; // General purpose timer
 
 	// Short range attack
     // Should target nearby enemy if in range, otherwise shoots straight forward
-    public GameObject shortRangeHitbox;
+    public GameObject stringBreak;
     private const float SHORT_ATTACK_WINDUP = 0.25f;
     private const float SHORT_ATTACK_HOLD_DURATION = 0.26f;
-    private const float SHORT_ATTACK_COOLDOWN = 0.01f;
     
     // Long range attack
-    public GameObject musicNote;
+    public GameObject guitarPick;
     private const float LONG_ATTACK_WINDUP = 0.33f;
-    private const float LONG_ATTACK_COOLDOWN = 0.47f;
 
     // Super attack
     public GameObject cymbal;
@@ -32,11 +27,10 @@ public class DaronAttack : MonoBehaviour
     
 	// Use this for initialization
 	void Start () {
-        boss = GameObject.FindWithTag("Boss");
-        shortRangeHitbox.SetActive(false);
-        attacking = false;
+
 	}
 
+    /*
 	// Update is called once per frame
 	void Update ()
 	{
@@ -56,17 +50,10 @@ public class DaronAttack : MonoBehaviour
             }
 		}
 	}
+    */
 
-    // Returns the enemy that should be targeted by the long range attack
-    GameObject getTarget()
+    public override IEnumerator AttackShort()
     {
-        return boss;
-    }
-
-    IEnumerator AttackShort()
-    {
-        attacking = true;
-
         // Windup period
         attackTimer = 0.0f;
         while(attackTimer < SHORT_ATTACK_WINDUP)
@@ -76,30 +63,16 @@ public class DaronAttack : MonoBehaviour
         }
 
         // Attack
-        shortRangeHitbox.SetActive(true);
         attackTimer = 0.0f;
         while(attackTimer < SHORT_ATTACK_HOLD_DURATION)
         {
         	attackTimer += Time.deltaTime;
         	yield return null;
         }
-        shortRangeHitbox.SetActive(false);
-
-        // Cooldown period
-        attackTimer = 0.0f;
-        while(attackTimer < SHORT_ATTACK_COOLDOWN)
-        {
-        	attackTimer += Time.deltaTime;
-        	yield return null;
-        }
-
-        attacking = false;
     }
 
-    IEnumerator AttackLong()
+    public override IEnumerator AttackLong()
     {
-    	attacking = true;
-
         attackTimer = 0.0f;
         while(attackTimer < LONG_ATTACK_WINDUP)
         {
@@ -108,25 +81,13 @@ public class DaronAttack : MonoBehaviour
         }
 
     	// Create projectile (musicNote)
-    	GameObject dsClone = Instantiate(musicNote, getTarget().transform.position + new Vector3(0, 4f, 0), transform.parent.rotation);
-
-        // Cooldown period
-        attackTimer = 0.0f;
-        while(attackTimer < LONG_ATTACK_COOLDOWN)
-        {
-        	attackTimer += Time.deltaTime;
-        	yield return null;
-        }
-
-    	attacking = false;
+    	// GameObject dsClone = Instantiate(musicNote, getTarget().transform.position + new Vector3(0, 4f, 0), transform.parent.rotation);
     }
 
     // Maybe super bleeds / distracts boss if it hits?
     // (Disrupts attack patterns but that would require attack patterns to be created first)
-    IEnumerator AttackSuper()
+    public override IEnumerator AttackSuper()
     {
-        attacking = true;
-
         curr_time_between_shots = TIME_BETWEEN_SHOTS_HIGH;
         attackTimer = 0.0f;
         shotTimer = 0.0f;
@@ -152,14 +113,5 @@ public class DaronAttack : MonoBehaviour
             GameObject cymbalClone = Instantiate(cymbal, transform.position, transform.parent.rotation);
             cymbalClone.transform.localScale *= new Vector2(1.2f, 1.2f);
         }
-
-        attackTimer = 0.0f;
-        while(attackTimer < LONG_ATTACK_COOLDOWN)
-        {
-            attackTimer += Time.deltaTime;
-            yield return null;
-        }
-
-        attacking = false;
     }
 }

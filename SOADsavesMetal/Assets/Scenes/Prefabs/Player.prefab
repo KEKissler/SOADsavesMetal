@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99760ef5f5aa84446957f9a48256cd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
   shortRangeHitbox: {fileID: 7072049019509825791}
   musicNote: {fileID: 3085386667858968886, guid: 51fc87d4b1e7a7d44bc2b9515669fee4,
     type: 3}
@@ -292,7 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 111
+  damage: 55
 --- !u!58 &5186917033745648097
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -414,6 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e280697de6bf2eb48a1725d610971a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
   shortRangeHitbox: {fileID: 1700851087149963370}
   drumstick: {fileID: 1934037792989198, guid: 9abd557049d819441b7d884a4aa2d653, type: 3}
   cymbal: {fileID: 1312487970120966, guid: 8f9c7732d14746745b38e29d40bf5efd, type: 3}
@@ -633,7 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 187
+  damage: 55
 --- !u!1 &8606488155122572079
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,6 +748,7 @@ MonoBehaviour:
   ShavoAttack: {fileID: 267264919}
   DaronAttack: {fileID: 1592019094}
   SerjAttack: {fileID: 1592019094}
+  pa: {fileID: 0}
 --- !u!114 &1787599692000143368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,7 +897,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 6ea6c7b16aa17cb4491483948961a610, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -990,6 +993,7 @@ MonoBehaviour:
   movedWhileAttacking: 0
   deathStarted: 0
   listeningForDoubleDownTap: 0
+  blockAttackProgress: 0
   playerUpperAnim: {fileID: 0}
   playerLowerAnim: {fileID: 9117497486779350954}
   shortRange: {fileID: 0}
@@ -1031,9 +1035,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1210e395e606ed04c880b92314e2abef, type: 3}
   - {fileID: 8300000, guid: c4092adb68853ce4cb2736d61f55060c, type: 3}
   DaronLongRangeHit: {fileID: 8300000, guid: 6680835b4594bed44914a9c92d57519a, type: 3}
-  DaronSuper:
-  - {fileID: 8300000, guid: ad6d68eb9c1929249b24ad93f80297cd, type: 3}
-  - {fileID: 8300000, guid: 85f496cad581bcc44bb9934fc2ba0151, type: 3}
+  DaronSuper: {fileID: 8300000, guid: 0310d728752f73646aebf93ee75a52b1, type: 3}
   SerjWingSprout: {fileID: 8300000, guid: 2bc4c9c6471733942833089f95626dc6, type: 3}
   SerjWingFlap:
   - {fileID: 8300000, guid: 089dd7e5fad9be5469015dcc3d36e537, type: 3}

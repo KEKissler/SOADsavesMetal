@@ -11,7 +11,6 @@ public class Cymbal : PlayerProjectile {
 
     // Use this for initialization
     void Start () {
-        damage = 33;
         rb = GetComponent<Rigidbody2D>();
         float angle = Mathf.Deg2Rad*transform.rotation.y*-180f;
 

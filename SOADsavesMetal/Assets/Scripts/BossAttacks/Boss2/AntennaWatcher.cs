@@ -34,9 +34,7 @@ public class AntennaWatcher : MonoBehaviour
     public Material screen5DefaultMat;
 
     [System.NonSerialized]
-    public SpriteRenderer faceVisable;
-    [System.NonSerialized]
-    public CapsuleCollider2D tsovinarHitBox;
+    public GameObject tsovinar;
     [System.NonSerialized]
     public CapsuleCollider2D antennaHitBox;
 
@@ -98,8 +96,7 @@ public class AntennaWatcher : MonoBehaviour
         screen3.GetComponent<SpriteRenderer>().sharedMaterial = screen3DefaultMat;
         screen4.GetComponent<SpriteRenderer>().sharedMaterial = screen4DefaultMat;
         screen5.GetComponent<SpriteRenderer>().sharedMaterial = screen5DefaultMat;
-        faceVisable.enabled = true;
-        tsovinarHitBox.enabled = true;
+        tsovinar.SetActive(true);
         antennaHitBox.enabled = false;
     }
 

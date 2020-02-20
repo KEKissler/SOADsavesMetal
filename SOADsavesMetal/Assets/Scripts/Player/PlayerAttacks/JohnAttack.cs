@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JohnAttack : MonoBehaviour {
-	
-	private bool attacking;
-    private Player playerScript;
+public class JohnAttack : PlayerAttack {
+
 	private float attackTimer = 0.0f; // General purpose timer
 
 	// Short range attack
     public GameObject shortRangeHitbox;
-    private const float SHORT_ATTACK_HOLD_DURATION = 0.4f;
-    private const float SHORT_ATTACK_COOLDOWN = 0.1f;
+    private const float SHORT_ATTACK_HOLD_DURATION = 0.16f;
     
     // Long range attack
     public GameObject drumstick;
@@ -32,11 +29,10 @@ public class JohnAttack : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        playerScript = gameObject.GetComponentInParent<Player>();
         shortRangeHitbox.SetActive(false);
-        attacking = false;
 	}
 
+    /*
 	// Update is called once per frame
 	void Update ()
 	{
@@ -56,84 +52,57 @@ public class JohnAttack : MonoBehaviour {
             }
 		}
 	}
+    */
 
-    IEnumerator AttackShort()
+    public override IEnumerator AttackShort()
     {
-        attacking = true;
-
         // Windup period
         shortRangeHitbox.transform.localScale = new Vector3(0.01f,
             shortRangeHitbox.transform.localScale.y, shortRangeHitbox.transform.localScale.z);
         shortRangeHitbox.transform.localPosition = new Vector2(0.8f, 0.18f);
         shortRangeHitbox.SetActive(true);
-        yield return null;
         shortRangeHitbox.SendMessage("refreshHit");
-        attackTimer = 0.0f;
-        while(attackTimer < 0.32f)
-        {
-            attackTimer += Time.deltaTime;
-            yield return null;
-        }
+        yield return null;
+
+        while (ps.blockAttackProgress) yield return null;
 
         // Attack
-        shortRangeHitbox.transform.localPosition = new Vector2(1.18f, 0.18f);
+        shortRangeHitbox.transform.localPosition = new Vector2(1.15f, 0.18f);
         attackTimer = 0.0f;
-        while(attackTimer < 0.25f)
+        while(attackTimer < SHORT_ATTACK_HOLD_DURATION)
         {
         	attackTimer += Time.deltaTime;
-            shortRangeHitbox.transform.localScale = new Vector3(Mathf.Lerp(0.01f, 3.2f, attackTimer/SHORT_ATTACK_HOLD_DURATION),
+            shortRangeHitbox.transform.localScale = new Vector3(Mathf.Lerp(0.01f, 3.1f, attackTimer/SHORT_ATTACK_HOLD_DURATION),
                 shortRangeHitbox.transform.localScale.y, shortRangeHitbox.transform.localScale.z);
         	yield return null;
         }
         shortRangeHitbox.SetActive(false);
-
-        // Cooldown period
-        attackTimer = 0.0f;
-        while(attackTimer < 0.03f)
-        {
-        	attackTimer += Time.deltaTime;
-        	yield return null;
-        }
-
-        attacking = false;
     }
 
-    IEnumerator AttackLong()
+    public override IEnumerator AttackLong()
     {
-    	attacking = true;
-
-        float weDontLikeEyeLaserDrumsticks = 0f;
-        if (playerScript.isCrouching()) weDontLikeEyeLaserDrumsticks = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
+        float drumstickYReductionWhenCrouched = 0f;
+        if (ps.isCrouching()) drumstickYReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
 
     	// Create projectile (drumstick)
     	GameObject dsClone = Instantiate(drumstick, transform.position +
-            new Vector3(DRUMSTICK_FORWARD_OFFSET, weDontLikeEyeLaserDrumsticks, 0),
+            new Vector3(DRUMSTICK_FORWARD_OFFSET, drumstickYReductionWhenCrouched, 0),
             transform.parent.rotation);
 
-        // Cooldown period
-        attackTimer = 0.0f;
-        while(attackTimer < LONG_ATTACK_COOLDOWN)
-        {
-        	attackTimer += Time.deltaTime;
-        	yield return null;
-        }
-
-    	attacking = false;
+        yield return null;
     }
 
-    IEnumerator AttackSuper()
+    public override IEnumerator AttackSuper()
     {
-        attacking = true;
-
-        float weDontLikeEyeLaserDrumsticks = 0f;
+        float drumstickYReductionWhenCrouched = 0f;
 
         curr_time_between_shots = TIME_BETWEEN_SHOTS_HIGH;
         attackTimer = 0.0f;
         shotTimer = 0.0f;
         while(attackTimer < SUPER_LENGTH)
         {
-            if (playerScript.isCrouching()) weDontLikeEyeLaserDrumsticks = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
-            else weDontLikeEyeLaserDrumsticks = 0f;
+            if (ps.isCrouching()) drumstickYReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
+            else drumstickYReductionWhenCrouched = 0f;
             shotTimer += Time.deltaTime;
             attackTimer += Time.deltaTime;
             
@@ -145,7 +114,7 @@ public class JohnAttack : MonoBehaviour {
                 shotTimer %= curr_time_between_shots;
                 // Debug.Log(shotTimer);
                 GameObject cymbalClone = Instantiate(cymbal, transform.position + 
-                    new Vector3(DRUMSTICK_FORWARD_OFFSET, weDontLikeEyeLaserDrumsticks, 0), transform.parent.rotation);
+                    new Vector3(DRUMSTICK_FORWARD_OFFSET, drumstickYReductionWhenCrouched, 0), transform.parent.rotation);
             }
             yield return null;
         }
@@ -153,18 +122,9 @@ public class JohnAttack : MonoBehaviour {
         for(int i=0; i<FINAL_BURST_SIZE; ++i)
         {
             GameObject cymbalClone = Instantiate(cymbal, transform.position + 
-                new Vector3(DRUMSTICK_FORWARD_OFFSET, weDontLikeEyeLaserDrumsticks, 0), transform.parent.rotation);
+                new Vector3(DRUMSTICK_FORWARD_OFFSET, drumstickYReductionWhenCrouched, 0), transform.parent.rotation);
             cymbalClone.transform.localScale *= new Vector2(1.2f, 1.2f);
         }
-
-        attackTimer = 0.0f;
-        while(attackTimer < LONG_ATTACK_COOLDOWN)
-        {
-            attackTimer += Time.deltaTime;
-            yield return null;
-        }
-
-        attacking = false;
     }
 
     // Create variable get methods here

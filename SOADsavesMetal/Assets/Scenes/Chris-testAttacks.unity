@@ -459,14 +459,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9117497486897271003, guid: efc0d8d3460c18043896482f0ba598cb,
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: currentBandMember
+      value: Shavo
       objectReference: {fileID: 0}
     - target: {fileID: 267264919, guid: efc0d8d3460c18043896482f0ba598cb, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117497486897271003, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 989752453, guid: efc0d8d3460c18043896482f0ba598cb, type: 3}
       propertyPath: m_LocalPosition.x

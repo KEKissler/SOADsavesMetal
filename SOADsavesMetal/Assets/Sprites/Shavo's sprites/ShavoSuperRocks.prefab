@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1285031863073552364}
   - component: {fileID: 3927025373334178338}
   - component: {fileID: 1616043807121635189}
+  - component: {fileID: 259843507483150438}
   m_Layer: 0
   m_Name: shavo_super_rocks_1
   m_TagString: Untagged
@@ -118,6 +119,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &259843507483150438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271700478158306688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &294907881713088633
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +144,7 @@ GameObject:
   - component: {fileID: 2617199929017657083}
   - component: {fileID: 5273942157294596562}
   - component: {fileID: 3773124479426012658}
+  - component: {fileID: 4741874202294975400}
   m_Layer: 0
   m_Name: shavo_super_rocks_3 (1)
   m_TagString: Untagged
@@ -236,6 +251,19 @@ CircleCollider2D:
   m_Offset: {x: -0.000000059604645, y: -0.000000029802322}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &4741874202294975400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294907881713088633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &396148136312181587
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +276,7 @@ GameObject:
   - component: {fileID: 2955455630390113732}
   - component: {fileID: 2373490221618471555}
   - component: {fileID: 646265445619094864}
+  - component: {fileID: 4656552704172132324}
   m_Layer: 0
   m_Name: shavo_super_rocks_1 (1)
   m_TagString: Untagged
@@ -354,6 +383,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.000000029802322}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &4656552704172132324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396148136312181587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &751838184477340944
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,6 +408,7 @@ GameObject:
   - component: {fileID: 28987405087878861}
   - component: {fileID: 4132383954599598247}
   - component: {fileID: 5678378225886614380}
+  - component: {fileID: 3349807329181231613}
   m_Layer: 0
   m_Name: shavo_super_rocks_0
   m_TagString: Untagged
@@ -472,6 +515,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.000000029802322}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &3349807329181231613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751838184477340944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &825972058558601672
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,6 +540,7 @@ GameObject:
   - component: {fileID: 825972058558601674}
   - component: {fileID: 7522707604029376904}
   - component: {fileID: 5871343805160409813}
+  - component: {fileID: 393182688076720975}
   m_Layer: 0
   m_Name: shavo_super_rocks_5
   m_TagString: Untagged
@@ -590,6 +647,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &393182688076720975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825972058558601672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &825972058994578781
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +672,7 @@ GameObject:
   - component: {fileID: 825972058994578783}
   - component: {fileID: 36921994198687866}
   - component: {fileID: 8858268413945677545}
+  - component: {fileID: 3723172199899144086}
   m_Layer: 0
   m_Name: shavo_super_rocks_5
   m_TagString: Untagged
@@ -708,6 +779,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &3723172199899144086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825972058994578781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &825972059146524522
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +804,7 @@ GameObject:
   - component: {fileID: 825972059146524309}
   - component: {fileID: 7941274196727029762}
   - component: {fileID: 5297474621813998094}
+  - component: {fileID: 4579145685309172085}
   m_Layer: 0
   m_Name: shavo_super_rocks_4
   m_TagString: Untagged
@@ -826,6 +911,19 @@ CircleCollider2D:
   m_Offset: {x: 0.000000059604645, y: -0.000000014901161}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &4579145685309172085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825972059146524522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &825972060332195034
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a70b1bb9d1789034d989ecaa0c5a1c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 30
+  damage: 400
 --- !u!1 &825972060364862032
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +1011,7 @@ GameObject:
   - component: {fileID: 825972060364862034}
   - component: {fileID: 6959333909804883607}
   - component: {fileID: 8280780593248978099}
+  - component: {fileID: 8960106720548625623}
   m_Layer: 0
   m_Name: shavo_super_rocks_6
   m_TagString: Untagged
@@ -1019,6 +1118,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &8960106720548625623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825972060364862032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &1068159863527321157
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,6 +1143,7 @@ GameObject:
   - component: {fileID: 3036459471392746186}
   - component: {fileID: 4964780376504214870}
   - component: {fileID: 7123478224390009157}
+  - component: {fileID: 6451439821153257401}
   m_Layer: 0
   m_Name: shavo_super_rocks_3 (2)
   m_TagString: Untagged
@@ -1137,6 +1250,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.000000029802322}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &6451439821153257401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068159863527321157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &1121274864443439773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,6 +1275,7 @@ GameObject:
   - component: {fileID: 3498364750550174186}
   - component: {fileID: 8429809003533832336}
   - component: {fileID: 9091024217305124416}
+  - component: {fileID: 308288956892997400}
   m_Layer: 0
   m_Name: shavo_super_rocks_1 (2)
   m_TagString: Untagged
@@ -1255,6 +1382,19 @@ CircleCollider2D:
   m_Offset: {x: -0.000000059604645, y: -0.000000029802322}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &308288956892997400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121274864443439773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &1633052766228041586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,6 +1407,7 @@ GameObject:
   - component: {fileID: 4056224735490266307}
   - component: {fileID: 6357219028869394758}
   - component: {fileID: 7059461434305102373}
+  - component: {fileID: 8453565457496051880}
   m_Layer: 0
   m_Name: shavo_super_rocks_1 (1)
   m_TagString: Untagged
@@ -1373,6 +1514,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.000000014901161}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &8453565457496051880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633052766228041586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &2274243733424676267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,6 +1539,7 @@ GameObject:
   - component: {fileID: 537078057145287205}
   - component: {fileID: 2779709893266412619}
   - component: {fileID: 9171872217453980282}
+  - component: {fileID: 5283200671655488858}
   m_Layer: 0
   m_Name: shavo_super_rocks_2
   m_TagString: Untagged
@@ -1491,6 +1646,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &5283200671655488858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2274243733424676267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &2590934774142187252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,6 +1671,7 @@ GameObject:
   - component: {fileID: 6070153894837931179}
   - component: {fileID: 2436589606704157603}
   - component: {fileID: 7915991884020561306}
+  - component: {fileID: 3815188639185620825}
   m_Layer: 0
   m_Name: shavo_super_rocks_2 (1)
   m_TagString: Untagged
@@ -1609,6 +1778,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.000000014901161}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &3815188639185620825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590934774142187252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &2948731942576722559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,6 +1803,7 @@ GameObject:
   - component: {fileID: 4872815988260338612}
   - component: {fileID: 8502522577996647599}
   - component: {fileID: 8479565403001576407}
+  - component: {fileID: 5225048821854746276}
   m_Layer: 0
   m_Name: shavo_super_rocks_5
   m_TagString: Untagged
@@ -1727,6 +1910,19 @@ CircleCollider2D:
   m_Offset: {x: 0.000000059604645, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &5225048821854746276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948731942576722559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &3211659034347387675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1739,6 +1935,7 @@ GameObject:
   - component: {fileID: 6194724634443896700}
   - component: {fileID: 7731035755049985682}
   - component: {fileID: 4180819296560986488}
+  - component: {fileID: 974031426807403409}
   m_Layer: 0
   m_Name: shavo_super_rocks_2 (3)
   m_TagString: Untagged
@@ -1845,6 +2042,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &974031426807403409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3211659034347387675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &3529687898021188873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,6 +2067,7 @@ GameObject:
   - component: {fileID: 7080409197094211578}
   - component: {fileID: 2531027537336798050}
   - component: {fileID: 5308665745465806186}
+  - component: {fileID: 2754662469390596390}
   m_Layer: 0
   m_Name: shavo_super_rocks_0 (3)
   m_TagString: Untagged
@@ -1963,6 +2174,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.000000059604645}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &2754662469390596390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3529687898021188873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &4190524531087184555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,6 +2199,7 @@ GameObject:
   - component: {fileID: 1048878734071988374}
   - component: {fileID: 5195974387640260771}
   - component: {fileID: 2988576319045248414}
+  - component: {fileID: 5248273017924424681}
   m_Layer: 0
   m_Name: shavo_super_rocks_3 (1)
   m_TagString: Untagged
@@ -2081,6 +2306,19 @@ CircleCollider2D:
   m_Offset: {x: 0.000000059604645, y: 0.000000029802322}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &5248273017924424681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4190524531087184555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &4621978649472156872
 GameObject:
   m_ObjectHideFlags: 0
@@ -2093,6 +2331,7 @@ GameObject:
   - component: {fileID: 5980235400128037626}
   - component: {fileID: 1701234506535697265}
   - component: {fileID: 1738462657899493848}
+  - component: {fileID: 1739721455430958350}
   m_Layer: 0
   m_Name: shavo_super_rocks_3
   m_TagString: Untagged
@@ -2199,6 +2438,19 @@ CircleCollider2D:
   m_Offset: {x: -0.000000059604645, y: -0.000000014901161}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &1739721455430958350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4621978649472156872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &4835416133681783300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,6 +2463,7 @@ GameObject:
   - component: {fileID: 3288336630806038668}
   - component: {fileID: 2201016906601036245}
   - component: {fileID: 1936420082182788690}
+  - component: {fileID: 3272246876773800204}
   m_Layer: 0
   m_Name: shavo_super_rocks_2 (2)
   m_TagString: Untagged
@@ -2317,6 +2570,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &3272246876773800204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4835416133681783300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &5008224743878208858
 GameObject:
   m_ObjectHideFlags: 0
@@ -2329,6 +2595,7 @@ GameObject:
   - component: {fileID: 7485661641803910209}
   - component: {fileID: 9180598721165283017}
   - component: {fileID: 7461787816325768762}
+  - component: {fileID: 7504815404290970753}
   m_Layer: 0
   m_Name: shavo_super_rocks_3
   m_TagString: Untagged
@@ -2435,6 +2702,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.000000014901161}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &7504815404290970753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5008224743878208858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &5123834745627059829
 GameObject:
   m_ObjectHideFlags: 0
@@ -2447,6 +2727,7 @@ GameObject:
   - component: {fileID: 2667861631444449503}
   - component: {fileID: 8947509077093224197}
   - component: {fileID: 8354305108612107585}
+  - component: {fileID: 9128063024887744989}
   m_Layer: 0
   m_Name: shavo_super_rocks_2 (3)
   m_TagString: Untagged
@@ -2553,6 +2834,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &9128063024887744989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5123834745627059829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &5140158583917699321
 GameObject:
   m_ObjectHideFlags: 0
@@ -2565,6 +2859,7 @@ GameObject:
   - component: {fileID: 9053123537645506945}
   - component: {fileID: 1355119092852821272}
   - component: {fileID: 5365989894663763300}
+  - component: {fileID: 3813442431437337728}
   m_Layer: 0
   m_Name: shavo_super_rocks_2 (1)
   m_TagString: Untagged
@@ -2671,6 +2966,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &3813442431437337728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5140158583917699321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &6098304447543012543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2683,6 +2991,7 @@ GameObject:
   - component: {fileID: 134725512673343795}
   - component: {fileID: 4379712382772991302}
   - component: {fileID: 5831005792634833470}
+  - component: {fileID: 3467756777464112277}
   m_Layer: 0
   m_Name: shavo_super_rocks_1 (3)
   m_TagString: Untagged
@@ -2789,6 +3098,19 @@ CircleCollider2D:
   m_Offset: {x: -0.000000059604645, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &3467756777464112277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6098304447543012543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &6318648330592772689
 GameObject:
   m_ObjectHideFlags: 0
@@ -2801,6 +3123,7 @@ GameObject:
   - component: {fileID: 253500970235624833}
   - component: {fileID: 773191311648070291}
   - component: {fileID: 7728343137716710223}
+  - component: {fileID: 3029019112888306024}
   m_Layer: 0
   m_Name: shavo_super_rocks_2
   m_TagString: Untagged
@@ -2907,6 +3230,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.000000014901161}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &3029019112888306024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6318648330592772689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &6403379100886253291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2919,6 +3255,7 @@ GameObject:
   - component: {fileID: 2694903669065957818}
   - component: {fileID: 1197042128469038641}
   - component: {fileID: 2146495004459124440}
+  - component: {fileID: 665379653852752976}
   m_Layer: 0
   m_Name: shavo_super_rocks_0 (1)
   m_TagString: Untagged
@@ -3025,6 +3362,19 @@ CircleCollider2D:
   m_Offset: {x: 0.00000011920929, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &665379653852752976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6403379100886253291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &6412161824375742319
 GameObject:
   m_ObjectHideFlags: 0
@@ -3037,6 +3387,7 @@ GameObject:
   - component: {fileID: 2426011781299296353}
   - component: {fileID: 729073821756013318}
   - component: {fileID: 4269484169135865906}
+  - component: {fileID: 887573077828020618}
   m_Layer: 0
   m_Name: shavo_super_rocks_1
   m_TagString: Untagged
@@ -3143,6 +3494,19 @@ CircleCollider2D:
   m_Offset: {x: 0.000000059604645, y: -0.000000007450581}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &887573077828020618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6412161824375742319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &7010938160443043148
 GameObject:
   m_ObjectHideFlags: 0
@@ -3155,6 +3519,7 @@ GameObject:
   - component: {fileID: 1299752119453212906}
   - component: {fileID: 7747390268983889174}
   - component: {fileID: 3852425017058531524}
+  - component: {fileID: 1172432952902353976}
   m_Layer: 0
   m_Name: shavo_super_rocks_0 (2)
   m_TagString: Untagged
@@ -3261,6 +3626,19 @@ CircleCollider2D:
   m_Offset: {x: -0.000000059604645, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &1172432952902353976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7010938160443043148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &7224271238756760369
 GameObject:
   m_ObjectHideFlags: 0
@@ -3273,6 +3651,7 @@ GameObject:
   - component: {fileID: 7549358719336917147}
   - component: {fileID: 7727402248573265924}
   - component: {fileID: 8041258839741567848}
+  - component: {fileID: 7669979759503161871}
   m_Layer: 0
   m_Name: shavo_super_rocks_4
   m_TagString: Untagged
@@ -3379,6 +3758,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.000000014901161}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &7669979759503161871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7224271238756760369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &7375194084561201270
 GameObject:
   m_ObjectHideFlags: 0
@@ -3391,6 +3783,7 @@ GameObject:
   - component: {fileID: 8406063159849276819}
   - component: {fileID: 1077019798790768171}
   - component: {fileID: 5459795581769469402}
+  - component: {fileID: 8709044807670245700}
   m_Layer: 0
   m_Name: shavo_super_rocks_2 (2)
   m_TagString: Untagged
@@ -3497,6 +3890,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &8709044807670245700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7375194084561201270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &7736598117631745776
 GameObject:
   m_ObjectHideFlags: 0
@@ -3509,6 +3915,7 @@ GameObject:
   - component: {fileID: 1896236927531845140}
   - component: {fileID: 7872768942425004445}
   - component: {fileID: 4929528379738770656}
+  - component: {fileID: 7147162923630780171}
   m_Layer: 0
   m_Name: shavo_super_rocks_0
   m_TagString: Untagged
@@ -3615,6 +4022,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.000000022351742}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &7147162923630780171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7736598117631745776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}
 --- !u!1 &8350793400406485201
 GameObject:
   m_ObjectHideFlags: 0
@@ -3627,6 +4047,7 @@ GameObject:
   - component: {fileID: 5917106744985535118}
   - component: {fileID: 8910942417624633875}
   - component: {fileID: 1418401714987410070}
+  - component: {fileID: 8261282525140548534}
   m_Layer: 0
   m_Name: shavo_super_rocks_0 (1)
   m_TagString: Untagged
@@ -3733,3 +4154,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.000000022351742}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &8261282525140548534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8350793400406485201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f4f0ead8c33742b66bf62ef2b3675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockManager: {fileID: 6575619565356843618}

@@ -36,12 +36,13 @@ public class Player : MonoBehaviour {
     public bool deathStarted;
     public bool listeningForDoubleDownTap;
 
-    //Attack state
+    //Attack state blocker
     public bool blockAttackProgress;
 
     //Scripts
     private PlayerHorizontalMovement phm;
     private PlayerJump pj;
+    private PlayerAttackManager pam;
 
     //Player Animation Variables
     [Header("Player Animation Variables")]
@@ -77,7 +78,7 @@ public class Player : MonoBehaviour {
     public AudioClip DaronShortRange;
     public AudioClip[] DaronLongRangeThrow;     // may condense to just 1 sound effect
     public AudioClip DaronLongRangeHit;         // may condense to just 1 sound effect
-    public AudioClip[] DaronSuper;
+    public AudioClip DaronSuper;
 
     [Header("Serj - Vocals")]
     public AudioClip SerjWingSprout;
@@ -127,9 +128,11 @@ public class Player : MonoBehaviour {
         paa = GetComponentInChildren<PlayerAttackAnims>();
         phm = GetComponent<PlayerHorizontalMovement>();
         pj = GetComponent<PlayerJump>();
+        pam = GetComponentInChildren<PlayerAttackManager>();
         paa.ps = this;
         phm.ps = this;
         pj.ps = this;
+        pam.pa.ps = this;
 
         // Empty check on bandmember name
         if(currentBandMember == "")
@@ -140,6 +143,11 @@ public class Player : MonoBehaviour {
 
     public AudioClip GetRandomSoundEffect(AudioClip[] array) {
         return array[Random.Range(0,array.Length)];
+    }
+
+    public bool FacingLeft()
+    {
+        return transform.rotation.y != 0f;
     }
 
 	void Update () {
@@ -201,21 +209,24 @@ public class Player : MonoBehaviour {
 
             pj.HandleJump();
 
-            #region Attack Animations
+            #region Attacks
             //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
             if (Input.GetKeyDown(KeyCode.Z) && !crouched && !attacking) {
                 auso.Stop();
                 StartCoroutine(paa.shortRangeAttackAnims());
+                StartCoroutine(pam.pa.AttackShort());
             }
             else if(Input.GetKeyDown(KeyCode.X) && !attacking) {
                 auso.Stop();
                 StartCoroutine(paa.longRangeAttackAnims());
+                StartCoroutine(pam.pa.AttackLong());
             }
             else if(Input.GetKeyDown(KeyCode.C) && !attacking && !isSuperActive) {
                 auso.Stop();
                 StartCoroutine(paa.superAttackAnims());
+                StartCoroutine(pam.pa.AttackSuper());
             }
-            #endregion Attack Animations
+            #endregion Attacks
 
             phm.HandleHorizontalMovement();
         }
@@ -230,7 +241,7 @@ public class Player : MonoBehaviour {
 
     #region Collision Detection
     public void OnCollisionEnter2D(Collision2D coll) {
-        if (coll.collider.tag == "Floor" && !Dead && !isSuperActive) {
+        if (coll.collider.tag == "Floor" && !Dead) {
             playerLowerAnim.Play(GetAnimName("LandLegs"));
         }
     }
@@ -246,6 +257,7 @@ public class Player : MonoBehaviour {
     public void OnCollisionExit2D(Collision2D coll) {
         if(coll.collider.tag == "Floor") {
             inAir = true;
+            playerLowerAnim.SetTrigger("inAir");
         }
     }
     #endregion

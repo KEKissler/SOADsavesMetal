@@ -44,7 +44,7 @@ public class BossHit : MonoBehaviour
         float HP;
         float startHP = healthScript.startingHP;
         float cutoff = 0.5F;
-        healthScript.hit(damage * damageMultiplier);
+        healthScript.hitF(damage * damageMultiplier);
         HP = healthScript.getHP();
         if(name == "TsovinarFace")
         {

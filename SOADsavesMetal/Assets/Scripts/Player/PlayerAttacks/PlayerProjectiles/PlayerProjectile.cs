@@ -26,6 +26,10 @@ public class PlayerProjectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "BossHittable") col.gameObject.SendMessage("hit", damage);
+        if (col.gameObject.tag == "BossHittable")
+        {
+            col.gameObject.SendMessage("hit", damage);
+            Destroy(gameObject, 0.03f);
+        }
     }
 }

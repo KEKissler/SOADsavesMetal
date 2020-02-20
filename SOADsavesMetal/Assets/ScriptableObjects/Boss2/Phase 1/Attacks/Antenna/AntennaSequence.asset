@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c798b03c28f33a4594967dfcfd7ae0b, type: 3}
-  m_Name: RightAntenna
+  m_Name: AntennaSequence
   m_EditorClassIdentifier: 
-  duration: 5
+  duration: 5.5
   Attacks:
   - Attack: {fileID: 11400000, guid: 63b23b06eb4390843b9c0315e12c9a58, type: 2}
-    duration: 1
+    duration: 0.75
   - Attack: {fileID: 11400000, guid: 85690645f0653ae42b57e4bddfc8dd20, type: 2}
-    duration: 1
+    duration: 0.75
   - Attack: {fileID: 11400000, guid: 6e8f738ea6942ce49a471d470615cddd, type: 2}
-    duration: 1
+    duration: 0.75
   whiteNoise: {fileID: 2100000, guid: ae9204aad3676504ea07d2b76cbda5ea, type: 2}
   foldClip: {fileID: 7400000, guid: 2bd0c57b7c8714241ba4bb1608a444a1, type: 2}
   unfoldClip: {fileID: 7400000, guid: 0df07f860ff7d264a9d66f1dd94a8e68, type: 2}
-  isLeft: 0
+  isLeft: 1

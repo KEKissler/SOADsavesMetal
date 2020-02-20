@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35bf867d909284342a618465fc0f22a5, type: 3}
-  m_Name: bill
+  m_Script: {fileID: 11500000, guid: ee4057deb479dc742ac4c0e9862d7f1d, type: 3}
+  m_Name: stuff
   m_EditorClassIdentifier: 
-  duration: 0
-  fireboltPrefab: {fileID: 0}
-  ProjectileSpeed: 3
-  ProjectileType: 2
-  degreeModifier: 0
-  fixedAngle: 0
+  AttackSelectionType: 0
+  Attacks:
+  - attack: {fileID: 11400000, guid: e69244b2d3e85494689bcb931663b5dc, type: 2}
+    percentThreshold: 0
