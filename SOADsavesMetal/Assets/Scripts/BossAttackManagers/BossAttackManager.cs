@@ -40,7 +40,12 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
         yield return new WaitForEndOfFrame();
         while (true)
         {
-            attack = SelectNextAttack();
+            BossAttack newAttack = SelectNextAttack();
+            if(attack == newAttack)
+            {
+                newAttack = SelectNextAttack();
+            }
+            attack = newAttack;
             attack.ExecuteAttack();
             yield return new WaitForSeconds(attack.duration);
         }

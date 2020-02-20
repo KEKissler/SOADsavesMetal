@@ -31,8 +31,6 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
     private Animator telescopingAntenna;
 
     private GameObject tsovinar;
-    private SpriteRenderer faceVisable;
-    private CapsuleCollider2D tsovinarHitBox;
     private CapsuleCollider2D antennaHitBox;
 
     private Transform spawnTransform;
@@ -54,7 +52,6 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         screen4DefaultMat = screen4.GetComponent<SpriteRenderer>().sharedMaterial;
         screen5DefaultMat = screen5.GetComponent<SpriteRenderer>().sharedMaterial;
         tsovinar = data.tsovinar;
-        tsovinarHitBox = tsovinar.GetComponent<CapsuleCollider2D>();
         antennaHitBox = telescopingAntenna.GetComponent<CapsuleCollider2D>();
         
         base.Initialize(data);
@@ -97,8 +94,7 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
             telescopingAntenna = rightAntenna;
         }
         isLeft = !isLeft;
-
-        faceVisable = tsovinar.GetComponent<SpriteRenderer>();
+        
         spawnTransform = telescopingAntenna.GetComponent<AntennaWatcher>().spawnPosition;
         foreach (var subAttack in Attacks)
         {
@@ -117,8 +113,8 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         screen3.GetComponent<SpriteRenderer>().sharedMaterial = whiteNoise;
         screen4.GetComponent<SpriteRenderer>().sharedMaterial = whiteNoise;
         screen5.GetComponent<SpriteRenderer>().sharedMaterial = whiteNoise;
-        faceVisable.enabled = false;
-        tsovinarHitBox.enabled = false;
+        tsovinar.GetComponent<SpriteRenderer>().color = Color.white;
+        tsovinar.SetActive(false);
         antennaHitBox.enabled = true;
 
         var script = telescopingAntenna.GetComponent<AntennaWatcher>();
@@ -133,8 +129,7 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         script.screen3 = screen3;
         script.screen4 = screen4;
         script.screen5 = screen5;
-        script.faceVisable = faceVisable;
-        script.tsovinarHitBox = tsovinarHitBox;
+        script.tsovinar = tsovinar;
         script.antennaHitBox = antennaHitBox;
 
     }
