@@ -17,13 +17,14 @@ public class DDRBeam : TsovinarAttack
     public GameObject ddrbeamPrefab;
     [SerializeField]
     private Direction direction;
+    [SerializeField]
+    private float velocity = -10;
 
     private readonly System.Random RNG = new System.Random();
     private Color color;
     private GameObject beam;
     private GameObject[] screens = new GameObject[4];
     private Transform arrow;
-    private float velocity = -12;
 
     public override void Initialize(TsovinarAttackData data)
     {
@@ -47,7 +48,7 @@ public class DDRBeam : TsovinarAttack
                 break;
             case 2:
                 direction = Direction.Left;
-                velocity = -16;
+                velocity -= 4;
                 break;
             case 3:
                 direction = Direction.Down;

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b80924bdc9f6045b6463ce92c3a9b9, type: 3}
   m_Name: DDR Beam
   m_EditorClassIdentifier: 
-  duration: 3
+  duration: 2
   ddrbeamPrefab: {fileID: 7448219280705560819, guid: 25ce9c6441cc7b14181f97889fe0474b,
     type: 3}
   direction: 0
+  velocity: -10

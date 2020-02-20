@@ -26,6 +26,8 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
     private Material screen4DefaultMat;
     private Material screen5DefaultMat;
 
+    private Animator leftAntenna;
+    private Animator rightAntenna;
     private Animator telescopingAntenna;
 
     private GameObject tsovinar;
@@ -44,14 +46,8 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         screen3 = data.screen3;
         screen4 = data.screen4;
         screen5 = data.screen5;
-        if(isLeft)
-        {
-            telescopingAntenna = data.antennaAnimatorLeft;
-        }
-        else
-        {
-            telescopingAntenna = data.antennaAnimatorRight;
-        }
+        leftAntenna = data.antennaAnimatorLeft;
+        rightAntenna = data.antennaAnimatorRight;
         screen1DefaultMat = screen1.GetComponent<SpriteRenderer>().sharedMaterial;
         screen2DefaultMat = screen2.GetComponent<SpriteRenderer>().sharedMaterial;
         screen3DefaultMat = screen3.GetComponent<SpriteRenderer>().sharedMaterial;
@@ -92,6 +88,16 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
 
     protected override void OnStart()
     {
+        if(isLeft)
+        {
+            telescopingAntenna = leftAntenna;
+        }
+        else
+        {
+            telescopingAntenna = rightAntenna;
+        }
+        isLeft = !isLeft;
+
         faceVisable = tsovinar.GetComponent<SpriteRenderer>();
         spawnTransform = telescopingAntenna.GetComponent<AntennaWatcher>().spawnPosition;
         foreach (var subAttack in Attacks)
