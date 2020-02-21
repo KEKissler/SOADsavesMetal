@@ -4,16 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FlashingEnter : MonoBehaviour {
-
-    public Text enterText;
-
-	// Use this for initialization
-	void Start () {
-		
+    private Text enterText;
+	private Color color;
+	[SerializeField] float fadeSpeed = 1f;
+	void Awake(){
+		enterText = GetComponent<Text>();
+		color = enterText.color;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	void Update (){
+		float scale = (Mathf.Sin(Time.time * fadeSpeed) + 1f) / 2f;
+		color.a = scale;
+		enterText.color = color;
 	}
 }
