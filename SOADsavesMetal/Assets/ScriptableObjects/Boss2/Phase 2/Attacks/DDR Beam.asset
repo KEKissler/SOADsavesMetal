@@ -16,4 +16,4 @@ MonoBehaviour:
   ddrbeamPrefab: {fileID: 7448219280705560819, guid: 25ce9c6441cc7b14181f97889fe0474b,
     type: 3}
   direction: 0
-  velocity: -10
+  velocity: -12

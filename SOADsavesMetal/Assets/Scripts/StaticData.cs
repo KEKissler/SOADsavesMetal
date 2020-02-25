@@ -59,16 +59,18 @@ public class StaticData: MonoBehaviour
         serjUnlock = data.serjUnlock;
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+        Debug.Log("quit game");
+    }
+
     void Awake()
     {
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player"); //find an obejct in the scene tagged player
-        if(playerObject != null)
+        Player playerScript = FindObjectOfType<Player>(); //gets Player component
+        if(playerScript != null)
         {
-            Player playerScript = playerObject.GetComponent<Player>(); //gets Player component
-            if(playerScript != null)
-            {
-                // playerScript.currentBandMember = playerSelected; // sets player to selected player
-            }
+            playerScript.currentBandMember = playerSelected; // sets player to selected player
         }
     }
 }

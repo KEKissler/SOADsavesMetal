@@ -21,7 +21,6 @@ public class DDRBeam : TsovinarAttack
     private float velocity = -10;
 
     private readonly System.Random RNG = new System.Random();
-    private Color color;
     private GameObject beam;
     private GameObject[] screens = new GameObject[4];
     private Transform arrow;
@@ -34,6 +33,7 @@ public class DDRBeam : TsovinarAttack
     protected override void OnStart()
     {
         int dir = RNG.Next(4);
+        float tempVel = velocity;
         beam = Instantiate(ddrbeamPrefab);
         arrow = beam.transform.GetChild(1);
         switch (dir)
@@ -48,7 +48,7 @@ public class DDRBeam : TsovinarAttack
                 break;
             case 2:
                 direction = Direction.Left;
-                velocity -= 4;
+                tempVel -= 4;
                 break;
             case 3:
                 direction = Direction.Down;
@@ -59,9 +59,9 @@ public class DDRBeam : TsovinarAttack
                 break;
         }
         
-        arrow.GetComponent<SpriteRenderer>().color = color = screens[dir].GetComponent<SpriteRenderer>().color;
+        arrow.GetComponent<SpriteRenderer>().color = screens[dir].GetComponent<SpriteRenderer>().color;
         beam.GetComponent<DDRBeamManager>().direction = direction;
-        beam.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity, 0);
+        beam.GetComponent<Rigidbody2D>().velocity = new Vector2(tempVel, 0);
     }
 
     protected override IEnumerator Execute(float duration)

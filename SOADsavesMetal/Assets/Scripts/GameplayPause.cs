@@ -6,6 +6,7 @@ public class GameplayPause : MonoBehaviour
 {
     private bool paused = false;
     public GameObject pauseMenu;
+    public GameObject controlsScreen;
     private void Start()
     {
         pauseMenu.SetActive(false);
@@ -26,7 +27,7 @@ public class GameplayPause : MonoBehaviour
     {
         if(paused)
         {
-            Play();
+            Play();            
         }
         else
         {
@@ -46,5 +47,6 @@ public class GameplayPause : MonoBehaviour
         Time.timeScale = 1f;
         paused = false;
         pauseMenu.SetActive(false);
+        controlsScreen.SetActive(false);
     }
 }
