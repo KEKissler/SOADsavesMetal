@@ -26,13 +26,16 @@ public class BossHealth : MonoBehaviour
     public BossAttackManager<AgasPhase> agasAttackManager;
     public BossAttackManager<TsovinarPhase> tsovinarAttackManager;
     public BossAttackManager<NhangPhase> nhangAttackManager;
+    bool Dead;
 
     // Should be accessible but not modifiable directly
     [SerializeField] float HP;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        Dead = false;
         BossAttackManager<AgasPhase> temp1 = gameObject.GetComponentInChildren<AgasAttackManager>();
         if(temp1)
         {
@@ -54,7 +57,13 @@ public class BossHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (HP <= 0)
+            this.Dead = true;
+    }
+
+    public bool isDead()
+    {
+        return Dead;
     }
 
     public void hitF(float damage)
