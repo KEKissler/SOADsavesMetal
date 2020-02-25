@@ -10,30 +10,34 @@ public class PushScript : MonoBehaviour
     float leftPosition;
     [SerializeField]
     float rightPosition;
+    [SerializeField]
+    float speed = .05f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Left = true;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(rb.position.x >= leftPosition)
-        {
-            Left = false;
-        }else
+        
+        if(transform.position.x <= leftPosition)
         {
             Left = true;
         }
-        if (Left && rb.position.y < leftPosition)
+        if(transform.position.x >= rightPosition)
         {
-            rb.position = rb.position + new Vector2(.1f,0);
+            Left = false;
+        }
+        if (!Left && transform.position.x > leftPosition)
+        {
+            transform.position = transform.position - new Vector3(speed,0,0);
             
         }
-        else if (!Left && rb.position.x > rightPosition)
+        else if (Left && transform.position.x < rightPosition)
         {
-            rb.position = rb.position - new Vector2( .1f,0);
+            transform.position = transform.position + new Vector3( speed,0,0);
         }
     }
 }
