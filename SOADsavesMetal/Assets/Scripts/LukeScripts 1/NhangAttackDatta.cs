@@ -8,6 +8,7 @@ public class NhangAttackData
     public GameObject NhangBase;
     public Transform SnakePosition;
     public Transform attackParent;
-    public Transform[] tearEmitters;
+    public GameObject[] tearEmitters;
     public GameObject[] NhangHand;
+    public GameObject[] NhangPushHand;
 }
