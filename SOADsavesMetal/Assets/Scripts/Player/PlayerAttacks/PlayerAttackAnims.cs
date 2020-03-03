@@ -41,7 +41,7 @@ public class PlayerAttackAnims : MonoBehaviour
         else if (ps.currentBandMember == "Daron")
         {
             ps.auso.PlayOneShot(ps.DaronShortRange);
-            yield return new WaitForSeconds(0.38f);
+            yield return new WaitForSeconds(0.45f);
         }
         else if (ps.currentBandMember == "Serj")
         {
@@ -82,7 +82,7 @@ public class PlayerAttackAnims : MonoBehaviour
                 ps.playerLowerAnim.Play("DaronAttackLegs");
             }
             ps.auso.PlayOneShot(ps.GetRandomSoundEffect(ps.DaronLongRangeThrow));
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(0.35f);
         }
         else if (ps.currentBandMember == "Serj")
         {

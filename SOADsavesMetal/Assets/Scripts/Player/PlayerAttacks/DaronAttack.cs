@@ -24,6 +24,10 @@ public class DaronAttack : PlayerAttack
     private const int FINAL_BURST_SIZE = 1;
     private float curr_time_between_shots;
     private float shotTimer = 0.0f;
+
+    // Copied from JohnAttack
+    // Amount to lower the spawn location of projectiles when Daron is crouching
+    public const float WE_DONT_LIKE_EYE_LASER_DRUMSTICKS = -0.84f;
     
 	// Use this for initialization
 	void Start () {
@@ -54,38 +58,29 @@ public class DaronAttack : PlayerAttack
 
     public override IEnumerator AttackShort()
     {
-        // Windup period
-        attackTimer = 0.0f;
-        while(attackTimer < SHORT_ATTACK_WINDUP)
-        {
-            attackTimer += Time.deltaTime;
-            yield return null;
-        }
+        float yReductionWhenCrouched = 0f;
+        if (ps.isCrouching()) yReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
 
-        // Attack
-        attackTimer = 0.0f;
-        while(attackTimer < SHORT_ATTACK_HOLD_DURATION)
-        {
-        	attackTimer += Time.deltaTime;
-        	yield return null;
-        }
+    	GameObject attackObj = Instantiate(stringBreak, transform.parent.position +
+            new Vector3(0.7f * getDirection(transform.parent), yReductionWhenCrouched, 0),
+            transform.parent.rotation);
+
+        yield return null;
+
     }
 
     public override IEnumerator AttackLong()
     {
-        attackTimer = 0.0f;
-        while(attackTimer < LONG_ATTACK_WINDUP)
-        {
-            attackTimer += Time.deltaTime;
-        	yield return null;     
-        }
+        float yReductionWhenCrouched = 0f;
+        if (ps.isCrouching()) yReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
 
-    	// Create projectile (musicNote)
-    	// GameObject dsClone = Instantiate(musicNote, getTarget().transform.position + new Vector3(0, 4f, 0), transform.parent.rotation);
+    	GameObject pick = Instantiate(guitarPick, transform.parent.position +
+            new Vector3(0.02f, yReductionWhenCrouched, 0),
+            transform.parent.rotation);
+
+        yield return null;
     }
 
-    // Maybe super bleeds / distracts boss if it hits?
-    // (Disrupts attack patterns but that would require attack patterns to be created first)
     public override IEnumerator AttackSuper()
     {
         curr_time_between_shots = TIME_BETWEEN_SHOTS_HIGH;
