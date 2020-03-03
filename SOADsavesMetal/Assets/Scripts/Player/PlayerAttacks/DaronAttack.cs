@@ -14,7 +14,7 @@ public class DaronAttack : PlayerAttack
     
     // Long range attack
     public GameObject guitarPick;
-    private const float LONG_ATTACK_WINDUP = 0.33f;
+    private const float LONG_ATTACK_WINDUP = 0.04f;
 
     // Super attack
     public GameObject cymbal;
@@ -71,11 +71,18 @@ public class DaronAttack : PlayerAttack
 
     public override IEnumerator AttackLong()
     {
+        attackTimer = 0f;
+        while (attackTimer < LONG_ATTACK_WINDUP)
+        {
+            attackTimer += Time.deltaTime;
+            yield return null;
+        }
+
         float yReductionWhenCrouched = 0f;
         if (ps.isCrouching()) yReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
 
     	GameObject pick = Instantiate(guitarPick, transform.parent.position +
-            new Vector3(0.02f, yReductionWhenCrouched, 0),
+            new Vector3(0.02f, yReductionWhenCrouched + 0.4f, 0),
             transform.parent.rotation);
 
         yield return null;
