@@ -82,7 +82,7 @@ public class PlayerAttackAnims : MonoBehaviour
                 ps.playerLowerAnim.Play("DaronAttackLegs");
             }
             ps.auso.PlayOneShot(ps.GetRandomSoundEffect(ps.DaronLongRangeThrow));
-            yield return new WaitForSeconds(0.35f);
+            yield return new WaitForSeconds(0.24f);
         }
         else if (ps.currentBandMember == "Serj")
         {
