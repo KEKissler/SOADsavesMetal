@@ -13,6 +13,8 @@ public class StaticData: MonoBehaviour
     static public bool[] daronUnlock = {false, false};
     static public bool[] serjUnlock = {false, false, false};
 
+    [SerializeField] bool changeCharacter = true;
+
     public void setPlayer(string name)
     {
         playerSelected = name;
@@ -40,8 +42,7 @@ public class StaticData: MonoBehaviour
 
     public void reloadLevel()
     {
-        string currentLevel = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentLevel);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void SaveGame() //saves current static data
@@ -67,10 +68,13 @@ public class StaticData: MonoBehaviour
 
     void Awake()
     {
-        Player playerScript = FindObjectOfType<Player>(); //gets Player component
-        if(playerScript != null)
+        if(changeCharacter)
         {
-            playerScript.currentBandMember = playerSelected; // sets player to selected player
+            Player playerScript = FindObjectOfType<Player>(); //gets Player component
+            if(playerScript != null)
+            {
+                playerScript.currentBandMember = playerSelected; // sets player to selected player
+            }
         }
     }
 }

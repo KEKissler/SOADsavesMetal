@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameplayPause : MonoBehaviour
 {
     private bool paused = false;
+    private float currentScale;
     public GameObject pauseMenu;
     public GameObject controlsScreen;
     private void Start()
@@ -27,7 +28,7 @@ public class GameplayPause : MonoBehaviour
     {
         if(paused)
         {
-            Play();            
+            Play();
         }
         else
         {
@@ -37,6 +38,7 @@ public class GameplayPause : MonoBehaviour
 
     private void Pause()
     {
+        currentScale = Time.timeScale;
         Time.timeScale = 0f;
         paused = true;
         pauseMenu.SetActive(true);
@@ -44,7 +46,7 @@ public class GameplayPause : MonoBehaviour
 
     private void Play()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = currentScale;
         paused = false;
         pauseMenu.SetActive(false);
         controlsScreen.SetActive(false);
