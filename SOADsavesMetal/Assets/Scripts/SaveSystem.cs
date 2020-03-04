@@ -12,7 +12,6 @@ public static class SaveSystem
         FileStream stream = new FileStream(path, FileMode.Create);
 
         SaveData data = new SaveData();
-        data.firstLoad = false;
 
         formatter.Serialize(stream, data);
         stream.Close();
@@ -28,7 +27,6 @@ public static class SaveSystem
             FileStream stream = new FileStream(path, FileMode.Open);
             SaveData data = formatter.Deserialize(stream) as SaveData;
             stream.Close();
-            data.firstLoad = false;
             return data;
         }
         else

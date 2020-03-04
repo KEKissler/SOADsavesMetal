@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 1592019097}
   - component: {fileID: 1592019096}
   - component: {fileID: 1592019095}
+  - component: {fileID: 6571240344943373609}
   m_Layer: 0
   m_Name: Daron_Attack
   m_TagString: Untagged
@@ -202,6 +203,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6571240344943373609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592019094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbfde5e7a97b4d8479af0871787555c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ps: {fileID: 0}
+  stringBreak: {fileID: 3848826691018149732, guid: 6be51598315a04743b8ae3a9cadd7962,
+    type: 3}
+  guitarPick: {fileID: 4801075261888603570, guid: ce19e6d68756b1b4ca26df4287a5c410,
+    type: 3}
+  cymbal: {fileID: 0}
 --- !u!1 &1700851087149963370
 GameObject:
   m_ObjectHideFlags: 0

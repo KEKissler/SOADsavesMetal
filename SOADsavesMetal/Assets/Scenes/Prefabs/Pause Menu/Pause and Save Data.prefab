@@ -1050,6 +1050,7 @@ GameObject:
   - component: {fileID: 2419965823125711180}
   - component: {fileID: 4458810335765269914}
   - component: {fileID: 4192566761655877440}
+  - component: {fileID: 8185731288347915334}
   m_Layer: 5
   m_Name: Scripts
   m_TagString: Untagged
@@ -1102,6 +1103,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7b2d976e23dcf44b74a08740556639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeCharacter: 1
+--- !u!114 &8185731288347915334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6361998341796114088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d8d23cdd401214fa385593a1ddb5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossNumber: 0
 --- !u!1 &6702629366000106042
 GameObject:
   m_ObjectHideFlags: 0

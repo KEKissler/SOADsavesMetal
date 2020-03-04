@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class MenuButtons : MonoBehaviour {
 
-    public void Quit()
-    {
+    public void Quit() {
         Debug.Log("Closes the game");
         Application.Quit();
     }
@@ -17,12 +16,15 @@ public class MenuButtons : MonoBehaviour {
     }
 
     public void NewGame() {
-
-        Debug.Log("Clean Slate here");
+    StaticData.firstLoad = true;
+    StaticData.characterUnlocks = new bool[] {false, false, false};
+    StaticData.shavoUnlock = new bool[] {false, false};
+    StaticData.daronUnlock = new bool[] {false, false};
+    StaticData.serjUnlock = new bool[] {false, false, false};
+    SaveSystem.SaveGame();
     }
-    //public GameObject UIPanel;
-    public void ControlsPanel(GameObject UIPanel) {
-        Debug.Log("Use this for controls page");
-        UIPanel.SetActive(true);
+
+    public void Continue() {
+    SaveSystem.LoadGame();
     }
 }

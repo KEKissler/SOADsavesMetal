@@ -53,7 +53,13 @@ public class TutorialSystem : MonoBehaviour {
         enterText.SetActive(false);
         yield return new WaitForSeconds(.1f);
 
-        tutorialText.text = "You are currently playing as System of a Down's drummer, John. John has a double jump. Press Spacebar twice to perform a double jump. Try reaching the marker in the air.";
+        tutorialText.text = "You are currently playing as System of a Down's drummer, John. John has a double jump."; 
+        enterText.SetActive(true);
+        yield return new WaitUntil(() => Input.GetButtonDown("Submit"));
+        enterText.SetActive(false);
+        yield return new WaitForSeconds(.1f);
+
+        tutorialText.text = "Press Spacebar twice to perform a double jump. Try reaching the marker in the air.";
         marker.gameObject.SetActive(true);
         yield return new WaitUntil(() => marker.touched);
         marker.gameObject.SetActive(false);
