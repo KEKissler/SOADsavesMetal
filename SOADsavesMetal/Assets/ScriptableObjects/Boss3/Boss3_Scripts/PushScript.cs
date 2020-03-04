@@ -22,7 +22,7 @@ public class PushScript : MonoBehaviour
 
     public void Push()
     {
-        Debug.Log("Push Damn it");
+        
         isPushing = true;
     }
 
