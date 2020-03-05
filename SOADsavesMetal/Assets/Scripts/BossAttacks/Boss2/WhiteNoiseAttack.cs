@@ -83,6 +83,9 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
     {
         telescopingAntenna.gameObject.GetComponent<AntennaWatcher>().OnEnd();
         base.OnEnd();
+        tsovinar.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
+        tsovinar.transform.rotation = new Quaternion(-23f, -16f, -7f, 90f);
+        tsovinar.transform.position = screen1.transform.position;
     }
 
     protected override void OnStart()

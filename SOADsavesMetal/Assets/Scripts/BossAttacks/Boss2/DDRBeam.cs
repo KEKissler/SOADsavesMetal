@@ -22,16 +22,21 @@ public class DDRBeam : TsovinarAttack
 
     private readonly System.Random RNG = new System.Random();
     private GameObject beam;
-    private GameObject[] screens = new GameObject[4];
+    private GameObject[] screens;
+    private Vector3[] bossSizes;
     private GameObject tsovinar;
     private GameObject bigScreen;
     private Transform arrow;
 
     public override void Initialize(TsovinarAttackData data)
     {
-        bigScreen = data.screen1;
-        screens = new GameObject[] { data.screen4, data.screen2, data.screen3, data.screen5 };
         tsovinar = data.tsovinar;
+        screens = new GameObject[] { data.screen4, data.screen2, data.screen3, data.screen5 };
+        bossSizes = new Vector3[] { new Vector3(1.6f, 1.6f, 1.6f),
+                                    new Vector3(0.8f, 0.8f, 0.8f),
+                                    new Vector3(1.2f, 1.2f, 1.2f),
+                                    new Vector3(2f, 2f, 2f),
+                                    };
     }
 
     protected override void OnStart()
@@ -64,6 +69,9 @@ public class DDRBeam : TsovinarAttack
         }
         
         arrow.GetComponent<SpriteRenderer>().color = screens[dir].GetComponent<SpriteRenderer>().color;
+        tsovinar.transform.localScale = bossSizes[dir];
+        tsovinar.transform.localRotation = Quaternion.identity;
+        tsovinar.transform.localPosition = screens[dir].transform.position;
         beam.GetComponent<DDRBeamManager>().direction = direction;
         beam.GetComponent<Rigidbody2D>().velocity = new Vector2(tempVel, 0);
     }
