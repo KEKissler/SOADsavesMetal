@@ -132,7 +132,6 @@ public class Player : MonoBehaviour {
         paa.ps = this;
         phm.ps = this;
         pj.ps = this;
-        pam.pa.ps = this;
 
         // Empty check on bandmember name
         if(currentBandMember == "")
