@@ -6,6 +6,15 @@ public class DDRBeamManager : MonoBehaviour
 {
     public DDRBeam.Direction direction;
 
+    private float timer = 5;
+
+    private void Update()
+    {
+        timer -= Time.deltaTime;
+        if (timer < 0)
+            Destroy(gameObject);
+    }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         GameObject player = other.gameObject;

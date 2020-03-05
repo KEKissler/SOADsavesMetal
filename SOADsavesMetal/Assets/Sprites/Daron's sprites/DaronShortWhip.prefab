@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2692243274059606216}
   - component: {fileID: 386540278222347071}
   - component: {fileID: 6752529184330013155}
+  - component: {fileID: 5716629790536499605}
   m_Layer: 0
   m_Name: DaronShortWhip
   m_TagString: Untagged
@@ -164,3 +165,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1, y: 0.7}
   m_EdgeRadius: 0
+--- !u!114 &5716629790536499605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848826691018149732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0

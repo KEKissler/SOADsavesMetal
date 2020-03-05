@@ -34,6 +34,7 @@ public class SerjAttack : PlayerAttack
 	void Start () {
         boss = GameObject.FindWithTag("Boss");
         shortRangeHitbox.SetActive(false);
+        ps = GameObject.FindWithTag("Player").GetComponent<Player>();
         attacking = false;
 	}
 

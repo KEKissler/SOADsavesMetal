@@ -23,11 +23,15 @@ public class DDRBeam : TsovinarAttack
     private readonly System.Random RNG = new System.Random();
     private GameObject beam;
     private GameObject[] screens = new GameObject[4];
+    private GameObject tsovinar;
+    private GameObject bigScreen;
     private Transform arrow;
 
     public override void Initialize(TsovinarAttackData data)
     {
+        bigScreen = data.screen1;
         screens = new GameObject[] { data.screen4, data.screen2, data.screen3, data.screen5 };
+        tsovinar = data.tsovinar;
     }
 
     protected override void OnStart()

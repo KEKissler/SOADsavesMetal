@@ -23,6 +23,7 @@ public class ShavoAttack : PlayerAttack
 	void Start () {
         ps = GameObject.FindWithTag("Player").GetComponent<Player>();
         shortRangeHitbox.SetActive(false);
+        ps = GameObject.FindWithTag("Player").GetComponent<Player>();
         rand = new System.Random();
 	}
 
