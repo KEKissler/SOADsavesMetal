@@ -8,7 +8,7 @@ public abstract class PlayerAttack : MonoBehaviour
     public Player ps;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

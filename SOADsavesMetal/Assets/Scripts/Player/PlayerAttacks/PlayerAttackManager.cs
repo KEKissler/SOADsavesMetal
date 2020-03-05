@@ -14,8 +14,14 @@ public class PlayerAttackManager : MonoBehaviour
 
     public PlayerAttack pa;
 
-    private void Awake()
+    void Start()
     {
+        StartCoroutine(SetPlayerName());
+    }
+
+    IEnumerator SetPlayerName()
+    {
+        yield return new WaitForSeconds(0.1f);
         JohnAttack.SetActive(false);
         ShavoAttack.SetActive(false);
         DaronAttack.SetActive(false);
@@ -46,10 +52,5 @@ public class PlayerAttackManager : MonoBehaviour
                 pa = JohnAttack.GetComponent<JohnAttack>();
                 break;
         }
-    }
-
-    void Start()
-    {
-        
     }
 }

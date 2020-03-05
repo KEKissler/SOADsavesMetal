@@ -30,6 +30,7 @@ public class JohnAttack : PlayerAttack {
 	// Use this for initialization
 	void Start () {
         shortRangeHitbox.SetActive(false);
+        ps = GameObject.FindWithTag("Player").GetComponent<Player>();
 	}
 
     /*
