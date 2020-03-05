@@ -12,7 +12,6 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
     public Material whiteNoise;
     public AnimationClip foldClip;
     public AnimationClip unfoldClip;
-    public bool isLeft;
 
     private GameObject screen1;
     private GameObject screen2;
@@ -34,11 +33,13 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
     private CapsuleCollider2D antennaHitBox;
 
     private Transform spawnTransform;
+    private bool isLeft;
 
 
 
     public override void Initialize(TsovinarAttackData data)
     {
+        isLeft = false;
         screen1 = data.screen1;
         screen2 = data.screen2;
         screen3 = data.screen3;
@@ -46,6 +47,7 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         screen5 = data.screen5;
         leftAntenna = data.antennaAnimatorLeft;
         rightAntenna = data.antennaAnimatorRight;
+        telescopingAntenna = rightAntenna;
         screen1DefaultMat = screen1.GetComponent<SpriteRenderer>().sharedMaterial;
         screen2DefaultMat = screen2.GetComponent<SpriteRenderer>().sharedMaterial;
         screen3DefaultMat = screen3.GetComponent<SpriteRenderer>().sharedMaterial;
