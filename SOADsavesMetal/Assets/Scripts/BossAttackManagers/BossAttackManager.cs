@@ -9,6 +9,7 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
     private AttackOptions options;
     private T phase;
     private int phaseIndex;
+    private float timer = 3;
 
     private Coroutine attackManager;
 
@@ -32,7 +33,19 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
             phaseIndex++;
         }
         */
-        attackManager = StartCoroutine(ManageAttacks());
+    }
+
+    private void Update()
+    {
+        if(timer > 0 && timer < 100)
+        {
+            timer -= Time.deltaTime;
+        }
+        else if(timer <= 0)
+        {
+            attackManager = StartCoroutine(ManageAttacks());
+            timer = 1000;
+        }
     }
 
     private IEnumerator ManageAttacks()

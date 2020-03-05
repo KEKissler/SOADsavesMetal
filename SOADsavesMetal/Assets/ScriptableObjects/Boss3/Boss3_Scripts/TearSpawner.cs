@@ -25,6 +25,12 @@ public class TearSpawner : MonoBehaviour
         time = Time.time;
     }
 
+    public void StopCrying()
+    {
+        isCrying = false;
+        time = Time.time;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -33,8 +39,8 @@ public class TearSpawner : MonoBehaviour
             if(Time.time - time >= times[tear])
             {
                 time = Time.time;
-                //Spawn bullet
-                if(tear < times.Length)
+                Instantiate(Tear,gameObject.transform.position,gameObject.transform.rotation);
+                if(tear < times.Length - 1)
                 {
                     tear++;
                 }
@@ -44,5 +50,6 @@ public class TearSpawner : MonoBehaviour
                 }
             }
         }
+        
     }
 }

@@ -12,7 +12,13 @@ public class PushScript : MonoBehaviour
     float rightPosition;
     [SerializeField]
     float speed = .05f;
+    [SerializeField]
+    float upPosition;
+    [SerializeField]
+    float bottomPosition;
     bool isPushing;
+    bool goUp;
+    bool Up;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +28,7 @@ public class PushScript : MonoBehaviour
 
     public void Push()
     {
-        Debug.Log("Push Damn it");
+        
         isPushing = true;
     }
 
@@ -49,6 +55,32 @@ public class PushScript : MonoBehaviour
                 transform.position = transform.position + new Vector3(speed, 0, 0);
             }
         }
+
         
+        
+        if (!goUp && transform.position.y > bottomPosition)
+        {
+            transform.position = transform.position - new Vector3(0, speed, 0);
+        }
+        else if (goUp && transform.position.y < upPosition)
+        {
+            transform.position = transform.position + new Vector3(0, speed, 0);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            goUp = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            goUp = false;
+        }
     }
 }
