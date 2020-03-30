@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public const float MAX_SUPER_CHARGE = 100f;
+
     //Default Player Variables
     [Header("Player General Properties")]
     public string currentBandMember;
@@ -29,6 +31,8 @@ public class Player : MonoBehaviour {
     public bool inAir;
     // private bool landing;
     public bool attacking;
+    public float superMeterCharge; // Ranges between 0 to maxSuperCharge
+    public float maxSuperCharge = 100f;
     public bool isSuperActive;
     public bool blockHorizontalMovement;
     public bool moving;
@@ -114,6 +118,7 @@ public class Player : MonoBehaviour {
         crouched = false;
         listeningForDoubleDownTap = false;
         remainingJumps = 1;
+        superMeterCharge = 0f;
 
         // Player-specific attack
         blockAttackProgress = true;
@@ -169,8 +174,15 @@ public class Player : MonoBehaviour {
             }
             #endregion Friction
 
+            #region Super meter charge
+            // Passive meter charge, maybe vary by character
+            superMeterCharge += maxSuperCharge / 100f * Time.deltaTime;
+            if (superMeterCharge > maxSuperCharge) superMeterCharge = maxSuperCharge;
+            // Debug.Log("meter charge " + superMeterCharge);
+            #endregion Super meter charge
+
             #region Falling and jumping animations
-            if(!blockHorizontalMovement && !isSuperActive)  // Or any other special condition is in effect
+            if (!blockHorizontalMovement && !isSuperActive)  // Or any other special condition is in effect
             {
                 if (rb.velocity.y < -0.5f)
                 {
@@ -215,12 +227,14 @@ public class Player : MonoBehaviour {
                 StartCoroutine(paa.shortRangeAttackAnims());
                 StartCoroutine(pam.pa.AttackShort());
             }
-            else if(Input.GetKeyDown(KeyCode.X) && !attacking) {
+            else if(Input.GetKey(KeyCode.X) && !attacking) {
                 auso.Stop();
                 StartCoroutine(paa.longRangeAttackAnims());
                 StartCoroutine(pam.pa.AttackLong());
             }
-            else if(Input.GetKeyDown(KeyCode.C) && !attacking && !isSuperActive) {
+            else if(Input.GetKeyDown(KeyCode.C) && !attacking &&
+                    !isSuperActive && superMeterCharge >= maxSuperCharge) {
+                superMeterCharge = 0f;
                 auso.Stop();
                 StartCoroutine(paa.superAttackAnims());
                 StartCoroutine(pam.pa.AttackSuper());
