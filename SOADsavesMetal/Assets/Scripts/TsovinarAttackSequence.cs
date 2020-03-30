@@ -18,7 +18,7 @@ public class TsovinarAttackSequence : TsovinarAttack
     {
         foreach(var subAttack in Attacks)
         {
-            originalDurations.Add(subAttack.Attack.duration);
+            //originalDurations.Add(subAttack.Attack.duration);
             subAttack.Attack.duration = subAttack.duration;
         }
     }
