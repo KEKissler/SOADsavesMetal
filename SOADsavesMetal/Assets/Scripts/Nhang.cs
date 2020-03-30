@@ -264,7 +264,7 @@ public class Nhang : MonoBehaviour
         while(timer < 1.35f)
         {
             for(int i=0; i<bodyLength; ++i)
-                bodyRB[i].AddForce(new Vector2(17f+5f*timer, 5f+27f*timer));
+                bodyRB[i].AddForce(new Vector2(17f+5f*timer * 5, 5f+27f*timer));
             timer += Time.deltaTime;
             yield return null;
         }
