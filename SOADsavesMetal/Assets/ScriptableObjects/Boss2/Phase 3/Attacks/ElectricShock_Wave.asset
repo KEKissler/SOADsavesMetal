@@ -12,14 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ccf1fc7e9c4a184d93a65f33fb96d17, type: 3}
   m_Name: ElectricShock_Wave
   m_EditorClassIdentifier: 
-  animation: {fileID: 0}
-  projectileSpeed: 0
-  projectileType: 0
-  damage: 1
-  duration: 10
+  duration: 4.8
   wirePrefab: {fileID: 6541286465017545709, guid: 6e9dcd044426fc04aa41098a72de7111,
     type: 3}
-  CycleTime: 0.5
-  start: 2
+  CycleTime: 0.4
+  start: 5
   isMovingRight: 0
   waveWidth: 4
