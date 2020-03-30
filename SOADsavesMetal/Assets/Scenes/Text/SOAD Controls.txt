@@ -1,0 +1,20 @@
+SOAD Saves Metal Controls:
+
+MOVEMENT:
+Left and right arrow keys for movement
+(Single) Down arrow key for crouch
+(Double) Down arrow key to drop from platform
+(Single) Spacebar to jump
+(Double) Spacebar for unique aerial movement
+
+ATTACKS:
+Z key for short range attack
+X key for long range attack (hold down for continuous flow)
+C key for super attack (once meter is full)
+
+ESC to pause
+
+Note:
+1. Characters with fixed super attacks gain immunity while attack is perfomed
+2. Short range attacks can be used to extinguish projectiles 
+3. Super meter is filled by attacking the boss itself (not projectiles)
