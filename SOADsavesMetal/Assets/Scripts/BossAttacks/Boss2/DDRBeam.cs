@@ -25,7 +25,6 @@ public class DDRBeam : TsovinarAttack
     private GameObject[] screens;
     private Vector3[] bossSizes;
     private GameObject tsovinar;
-    private GameObject bigScreen;
     private Transform arrow;
 
     public override void Initialize(TsovinarAttackData data)
@@ -73,7 +72,12 @@ public class DDRBeam : TsovinarAttack
         tsovinar.transform.localRotation = Quaternion.identity;
         tsovinar.transform.localPosition = screens[dir].transform.position;
         beam.GetComponent<DDRBeamManager>().direction = direction;
-        beam.GetComponent<Rigidbody2D>().velocity = new Vector2(tempVel, 0);
+        beam.GetComponent<DDRBeamManager>().velocity = tempVel;
+    }
+
+    void Update()
+    {
+
     }
 
     protected override IEnumerator Execute(float duration)
