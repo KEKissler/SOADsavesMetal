@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 114765751153796074}
+  - {fileID: 114135147809652846}
+  EditorEvents:
+  - {fileID: 114040123950091522}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 114135147809652846}
+  StringsBanks:
+  - {fileID: 114765751153796074}
+  stringsBankWriteTime: 637211785074431832
+  cacheVersion: 3
+--- !u!114 &114040123950091522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TestEvent
+  m_EditorClassIdentifier: 
+  Path: event:/TestEvent
+  guid: 81f81470834a4448b64c972fe02bc45a
+  Banks:
+  - {fileID: 114135147809652846}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &114135147809652846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.bank
+  m_EditorClassIdentifier: 
+  Path: SOADsavesMetal_FMOD/SOADsavesMetal/Build/Desktop/Master Bank.bank
+  SubDir: 
+  lastModified: 637211785074421878
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &114453210800584604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.bank
+  m_EditorClassIdentifier: 
+  Path: SOADsavesMetal_FMOD/SOADsavesMetal/Build/Desktop/Master Bank.bank
+  SubDir: 
+  lastModified: 637211783520069176
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &114691704070253626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.bank
+  m_EditorClassIdentifier: 
+  Path: SOADsavesMetal_FMOD/SOADsavesMetal/Build/Desktop/Master Bank.bank
+  SubDir: 
+  lastModified: 637211784911202430
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &114765751153796074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.strings.bank
+  m_EditorClassIdentifier: 
+  Path: SOADsavesMetal_FMOD/SOADsavesMetal/Build/Desktop/Master Bank.strings.bank
+  SubDir: 
+  lastModified: 637211785074431832
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 740
+  Exists: 1
