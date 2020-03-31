@@ -49,6 +49,10 @@ public class Player : MonoBehaviour
     private PlayerJump pj;
     private PlayerAttackManager pam;
 
+    //Scripts to identify if in countdown or paused		
+    public GameplayPause gameplayPause;
+    public CountDown countDown;
+
     //Player Animation Variables
     [Header("Player Animation Variables")]
     public Animator playerUpperAnim;
@@ -162,109 +166,113 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (!Dead)
+        //stops player from being able to move if in pause or countdown
+        if (!countDown.getCountDown() && !gameplayPause.getPaused())
         {
-            #region Friction
-            float speedReductionThisFrame;
-            float frictionMultiplier = 1f;
-            if (isSuperActive) frictionMultiplier = 0.55f;
-            if (inAir)
-                speedReductionThisFrame = Time.deltaTime * airFrictionDecel * frictionMultiplier;
-            else
-                speedReductionThisFrame = Time.deltaTime * groundFrictionDecel * frictionMultiplier;
-            if (Mathf.Abs(rb.velocity.x) > speedReductionThisFrame)
+            if (!Dead)
             {
-                rb.velocity += new Vector2(-1 * Mathf.Sign(rb.velocity.x) * speedReductionThisFrame, 0);
-            }
-            else
-            {
-                rb.velocity = new Vector3(0, rb.velocity.y, 0);
-            }
-            #endregion Friction
-
-            #region Super meter charge
-            // Passive meter charge, maybe vary by character
-            superMeterCharge += maxSuperCharge / 100f * Time.deltaTime;
-            if (superMeterCharge > maxSuperCharge) superMeterCharge = maxSuperCharge;
-            // Debug.Log("meter charge " + superMeterCharge);
-            #endregion Super meter charge
-
-            #region Falling and jumping animations
-            if (!blockHorizontalMovement && !isSuperActive)  // Or any other special condition is in effect
-            {
-                if (rb.velocity.y < -0.5f)
+                #region Friction
+                float speedReductionThisFrame;
+                float frictionMultiplier = 1f;
+                if (isSuperActive) frictionMultiplier = 0.55f;
+                if (inAir)
+                    speedReductionThisFrame = Time.deltaTime * airFrictionDecel * frictionMultiplier;
+                else
+                    speedReductionThisFrame = Time.deltaTime * groundFrictionDecel * frictionMultiplier;
+                if (Mathf.Abs(rb.velocity.x) > speedReductionThisFrame)
                 {
-                    // landing = true;
-                    PlayAnims("Fall");
+                    rb.velocity += new Vector2(-1 * Mathf.Sign(rb.velocity.x) * speedReductionThisFrame, 0);
                 }
-                if (rb.velocity.y > 0.5)
+                else
                 {
-                    PlayAnims("Jump");
+                    rb.velocity = new Vector3(0, rb.velocity.y, 0);
                 }
-            }
-            #endregion Falling and jumping animations
+                #endregion Friction
 
-            #region Crouching
-            if (Input.GetKey(KeyCode.DownArrow) && !inAir)
-            { // This line used to have !attacking
-                if (!attacking)
-                { //(!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))) {
-                    crouched = true;
-                    PlayAnims("Crouch");
-                    upperBodyHitbox.SetActive(false);
+                #region Super meter charge
+                // Passive meter charge, maybe vary by character
+                superMeterCharge += maxSuperCharge / 100f * Time.deltaTime;
+                if (superMeterCharge > maxSuperCharge) superMeterCharge = maxSuperCharge;
+                // Debug.Log("meter charge " + superMeterCharge);
+                #endregion Super meter charge
+
+                #region Falling and jumping animations
+                if (!blockHorizontalMovement && !isSuperActive)  // Or any other special condition is in effect
+                {
+                    if (rb.velocity.y < -0.5f)
+                    {
+                        // landing = true;
+                        PlayAnims("Fall");
+                    }
+                    if (rb.velocity.y > 0.5)
+                    {
+                        PlayAnims("Jump");
+                    }
+                }
+                #endregion Falling and jumping animations
+
+                #region Crouching
+                if (Input.GetKey(KeyCode.DownArrow) && !inAir)
+                { // This line used to have !attacking
+                    if (!attacking)
+                    { //(!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))) {
+                        crouched = true;
+                        PlayAnims("Crouch");
+                        upperBodyHitbox.SetActive(false);
+                    }
+                    else
+                    {
+                        crouched = false;
+                    }
+                    if (!listeningForDoubleDownTap)
+                    {
+                        listeningForDoubleDownTap = true;
+                        StartCoroutine(listenForDoubleDownTap());
+                    }
                 }
                 else
                 {
                     crouched = false;
+                    upperBodyHitbox.SetActive(true);
                 }
-                if (!listeningForDoubleDownTap)
+                #endregion Crouching
+
+                pj.HandleJump();
+
+                #region Attacks
+                //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
+                if (Input.GetKeyDown(KeyCode.Z) && !crouched && !attacking)
                 {
-                    listeningForDoubleDownTap = true;
-                    StartCoroutine(listenForDoubleDownTap());
+                    auso.Stop();
+                    StartCoroutine(paa.shortRangeAttackAnims());
+                    StartCoroutine(pam.pa.AttackShort());
                 }
+                else if (Input.GetKey(KeyCode.X) && !attacking)
+                {
+                    auso.Stop();
+                    StartCoroutine(paa.longRangeAttackAnims());
+                    StartCoroutine(pam.pa.AttackLong());
+                }
+                else if (Input.GetKeyDown(KeyCode.C) && !attacking &&
+                        !isSuperActive && superMeterCharge >= maxSuperCharge)
+                {
+                    superMeterCharge = 0f;
+                    auso.Stop();
+                    StartCoroutine(paa.superAttackAnims());
+                    StartCoroutine(pam.pa.AttackSuper());
+                }
+                #endregion Attacks
+
+                phm.HandleHorizontalMovement();
             }
             else
             {
-                crouched = false;
-                upperBodyHitbox.SetActive(true);
-            }
-            #endregion Crouching
-
-            pj.HandleJump();
-
-            #region Attacks
-            //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
-            if (Input.GetKeyDown(KeyCode.Z) && !crouched && !attacking)
-            {
-                auso.Stop();
-                StartCoroutine(paa.shortRangeAttackAnims());
-                StartCoroutine(pam.pa.AttackShort());
-            }
-            else if (Input.GetKey(KeyCode.X) && !attacking)
-            {
-                auso.Stop();
-                StartCoroutine(paa.longRangeAttackAnims());
-                StartCoroutine(pam.pa.AttackLong());
-            }
-            else if (Input.GetKeyDown(KeyCode.C) && !attacking &&
-                    !isSuperActive && superMeterCharge >= maxSuperCharge)
-            {
-                superMeterCharge = 0f;
-                auso.Stop();
-                StartCoroutine(paa.superAttackAnims());
-                StartCoroutine(pam.pa.AttackSuper());
-            }
-            #endregion Attacks
-
-            phm.HandleHorizontalMovement();
-        }
-        else
-        {
-            //Death animation
-            if (!deathStarted)
-            {
-                StartCoroutine("Kill");
-                deathStarted = true;
+                //Death animation
+                if (!deathStarted)
+                {
+                    StartCoroutine("Kill");
+                    deathStarted = true;
+                }
             }
         }
     }
