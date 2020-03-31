@@ -164,10 +164,12 @@ public class Player : MonoBehaviour
         return transform.rotation.y != 0f;
     }
 
-    void Update()
-    {
+    void Update() {
+
+        Debug.Log(countDown);
+        Debug.Log((countDown == null || !countDown.getCountDown()) && (gameplayPause == null || !gameplayPause.getPaused()));
         //stops player from being able to move if in pause or countdown
-        if (!countDown.getCountDown() && !gameplayPause.getPaused())
+        if ((countDown == null || !countDown.getCountDown()) && (gameplayPause == null || !gameplayPause.getPaused()))
         {
             if (!Dead)
             {
