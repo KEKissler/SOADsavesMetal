@@ -4,8 +4,8 @@ MOVEMENT:
 Left and right arrow keys for movement
 (Single) Down arrow key for crouch
 (Double) Down arrow key to drop from platform
-(Single) Spacebar to jump
-(Double) Spacebar for unique aerial movement
+(Single) Spacebar or Up arrow key to jump
+(Double) Spacebar or Up arrow key for unique aerial movement
 
 ATTACKS:
 Z key for short range attack
