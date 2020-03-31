@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
+
+    public const float MAX_SUPER_CHARGE = 100f;
 
     //Default Player Variables
     [Header("Player General Properties")]
     public string currentBandMember;
     public bool Dead { get { return health < 1; } }
-    public int Health {get { return health; } set { health = value; } }
+    public int Health { get { return health; } set { health = value; } }
     public Rigidbody2D rb;
     public float jumpHeight;
     public int startingHealth;
@@ -29,6 +32,8 @@ public class Player : MonoBehaviour {
     public bool inAir;
     // private bool landing;
     public bool attacking;
+    public float superMeterCharge; // Ranges between 0 to maxSuperCharge
+    public float maxSuperCharge = 100f;
     public bool isSuperActive;
     public bool blockHorizontalMovement;
     public bool moving;
@@ -44,7 +49,7 @@ public class Player : MonoBehaviour {
     private PlayerJump pj;
     private PlayerAttackManager pam;
 
-    //Scripts to identify if in countdown or paused
+    //Scripts to identify if in countdown or paused	
     public GameplayPause gameplayPause;
     public CountDown countDown;
 
@@ -94,19 +99,23 @@ public class Player : MonoBehaviour {
     public AudioClip[] SerjSuperVocal;      // will condense to just 1 sound effect with 4 variations and no parts - waiting on final super animation
     #endregion
 
-    public string GetAnimName(string animSuffix) {
+    public string GetAnimName(string animSuffix)
+    {
         return currentBandMember + animSuffix;
     }
 
     // Handles a common use case regarding playing body and leg animations.
-    public void PlayAnims(string animSuffix) {
-        if (!attacking) {
+    public void PlayAnims(string animSuffix)
+    {
+        if (!attacking)
+        {
             playerUpperAnim.Play(GetAnimName(animSuffix));
         }
         playerLowerAnim.Play(GetAnimName(animSuffix + "Legs"));
     }
 
-    void Start () {
+    void Start()
+    {
         // Initialize player state
         health = startingHealth;
         moving = false;
@@ -118,6 +127,7 @@ public class Player : MonoBehaviour {
         crouched = false;
         listeningForDoubleDownTap = false;
         remainingJumps = 1;
+        superMeterCharge = 0f;
 
         // Player-specific attack
         blockAttackProgress = true;
@@ -138,14 +148,15 @@ public class Player : MonoBehaviour {
         pj.ps = this;
 
         // Empty check on bandmember name
-        if(currentBandMember == "")
+        if (currentBandMember == "")
         {
             currentBandMember = "John";
         }
     }
 
-    public AudioClip GetRandomSoundEffect(AudioClip[] array) {
-        return array[Random.Range(0,array.Length)];
+    public AudioClip GetRandomSoundEffect(AudioClip[] array)
+    {
+        return array[Random.Range(0, array.Length)];
     }
 
     public bool FacingLeft()
@@ -153,7 +164,8 @@ public class Player : MonoBehaviour {
         return transform.rotation.y != 0f;
     }
 
-	void Update () {
+    void Update()
+    {
         if (!gameplayPause.getPaused() && !countDown.getCountDown())
         {
             if (!Dead)
@@ -175,6 +187,13 @@ public class Player : MonoBehaviour {
                     rb.velocity = new Vector3(0, rb.velocity.y, 0);
                 }
                 #endregion Friction
+
+                #region Super meter charge
+                // Passive meter charge, maybe vary by character
+                superMeterCharge += maxSuperCharge / 100f * Time.deltaTime;
+                if (superMeterCharge > maxSuperCharge) superMeterCharge = maxSuperCharge;
+                // Debug.Log("meter charge " + superMeterCharge);
+                #endregion Super meter charge
 
                 #region Falling and jumping animations
                 if (!blockHorizontalMovement && !isSuperActive)  // Or any other special condition is in effect
@@ -227,14 +246,16 @@ public class Player : MonoBehaviour {
                     StartCoroutine(paa.shortRangeAttackAnims());
                     StartCoroutine(pam.pa.AttackShort());
                 }
-                else if (Input.GetKeyDown(KeyCode.X) && !attacking)
+                else if (Input.GetKey(KeyCode.X) && !attacking)
                 {
                     auso.Stop();
                     StartCoroutine(paa.longRangeAttackAnims());
                     StartCoroutine(pam.pa.AttackLong());
                 }
-                else if (Input.GetKeyDown(KeyCode.C) && !attacking && !isSuperActive)
+                else if (Input.GetKeyDown(KeyCode.C) && !attacking &&
+                        !isSuperActive && superMeterCharge >= maxSuperCharge)
                 {
+                    superMeterCharge = 0f;
                     auso.Stop();
                     StartCoroutine(paa.superAttackAnims());
                     StartCoroutine(pam.pa.AttackSuper());
@@ -256,22 +277,28 @@ public class Player : MonoBehaviour {
     }
 
     #region Collision Detection
-    public void OnCollisionEnter2D(Collision2D coll) {
-        if (coll.collider.tag == "Floor" && !Dead) {
+    public void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.collider.tag == "Floor" && !Dead)
+        {
             playerLowerAnim.Play(GetAnimName("LandLegs"));
         }
     }
 
-    public void OnCollisionStay2D(Collision2D coll) {
-        if(coll.collider.tag == "Floor") {
+    public void OnCollisionStay2D(Collision2D coll)
+    {
+        if (coll.collider.tag == "Floor")
+        {
             inAir = false;
             // landing = false;
             remainingJumps = 1;
         }
     }
 
-    public void OnCollisionExit2D(Collision2D coll) {
-        if(coll.collider.tag == "Floor") {
+    public void OnCollisionExit2D(Collision2D coll)
+    {
+        if (coll.collider.tag == "Floor")
+        {
             inAir = true;
             playerLowerAnim.SetTrigger("inAir");
         }
@@ -284,7 +311,8 @@ public class Player : MonoBehaviour {
         StartCoroutine(phm.blockMovement(duration));
     }
 
-    public IEnumerator Kill() {
+    public IEnumerator Kill()
+    {
         playerUpperAnim.Play(GetAnimName("Death"));
         playerLowerAnim.Play("ShavoDashLegs");
         auso.PlayOneShot(DeathSound);
@@ -300,13 +328,13 @@ public class Player : MonoBehaviour {
     {
         yield return null;
         float timer = 0f;
-        while(timer < 0.30f)
+        while (timer < 0.30f)
         {
             timer += Time.deltaTime;
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 // Toggle platform colliders off
-                for (int i=0; i<platforms.Length; ++i)
+                for (int i = 0; i < platforms.Length; ++i)
                 {
                     if (platforms[i] != null)
                         platforms[i].setColliderEnabled(false);
