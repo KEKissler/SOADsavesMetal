@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 
     public const float MAX_SUPER_CHARGE = 100f;
 
+    public const float MAX_SUPER_CHARGE = 100f;
+
     //Default Player Variables
     [Header("Player General Properties")]
     public string currentBandMember;
@@ -164,11 +166,35 @@ public class Player : MonoBehaviour
         return transform.rotation.y != 0f;
     }
 
-    void Update()
-    {
-        if (!gameplayPause.getPaused() && !countDown.getCountDown())
-        {
-            if (!Dead)
+	void Update () {
+        if (!Dead) {
+            #region Friction
+            float speedReductionThisFrame;
+            float frictionMultiplier = 1f;
+            if (isSuperActive) frictionMultiplier = 0.55f;
+            if (inAir)
+                speedReductionThisFrame = Time.deltaTime * airFrictionDecel * frictionMultiplier;
+            else
+                speedReductionThisFrame = Time.deltaTime * groundFrictionDecel * frictionMultiplier;
+            if (Mathf.Abs(rb.velocity.x) > speedReductionThisFrame)
+            {
+                rb.velocity += new Vector2(-1 * Mathf.Sign(rb.velocity.x) * speedReductionThisFrame, 0);
+            }
+            else
+            {
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            }
+            #endregion Friction
+
+            #region Super meter charge
+            // Passive meter charge, maybe vary by character
+            superMeterCharge += maxSuperCharge / 100f * Time.deltaTime;
+            if (superMeterCharge > maxSuperCharge) superMeterCharge = maxSuperCharge;
+            // Debug.Log("meter charge " + superMeterCharge);
+            #endregion Super meter charge
+
+            #region Falling and jumping animations
+            if (!blockHorizontalMovement && !isSuperActive)  // Or any other special condition is in effect
             {
                 #region Friction
                 float speedReductionThisFrame;
@@ -238,29 +264,26 @@ public class Player : MonoBehaviour
 
                 pj.HandleJump();
 
-                #region Attacks
-                //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
-                if (Input.GetKeyDown(KeyCode.Z) && !crouched && !attacking)
-                {
-                    auso.Stop();
-                    StartCoroutine(paa.shortRangeAttackAnims());
-                    StartCoroutine(pam.pa.AttackShort());
-                }
-                else if (Input.GetKey(KeyCode.X) && !attacking)
-                {
-                    auso.Stop();
-                    StartCoroutine(paa.longRangeAttackAnims());
-                    StartCoroutine(pam.pa.AttackLong());
-                }
-                else if (Input.GetKeyDown(KeyCode.C) && !attacking &&
-                        !isSuperActive && superMeterCharge >= maxSuperCharge)
-                {
-                    superMeterCharge = 0f;
-                    auso.Stop();
-                    StartCoroutine(paa.superAttackAnims());
-                    StartCoroutine(pam.pa.AttackSuper());
-                }
-                #endregion Attacks
+            #region Attacks
+            //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
+            if (Input.GetKeyDown(KeyCode.Z) && !crouched && !attacking) {
+                auso.Stop();
+                StartCoroutine(paa.shortRangeAttackAnims());
+                StartCoroutine(pam.pa.AttackShort());
+            }
+            else if(Input.GetKey(KeyCode.X) && !attacking) {
+                auso.Stop();
+                StartCoroutine(paa.longRangeAttackAnims());
+                StartCoroutine(pam.pa.AttackLong());
+            }
+            else if(Input.GetKeyDown(KeyCode.C) && !attacking &&
+                    !isSuperActive && superMeterCharge >= maxSuperCharge) {
+                superMeterCharge = 0f;
+                auso.Stop();
+                StartCoroutine(paa.superAttackAnims());
+                StartCoroutine(pam.pa.AttackSuper());
+            }
+            #endregion Attacks
 
                 phm.HandleHorizontalMovement();
             }

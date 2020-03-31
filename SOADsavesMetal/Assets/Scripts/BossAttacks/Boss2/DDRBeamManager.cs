@@ -6,11 +6,15 @@ public class DDRBeamManager : MonoBehaviour
 {
     public DDRBeam.Direction direction;
 
+    public float velocity;
+
     private float timer = 5;
 
     private void Update()
     {
         timer -= Time.deltaTime;
+        if (timer < 4)
+            GetComponent<Rigidbody2D>().velocity = new Vector2(velocity, 0);
         if (timer < 0)
             Destroy(gameObject);
     }

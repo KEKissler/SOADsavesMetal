@@ -7,7 +7,7 @@ public class TsovinarAttackSequence : TsovinarAttack
 {
     public List<SubAttack> Attacks;
 
-    private readonly List<float> originalDurations = new List<float>();
+    //private List<float> originalDurations = new List<float>();
 
     public override void Initialize(TsovinarAttackData data)
     {
@@ -18,7 +18,7 @@ public class TsovinarAttackSequence : TsovinarAttack
     {
         foreach(var subAttack in Attacks)
         {
-            originalDurations.Add(subAttack.Attack.duration);
+            //originalDurations.Add(subAttack.Attack.duration);
             subAttack.Attack.duration = subAttack.duration;
         }
     }
@@ -35,11 +35,13 @@ public class TsovinarAttackSequence : TsovinarAttack
 
     protected override void OnEnd()
     {
+        /*
         for (int i = 0; i < Attacks.Count; ++i)
         {
             Attacks[i].duration = originalDurations[i];
-        }
+        }*/
     }
+
     [System.Serializable]
     public class SubAttack
     {

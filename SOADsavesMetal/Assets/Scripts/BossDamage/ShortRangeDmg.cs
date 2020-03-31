@@ -9,12 +9,14 @@ using UnityEngine;
  */
 public class ShortRangeDmg : MonoBehaviour {
 
+    private Player ps;
+    public float meterCharge = 0f;
 	public int damage = 111;
 	bool canHit = true;
 
 	// Use this for initialization
 	void Start () {
-		
+        ps = GameObject.FindWithTag("Player").GetComponent<Player>();
 	}
 	
 	// Update is called once per frame
@@ -27,6 +29,7 @@ public class ShortRangeDmg : MonoBehaviour {
 	{
 		if(col.gameObject.tag == "BossHittable" && canHit) {
 			col.gameObject.SendMessage("hit", damage);
+            ps.superMeterCharge += meterCharge;
 			canHit = false;
 		}
 		else if(col.gameObject.tag == "Projectile")
@@ -41,6 +44,7 @@ public class ShortRangeDmg : MonoBehaviour {
 		if(col.gameObject.tag == "BossHittable" && canHit)
 		{
 			col.gameObject.SendMessage("hit", damage);
+            ps.superMeterCharge += meterCharge;
 			canHit = false;
 		}
 		else if(col.gameObject.tag == "Projectile")

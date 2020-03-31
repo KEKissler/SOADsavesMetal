@@ -14,5 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackSelectionType: 1
   Attacks:
-  - attack: {fileID: 0}
+  - attack: {fileID: 11400000, guid: b3ae1de7090b3004da8e2458d61a2c30, type: 2}
+    percentThreshold: 15
+  - attack: {fileID: 11400000, guid: 8c0de3a3ca278e648946d12f398e1042, type: 2}
+    percentThreshold: 40
+  - attack: {fileID: 11400000, guid: 5fc5f6e957c70c64a87ba2e07da88413, type: 2}
+    percentThreshold: 75
+  - attack: {fileID: 11400000, guid: abf61beff21d1cb4faac68c6f8076b1f, type: 2}
     percentThreshold: 100
