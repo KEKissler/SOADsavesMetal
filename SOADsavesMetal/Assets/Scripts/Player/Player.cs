@@ -166,8 +166,6 @@ public class Player : MonoBehaviour
 
     void Update() {
 
-        Debug.Log(countDown);
-        Debug.Log((countDown == null || !countDown.getCountDown()) && (gameplayPause == null || !gameplayPause.getPaused()));
         //stops player from being able to move if in pause or countdown
         if ((countDown == null || !countDown.getCountDown()) && (gameplayPause == null || !gameplayPause.getPaused()))
         {
