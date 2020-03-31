@@ -8,9 +8,16 @@ public class GameplayPause : MonoBehaviour
     private float currentScale;
     public GameObject pauseMenu;
     public GameObject controlsScreen;
+    public CountDown countDown;
+    public Player player;
     private void Start()
     {
         pauseMenu.SetActive(false);
+    }
+
+    public bool getPaused()
+    {
+        return paused;
     }
 
     private void Awake()
@@ -26,13 +33,16 @@ public class GameplayPause : MonoBehaviour
     }
     public void togglePause()
     {
-        if(paused)
+        if (!countDown.getCountDown())
         {
-            Play();
-        }
-        else
-        {
-            Pause();
+            if (paused)
+            {
+                Play();
+            }
+            else
+            {
+                Pause();
+            }
         }
     }
 
@@ -41,7 +51,7 @@ public class GameplayPause : MonoBehaviour
         currentScale = Time.timeScale;
         Time.timeScale = 0f;
         paused = true;
-        pauseMenu.SetActive(true);
+        pauseMenu.SetActive(true);        
     }
 
     private void Play()

@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class CandleEmitter : MonoBehaviour {
 
-	public GameObject projectile;
-	public float minFireScale, maxFireScale;
 	private float fireScaleRange;
 	
 	private GameObject player;
@@ -19,7 +17,12 @@ public class CandleEmitter : MonoBehaviour {
 	private bool active;
 	private ProjectileSpeed speed;
 
-	void Start()
+    public GameObject projectile;
+    public float minFireScale, maxFireScale;
+    public GameplayPause gameplayPause;
+
+
+    void Start()
 	{
 		speed = ProjectileSpeed.Slow;
 		player = GameObject.Find("Player");
@@ -37,28 +40,31 @@ public class CandleEmitter : MonoBehaviour {
 
 	void Update()
 	{
-		if(active)
-		{
-			timer += Time.deltaTime;
-			disableTimer += Time.deltaTime;
-			if(timer > firePeriod)
-			{
-				timer %= firePeriod;
-				StartCoroutine(createProjectile());
-				StartCoroutine(lerpFlameSizeToMinimum(0.04f));
-				++currShots;
-			}
-			if(currShots >= maxShots) disableFire();
-			resizeFlameWhileActive();
-		}
-		else
-		{
-			timer = 0f;
-			disableTimer = 0f;
-			currShots = 0;
-			fire1.transform.position = fire1Start;
-			fire2.transform.position = fire2Start;
-		}
+        if (!gameplayPause.getPaused())
+        {
+            if (active)
+            {
+                timer += Time.deltaTime;
+                disableTimer += Time.deltaTime;
+                if (timer > firePeriod)
+                {
+                    timer %= firePeriod;
+                    StartCoroutine(createProjectile());
+                    StartCoroutine(lerpFlameSizeToMinimum(0.04f));
+                    ++currShots;
+                }
+                if (currShots >= maxShots) disableFire();
+                resizeFlameWhileActive();
+            }
+            else
+            {
+                timer = 0f;
+                disableTimer = 0f;
+                currShots = 0;
+                fire1.transform.position = fire1Start;
+                fire2.transform.position = fire2Start;
+            }
+        }
 	}
 	
 	void resizeFlameWhileActive()

@@ -9,7 +9,7 @@ public class PlayerHorizontalMovement : MonoBehaviour
     public void HandleHorizontalMovement()
     {
         if (ps.blockHorizontalMovement || ps.crouched)
-        {
+        { 
             return;
         }
 
