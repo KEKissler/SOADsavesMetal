@@ -169,7 +169,6 @@ public class Player : MonoBehaviour
     }
 
     void Update() {
-
         //stops player from being able to move if in pause or countdown
         if ((countDown == null || !countDown.getCountDown()) && (gameplayPause == null || !gameplayPause.getPaused()))
         {
