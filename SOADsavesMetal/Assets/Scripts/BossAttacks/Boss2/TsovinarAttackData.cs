@@ -19,4 +19,8 @@ public class TsovinarAttackData
     public GameObject screen3;
     public GameObject screen4;
     public GameObject screen5;
+    public GameObject upArrow;
+    public GameObject leftArrow;
+    public GameObject rightArrow;
+    public GameObject downArrow;
 }
