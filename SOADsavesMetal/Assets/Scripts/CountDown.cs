@@ -28,7 +28,7 @@ public class CountDown : MonoBehaviour
         yield return new WaitForSecondsRealtime(.75f);
         text.text = "1";
         yield return new WaitForSecondsRealtime(.75f);
-        text.text = "Fight!";
+        text.text = "Let's Rock!";
         yield return new WaitForSecondsRealtime(.75f);
         text.text = "";
         countDownRunning = false;
