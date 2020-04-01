@@ -9,6 +9,8 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
     private const string ANTENNA_BLINK = "antenna_blinkrapid";
     private const string ANTENNA_FOLD = "antenna_fold";
 
+    protected bool isLeft;
+
     public Material whiteNoise;
     public AnimationClip foldClip;
     public AnimationClip unfoldClip;
@@ -33,7 +35,6 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
     private CapsuleCollider2D antennaHitBox;
 
     private Transform spawnTransform;
-    private bool isLeft;
 
 
 

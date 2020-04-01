@@ -997,7 +997,7 @@ MonoBehaviour:
   screenShake: {fileID: 519420030}
   PhaseChangeThreshholds:
   - BossPhase: {fileID: 11400000, guid: b4d23e8cf1e88664b9203ae35acd8f12, type: 2}
-    HealthPercentThreshhold: 75
+    HealthPercentThreshhold: 85
     ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: 3c6351ec5c28a1b4182c13734ac47b2c, type: 2}
     HealthPercentThreshhold: 50
@@ -3325,6 +3325,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2899015249ca491458532fb64554359a, type: 2}
   - {fileID: 11400000, guid: 5fc5f6e957c70c64a87ba2e07da88413, type: 2}
   - {fileID: 11400000, guid: b3ae1de7090b3004da8e2458d61a2c30, type: 2}
+  - {fileID: 11400000, guid: f510e0542c7373542b3bdfca4e35764b, type: 2}
 --- !u!4 &971197070
 Transform:
   m_ObjectHideFlags: 0
@@ -4213,7 +4214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eeec4cad5755ae42a06ebbcefc4926c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHP: 2000
+  startingHP: 600
   damageMultiplier: 1
   HP: 0
 --- !u!1 &1555169471
@@ -4716,11 +4717,6 @@ PrefabInstance:
       propertyPath: platforms.Array.data[1]
       value: 
       objectReference: {fileID: 635238862}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: currentBandMember
-      value: Daron
-      objectReference: {fileID: 0}
     - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: gameplayPause
