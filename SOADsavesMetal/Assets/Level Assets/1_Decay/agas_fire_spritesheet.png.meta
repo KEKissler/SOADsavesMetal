@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: 5d2d3b0f9d96fc44ea616bc075082493
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: agas_fire_spritesheet_0
+    21300002: agas_fire_spritesheet_1
+    21300004: agas_fire_spritesheet_2
+    21300006: agas_fire_spritesheet_3
+    21300008: agas_fire_spritesheet_4
+    21300010: agas_fire_spritesheet_5
+    21300012: agas_fire_spritesheet_6
+    21300014: agas_fire_spritesheet_7
+    21300016: agas_fire_spritesheet_8
+    21300018: agas_fire_spritesheet_9
+    21300020: agas_fire_spritesheet_10
+    21300022: agas_fire_spritesheet_11
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -40,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -82,7 +94,247 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: agas_fire_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 127
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e827e3b3f85f0c4ab5cebe5cb07a0cc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agas_fire_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 15
+        width: 154
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ed2e05d37101034b9595d52dd97931f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agas_fire_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 12
+        width: 154
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 189d84e2ee8910744a9056be63f37c25
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agas_fire_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 13
+        width: 153
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad8b7aa60a9075443b6117a66dc5e6fa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agas_fire_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 18
+        width: 130
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbaa06223eecf01459f240e927a09e3a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agas_fire_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 109
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8833107e804d3214295b3b8d74e773e3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agas_fire_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 99
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de80a3429e366b64290b929e3f6438a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agas_fire_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 97
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5159e36aaaf0e34297213b7636b387f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agas_fire_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 90
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 817d348b25ae1e742a48a7d22a86d046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agas_fire_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 79
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c2076777e8439941ae67db65443cfd8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agas_fire_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 64
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd5262e49b06304bad23ba96e1473a2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: agas_fire_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 51
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27d6df543cf2f1549ac8764e46ddd487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
