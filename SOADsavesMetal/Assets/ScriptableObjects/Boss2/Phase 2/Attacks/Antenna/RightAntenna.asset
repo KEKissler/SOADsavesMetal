@@ -16,9 +16,9 @@ MonoBehaviour:
   Attacks:
   - Attack: {fileID: 11400000, guid: 206f2a6cec1a3a54d84fba26eb438952, type: 2}
     duration: 0.75
-  - Attack: {fileID: 11400000, guid: d9fe2f337f49ba84b8e0bcd07b88f722, type: 2}
-    duration: 0.75
   - Attack: {fileID: 11400000, guid: 83db98a8318ac234b9376deb10b6e46a, type: 2}
+    duration: 0.75
+  - Attack: {fileID: 11400000, guid: d9fe2f337f49ba84b8e0bcd07b88f722, type: 2}
     duration: 0.75
   whiteNoise: {fileID: 2100000, guid: ae9204aad3676504ea07d2b76cbda5ea, type: 2}
   foldClip: {fileID: 7400000, guid: 2bd0c57b7c8714241ba4bb1608a444a1, type: 2}
