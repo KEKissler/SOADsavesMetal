@@ -37,7 +37,7 @@ public class AgasAttackSequence : AgasAttack
     {
         for (int i = 0; i < Attacks.Count; ++i)
         {
-            Attacks[i].duration = originalDurations[i];
+            Attacks[i].Attack.duration = originalDurations[i];
         }
     }
     [System.Serializable]
