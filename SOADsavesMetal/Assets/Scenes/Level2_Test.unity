@@ -454,7 +454,7 @@ PrefabInstance:
     - target: {fileID: 5377065512036990218, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5377065512036990222, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
@@ -3326,6 +3326,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5fc5f6e957c70c64a87ba2e07da88413, type: 2}
   - {fileID: 11400000, guid: b3ae1de7090b3004da8e2458d61a2c30, type: 2}
   - {fileID: 11400000, guid: f510e0542c7373542b3bdfca4e35764b, type: 2}
+  - {fileID: 11400000, guid: 04c89f28140be054eb3c8b1f9dc1e6ee, type: 2}
+  - {fileID: 11400000, guid: 7d36d9cc058b0644cbea89e01eab3abe, type: 2}
+  - {fileID: 11400000, guid: 206f2a6cec1a3a54d84fba26eb438952, type: 2}
+  - {fileID: 11400000, guid: d9fe2f337f49ba84b8e0bcd07b88f722, type: 2}
+  - {fileID: 11400000, guid: 83db98a8318ac234b9376deb10b6e46a, type: 2}
 --- !u!4 &971197070
 Transform:
   m_ObjectHideFlags: 0
