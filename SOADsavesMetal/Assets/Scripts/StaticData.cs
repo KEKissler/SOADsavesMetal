@@ -68,6 +68,7 @@ public class StaticData: MonoBehaviour
 
     void Awake()
     {
+        Debug.Log("I RUN");
         if(changeCharacter)
         {
             Player playerScript = FindObjectOfType<Player>(); //gets Player component
