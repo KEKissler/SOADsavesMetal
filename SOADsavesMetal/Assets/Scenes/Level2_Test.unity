@@ -997,7 +997,7 @@ MonoBehaviour:
   screenShake: {fileID: 519420030}
   PhaseChangeThreshholds:
   - BossPhase: {fileID: 11400000, guid: b4d23e8cf1e88664b9203ae35acd8f12, type: 2}
-    HealthPercentThreshhold: 85
+    HealthPercentThreshhold: 80
     ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: 3c6351ec5c28a1b4182c13734ac47b2c, type: 2}
     HealthPercentThreshhold: 50
@@ -4219,7 +4219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eeec4cad5755ae42a06ebbcefc4926c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHP: 500
+  startingHP: 400
   damageMultiplier: 1
   HP: 0
 --- !u!1 &1555169471
