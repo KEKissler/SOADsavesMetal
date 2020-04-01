@@ -15,7 +15,7 @@ MonoBehaviour:
   duration: 0
   fireboltPrefab: {fileID: 1883100758368052, guid: 75d88f960ddbc6b478728aea69488e87,
     type: 3}
-  ProjectileSpeed: 0
-  ProjectileType: 0
+  ProjectileSpeed: 1
+  ProjectileType: 2
   degreeModifier: 0
   fixedAngle: 0

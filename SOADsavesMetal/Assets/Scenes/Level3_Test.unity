@@ -1132,6 +1132,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e69244b2d3e85494689bcb931663b5dc, type: 2}
   - {fileID: 11400000, guid: 860ccf5cd05de9648a7e89197325c4c3, type: 2}
   - {fileID: 11400000, guid: 5fca455a90ab64e4190165709acff636, type: 2}
+  - {fileID: 11400000, guid: e4a50368494a8ea469658061ca266568, type: 2}
 --- !u!4 &307649112
 Transform:
   m_ObjectHideFlags: 0
@@ -10628,6 +10629,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937212759991998290, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+        type: 3}
+      propertyPath: startingHP
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3554888995909705114, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
         type: 3}

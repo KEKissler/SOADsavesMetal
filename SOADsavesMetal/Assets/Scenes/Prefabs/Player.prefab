@@ -312,8 +312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meterCharge: 20
-  damage: 55
+  meterCharge: 9
+  damage: 10
 --- !u!58 &5186917033745648097
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -655,8 +655,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meterCharge: 15
-  damage: 55
+  meterCharge: 9
+  damage: 10
 --- !u!1 &8606488155122572079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,6 +1021,8 @@ MonoBehaviour:
   deathStarted: 0
   listeningForDoubleDownTap: 0
   blockAttackProgress: 0
+  gameplayPause: {fileID: 0}
+  countDown: {fileID: 0}
   playerUpperAnim: {fileID: 0}
   playerLowerAnim: {fileID: 9117497486779350954}
   shortRange: {fileID: 0}

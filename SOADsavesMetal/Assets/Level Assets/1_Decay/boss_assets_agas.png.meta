@@ -112,10 +112,10 @@ TextureImporter:
       name: boss_assets_agas_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 85
-        height: 85
+        x: 0
+        y: 0
+        width: 89
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,7 +123,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a04c3d93ea1aa434992bf2f95a7b2319
+      spriteID: 602cc234e84ea2c49b84002406869a94
       vertices: []
       indices: 
       edges: []
@@ -132,10 +132,10 @@ TextureImporter:
       name: boss_assets_agas_1
       rect:
         serializedVersion: 2
-        x: 91
-        y: 2
-        width: 85
-        height: 85
+        x: 89
+        y: 0
+        width: 89
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,7 +143,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 425adef3c90fc194e816abf78fe8b3d0
+      spriteID: 8c66c3b0c09b17e408c0cf9055db8b54
       vertices: []
       indices: 
       edges: []
@@ -152,10 +152,10 @@ TextureImporter:
       name: boss_assets_agas_2
       rect:
         serializedVersion: 2
-        x: 180
-        y: 2
-        width: 85
-        height: 85
+        x: 178
+        y: 0
+        width: 89
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,7 +163,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6990057646ba874e96760f54def879a
+      spriteID: 2e047af78b11def489276b10b6ae65b3
       vertices: []
       indices: 
       edges: []

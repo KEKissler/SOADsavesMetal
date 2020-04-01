@@ -23,6 +23,8 @@ public class DDRBeam : TsovinarAttack
     private readonly System.Random RNG = new System.Random();
     private GameObject beam;
     private GameObject[] screens;
+    private GameObject[] screenArrows;
+    private GameObject screenArrowToDisable;
     private Vector3[] bossSizes;
     private GameObject tsovinar;
     private Transform arrow;
@@ -36,6 +38,7 @@ public class DDRBeam : TsovinarAttack
                                     new Vector3(1.2f, 1.2f, 1.2f),
                                     new Vector3(2f, 2f, 2f),
                                     };
+        screenArrows = new GameObject[] { data.rightArrow, data.upArrow, data.leftArrow, data.downArrow };
     }
 
     protected override void OnStart()
@@ -66,7 +69,13 @@ public class DDRBeam : TsovinarAttack
                 Debug.Log("DDRBeam selected a direction that doesn't exist.");
                 break;
         }
-        
+
+        foreach( GameObject arrow in screenArrows )
+        {
+            arrow.SetActive(true);
+        }
+        screenArrows[dir].SetActive(false);
+
         arrow.GetComponent<SpriteRenderer>().color = screens[dir].GetComponent<SpriteRenderer>().color;
         tsovinar.transform.localScale = bossSizes[dir];
         tsovinar.transform.localRotation = Quaternion.identity;
