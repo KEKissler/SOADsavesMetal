@@ -312,8 +312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meterCharge: 9
-  damage: 10
+  meterCharge: 8
+  damage: 5
 --- !u!58 &5186917033745648097
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -655,8 +655,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meterCharge: 9
-  damage: 10
+  meterCharge: 8
+  damage: 5
 --- !u!1 &8606488155122572079
 GameObject:
   m_ObjectHideFlags: 0

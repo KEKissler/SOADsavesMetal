@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -59,6 +60,7 @@ public class Player : MonoBehaviour
     public Animator playerLowerAnim;
     public Animator shortRange;
     private PlayerAttackAnims paa;
+    private Slider superBar;
 
     public Platform[] platforms;
 
@@ -128,6 +130,8 @@ public class Player : MonoBehaviour
         listeningForDoubleDownTap = false;
         remainingJumps = 1;
         superMeterCharge = 0f;
+        superBar = GameObject.Find("Super Bar").GetComponent<Slider>();
+        superBar.maxValue = maxSuperCharge;
 
         // Player-specific attack
         blockAttackProgress = true;
@@ -194,6 +198,7 @@ public class Player : MonoBehaviour
                 superMeterCharge += maxSuperCharge / 100f * Time.deltaTime;
                 if (superMeterCharge > maxSuperCharge) superMeterCharge = maxSuperCharge;
                 // Debug.Log("meter charge " + superMeterCharge);
+                superBar.value = superMeterCharge;
                 #endregion Super meter charge
 
                 #region Falling and jumping animations

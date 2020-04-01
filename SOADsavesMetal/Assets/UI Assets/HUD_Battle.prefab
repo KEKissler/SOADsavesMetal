@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -305.6, y: 191.39}
+  m_AnchoredPosition: {x: -305.6, y: 145.47}
   m_SizeDelta: {x: 100, y: 47.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3029032718062568337
@@ -56,6 +56,7 @@ MonoBehaviour:
   heart3: {fileID: 8291340972663935155}
   full: {fileID: 21300000, guid: 2529aa075f450714abb7c373841f9841, type: 3}
   broken: {fileID: 21300002, guid: 2529aa075f450714abb7c373841f9841, type: 3}
+  player: {fileID: 0}
 --- !u!1 &8291340970875600685
 GameObject:
   m_ObjectHideFlags: 0
