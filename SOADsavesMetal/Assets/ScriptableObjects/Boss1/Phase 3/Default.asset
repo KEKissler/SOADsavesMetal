@@ -23,6 +23,6 @@ MonoBehaviour:
   - attack: {fileID: 11400000, guid: 905756f6785e9e340b6554db806432bf, type: 2}
     percentThreshold: 35
   - attack: {fileID: 11400000, guid: 66cb888b3172aee49a73f8e0dd51a3cf, type: 2}
-    percentThreshold: 60
+    percentThreshold: 80
   - attack: {fileID: 11400000, guid: a1bd05e45b5bada419be2f92642c3cb9, type: 2}
-    percentThreshold: 90
+    percentThreshold: 100
