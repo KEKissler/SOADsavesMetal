@@ -9169,7 +9169,7 @@ GameObject:
   - component: {fileID: 1589554087}
   - component: {fileID: 1589554086}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: TearShow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9187,6 +9187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908f7daa540b6ae4ba1324de91959918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tear: {fileID: 0}
+  timeTillDrop: 4
+  flashRate: 0.2
 --- !u!212 &1589554087
 SpriteRenderer:
   m_ObjectHideFlags: 0
