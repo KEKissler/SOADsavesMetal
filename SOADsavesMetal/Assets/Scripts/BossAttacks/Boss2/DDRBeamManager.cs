@@ -22,7 +22,7 @@ public class DDRBeamManager : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         GameObject player = other.gameObject;
-        if (player.tag == "Player")
+        if (player.name == "Player")
         {
             switch(direction)
             {

@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ccf1fc7e9c4a184d93a65f33fb96d17, type: 3}
-  m_Name: ElectricShock_Wave
+  m_Script: {fileID: 11500000, guid: 4ae0250c731c0054182390d5baf9e802, type: 3}
+  m_Name: BothAntennas
   m_EditorClassIdentifier: 
-  duration: 5
-  wirePrefab: {fileID: 6541286465017545709, guid: 6e9dcd044426fc04aa41098a72de7111,
-    type: 3}
-  CycleTime: 0.4
-  start: 5
-  isMovingRight: 0
-  waveWidth: 4
+  duration: 5.5
+  Attacks:
+  - {fileID: 11400000, guid: 04c89f28140be054eb3c8b1f9dc1e6ee, type: 2}
+  - {fileID: 11400000, guid: 7d36d9cc058b0644cbea89e01eab3abe, type: 2}

@@ -56,6 +56,7 @@ MonoBehaviour:
   heart3: {fileID: 8291340972663935155}
   full: {fileID: 21300000, guid: 2529aa075f450714abb7c373841f9841, type: 3}
   broken: {fileID: 21300002, guid: 2529aa075f450714abb7c373841f9841, type: 3}
+  player: {fileID: 0}
 --- !u!1 &8291340970875600685
 GameObject:
   m_ObjectHideFlags: 0

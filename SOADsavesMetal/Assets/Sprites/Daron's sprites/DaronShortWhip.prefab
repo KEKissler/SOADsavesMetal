@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162d946d0bbb1914c9af89668d28e525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 2
   LIFESPAN: 0.67
   initialSpeed: 4
 --- !u!50 &386540278222347071
@@ -177,5 +177,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meterCharge: 5
+  meterCharge: 3
   damage: 0

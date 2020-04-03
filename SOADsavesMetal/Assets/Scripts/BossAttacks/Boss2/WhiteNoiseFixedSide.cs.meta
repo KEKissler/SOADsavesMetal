@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d08515a102a2eaa4f9f2f39e25983d61
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - whiteNoise: {instanceID: 0}
+  - screen1: {instanceID: 0}
+  - screen2: {instanceID: 0}
+  - screen3: {instanceID: 0}
+  - screen4: {instanceID: 0}
+  - screen5: {instanceID: 0}
+  - antenna: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

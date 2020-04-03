@@ -29,7 +29,9 @@ public class ShortRangeDmg : MonoBehaviour {
 	{
 		if(col.gameObject.tag == "BossHittable" && canHit) {
 			col.gameObject.SendMessage("hit", damage);
-            ps.superMeterCharge += meterCharge;
+            float dmgMult = col.gameObject.GetComponent<BossHit>().damageMultiplier;
+            Debug.Log("yee " + dmgMult);
+            ps.superMeterCharge += meterCharge * dmgMult;
 			canHit = false;
 		}
 		else if(col.gameObject.tag == "Projectile")
@@ -44,7 +46,9 @@ public class ShortRangeDmg : MonoBehaviour {
 		if(col.gameObject.tag == "BossHittable" && canHit)
 		{
 			col.gameObject.SendMessage("hit", damage);
-            ps.superMeterCharge += meterCharge;
+            float dmgMult = col.gameObject.GetComponent<BossHit>().damageMultiplier;
+            Debug.Log("yee " + dmgMult);
+            ps.superMeterCharge += meterCharge * dmgMult;
 			canHit = false;
 		}
 		else if(col.gameObject.tag == "Projectile")
