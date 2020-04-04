@@ -29,11 +29,13 @@ public class PlayerJump : MonoBehaviour
                 {// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "ShavoJumpLegs")
                  // PlayAnims("Dash");
                     StartCoroutine(Dash());
+                    ps.auso.Stop();
                     ps.PlayAudioEvent(ps.shavoDash);
                 }
                 else if (ps.currentBandMember == "Daron")
                 {
                     StartCoroutine("Teleport");
+                    ps.auso.Stop();
                     ps.PlayAudioEvent(ps.daronTeleport);
                 }
                 else if (ps.currentBandMember == "Serj")
