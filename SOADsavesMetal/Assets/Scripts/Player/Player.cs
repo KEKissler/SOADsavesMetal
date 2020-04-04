@@ -65,8 +65,6 @@ public class Player : MonoBehaviour
 
     public Platform[] platforms;
 
-    public AudioSource auso;
-
     #region SFX Variables
     [Header("Serj - Vocals")]
     public AudioClip SerjWingSprout;
@@ -167,7 +165,6 @@ public class Player : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerUpperAnim = gameObject.GetComponent<Animator>();
         shortRange = shortRangeHitbox.GetComponent<Animator>();
-        auso = gameObject.GetComponent<AudioSource>();
 
         // Configure other player scripts
         paa = GetComponentInChildren<PlayerAttackAnims>();
@@ -274,13 +271,11 @@ public class Player : MonoBehaviour
                 //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
                 if (Input.GetKeyDown(KeyCode.Z) && !crouched && !attacking)
                 {
-                    auso.Stop();
                     StartCoroutine(paa.shortRangeAttackAnims());
                     StartCoroutine(pam.pa.AttackShort());
                 }
                 else if (Input.GetKey(KeyCode.X) && !attacking)
                 {
-                    auso.Stop();
                     StartCoroutine(paa.longRangeAttackAnims());
                     StartCoroutine(pam.pa.AttackLong());
                 }
@@ -288,7 +283,6 @@ public class Player : MonoBehaviour
                         !isSuperActive && superMeterCharge >= maxSuperCharge)
                 {
                     superMeterCharge = 0f;
-                    auso.Stop();
                     StartCoroutine(paa.superAttackAnims());
                     StartCoroutine(pam.pa.AttackSuper());
                 }
