@@ -1,8 +1,9 @@
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
-[Bb]uild/
-!SOADsavesMetal_FMOD\SOADsavesMetal\Build
+![Bb]uild/
+[Bb]uild/*
+![Bb]uild/*.bank
 [Bb]uilds/
 Assets/AssetStoreTools*
 
@@ -42,4 +43,5 @@ Assets/Plugins/FMOD/Resources/FMODStudioCache.asset
 Assets/Plugins/FMOD/Resources/FMODStudioCache.asset.meta
 fmod_editor.log
 
+!SOADsavesMetal_FMOD\SOADsavesMetal\Build
 
