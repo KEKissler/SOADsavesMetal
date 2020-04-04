@@ -2,6 +2,7 @@
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
+!SOADsavesMetal_FMOD\SOADsavesMetal\Build
 [Bb]uilds/
 Assets/AssetStoreTools*
 
@@ -40,4 +41,5 @@ sysinfo.txt
 Assets/Plugins/FMOD/Resources/FMODStudioCache.asset
 Assets/Plugins/FMOD/Resources/FMODStudioCache.asset.meta
 fmod_editor.log
+
 
