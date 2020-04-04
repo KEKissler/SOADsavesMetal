@@ -1,0 +1,26 @@
+Sounds are grouped in 4 Main Groups
+	Player - Sounds Directly Related to Player(Band Members)
+	Enemy - Sounds Related to Boss/Enemy Effects
+	Music - Music related events
+	UI - UI related events
+These are abbreviated as P, E, M, U
+
+
+For Player sounds(P):
+	Assemble event names as P_BandMemberName_ActionName_ActionModifier
+		or if general 	P_ActionName
+	Additional Modifiers such as "Hit" should be appended after action modifier field
+	For example Daron's long range attack is named
+		P_Daron_Atk_L
+	Daron's long range attack has a hit sound as well so it will be called
+		P_Daron_Atk_L_Hit
+
+For Enemy sounds(E):
+
+
+For Music(M):
+
+
+For UI sounds(U):
+
+

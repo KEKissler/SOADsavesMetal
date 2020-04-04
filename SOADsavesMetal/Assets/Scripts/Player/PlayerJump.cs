@@ -15,7 +15,7 @@ public class PlayerJump : MonoBehaviour
             ps.PlayAnims("Jump");
             ps.remainingJumps -= 1;
 
-            ps.auso.PlayOneShot(ps.GetRandomSoundEffect(ps.JumpSounds));
+            ps.PlayAudioEvent(ps.playerJump);
 
             if (ps.inAir)
             {
@@ -23,20 +23,20 @@ public class PlayerJump : MonoBehaviour
                 {// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "JohnJumpLegs")
                     ps.PlayAnims("Jump");
                     ps.rb.velocity = new Vector2(ps.rb.velocity.x, ps.jumpHeight);
-                    ps.auso.PlayOneShot(ps.GetRandomSoundEffect(ps.JohnDoubleJump)); // problem: basic jump plays at the same time. can't auso.Stop() because if the super is active, it cancels that too....
+                    ps.PlayAudioEvent(ps.johnJump); // problem: basic jump plays at the same time. can't auso.Stop() because if the super is active, it cancels that too....
                 }
                 else if (ps.currentBandMember == "Shavo")
                 {// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "ShavoJumpLegs")
                  // PlayAnims("Dash");
                     StartCoroutine(Dash());
                     ps.auso.Stop();
-                    ps.auso.PlayOneShot(ps.ShavoDash);
+                    ps.PlayAudioEvent(ps.shavoDash);
                 }
                 else if (ps.currentBandMember == "Daron")
                 {
                     StartCoroutine("Teleport");
                     ps.auso.Stop();
-                    ps.auso.PlayOneShot(ps.DaronTeleport);
+                    ps.PlayAudioEvent(ps.daronTeleport);
                 }
                 else if (ps.currentBandMember == "Serj")
                 {

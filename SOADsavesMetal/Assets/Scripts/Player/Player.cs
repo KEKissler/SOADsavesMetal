@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FMOD.Studio;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -67,43 +68,69 @@ public class Player : MonoBehaviour
     public AudioSource auso;
 
     #region SFX Variables
-    [Header("General SFX")]
-    public AudioClip[] JumpSounds;
-    public AudioClip[] TakeDamageSounds;
-    public AudioClip DeathSound;
-
-    [Header("John - Drums")]
-    public AudioClip[] JohnDoubleJump;
-    public AudioClip[] JohnShortRange;
-    public AudioClip[] JohnLongRange;
-    public AudioClip JohnSuper;
-
-    [Header("Shavo - Bass")]
-    public AudioClip ShavoDash;
-    public AudioClip[] ShavoShortRange;
-    public AudioClip ShavoLongRange;
-    public AudioClip ShavoSuper;
-
-    [Header("Daron - Guitar")]
-    public AudioClip DaronTeleport;
-    public AudioClip DaronShortRange;
-    public AudioClip[] DaronLongRangeThrow;     // may condense to just 1 sound effect
-    public AudioClip DaronLongRangeHit;         // may condense to just 1 sound effect
-    public AudioClip DaronSuper;
-
     [Header("Serj - Vocals")]
     public AudioClip SerjWingSprout;
     public AudioClip[] SerjWingFlap;
     public AudioClip SerjWingDecay;
-    public AudioClip[] SerjShortRange;
-    public AudioClip[] SerjLongRange;
     public AudioClip SerjSuperLightbeam;    // will condense to just 1 sound effect with 4 variations and no parts - waiting on final super animation
     public AudioClip[] SerjSuperVocal;      // will condense to just 1 sound effect with 4 variations and no parts - waiting on final super animation
+    #endregion
+
+    #region FMODEvents
+    [Header("General Events")]
+    [FMODUnity.EventRef]
+    public string playerJump;
+    [FMODUnity.EventRef]
+    public string playerHit;
+    [FMODUnity.EventRef]
+    public string playerDeath;
+
+    [Header("John Events")]
+    [FMODUnity.EventRef]
+    public string johnJump;
+    [FMODUnity.EventRef]
+    public string johnShortRange;
+    [FMODUnity.EventRef]
+    public string johnLongRange;
+    [FMODUnity.EventRef]
+    public string johnSuper;
+
+    [Header("Shavo Events")]
+    [FMODUnity.EventRef]
+    public string shavoDash;
+    [FMODUnity.EventRef]
+    public string shavoShortRange;
+    [FMODUnity.EventRef]
+    public string shavoLongRange;
+    [FMODUnity.EventRef]
+    public string shavoSuper;
+
+    [Header("Daron Events")]
+    [FMODUnity.EventRef]
+    public string daronTeleport;
+    [FMODUnity.EventRef]
+    public string daronShortRange;
+    [FMODUnity.EventRef]
+    public string daronLongRange;
+    [FMODUnity.EventRef]
+    public string daronSuper;
+
+    [Header("Serj Events")]
+    [FMODUnity.EventRef]
+    public string serjShortRange;
+    [FMODUnity.EventRef]
+    public string serjLongRange;
     #endregion
 
     public string GetAnimName(string animSuffix)
     {
         return currentBandMember + animSuffix;
+    }
+
+    public void PlayAudioEvent(string fmodEvent)
+    {
+        EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+        instance.start();
     }
 
     // Handles a common use case regarding playing body and leg animations.
@@ -320,7 +347,7 @@ public class Player : MonoBehaviour
     {
         playerUpperAnim.Play(GetAnimName("Death"));
         playerLowerAnim.Play("ShavoDashLegs");
-        auso.PlayOneShot(DeathSound);
+        PlayAudioEvent(playerDeath);
         yield return new WaitForSeconds(1.0f);
     }
 

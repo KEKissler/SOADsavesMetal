@@ -858,9 +858,9 @@ GameObject:
   - component: {fileID: 9117497486307095084}
   - component: {fileID: 9117497486307095085}
   - component: {fileID: 9117497486307095086}
-  - component: {fileID: 1105088044}
   - component: {fileID: 4277835215915131891}
   - component: {fileID: 6645908540677337094}
+  - component: {fileID: 4470545619478365776}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1031,61 +1031,35 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   auso: {fileID: 0}
-  JumpSounds:
-  - {fileID: 8300000, guid: 52d2f4a2bfe493b4d9fee2c50634358a, type: 3}
-  - {fileID: 8300000, guid: 4b93506bb9b98084e82dd3e601006159, type: 3}
-  - {fileID: 8300000, guid: 3db50b06bb244bc4da4f7aacec8eba2e, type: 3}
-  TakeDamageSounds:
-  - {fileID: 8300000, guid: c56cbec58e23a724eb4fbf01cbcf679d, type: 3}
-  DeathSound: {fileID: 8300000, guid: 569d7fd1c15fa754b967e8d471bb2b93, type: 3}
-  JohnDoubleJump:
-  - {fileID: 8300000, guid: b7b57f9640cc03445bf7b50eabc8259e, type: 3}
-  - {fileID: 8300000, guid: b790a7aa9e85f7b4288abc45ab5513db, type: 3}
-  - {fileID: 8300000, guid: 1bc87be3e7f54944c8cb4bb76b7c2a87, type: 3}
-  JohnShortRange:
-  - {fileID: 8300000, guid: 6caebc79aacd0a64cb8bb2f0a428b10f, type: 3}
-  - {fileID: 8300000, guid: fbb03d3cae70a31459911ecf283afdbe, type: 3}
-  - {fileID: 8300000, guid: 43aa64dafb12cc84791fecfa8b3b5f40, type: 3}
-  JohnLongRange:
-  - {fileID: 8300000, guid: 625821317c084c9468249647bd2c96d2, type: 3}
-  - {fileID: 8300000, guid: bc89ea18d3f074c4986082c2f4f79cb2, type: 3}
-  - {fileID: 8300000, guid: b61b4b6d07a9ca44d946fdf9a7ffee51, type: 3}
-  JohnSuper: {fileID: 8300000, guid: 1c20d2739dc7e224dad78c6dd734c7db, type: 3}
-  ShavoDash: {fileID: 8300000, guid: 45370aff20940da48b2f5c28d97f9242, type: 3}
-  ShavoShortRange:
-  - {fileID: 8300000, guid: 7578d8240bdcd8040ad728cc5f1317ee, type: 3}
-  - {fileID: 8300000, guid: a31a0df7a18d77440bd1a057c823ab05, type: 3}
-  ShavoLongRange: {fileID: 8300000, guid: e5e9701e519f45943869b6905a3b7f8e, type: 3}
-  ShavoSuper: {fileID: 8300000, guid: cc293e62523e2df4ead859efe9dffc44, type: 3}
-  DaronTeleport: {fileID: 8300000, guid: 813abdf15ccfa3b4093f0ec37caea9dd, type: 3}
-  DaronShortRange: {fileID: 8300000, guid: c7e128cbf8de6674ebbc03679ddd72e8, type: 3}
-  DaronLongRangeThrow:
-  - {fileID: 8300000, guid: 561fb75ec167aab408c652ec363fb175, type: 3}
-  - {fileID: 8300000, guid: 1210e395e606ed04c880b92314e2abef, type: 3}
-  - {fileID: 8300000, guid: c4092adb68853ce4cb2736d61f55060c, type: 3}
-  DaronLongRangeHit: {fileID: 8300000, guid: 6680835b4594bed44914a9c92d57519a, type: 3}
-  DaronSuper: {fileID: 8300000, guid: 0310d728752f73646aebf93ee75a52b1, type: 3}
   SerjWingSprout: {fileID: 8300000, guid: 2bc4c9c6471733942833089f95626dc6, type: 3}
   SerjWingFlap:
   - {fileID: 8300000, guid: 089dd7e5fad9be5469015dcc3d36e537, type: 3}
   - {fileID: 8300000, guid: d3f5c573b38b4f54492432e547567f16, type: 3}
   - {fileID: 8300000, guid: 0385fbe7f5093b84388673286005488f, type: 3}
   SerjWingDecay: {fileID: 8300000, guid: 22a6c32d9f8f8164e9486c52c1c4d448, type: 3}
-  SerjShortRange:
-  - {fileID: 8300000, guid: 5eca5ece0ddf9854cad3781a43664f0c, type: 3}
-  - {fileID: 8300000, guid: 398c526dd91cbf54f8ff71bc327e5eea, type: 3}
-  - {fileID: 8300000, guid: 4f857091139add544a1eb8cd56d32dc6, type: 3}
-  - {fileID: 8300000, guid: b883d99edf3e8a642a36478cb550a0fe, type: 3}
-  SerjLongRange:
-  - {fileID: 8300000, guid: fb001a5ef16bc8b4f8003a39e88f929d, type: 3}
-  - {fileID: 8300000, guid: bc1da117ccdc6c34194cb0881827312d, type: 3}
-  - {fileID: 8300000, guid: c91a2bc5b91386441b1af2fcd21562ec, type: 3}
   SerjSuperLightbeam: {fileID: 8300000, guid: a496d96eecc5f4b49ae6f0014a78d2af, type: 3}
   SerjSuperVocal:
   - {fileID: 8300000, guid: af734d66b203ca940a703c70156655e2, type: 3}
   - {fileID: 8300000, guid: 8a0047dac0e62a44ea52bf60af3b043b, type: 3}
   - {fileID: 8300000, guid: 86aaebdb7929c1c4eb8c3cc13a7aa550, type: 3}
   - {fileID: 8300000, guid: 34bd7a67e1d0b9f4697014caf2b9e2b2, type: 3}
+  playerJump: event:/Player/P_Jump
+  playerHit: event:/Player/P_Hurt
+  playerDeath: event:/Player/P_Death
+  johnJump: event:/Player/P_John/P_John_Jump_Dbl
+  johnShortRange: event:/Player/P_John/P_John_Atk_S
+  johnLongRange: event:/Player/P_John/P_John_Atk_L
+  johnSuper: event:/Player/P_John/P_John_Atk_Sp
+  shavoDash: event:/Player/P_Shavo/P_Shavo_Dash
+  shavoShortRange: event:/Player/P_Shavo/P_Shavo_Atk_S
+  shavoLongRange: event:/Player/P_Shavo/P_Shavo_Atk_L
+  shavoSuper: event:/Player/P_Shavo/P_Shavo_Atk_Sp
+  daronTeleport: event:/Player/P_Daron/P_Daron_Teleport
+  daronShortRange: event:/Player/P_Daron/P_Daron_Atk_S
+  daronLongRange: event:/Player/P_Daron/P_Daron_Atk_L
+  daronSuper: event:/Player/P_Daron/P_Daron_Atk_Sp
+  serjShortRange: event:/Player/P_Serj/P_Serj_Atk_S
+  serjLongRange: event:/Player/P_Serj/P_Serj_Atk_L
 --- !u!95 &9117497486307095086
 Animator:
   serializedVersion: 3
@@ -1105,102 +1079,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!82 &1105088044
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9117497486307095087}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &4277835215915131891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1227,6 +1105,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ps: {fileID: 0}
+--- !u!114 &4470545619478365776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117497486307095087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadEvent: 1
+  UnloadEvent: 2
+  Banks:
+  - Player
+  CollisionTag: 
+  PreloadSamples: 0
 --- !u!1 &9117497486599704595
 GameObject:
   m_ObjectHideFlags: 0

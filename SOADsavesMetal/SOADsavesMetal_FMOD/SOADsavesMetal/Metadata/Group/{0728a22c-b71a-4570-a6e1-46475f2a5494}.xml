@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="MixerGroup" id="{0728a22c-b71a-4570-a6e1-46475f2a5494}">
+		<property name="name">
+			<value>Sandaramet</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{2568eb6b-042c-4c1d-88de-3db6af4601f9}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{570e8eee-85a4-4236-a799-1c21aadbb5a1}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{9535ea45-82b1-4f6a-8ef4-0b923f81458c}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{2568eb6b-042c-4c1d-88de-3db6af4601f9}">
+		<relationship name="effects">
+			<destination>{44390743-9d75-4eb4-8c59-5f3d44101d5d}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{570e8eee-85a4-4236-a799-1c21aadbb5a1}" />
+	<object class="MixerBusFader" id="{44390743-9d75-4eb4-8c59-5f3d44101d5d}" />
+</objects>
