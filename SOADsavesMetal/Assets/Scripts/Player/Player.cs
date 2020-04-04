@@ -306,6 +306,10 @@ public class Player : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            PlayAnims("Idle");
+        }
     }
 
     #region Collision Detection

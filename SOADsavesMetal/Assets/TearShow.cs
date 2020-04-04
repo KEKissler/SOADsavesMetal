@@ -16,13 +16,39 @@ public class TearShow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        flashTime = 0;
+        flashTime = Time.time;
         time = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Time.time - flashTime >= flashRate)
+        {
+            flashTime = Time.time;
+            this.gameObject.GetComponent<SpriteRenderer>().enabled = !this.gameObject.GetComponent<SpriteRenderer>().enabled;
+        }
+        if(Time.time - time >= timeTillDrop)
+        {
+            if(Tear != null)
+                Instantiate(Tear, gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void SetDrop(GameObject drop)
+    {
+        Tear = drop;
+    }
+
+    public void SetTimeTillDrop(float t)
+    {
+        timeTillDrop = t;
+    }
+
+    public void SetFlashRate(float fr)
+    {
+        flashRate = fr;
     }
 }
+ 

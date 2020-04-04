@@ -12,17 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a89c7ce7d6c9d447be0d91a4329ebdb, type: 3}
   m_Name: MoveRightToLeft
   m_EditorClassIdentifier: 
-  duration: 2
+  duration: 2.5
   PlannedPositions:
   - delayUntilMovingAgain: 0.5
-    timeSpentMoving: 0.35
-    position: {x: 0.87, y: 4.6}
-  - delayUntilMovingAgain: 0.5
     timeSpentMoving: 0.6
-    position: {x: -3.29, y: -2.85}
+    position: {x: 6.81, y: 1.42}
   - delayUntilMovingAgain: 0.5
-    timeSpentMoving: 0.6
-    position: {x: -7.18, y: 4.6}
+    timeSpentMoving: 0.8
+    position: {x: 2.98, y: 5.6}
+  - delayUntilMovingAgain: 0.5
+    timeSpentMoving: 0.8
+    position: {x: -3.05, y: -2}
+  - delayUntilMovingAgain: 0.5
+    timeSpentMoving: 0.8
+    position: {x: -8.48, y: 4.44}
   - delayUntilMovingAgain: 0.5
     timeSpentMoving: 0.35
-    position: {x: -11.17, y: 2.69}
+    position: {x: -11.17, y: 1.68}

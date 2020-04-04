@@ -7,6 +7,7 @@ public class StaticData: MonoBehaviour
 {
     static public string playerSelected = "";
     static public string levelSelect = "";
+    static public SpriteRenderer selectedCharacter;
     static public bool firstLoad = true;
     static public bool[] characterUnlocks = {false, false, false};
     static public bool[] shavoUnlock = {false, false};
@@ -23,6 +24,11 @@ public class StaticData: MonoBehaviour
     public void setLevel(string levelName)
     {
         levelSelect = levelName;
+    }
+
+    public void setSprite(SpriteRenderer characterSprite)
+    {
+        selectedCharacter = characterSprite;
     }
 
     public void printName(string name) //debuging
@@ -72,9 +78,12 @@ public class StaticData: MonoBehaviour
         if(changeCharacter)
         {
             Player playerScript = FindObjectOfType<Player>(); //gets Player component
+            //SpriteRenderer playerSprite = FindObjectOfType<SpriteRenderer>();
             if(playerScript != null)
             {
                 playerScript.currentBandMember = playerSelected; // sets player to selected player
+                //playerSprite = selectedCharacter;
+                //Debug.Log(playerSprite);
             }
         }
     }
