@@ -1,7 +1,9 @@
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
-[Bb]uild/
+![Bb]uild/
+[Bb]uild/*
+![Bb]uild/*.bank
 [Bb]uilds/
 Assets/AssetStoreTools*
 
@@ -39,7 +41,7 @@ sysinfo.txt
 #FMOD
 Assets/Plugins/FMOD/Resources/FMODStudioCache.asset
 Assets/Plugins/FMOD/Resources/FMODStudioCache.asset.meta
-Assets/StreamingAssets/**/*.bank
-Assets/StreamingAssets/**/*.bank.meta
 fmod_editor.log
+
+!SOADsavesMetal_FMOD\SOADsavesMetal\Build
 

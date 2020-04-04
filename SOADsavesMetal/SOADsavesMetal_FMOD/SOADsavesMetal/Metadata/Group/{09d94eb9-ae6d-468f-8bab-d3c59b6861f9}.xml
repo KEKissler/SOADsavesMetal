@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="MixerGroup" id="{09d94eb9-ae6d-468f-8bab-d3c59b6861f9}">
+		<property name="name">
+			<value>Tsovinar</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{23e1041a-c24f-45dc-9710-0b0fc93f967a}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{9265af27-c1ab-45d6-bb66-c9e245f9163b}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{9535ea45-82b1-4f6a-8ef4-0b923f81458c}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{23e1041a-c24f-45dc-9710-0b0fc93f967a}">
+		<relationship name="effects">
+			<destination>{e398dbf2-6fa3-4ae7-87a5-c3eaaa5a0d61}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{9265af27-c1ab-45d6-bb66-c9e245f9163b}" />
+	<object class="MixerBusFader" id="{e398dbf2-6fa3-4ae7-87a5-c3eaaa5a0d61}" />
+</objects>

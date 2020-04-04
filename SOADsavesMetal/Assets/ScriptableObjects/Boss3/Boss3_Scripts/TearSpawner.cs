@@ -7,6 +7,8 @@ public class TearSpawner : MonoBehaviour
     [SerializeField]
     GameObject Tear;
     [SerializeField]
+    GameObject WaitObject;
+    [SerializeField]
     float[] times;
     int tear;
     float time;
@@ -39,7 +41,10 @@ public class TearSpawner : MonoBehaviour
             if(Time.time - time >= times[tear])
             {
                 time = Time.time;
-                Instantiate(Tear,gameObject.transform.position,gameObject.transform.rotation);
+                GameObject temp = Instantiate(WaitObject, gameObject.transform.position,gameObject.transform.rotation);
+                if(temp.GetComponent<TearShow>() != null)
+                    temp.GetComponent<TearShow>().SetDrop(Tear);
+
                 if(tear < times.Length - 1)
                 {
                     tear++;

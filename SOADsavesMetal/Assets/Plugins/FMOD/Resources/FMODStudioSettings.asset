@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   SwitchSettingsMigration: 1
-  HasSourceProject: 1
-  HasPlatforms: 1
+  HasSourceProject: 0
+  HasPlatforms: 0
   sourceProjectPath: SOADsavesMetal_FMOD/SOADsavesMetal/SOADsavesMetal.fspro
-  sourceBankPath: SOADsavesMetal_FMOD\SOADsavesMetal\Build
+  sourceBankPath: SOADsavesMetal_FMOD\SOADsavesMetal\Build\Desktop
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
@@ -76,7 +76,15 @@ MonoBehaviour:
   - Platform: 20
     Value: 32
   Plugins: []
-  MasterBanks: []
-  Banks: []
+  MasterBanks:
+  - Master Bank
+  Banks:
+  - Level 1
+  - Level 2
+  - Level 3
+  - Level 4
+  - Music
+  - Player
+  - UI
   BanksToLoad: []
   LiveUpdatePort: 9264
