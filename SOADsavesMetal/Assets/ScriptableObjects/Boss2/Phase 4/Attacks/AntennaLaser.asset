@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ae0250c731c0054182390d5baf9e802, type: 3}
-  m_Name: Shock+Antenna
+  m_Name: AntennaLaser
   m_EditorClassIdentifier: 
   duration: 5
   Attacks:
   - {fileID: 11400000, guid: b3ae1de7090b3004da8e2458d61a2c30, type: 2}
-  - {fileID: 11400000, guid: 5fc5f6e957c70c64a87ba2e07da88413, type: 2}
+  - {fileID: 11400000, guid: 8a1d13b22bdd8eb48b646fb176b4f033, type: 2}

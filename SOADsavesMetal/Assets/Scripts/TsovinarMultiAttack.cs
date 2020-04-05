@@ -24,7 +24,6 @@ public class TsovinarMultiAttack : TsovinarAttack
 
     protected override IEnumerator Execute(float duration)
     {
-        Debug.Log(duration);
         yield return new WaitForEndOfFrame();
         foreach(var subAttack in Attacks)
         {

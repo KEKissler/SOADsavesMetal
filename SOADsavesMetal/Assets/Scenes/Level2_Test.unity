@@ -3258,6 +3258,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 206f2a6cec1a3a54d84fba26eb438952, type: 2}
   - {fileID: 11400000, guid: d9fe2f337f49ba84b8e0bcd07b88f722, type: 2}
   - {fileID: 11400000, guid: 83db98a8318ac234b9376deb10b6e46a, type: 2}
+  - {fileID: 11400000, guid: 5eaccea07db3bc448bf35254acf9decb, type: 2}
+  - {fileID: 11400000, guid: 84017a944e035024fb02671be8175334, type: 2}
+  - {fileID: 11400000, guid: 91581753c76f29b41b641c40c594731c, type: 2}
+  - {fileID: 11400000, guid: a86c6b19201a1c041990ba61d8856ac9, type: 2}
+  - {fileID: 11400000, guid: c3b4d8ea5d1d30343b80c6453bfd918f, type: 2}
+  - {fileID: 11400000, guid: 75484e471b1f717489e33dd68928f68c, type: 2}
+  - {fileID: 11400000, guid: c1192d7cd04422c48ad375a54b18f4fa, type: 2}
+  - {fileID: 11400000, guid: 8a1d13b22bdd8eb48b646fb176b4f033, type: 2}
+  - {fileID: 11400000, guid: c4e25a2bd8541f343bc46c8168bb3982, type: 2}
+  - {fileID: 11400000, guid: 5256890d9fc7b054f89d021bf2df2ec7, type: 2}
 --- !u!4 &971197070
 Transform:
   m_ObjectHideFlags: 0
@@ -4147,7 +4157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eeec4cad5755ae42a06ebbcefc4926c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHP: 400
+  startingHP: 200
   damageMultiplier: 1
   HP: 0
 --- !u!114 &1545064848
