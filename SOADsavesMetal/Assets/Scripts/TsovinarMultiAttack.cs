@@ -7,8 +7,6 @@ public class TsovinarMultiAttack : TsovinarAttack
 {
     public List<TsovinarAttack> Attacks;
 
-    private readonly List<float> originalDurations = new List<float>();
-
     public override void Initialize(TsovinarAttackData data)
     {
         //assumes each attack in attacks is already initialized
@@ -33,9 +31,5 @@ public class TsovinarMultiAttack : TsovinarAttack
 
     protected override void OnEnd()
     {
-        for (int i = 0; i < Attacks.Count; ++i)
-        {
-            Attacks[i].duration = originalDurations[i];
-        }
     }
 }

@@ -927,7 +927,7 @@ MonoBehaviour:
     HealthPercentThreshhold: 80
     ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: 3c6351ec5c28a1b4182c13734ac47b2c, type: 2}
-    HealthPercentThreshhold: 50
+    HealthPercentThreshhold: 55
     ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: 5b94bd7d283c9484eb20161fd791152b, type: 2}
     HealthPercentThreshhold: 25
