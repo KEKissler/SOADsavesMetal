@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-
-    public const float MAX_SUPER_CHARGE = 100f;
-
     //Default Player Variables
     [Header("Player General Properties")]
     public string currentBandMember;
@@ -193,6 +190,8 @@ public class Player : MonoBehaviour
     }
 
     void Update() {
+        //Debug.Log("crouched " + crouched);
+        //Debug.Log("inair " + inAir);
         //stops player from being able to move if in pause or countdown
         if ((countDown == null || !countDown.getCountDown()) && (gameplayPause == null || !gameplayPause.getPaused()))
         {
@@ -242,16 +241,9 @@ public class Player : MonoBehaviour
                 #region Crouching
                 if (Input.GetKey(KeyCode.DownArrow) && !inAir)
                 { // This line used to have !attacking
-                    if (!attacking)
-                    { //(!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))) {
-                        crouched = true;
-                        PlayAnims("Crouch");
-                        upperBodyHitbox.SetActive(false);
-                    }
-                    else
-                    {
-                        crouched = false;
-                    }
+                    crouched = true;
+                    PlayAnims("Crouch");
+                    upperBodyHitbox.SetActive(false);
                     if (!listeningForDoubleDownTap)
                     {
                         listeningForDoubleDownTap = true;
@@ -269,7 +261,7 @@ public class Player : MonoBehaviour
 
                 #region Attacks
                 //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
-                if (Input.GetKeyDown(KeyCode.Z) && !crouched && !attacking)
+                if (Input.GetKeyDown(KeyCode.Z) && !attacking)
                 {
                     StartCoroutine(paa.shortRangeAttackAnims());
                     StartCoroutine(pam.pa.AttackShort());
@@ -309,9 +301,12 @@ public class Player : MonoBehaviour
     #region Collision Detection
     public void OnCollisionEnter2D(Collision2D coll)
     {
+        // Debug.Log("ground touched");
         if (coll.collider.tag == "Floor" && !Dead)
         {
             playerLowerAnim.Play(GetAnimName("LandLegs"));
+            inAir = false;
+            remainingJumps = 1;
         }
     }
 

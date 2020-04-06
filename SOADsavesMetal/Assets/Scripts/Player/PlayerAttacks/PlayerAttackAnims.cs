@@ -14,7 +14,7 @@ public class PlayerAttackAnims : MonoBehaviour
         if (ps.crouched)
         {
             //playerSprite.sprite.pivot.Set
-            ps.playerUpperAnim.pivotPosition.Set(0.49f, 0.83f, 0.0f);
+            // ps.playerUpperAnim.pivotPosition.Set(0.49f, 0.83f, 0.0f);
         }
         ps.playerUpperAnim.Play(ps.GetAnimName("Short"));
         if ((ps.currentBandMember == "Shavo" || ps.currentBandMember == "Serj") && !ps.inAir && !ps.Dead)
