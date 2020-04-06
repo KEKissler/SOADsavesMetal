@@ -965,7 +965,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &9117497486307095085
 MonoBehaviour:
@@ -983,6 +983,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   jumpHeight: 18
   startingHealth: 3
+  invulnerabilityDuration: 3.5
   maxGroundSpeed: 10.2
   groundAccel: 140
   groundDecel: 40

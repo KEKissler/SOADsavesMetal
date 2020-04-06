@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114646161419850352}
-  - {fileID: 114201750923486404}
-  - {fileID: 114847652923638930}
-  - {fileID: 114986366595765408}
-  - {fileID: 114209343147148462}
-  - {fileID: 114162589695180056}
-  - {fileID: 114645788935522658}
-  - {fileID: 114813986572809480}
-  - {fileID: 114421732302290306}
+  - {fileID: 114667323790134414}
+  - {fileID: 114620722523817590}
+  - {fileID: 114842159389185652}
+  - {fileID: 114498120777844352}
+  - {fileID: 114608555908760526}
+  - {fileID: 114361559358098784}
+  - {fileID: 114599403380287246}
+  - {fileID: 114416037580308772}
   EditorEvents:
   - {fileID: 114377579094865896}
   - {fileID: 114563983998688986}
@@ -65,10 +65,10 @@ MonoBehaviour:
   - {fileID: 114682402466404794}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 114162589695180056}
+  - {fileID: 114608555908760526}
   StringsBanks:
   - {fileID: 114646161419850352}
-  stringsBankWriteTime: 637216961835299033
+  stringsBankWriteTime: 637217766326616765
   cacheVersion: 3
 --- !u!114 &114000762730581184
 MonoBehaviour:
@@ -347,7 +347,7 @@ MonoBehaviour:
   Path: event:/Player/P_Serj/P_Serj_Atk_Sp
   guid: 421adb86c26d814687ec7db07ba72365
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -428,7 +428,7 @@ MonoBehaviour:
   Path: event:/Player/P_John/P_John_Atk_L
   guid: 414378f43ec01a4fbb256d06e32c4397
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -498,7 +498,7 @@ MonoBehaviour:
   Path: event:/Enemy/E_Agas/E_Agas_CandleGrow
   guid: c6408a87cf12a44580531c1920d21619
   Banks:
-  - {fileID: 114201750923486404}
+  - {fileID: 114667323790134414}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -539,7 +539,7 @@ MonoBehaviour:
   Path: event:/Player/P_Shavo/P_Shavo_Dash
   guid: c37b15abdddbd445abff5f395e214b98
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -613,7 +613,7 @@ MonoBehaviour:
   lastModified: 637216961835299033
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &114180477772941302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,7 +670,7 @@ MonoBehaviour:
   Path: event:/Player/P_Serj/P_Serj_Aerial
   guid: 15e8038667a6dd46abaad1cae8173c95
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -695,7 +695,7 @@ MonoBehaviour:
   lastModified: 637216961835239296
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &114201908987455664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,7 +731,7 @@ MonoBehaviour:
   lastModified: 637216961835291541
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &114212192665412588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -805,7 +805,7 @@ MonoBehaviour:
   Path: event:/Music/M_MainMenu
   guid: a9266a45f7f016478a29521cb6c4e392
   Banks:
-  - {fileID: 114645788935522658}
+  - {fileID: 114361559358098784}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -829,7 +829,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &114238536465593380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,10 +868,10 @@ MonoBehaviour:
   Path: event:/Enemy/E_DestroyProjectile
   guid: 803746c11871a14bbb6e5eec90f7568f
   Banks:
-  - {fileID: 114201750923486404}
-  - {fileID: 114847652923638930}
-  - {fileID: 114986366595765408}
-  - {fileID: 114209343147148462}
+  - {fileID: 114667323790134414}
+  - {fileID: 114620722523817590}
+  - {fileID: 114842159389185652}
+  - {fileID: 114498120777844352}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1017,7 +1017,7 @@ MonoBehaviour:
   Path: event:/Player/P_Shavo/P_Shavo_Atk_Sp
   guid: 50f0b9d009958b4ca2d9314796f080f9
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1048,6 +1048,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 302
+--- !u!114 &114361559358098784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: SOADsavesMetal_FMOD/SOADsavesMetal/Build/Desktop/Music.bank
+  SubDir: 
+  lastModified: 637217766327993082
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &114362074833260272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1104,12 +1122,12 @@ MonoBehaviour:
   Path: snapshot:/PauseEffect
   guid: f9c40849c4f35b4d93f994a8d6b09da5
   Banks:
-  - {fileID: 114162589695180056}
+  - {fileID: 114608555908760526}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114235287719363172}
+  - {fileID: 114669969716256940}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -1128,10 +1146,10 @@ MonoBehaviour:
   Path: event:/Enemy/E_Hurt_Ranged
   guid: 72e492bff416ea4e876395b613be299e
   Banks:
-  - {fileID: 114201750923486404}
-  - {fileID: 114847652923638930}
-  - {fileID: 114986366595765408}
-  - {fileID: 114209343147148462}
+  - {fileID: 114667323790134414}
+  - {fileID: 114620722523817590}
+  - {fileID: 114842159389185652}
+  - {fileID: 114498120777844352}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1190,7 +1208,7 @@ MonoBehaviour:
   Path: event:/UI/U_Select
   guid: 1f1b4d0cd4bfdd489bc7c5470559992e
   Banks:
-  - {fileID: 114421732302290306}
+  - {fileID: 114416037580308772}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1280,6 +1298,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 213693
+--- !u!114 &114416037580308772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: 
+  Path: SOADsavesMetal_FMOD/SOADsavesMetal/Build/Desktop/UI.bank
+  SubDir: 
+  lastModified: 637217766328072867
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &114416754678448594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,7 +1349,7 @@ MonoBehaviour:
   Path: event:/UI/U_Back
   guid: 4706d326d668bc499c0c0259830c4a16
   Banks:
-  - {fileID: 114421732302290306}
+  - {fileID: 114416037580308772}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1338,7 +1374,7 @@ MonoBehaviour:
   lastModified: 637216961836196610
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &114433520204231560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1377,7 +1413,7 @@ MonoBehaviour:
   Path: event:/Player/P_Daron/P_Daron_Atk_L
   guid: ae234ec041672942abbbab32f4a05e83
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1561,7 +1597,7 @@ MonoBehaviour:
   Path: event:/Player/P_Shavo/P_Shavo_Atk_S
   guid: 873a22d361e21f4684f57134c15d4c3c
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1584,7 +1620,7 @@ MonoBehaviour:
   Path: event:/Enemy/E_Tsovinar/E_Tsov_StaticLoop
   guid: 1db2158b6a049e48a31b03d80de7b640
   Banks:
-  - {fileID: 114847652923638930}
+  - {fileID: 114620722523817590}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -1630,7 +1666,7 @@ MonoBehaviour:
   Path: event:/Enemy/E_Agas/E_Agas_Dunk
   guid: ad4e316b03d0b5488e99a151e05500d9
   Banks:
-  - {fileID: 114201750923486404}
+  - {fileID: 114667323790134414}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1653,7 +1689,7 @@ MonoBehaviour:
   Path: event:/Player/P_Daron/P_Daron_Atk_Sp
   guid: 1adca2a8f3e9ee46b806ea2c286d07a5
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1661,6 +1697,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 3562
+--- !u!114 &114498120777844352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Level 4.bank
+  m_EditorClassIdentifier: 
+  Path: SOADsavesMetal_FMOD/SOADsavesMetal/Build/Desktop/Level 4.bank
+  SubDir: 
+  lastModified: 637217766326596818
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &114515310338000264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1756,7 +1810,7 @@ MonoBehaviour:
   Path: event:/Player/P_Daron/P_Daron_Teleport
   guid: 2a78bc01ba5c7e40a223ab86ce2462a1
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1797,10 +1851,10 @@ MonoBehaviour:
   Path: event:/Enemy/E_Hurt_Melee
   guid: 7f08994a82e7ed4eae730170752dd6d9
   Banks:
-  - {fileID: 114201750923486404}
-  - {fileID: 114847652923638930}
-  - {fileID: 114986366595765408}
-  - {fileID: 114209343147148462}
+  - {fileID: 114667323790134414}
+  - {fileID: 114620722523817590}
+  - {fileID: 114842159389185652}
+  - {fileID: 114498120777844352}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1823,7 +1877,7 @@ MonoBehaviour:
   Path: event:/Player/P_John/P_John_Atk_S
   guid: 0095bfaa6d968e41950877c91b28ac79
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1864,7 +1918,7 @@ MonoBehaviour:
   Path: event:/Music/M_Level4
   guid: 81e38d9986ac594e9bca9eb3277a1a98
   Banks:
-  - {fileID: 114645788935522658}
+  - {fileID: 114361559358098784}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -1872,6 +1926,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 235125
+--- !u!114 &114599403380287246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Player.bank
+  m_EditorClassIdentifier: 
+  Path: SOADsavesMetal_FMOD/SOADsavesMetal/Build/Desktop/Player.bank
+  SubDir: 
+  lastModified: 637217766328062921
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &114601169719152626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1907,6 +1979,24 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 0
+--- !u!114 &114608555908760526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.bank
+  m_EditorClassIdentifier: 
+  Path: SOADsavesMetal_FMOD/SOADsavesMetal/Build/Desktop/Master Bank.bank
+  SubDir: 
+  lastModified: 637217766326606797
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &114613689981912634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1922,7 +2012,7 @@ MonoBehaviour:
   Path: event:/Music/M_PracticeRoom
   guid: 6164b64d113cf44a862ae8821fceef49
   Banks:
-  - {fileID: 114645788935522658}
+  - {fileID: 114361559358098784}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -1953,6 +2043,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1166
+--- !u!114 &114620722523817590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Level 2.bank
+  m_EditorClassIdentifier: 
+  Path: SOADsavesMetal_FMOD/SOADsavesMetal/Build/Desktop/Level 2.bank
+  SubDir: 
+  lastModified: 637217766326576873
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &114623753358405648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1968,7 +2076,7 @@ MonoBehaviour:
   Path: event:/Enemy/E_Agas/E_Agas_Shoot
   guid: 98cd453bd3e100488bac5f50c272c6c5
   Banks:
-  - {fileID: 114201750923486404}
+  - {fileID: 114667323790134414}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2064,7 +2172,7 @@ MonoBehaviour:
   lastModified: 637216961836156719
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &114646161419850352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2079,7 +2187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: SOADsavesMetal_FMOD/SOADsavesMetal/Build/Desktop/Master Bank.strings.bank
   SubDir: 
-  lastModified: 637216961835299033
+  lastModified: 637217766326616765
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -2136,7 +2244,7 @@ MonoBehaviour:
   Path: event:/Player/P_Jump
   guid: fab368e4cfd5004bb5904e39a88c5ada
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2144,6 +2252,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 300
+--- !u!114 &114667323790134414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Level 1.bank
+  m_EditorClassIdentifier: 
+  Path: SOADsavesMetal_FMOD/SOADsavesMetal/Build/Desktop/Level 1.bank
+  SubDir: 
+  lastModified: 637217766326546958
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &114669199780220856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2159,7 +2285,7 @@ MonoBehaviour:
   Path: event:/Player/P_Serj/P_Serj_Atk_S
   guid: e2d10fdb9cad0949bd90f200a17fa8d7
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2167,6 +2293,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &114669969716256940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/PauseEffect/PauseMuteIntensity
+  m_EditorClassIdentifier: 
+  Name: PauseMuteIntensity
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 1
 --- !u!114 &114674666956490650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2205,7 +2348,7 @@ MonoBehaviour:
   Path: event:/UI/U_Move
   guid: e4ccc5cc7d31af4591c6caed84a0c58d
   Banks:
-  - {fileID: 114421732302290306}
+  - {fileID: 114416037580308772}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2353,7 +2496,7 @@ MonoBehaviour:
   Path: event:/Music/M_Level2
   guid: 4ceb459b82857940ae6e9edfa9eb3c45
   Banks:
-  - {fileID: 114645788935522658}
+  - {fileID: 114361559358098784}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -2376,7 +2519,7 @@ MonoBehaviour:
   Path: event:/Player/P_Daron/P_Daron_Atk_S
   guid: 38577737505470418f034b0b8f625801
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2481,7 +2624,7 @@ MonoBehaviour:
   Path: event:/Player/P_Serj/P_Serj_Atk_L
   guid: cf13a2da5ec2804489baba77f4b72971
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2553,7 +2696,7 @@ MonoBehaviour:
   Path: event:/Music/M_Credits
   guid: d6cb403b9777e645a39d55a59815fc1c
   Banks:
-  - {fileID: 114645788935522658}
+  - {fileID: 114361559358098784}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -2637,7 +2780,7 @@ MonoBehaviour:
   Path: event:/Music/M_Level1
   guid: e3073325ff942345927185813df793bd
   Banks:
-  - {fileID: 114645788935522658}
+  - {fileID: 114361559358098784}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -2724,7 +2867,7 @@ MonoBehaviour:
   Path: event:/Player/P_Shavo/P_Shavo_Atk_L
   guid: d1f1eaff44c0354ab014b402427ef59b
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2790,7 +2933,7 @@ MonoBehaviour:
   lastModified: 637216961836186635
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &114821385533523172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2806,7 +2949,7 @@ MonoBehaviour:
   Path: event:/Enemy/E_Nhang/E_Nhang_SnakeEyes
   guid: 824875850c4c20408e55d34b38ecc2b5
   Banks:
-  - {fileID: 114986366595765408}
+  - {fileID: 114842159389185652}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2850,6 +2993,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114842159389185652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Level 3.bank
+  m_EditorClassIdentifier: 
+  Path: SOADsavesMetal_FMOD/SOADsavesMetal/Build/Desktop/Level 3.bank
+  SubDir: 
+  lastModified: 637217766326586845
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &114842493965109340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2885,7 +3046,7 @@ MonoBehaviour:
   lastModified: 637216961835249160
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &114848418393049510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3055,7 +3216,7 @@ MonoBehaviour:
   Path: event:/Player/P_Hurt
   guid: 6cbbc6fe4113a44991ceafe66206a8ce
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3078,7 +3239,7 @@ MonoBehaviour:
   Path: event:/Player/P_John/P_John_Atk_Sp
   guid: 6603634b09a30647bfd47490b4b364eb
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3137,7 +3298,7 @@ MonoBehaviour:
   Path: event:/Player/P_Daron/P_Daron_Atk_L_Hit
   guid: 47dbc0b279f72d49bbd330acce3181f8
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3265,7 +3426,7 @@ MonoBehaviour:
   Path: event:/Enemy/E_Agas/E_Agas_CandleShoot
   guid: 923502e490e3374aa7fc2b9476f46266
   Banks:
-  - {fileID: 114201750923486404}
+  - {fileID: 114667323790134414}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3311,7 +3472,7 @@ MonoBehaviour:
   Path: event:/Music/M_Level3
   guid: a783eb58d4da364e95108cf26af4e4b8
   Banks:
-  - {fileID: 114645788935522658}
+  - {fileID: 114361559358098784}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -3352,7 +3513,7 @@ MonoBehaviour:
   Path: event:/Player/P_Death
   guid: c7f71a7a60a1ac49922e14eb8ee9f61c
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3416,7 +3577,7 @@ MonoBehaviour:
   Path: event:/Player/P_John/P_John_Jump_Dbl
   guid: 5a008b3b78cc0d4681d52bcd5968d591
   Banks:
-  - {fileID: 114813986572809480}
+  - {fileID: 114599403380287246}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3441,7 +3602,7 @@ MonoBehaviour:
   lastModified: 637216961835259131
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &114991350172634082
 MonoBehaviour:
   m_ObjectHideFlags: 0

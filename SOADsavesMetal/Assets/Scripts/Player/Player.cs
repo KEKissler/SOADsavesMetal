@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public float jumpHeight;
     public int startingHealth;
     private int health;
+    private float curInvulnerableTime;
+    public float invulnerabilityDuration = 3f;
     public float maxGroundSpeed, groundAccel, groundDecel, groundFrictionDecel;
     public float maxAirSpeed, airAccel, airDecel, airFrictionDecel;
 
@@ -201,6 +203,7 @@ public class Player : MonoBehaviour
                 float speedReductionThisFrame;
                 float frictionMultiplier = 1f;
                 if (isSuperActive) frictionMultiplier = 0.55f;
+                else if (crouched) frictionMultiplier = 0.33f;
                 if (inAir)
                     speedReductionThisFrame = Time.deltaTime * airFrictionDecel * frictionMultiplier;
                 else
@@ -281,6 +284,14 @@ public class Player : MonoBehaviour
                 #endregion Attacks
 
                 phm.HandleHorizontalMovement();
+
+                #region Invulnerability Timer Tick
+                if (curInvulnerableTime > 0f)
+                {
+                    curInvulnerableTime -= Time.deltaTime;
+                    if (curInvulnerableTime < 0f) curInvulnerableTime = 0f;
+                }
+                #endregion
             }
             else
             {
@@ -384,5 +395,14 @@ public class Player : MonoBehaviour
             yield return null;
         }
         listeningForDoubleDownTap = false;
+    }
+
+    public void DamagePlayer()
+    {
+        if (curInvulnerableTime <= 0f)
+        {
+            curInvulnerableTime = invulnerabilityDuration;
+            Health -= 1;
+        }
     }
 }
