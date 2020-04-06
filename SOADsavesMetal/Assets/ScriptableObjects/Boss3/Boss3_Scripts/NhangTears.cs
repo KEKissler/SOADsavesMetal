@@ -22,7 +22,7 @@ public class NhangTears : MonoBehaviour
         {
             if(other.gameObject.GetComponent<Player>() != null)
             {
-                other.gameObject.GetComponent<Player>().Health -= 1;
+                other.gameObject.GetComponent<Player>().DamagePlayer();
                 Destroy(this.gameObject);
             }
 
