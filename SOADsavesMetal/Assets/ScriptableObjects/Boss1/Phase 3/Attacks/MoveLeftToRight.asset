@@ -21,11 +21,11 @@ MonoBehaviour:
     timeSpentMoving: 0.6
     position: {x: -8.36, y: 4.18}
   - delayUntilMovingAgain: 0.5
-    timeSpentMoving: 0.6
-    position: {x: -3.06, y: -2.03}
+    timeSpentMoving: 1
+    position: {x: -4, y: -2.5}
   - delayUntilMovingAgain: 0.5
-    timeSpentMoving: 0.6
+    timeSpentMoving: 1
     position: {x: 2.24, y: 4.95}
   - delayUntilMovingAgain: 0.5
-    timeSpentMoving: 0.35
+    timeSpentMoving: 0.6
     position: {x: 5.3, y: 2.69}
