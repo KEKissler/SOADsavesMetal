@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     public GameObject upperBodyHitbox;
     public GameObject shortRangeHitbox;
     public GameObject stick;
+    private BoxCollider2D lowerBodyHitbox;
+    private Vector2 lowOriginalOffset, lowOriginalSize;
 
     //Player State
     [Header("Player State")]
@@ -164,6 +166,9 @@ public class Player : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerUpperAnim = gameObject.GetComponent<Animator>();
         shortRange = shortRangeHitbox.GetComponent<Animator>();
+        lowerBodyHitbox = gameObject.GetComponent<BoxCollider2D>();
+        lowOriginalOffset = lowerBodyHitbox.offset;
+        lowOriginalSize = lowerBodyHitbox.size;
 
         // Configure other player scripts
         paa = GetComponentInChildren<PlayerAttackAnims>();
@@ -233,10 +238,14 @@ public class Player : MonoBehaviour
                     {
                         // landing = true;
                         PlayAnims("Fall");
+                        lowerBodyHitbox.offset = lowOriginalOffset;
+                        lowerBodyHitbox.size = lowOriginalSize;
                     }
                     if (rb.velocity.y > 0.5)
                     {
                         PlayAnims("Jump");
+                        lowerBodyHitbox.offset = new Vector2(lowOriginalOffset.x, -0.05f);
+                        lowerBodyHitbox.size = new Vector2(lowOriginalSize.x, 0.35f);
                     }
                 }
                 #endregion Falling and jumping animations
