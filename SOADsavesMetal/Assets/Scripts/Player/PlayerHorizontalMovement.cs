@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHorizontalMovement : MonoBehaviour
 {
     public Player ps;
+    // private const float CROUCH_SPEED_MODIFIER = 0.2f;
 
     public void HandleHorizontalMovement()
     {
@@ -14,6 +15,7 @@ public class PlayerHorizontalMovement : MonoBehaviour
         }
 
         float oldSpeed = ps.rb.velocity.x; // Grounded can only occur against flat surfaces below player, speed should only be in x dir
+        // Debug.Log("old speed " + oldSpeed);
         float input = Input.GetAxisRaw("Horizontal");
         if (input != 0f)
         {
@@ -35,7 +37,6 @@ public class PlayerHorizontalMovement : MonoBehaviour
                 }
             }
 
-            // If crouched, you allow changing direction but prohibit movement
             if (ps.crouched) return;
 
             // If currently executing super, don't move (unless the player is John, the drummer)
@@ -46,7 +47,7 @@ public class PlayerHorizontalMovement : MonoBehaviour
             float accel, decel, maxSpeed;
 
             // Set parameters for movement
-            if (!ps.inAir && !ps.Dead)
+            if (!ps.inAir)
             {
                 // Ground movement
                 ps.PlayAnims("Walk");

@@ -201,6 +201,7 @@ public class Player : MonoBehaviour
                 float speedReductionThisFrame;
                 float frictionMultiplier = 1f;
                 if (isSuperActive) frictionMultiplier = 0.55f;
+                else if (crouched) frictionMultiplier = 0.33f;
                 if (inAir)
                     speedReductionThisFrame = Time.deltaTime * airFrictionDecel * frictionMultiplier;
                 else
