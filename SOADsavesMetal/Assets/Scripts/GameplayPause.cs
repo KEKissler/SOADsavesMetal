@@ -10,9 +10,15 @@ public class GameplayPause : MonoBehaviour
     public GameObject controlsScreen;
     public CountDown countDown;
     public Player player;
+
+    FMOD.Studio.EventInstance pauseEffect;
+
     private void Start()
     {
         pauseMenu.SetActive(false);
+        pauseEffect = FMODUnity.RuntimeManager.CreateInstance("snapshot:/PauseEffect");
+        pauseEffect.setParameterByName("PauseMuteIntensity", 0);
+        pauseEffect.start();
     }
 
     public bool getPaused()
@@ -51,7 +57,8 @@ public class GameplayPause : MonoBehaviour
         currentScale = Time.timeScale;
         Time.timeScale = 0f;
         paused = true;
-        pauseMenu.SetActive(true);        
+        pauseMenu.SetActive(true);
+        pauseEffect.setParameterByName("PauseMuteIntensity", 1);
     }
 
     private void Play()
@@ -60,5 +67,6 @@ public class GameplayPause : MonoBehaviour
         paused = false;
         pauseMenu.SetActive(false);
         controlsScreen.SetActive(false);
+        pauseEffect.setParameterByName("PauseMuteIntensity", 0);
     }
 }

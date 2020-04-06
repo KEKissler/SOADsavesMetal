@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="MixerGroup" id="{8d2fb6ff-0fb2-4102-91bd-ee8268875d81}">
+		<property name="name">
+			<value>Shavo</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{e8aed419-565a-47ac-a8f1-dc55f0526691}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{e519a949-e9ed-490a-a873-74b20419717a}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{f825734d-f9e6-4347-b64e-431435ae2620}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{e8aed419-565a-47ac-a8f1-dc55f0526691}">
+		<relationship name="effects">
+			<destination>{5467390a-8ef8-438b-9d75-ace4a523e0c6}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{e519a949-e9ed-490a-a873-74b20419717a}" />
+	<object class="MixerBusFader" id="{5467390a-8ef8-438b-9d75-ace4a523e0c6}" />
+</objects>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="MixerGroup" id="{f1aef86e-4f10-478e-ae44-71c0fb719601}">
+		<property name="name">
+			<value>Daron</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{be5c0a76-91e0-452b-bcb2-72d491212e60}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{10504f75-18dd-4299-ae50-38203c46fa59}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{f825734d-f9e6-4347-b64e-431435ae2620}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{be5c0a76-91e0-452b-bcb2-72d491212e60}">
+		<relationship name="effects">
+			<destination>{646a7ac2-ac4d-4eae-be08-8680608fe958}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{10504f75-18dd-4299-ae50-38203c46fa59}" />
+	<object class="MixerBusFader" id="{646a7ac2-ac4d-4eae-be08-8680608fe958}" />
+</objects>

@@ -1,13 +1,11 @@
-﻿using System.Collections;
+﻿using FMOD.Studio;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-
-    public const float MAX_SUPER_CHARGE = 100f;
-
     //Default Player Variables
     [Header("Player General Properties")]
     public string currentBandMember;
@@ -64,46 +62,70 @@ public class Player : MonoBehaviour
 
     public Platform[] platforms;
 
-    public AudioSource auso;
-
     #region SFX Variables
-    [Header("General SFX")]
-    public AudioClip[] JumpSounds;
-    public AudioClip[] TakeDamageSounds;
-    public AudioClip DeathSound;
-
-    [Header("John - Drums")]
-    public AudioClip[] JohnDoubleJump;
-    public AudioClip[] JohnShortRange;
-    public AudioClip[] JohnLongRange;
-    public AudioClip JohnSuper;
-
-    [Header("Shavo - Bass")]
-    public AudioClip ShavoDash;
-    public AudioClip[] ShavoShortRange;
-    public AudioClip ShavoLongRange;
-    public AudioClip ShavoSuper;
-
-    [Header("Daron - Guitar")]
-    public AudioClip DaronTeleport;
-    public AudioClip DaronShortRange;
-    public AudioClip[] DaronLongRangeThrow;     // may condense to just 1 sound effect
-    public AudioClip DaronLongRangeHit;         // may condense to just 1 sound effect
-    public AudioClip DaronSuper;
-
     [Header("Serj - Vocals")]
     public AudioClip SerjWingSprout;
     public AudioClip[] SerjWingFlap;
     public AudioClip SerjWingDecay;
-    public AudioClip[] SerjShortRange;
-    public AudioClip[] SerjLongRange;
     public AudioClip SerjSuperLightbeam;    // will condense to just 1 sound effect with 4 variations and no parts - waiting on final super animation
     public AudioClip[] SerjSuperVocal;      // will condense to just 1 sound effect with 4 variations and no parts - waiting on final super animation
+    #endregion
+
+    #region FMODEvents
+    [Header("General Events")]
+    [FMODUnity.EventRef]
+    public string playerJump;
+    [FMODUnity.EventRef]
+    public string playerHit;
+    [FMODUnity.EventRef]
+    public string playerDeath;
+
+    [Header("John Events")]
+    [FMODUnity.EventRef]
+    public string johnJump;
+    [FMODUnity.EventRef]
+    public string johnShortRange;
+    [FMODUnity.EventRef]
+    public string johnLongRange;
+    [FMODUnity.EventRef]
+    public string johnSuper;
+
+    [Header("Shavo Events")]
+    [FMODUnity.EventRef]
+    public string shavoDash;
+    [FMODUnity.EventRef]
+    public string shavoShortRange;
+    [FMODUnity.EventRef]
+    public string shavoLongRange;
+    [FMODUnity.EventRef]
+    public string shavoSuper;
+
+    [Header("Daron Events")]
+    [FMODUnity.EventRef]
+    public string daronTeleport;
+    [FMODUnity.EventRef]
+    public string daronShortRange;
+    [FMODUnity.EventRef]
+    public string daronLongRange;
+    [FMODUnity.EventRef]
+    public string daronSuper;
+
+    [Header("Serj Events")]
+    [FMODUnity.EventRef]
+    public string serjShortRange;
+    [FMODUnity.EventRef]
+    public string serjLongRange;
     #endregion
 
     public string GetAnimName(string animSuffix)
     {
         return currentBandMember + animSuffix;
+    }
+
+    public void PlayAudioEvent(string fmodEvent)
+    {
+        EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+        instance.start();
     }
 
     // Handles a common use case regarding playing body and leg animations.
@@ -140,7 +162,6 @@ public class Player : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerUpperAnim = gameObject.GetComponent<Animator>();
         shortRange = shortRangeHitbox.GetComponent<Animator>();
-        auso = gameObject.GetComponent<AudioSource>();
 
         // Configure other player scripts
         paa = GetComponentInChildren<PlayerAttackAnims>();
@@ -169,6 +190,8 @@ public class Player : MonoBehaviour
     }
 
     void Update() {
+        //Debug.Log("crouched " + crouched);
+        //Debug.Log("inair " + inAir);
         //stops player from being able to move if in pause or countdown
         if ((countDown == null || !countDown.getCountDown()) && (gameplayPause == null || !gameplayPause.getPaused()))
         {
@@ -218,16 +241,9 @@ public class Player : MonoBehaviour
                 #region Crouching
                 if (Input.GetKey(KeyCode.DownArrow) && !inAir)
                 { // This line used to have !attacking
-                    if (!attacking)
-                    { //(!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))) {
-                        crouched = true;
-                        PlayAnims("Crouch");
-                        upperBodyHitbox.SetActive(false);
-                    }
-                    else
-                    {
-                        crouched = false;
-                    }
+                    crouched = true;
+                    PlayAnims("Crouch");
+                    upperBodyHitbox.SetActive(false);
                     if (!listeningForDoubleDownTap)
                     {
                         listeningForDoubleDownTap = true;
@@ -245,15 +261,13 @@ public class Player : MonoBehaviour
 
                 #region Attacks
                 //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
-                if (Input.GetKeyDown(KeyCode.Z) && !crouched && !attacking)
+                if (Input.GetKeyDown(KeyCode.Z) && !attacking)
                 {
-                    auso.Stop();
                     StartCoroutine(paa.shortRangeAttackAnims());
                     StartCoroutine(pam.pa.AttackShort());
                 }
                 else if (Input.GetKey(KeyCode.X) && !attacking)
                 {
-                    auso.Stop();
                     StartCoroutine(paa.longRangeAttackAnims());
                     StartCoroutine(pam.pa.AttackLong());
                 }
@@ -261,7 +275,6 @@ public class Player : MonoBehaviour
                         !isSuperActive && superMeterCharge >= maxSuperCharge)
                 {
                     superMeterCharge = 0f;
-                    auso.Stop();
                     StartCoroutine(paa.superAttackAnims());
                     StartCoroutine(pam.pa.AttackSuper());
                 }
@@ -288,9 +301,12 @@ public class Player : MonoBehaviour
     #region Collision Detection
     public void OnCollisionEnter2D(Collision2D coll)
     {
+        // Debug.Log("ground touched");
         if (coll.collider.tag == "Floor" && !Dead)
         {
             playerLowerAnim.Play(GetAnimName("LandLegs"));
+            inAir = false;
+            remainingJumps = 1;
         }
     }
 
@@ -324,7 +340,7 @@ public class Player : MonoBehaviour
     {
         playerUpperAnim.Play(GetAnimName("Death"));
         playerLowerAnim.Play("ShavoDashLegs");
-        auso.PlayOneShot(DeathSound);
+        PlayAudioEvent(playerDeath);
         yield return new WaitForSeconds(1.0f);
     }
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{cd1456ca-717c-494a-b7db-4cdfbcec07de}">
+		<property name="name">
+			<value>PauseMuteIntensity</value>
+		</property>
+		<relationship name="folder">
+			<destination>{fce644a8-dcfd-472a-b600-5841f345ce8f}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{1a1a6660-7fac-417d-85c3-b9242c8a8a92}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{1a1a6660-7fac-417d-85c3-b9242c8a8a92}">
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+	</object>
+</objects>

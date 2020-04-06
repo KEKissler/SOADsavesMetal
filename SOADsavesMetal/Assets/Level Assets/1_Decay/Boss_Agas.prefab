@@ -667,6 +667,7 @@ GameObject:
   - component: {fileID: 2380804504942363381}
   - component: {fileID: 2380804504942363380}
   - component: {fileID: 573222039197791906}
+  - component: {fileID: 9100881232957509134}
   m_Layer: 0
   m_Name: Boss_Agas
   m_TagString: Boss
@@ -726,7 +727,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eeec4cad5755ae42a06ebbcefc4926c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingHP: 2000
   damageMultiplier: 1
+  HP: 0
+--- !u!114 &9100881232957509134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2380804504942363386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadEvent: 1
+  UnloadEvent: 2
+  Banks:
+  - Level 1
+  CollisionTag: 
+  PreloadSamples: 0
 --- !u!1 &2380804505280400123
 GameObject:
   m_ObjectHideFlags: 0

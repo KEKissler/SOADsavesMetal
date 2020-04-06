@@ -8,7 +8,7 @@ public class PlayerHorizontalMovement : MonoBehaviour
 
     public void HandleHorizontalMovement()
     {
-        if (ps.blockHorizontalMovement || ps.crouched)
+        if (ps.blockHorizontalMovement)
         { 
             return;
         }
@@ -34,6 +34,9 @@ public class PlayerHorizontalMovement : MonoBehaviour
                     gameObject.transform.Rotate(Vector3.up, 180.0f);
                 }
             }
+
+            // If crouched, you allow changing direction but prohibit movement
+            if (ps.crouched) return;
 
             // If currently executing super, don't move (unless the player is John, the drummer)
             if (ps.currentBandMember != "John" && ps.isSuperActive) return;

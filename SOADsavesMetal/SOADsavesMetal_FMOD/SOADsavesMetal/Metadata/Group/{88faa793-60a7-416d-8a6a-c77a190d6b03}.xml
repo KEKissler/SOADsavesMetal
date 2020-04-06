@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="MixerGroup" id="{88faa793-60a7-416d-8a6a-c77a190d6b03}">
+		<property name="name">
+			<value>Nhang</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{8e581cca-3cde-47d8-965e-bbb8603ae1c0}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{09743c66-5b79-4ca4-8c89-f1fd87292bba}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{9535ea45-82b1-4f6a-8ef4-0b923f81458c}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{8e581cca-3cde-47d8-965e-bbb8603ae1c0}">
+		<relationship name="effects">
+			<destination>{8189ae68-2f35-4e6a-acad-4d1e55fc2b68}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{09743c66-5b79-4ca4-8c89-f1fd87292bba}" />
+	<object class="MixerBusFader" id="{8189ae68-2f35-4e6a-acad-4d1e55fc2b68}" />
+</objects>
