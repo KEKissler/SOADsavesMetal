@@ -13,7 +13,7 @@ public class MusicNote : PlayerProjectile
     // Start is called before the first frame update
     void Start()
     {
-        speed = 6.5f;
+        speed = 13.37f;
         rb = GetComponent<Rigidbody2D>();
         startY = transform.position.y;
         accumulatedTime = startTime;

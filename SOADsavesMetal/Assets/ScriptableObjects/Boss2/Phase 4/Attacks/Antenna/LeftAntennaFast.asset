@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d08515a102a2eaa4f9f2f39e25983d61, type: 3}
+  m_Name: LeftAntennaFast
+  m_EditorClassIdentifier: 
+  duration: 5.5
+  Attacks:
+  - Attack: {fileID: 11400000, guid: 63b23b06eb4390843b9c0315e12c9a58, type: 2}
+    duration: 0.5
+  - Attack: {fileID: 11400000, guid: 85690645f0653ae42b57e4bddfc8dd20, type: 2}
+    duration: 0.5
+  - Attack: {fileID: 11400000, guid: 6e8f738ea6942ce49a471d470615cddd, type: 2}
+    duration: 0.5
+  whiteNoise: {fileID: 2100000, guid: ae9204aad3676504ea07d2b76cbda5ea, type: 2}
+  foldClip: {fileID: 7400000, guid: 2bd0c57b7c8714241ba4bb1608a444a1, type: 2}
+  unfoldClip: {fileID: 7400000, guid: 0df07f860ff7d264a9d66f1dd94a8e68, type: 2}
+  isOnLeftSide: 1

@@ -50,12 +50,10 @@ public class ElectricShock_Wave : TsovinarAttack
         Destroy(wire5.gameObject);
         Destroy(wire6.gameObject);
         wireMap.Clear();
-        Debug.Log("Shock off");
     }
 
     protected override void OnStart()
     {
-        Debug.Log("Shock on");
         wire1 = Instantiate(wirePrefab, wire1Location.position, Quaternion.identity, attackParent).GetComponent<Animator>();
         wire2 = Instantiate(wirePrefab, wire2Location.position, Quaternion.identity, attackParent).GetComponent<Animator>();
         wire3 = Instantiate(wirePrefab, wire3Location.position, Quaternion.identity, attackParent).GetComponent<Animator>();
@@ -114,8 +112,7 @@ public class ElectricShock_Wave : TsovinarAttack
             yield return new WaitForSeconds(CycleTime);
             Advance();
         }
-
-        Debug.Log("Setup");
+        
         while (true)
         {
             wireMap[first].Play(ON_STATE);

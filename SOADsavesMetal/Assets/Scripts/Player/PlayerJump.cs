@@ -8,10 +8,14 @@ public class PlayerJump : MonoBehaviour
 
     public void HandleJump()
     {
-        if (!ps.crouched && (ps.currentBandMember == "John" || !ps.isSuperActive) &&
+        if ((ps.currentBandMember == "John" || !ps.isSuperActive) &&
             (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
                     && ps.remainingJumps > 0)
         {
+            if (ps.crouched) {
+                ps.crouched = false;
+                ps.upperBodyHitbox.SetActive(true);
+            }
             ps.PlayAnims("Jump");
             ps.remainingJumps -= 1;
 

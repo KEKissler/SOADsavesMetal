@@ -121,9 +121,14 @@ public class Projectile : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Player>().Health -= 1;
-            //Debug.Log(gameObject.name);
-            Destroy(this.gameObject);
+            Player p = other.gameObject.GetComponent<Player>();
+            if (p == null)
+            {
+                p = other.gameObject.GetComponentInParent<Player>();
+            }
+            p.DamagePlayer();
+
+            Destroy(gameObject);
         }
     }
 }

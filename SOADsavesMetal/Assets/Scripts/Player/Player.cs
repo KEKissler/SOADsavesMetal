@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-
-    public const float MAX_SUPER_CHARGE = 100f;
-
     //Default Player Variables
     [Header("Player General Properties")]
     public string currentBandMember;
@@ -18,6 +15,8 @@ public class Player : MonoBehaviour
     public float jumpHeight;
     public int startingHealth;
     private int health;
+    private float curInvulnerableTime;
+    public float invulnerabilityDuration = 3f;
     public float maxGroundSpeed, groundAccel, groundDecel, groundFrictionDecel;
     public float maxAirSpeed, airAccel, airDecel, airFrictionDecel;
 
@@ -26,6 +25,8 @@ public class Player : MonoBehaviour
     public GameObject upperBodyHitbox;
     public GameObject shortRangeHitbox;
     public GameObject stick;
+    private BoxCollider2D lowerBodyHitbox;
+    private Vector2 lowOriginalOffset, lowOriginalSize;
 
     //Player State
     [Header("Player State")]
@@ -165,6 +166,9 @@ public class Player : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerUpperAnim = gameObject.GetComponent<Animator>();
         shortRange = shortRangeHitbox.GetComponent<Animator>();
+        lowerBodyHitbox = gameObject.GetComponent<BoxCollider2D>();
+        lowOriginalOffset = lowerBodyHitbox.offset;
+        lowOriginalSize = lowerBodyHitbox.size;
 
         // Configure other player scripts
         paa = GetComponentInChildren<PlayerAttackAnims>();
@@ -193,6 +197,8 @@ public class Player : MonoBehaviour
     }
 
     void Update() {
+        //Debug.Log("crouched " + crouched);
+        //Debug.Log("inair " + inAir);
         //stops player from being able to move if in pause or countdown
         if ((countDown == null || !countDown.getCountDown()) && (gameplayPause == null || !gameplayPause.getPaused()))
         {
@@ -202,6 +208,7 @@ public class Player : MonoBehaviour
                 float speedReductionThisFrame;
                 float frictionMultiplier = 1f;
                 if (isSuperActive) frictionMultiplier = 0.55f;
+                else if (crouched) frictionMultiplier = 0.33f;
                 if (inAir)
                     speedReductionThisFrame = Time.deltaTime * airFrictionDecel * frictionMultiplier;
                 else
@@ -231,10 +238,14 @@ public class Player : MonoBehaviour
                     {
                         // landing = true;
                         PlayAnims("Fall");
+                        lowerBodyHitbox.offset = lowOriginalOffset;
+                        lowerBodyHitbox.size = lowOriginalSize;
                     }
                     if (rb.velocity.y > 0.5)
                     {
                         PlayAnims("Jump");
+                        lowerBodyHitbox.offset = new Vector2(lowOriginalOffset.x, -0.05f);
+                        lowerBodyHitbox.size = new Vector2(lowOriginalSize.x, 0.35f);
                     }
                 }
                 #endregion Falling and jumping animations
@@ -242,16 +253,9 @@ public class Player : MonoBehaviour
                 #region Crouching
                 if (Input.GetKey(KeyCode.DownArrow) && !inAir)
                 { // This line used to have !attacking
-                    if (!attacking)
-                    { //(!(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))) {
-                        crouched = true;
-                        PlayAnims("Crouch");
-                        upperBodyHitbox.SetActive(false);
-                    }
-                    else
-                    {
-                        crouched = false;
-                    }
+                    crouched = true;
+                    PlayAnims("Crouch");
+                    upperBodyHitbox.SetActive(false);
                     if (!listeningForDoubleDownTap)
                     {
                         listeningForDoubleDownTap = true;
@@ -269,7 +273,7 @@ public class Player : MonoBehaviour
 
                 #region Attacks
                 //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
-                if (Input.GetKeyDown(KeyCode.Z) && !crouched && !attacking)
+                if (Input.GetKeyDown(KeyCode.Z) && !attacking)
                 {
                     StartCoroutine(paa.shortRangeAttackAnims());
                     StartCoroutine(pam.pa.AttackShort());
@@ -289,6 +293,14 @@ public class Player : MonoBehaviour
                 #endregion Attacks
 
                 phm.HandleHorizontalMovement();
+
+                #region Invulnerability Timer Tick
+                if (curInvulnerableTime > 0f)
+                {
+                    curInvulnerableTime -= Time.deltaTime;
+                    if (curInvulnerableTime < 0f) curInvulnerableTime = 0f;
+                }
+                #endregion
             }
             else
             {
@@ -309,9 +321,12 @@ public class Player : MonoBehaviour
     #region Collision Detection
     public void OnCollisionEnter2D(Collision2D coll)
     {
+        // Debug.Log("ground touched");
         if (coll.collider.tag == "Floor" && !Dead)
         {
             playerLowerAnim.Play(GetAnimName("LandLegs"));
+            inAir = false;
+            remainingJumps = 1;
         }
     }
 
@@ -389,5 +404,14 @@ public class Player : MonoBehaviour
             yield return null;
         }
         listeningForDoubleDownTap = false;
+    }
+
+    public void DamagePlayer()
+    {
+        if (curInvulnerableTime <= 0f)
+        {
+            curInvulnerableTime = invulnerabilityDuration;
+            Health -= 1;
+        }
     }
 }

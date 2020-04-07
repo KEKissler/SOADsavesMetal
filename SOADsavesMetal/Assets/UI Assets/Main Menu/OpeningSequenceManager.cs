@@ -15,8 +15,8 @@ public class OpeningSequenceManager : MonoBehaviour
 
     void Start()
     {
-        //Cutscene.Play(); //Video play must have 'Wait for First Frame" unchecked
         StartCoroutine("loadLevel");
+        //Cutscene.SetDirectAudioVolume(0, 0.5f);
 
     }
     IEnumerator loadLevel()
@@ -35,8 +35,11 @@ public class OpeningSequenceManager : MonoBehaviour
         }
 
         if (Input.anyKeyDown) {
-            hint.SetActive(true);
-            Invoke("FadeHint", 3f);
+            if (!hint.active) {
+                hint.SetActive(true);
+                Invoke("FadeHint", 3f);
+            }
+            
         }
 
         Cutscene.loopPointReached += OnFinish;

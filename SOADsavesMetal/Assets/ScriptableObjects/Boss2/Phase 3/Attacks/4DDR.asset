@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70526fef1411fa548b66ea1322a086c4, type: 3}
   m_Name: 4DDR
   m_EditorClassIdentifier: 
-  duration: 6
+  duration: 5
   Attacks:
   - Attack: {fileID: 11400000, guid: 2899015249ca491458532fb64554359a, type: 2}
-    duration: 1.5
+    duration: 1.25
   - Attack: {fileID: 11400000, guid: 2899015249ca491458532fb64554359a, type: 2}
-    duration: 1.5
+    duration: 1.25
   - Attack: {fileID: 11400000, guid: 2899015249ca491458532fb64554359a, type: 2}
-    duration: 1.5
+    duration: 1.25
   - Attack: {fileID: 11400000, guid: 2899015249ca491458532fb64554359a, type: 2}
-    duration: 1.5
+    duration: 1.25

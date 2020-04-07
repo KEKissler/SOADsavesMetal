@@ -30,7 +30,7 @@ public class ShortRangeDmg : MonoBehaviour {
 		if(col.gameObject.tag == "BossHittable" && canHit) {
 			col.gameObject.SendMessage("hit", damage);
             float dmgMult = col.gameObject.GetComponent<BossHit>().damageMultiplier;
-            Debug.Log("yee " + dmgMult);
+            //Debug.Log("yee " + dmgMult);
             ps.superMeterCharge += meterCharge * dmgMult;
 			canHit = false;
 		}
