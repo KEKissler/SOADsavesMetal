@@ -17,4 +17,4 @@ ESC to pause
 Note:
 1. Characters with fixed super attacks gain immunity while attack is perfomed
 2. Short range attacks can be used to extinguish projectiles 
-3. Super meter is filled by attacking the boss itself (not projectiles)
+3. Super meter gets a fill-boost when the boss is hit by a short range attack
