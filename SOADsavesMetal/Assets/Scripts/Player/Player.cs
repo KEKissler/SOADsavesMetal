@@ -66,15 +66,6 @@ public class Player : MonoBehaviour
 
     public Platform[] platforms;
 
-    #region SFX Variables
-    [Header("Serj - Vocals")]
-    public AudioClip SerjWingSprout;
-    public AudioClip[] SerjWingFlap;
-    public AudioClip SerjWingDecay;
-    public AudioClip SerjSuperLightbeam;    // will condense to just 1 sound effect with 4 variations and no parts - waiting on final super animation
-    public AudioClip[] SerjSuperVocal;      // will condense to just 1 sound effect with 4 variations and no parts - waiting on final super animation
-    #endregion
-
     #region FMODEvents
     [Header("General Events")]
     [FMODUnity.EventRef]
@@ -119,6 +110,17 @@ public class Player : MonoBehaviour
     public string serjShortRange;
     [FMODUnity.EventRef]
     public string serjLongRange;
+    [FMODUnity.EventRef]
+    public string serjFlyStart;
+    [FMODUnity.EventRef]
+    public string serjFlyMid;
+    [FMODUnity.EventRef]
+    public string serjFlyEnd;
+    [FMODUnity.EventRef]
+    public string serjSuperStart;
+    [FMODUnity.EventRef]
+    public string serjSuperEnd;
+
     #endregion
 
     public string GetAnimName(string animSuffix)

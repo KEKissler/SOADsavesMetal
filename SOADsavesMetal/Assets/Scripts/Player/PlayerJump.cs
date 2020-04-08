@@ -42,6 +42,7 @@ public class PlayerJump : MonoBehaviour
                 }
                 else if (ps.currentBandMember == "Serj")
                 {
+                    ps.PlayAudioEvent(ps.serjFlyStart);
                     StartCoroutine(Hover());
                 }
             }
@@ -105,5 +106,6 @@ public class PlayerJump : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
+        ps.PlayAudioEvent(ps.serjFlyEnd);
     }
 }
