@@ -17,6 +17,7 @@ public class StaticBeamAnimation : MonoBehaviour
     public Color attackColor;
     public Color flashColor;
     public Transform player;
+    public GameplayPause gameplayPause;
 
     private BoxCollider2D beamHitBox;
     private float postYLength = 0;
@@ -40,10 +41,14 @@ public class StaticBeamAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(tracking)
+        if (!gameplayPause.getPaused())
         {
-            float toAngle = Mathf.Rad2Deg * Mathf.Atan2(transform.position.y - player.position.y, transform.position.x - player.position.x);
-            transform.eulerAngles += new Vector3(0, 0, Mathf.Sign(toAngle - transform.eulerAngles.z) * trackingSpeed);
+            if (tracking)
+            {
+                Debug.Log("I am a moving beam!");
+                float toAngle = Mathf.Rad2Deg * Mathf.Atan2(transform.position.y - player.position.y, transform.position.x - player.position.x);
+                transform.eulerAngles += new Vector3(0, 0, Mathf.Sign(toAngle - transform.eulerAngles.z) * trackingSpeed);
+            }
         }
         
     }

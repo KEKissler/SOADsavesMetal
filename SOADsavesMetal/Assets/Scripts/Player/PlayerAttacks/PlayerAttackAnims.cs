@@ -25,10 +25,10 @@ public class PlayerAttackAnims : MonoBehaviour
         {
             ps.shortRange.Play("SoundWave");
             ps.PlayAudioEvent(ps.johnShortRange);
-            yield return new WaitForSeconds(0.17f);
+            yield return new WaitForSeconds(0.07f);
             ps.blockAttackProgress = false;
             yield return null;
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.28f);
             ps.shortRange.Play("BaseSound");
         }
         else if (ps.currentBandMember == "Shavo")
@@ -46,6 +46,7 @@ public class PlayerAttackAnims : MonoBehaviour
         else if (ps.currentBandMember == "Serj")
         {
             yield return new WaitForSeconds(0.55f);
+            ps.PlayAudioEvent(ps.serjShortRange);
         }
         ps.PlayAnims("Idle");
         ps.blockAttackProgress = false;

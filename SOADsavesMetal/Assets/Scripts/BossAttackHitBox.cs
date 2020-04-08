@@ -19,7 +19,7 @@ public class BossAttackHitBox : MonoBehaviour
             {
                 p = other.gameObject.GetComponentInParent<Player>();
             }
-            p.Health -= 1;
+            p.DamagePlayer();
         }
     }
 }

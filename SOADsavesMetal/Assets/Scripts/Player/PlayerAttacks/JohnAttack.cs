@@ -8,7 +8,7 @@ public class JohnAttack : PlayerAttack {
 
 	// Short range attack
     public GameObject shortRangeHitbox;
-    private const float SHORT_ATTACK_HOLD_DURATION = 0.16f;
+    private const float SHORT_ATTACK_HOLD_DURATION = 0.28f;
     
     // Long range attack
     public GameObject drumstick;
@@ -73,7 +73,7 @@ public class JohnAttack : PlayerAttack {
         while(attackTimer < SHORT_ATTACK_HOLD_DURATION)
         {
         	attackTimer += Time.deltaTime;
-            shortRangeHitbox.transform.localScale = new Vector3(Mathf.Lerp(0.01f, 3.1f, attackTimer/SHORT_ATTACK_HOLD_DURATION),
+            shortRangeHitbox.transform.localScale = new Vector3(Mathf.Lerp(0.02f, 3.2f, attackTimer/SHORT_ATTACK_HOLD_DURATION),
                 shortRangeHitbox.transform.localScale.y, shortRangeHitbox.transform.localScale.z);
         	yield return null;
         }

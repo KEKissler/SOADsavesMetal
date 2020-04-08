@@ -20,6 +20,16 @@ public class GameplayPause : MonoBehaviour
         pauseEffect.setParameterByName("PauseMuteIntensity", 0);
         pauseEffect.start();
     }
+    private void OnEnable()
+    {
+        pauseEffect.setParameterByName("PauseMuteIntensity", 0);
+        pauseEffect.start();
+    }
+    private void OnDisable()
+    {
+        pauseEffect.setParameterByName("PauseMuteIntensity", 0);
+        pauseEffect.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
 
     public bool getPaused()
     {

@@ -28,19 +28,19 @@ public class DDRBeamManager : MonoBehaviour
             {
                 case DDRBeam.Direction.Up:
                     if (!(player.GetComponent<Rigidbody2D>().velocity.y > 0))
-                        other.gameObject.GetComponent<Player>().Health -= 1;
+                        other.gameObject.GetComponent<Player>().DamagePlayer();
                     break;
                 case DDRBeam.Direction.Right:
                     if(!(player.GetComponent<Rigidbody2D>().velocity.x > 0))
-                        other.gameObject.GetComponent<Player>().Health -= 1;
+                        other.gameObject.GetComponent<Player>().DamagePlayer();
                     break;
                 case DDRBeam.Direction.Left:
                     if (!(player.GetComponent<Rigidbody2D>().velocity.x < 0))
-                        other.gameObject.GetComponent<Player>().Health -= 1;
+                        other.gameObject.GetComponent<Player>().DamagePlayer();
                     break;
                 case DDRBeam.Direction.Down:
                     if (!(player.GetComponent<Rigidbody2D>().velocity.y < 0 || player.GetComponent<Player>().crouched))
-                        other.gameObject.GetComponent<Player>().Health -= 1;
+                        other.gameObject.GetComponent<Player>().DamagePlayer();
                     break;
             }
         }

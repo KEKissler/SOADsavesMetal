@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public float jumpHeight;
     public int startingHealth;
     private int health;
+    private float curInvulnerableTime;
+    public float invulnerabilityDuration = 3f;
     public float maxGroundSpeed, groundAccel, groundDecel, groundFrictionDecel;
     public float maxAirSpeed, airAccel, airDecel, airFrictionDecel;
 
@@ -23,6 +25,8 @@ public class Player : MonoBehaviour
     public GameObject upperBodyHitbox;
     public GameObject shortRangeHitbox;
     public GameObject stick;
+    private BoxCollider2D lowerBodyHitbox;
+    private Vector2 lowOriginalOffset, lowOriginalSize;
 
     //Player State
     [Header("Player State")]
@@ -61,15 +65,6 @@ public class Player : MonoBehaviour
     private Slider superBar;
 
     public Platform[] platforms;
-
-    #region SFX Variables
-    [Header("Serj - Vocals")]
-    public AudioClip SerjWingSprout;
-    public AudioClip[] SerjWingFlap;
-    public AudioClip SerjWingDecay;
-    public AudioClip SerjSuperLightbeam;    // will condense to just 1 sound effect with 4 variations and no parts - waiting on final super animation
-    public AudioClip[] SerjSuperVocal;      // will condense to just 1 sound effect with 4 variations and no parts - waiting on final super animation
-    #endregion
 
     #region FMODEvents
     [Header("General Events")]
@@ -115,6 +110,17 @@ public class Player : MonoBehaviour
     public string serjShortRange;
     [FMODUnity.EventRef]
     public string serjLongRange;
+    [FMODUnity.EventRef]
+    public string serjFlyStart;
+    [FMODUnity.EventRef]
+    public string serjFlyMid;
+    [FMODUnity.EventRef]
+    public string serjFlyEnd;
+    [FMODUnity.EventRef]
+    public string serjSuperStart;
+    [FMODUnity.EventRef]
+    public string serjSuperEnd;
+
     #endregion
 
     public string GetAnimName(string animSuffix)
@@ -162,6 +168,9 @@ public class Player : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerUpperAnim = gameObject.GetComponent<Animator>();
         shortRange = shortRangeHitbox.GetComponent<Animator>();
+        lowerBodyHitbox = gameObject.GetComponent<BoxCollider2D>();
+        lowOriginalOffset = lowerBodyHitbox.offset;
+        lowOriginalSize = lowerBodyHitbox.size;
 
         // Configure other player scripts
         paa = GetComponentInChildren<PlayerAttackAnims>();
@@ -201,6 +210,7 @@ public class Player : MonoBehaviour
                 float speedReductionThisFrame;
                 float frictionMultiplier = 1f;
                 if (isSuperActive) frictionMultiplier = 0.55f;
+                else if (crouched) frictionMultiplier = 0.33f;
                 if (inAir)
                     speedReductionThisFrame = Time.deltaTime * airFrictionDecel * frictionMultiplier;
                 else
@@ -230,10 +240,14 @@ public class Player : MonoBehaviour
                     {
                         // landing = true;
                         PlayAnims("Fall");
+                        lowerBodyHitbox.offset = lowOriginalOffset;
+                        lowerBodyHitbox.size = lowOriginalSize;
                     }
                     if (rb.velocity.y > 0.5)
                     {
                         PlayAnims("Jump");
+                        lowerBodyHitbox.offset = new Vector2(lowOriginalOffset.x, -0.05f);
+                        lowerBodyHitbox.size = new Vector2(lowOriginalSize.x, 0.35f);
                     }
                 }
                 #endregion Falling and jumping animations
@@ -281,6 +295,14 @@ public class Player : MonoBehaviour
                 #endregion Attacks
 
                 phm.HandleHorizontalMovement();
+
+                #region Invulnerability Timer Tick
+                if (curInvulnerableTime > 0f)
+                {
+                    curInvulnerableTime -= Time.deltaTime;
+                    if (curInvulnerableTime < 0f) curInvulnerableTime = 0f;
+                }
+                #endregion
             }
             else
             {
@@ -384,5 +406,14 @@ public class Player : MonoBehaviour
             yield return null;
         }
         listeningForDoubleDownTap = false;
+    }
+
+    public void DamagePlayer()
+    {
+        if (curInvulnerableTime <= 0f)
+        {
+            curInvulnerableTime = invulnerabilityDuration;
+            Health -= 1;
+        }
     }
 }
