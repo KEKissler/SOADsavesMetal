@@ -83,4 +83,9 @@ public class PushScript : MonoBehaviour
             goUp = false;
         }
     }
+
+    public void setSpeed(float input)
+    {
+        speed = input;
+    }
 }
