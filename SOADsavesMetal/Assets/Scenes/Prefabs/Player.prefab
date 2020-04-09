@@ -1017,18 +1017,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  SerjWingSprout: {fileID: 8300000, guid: 2bc4c9c6471733942833089f95626dc6, type: 3}
-  SerjWingFlap:
-  - {fileID: 8300000, guid: 089dd7e5fad9be5469015dcc3d36e537, type: 3}
-  - {fileID: 8300000, guid: d3f5c573b38b4f54492432e547567f16, type: 3}
-  - {fileID: 8300000, guid: 0385fbe7f5093b84388673286005488f, type: 3}
-  SerjWingDecay: {fileID: 8300000, guid: 22a6c32d9f8f8164e9486c52c1c4d448, type: 3}
-  SerjSuperLightbeam: {fileID: 8300000, guid: a496d96eecc5f4b49ae6f0014a78d2af, type: 3}
-  SerjSuperVocal:
-  - {fileID: 8300000, guid: af734d66b203ca940a703c70156655e2, type: 3}
-  - {fileID: 8300000, guid: 8a0047dac0e62a44ea52bf60af3b043b, type: 3}
-  - {fileID: 8300000, guid: 86aaebdb7929c1c4eb8c3cc13a7aa550, type: 3}
-  - {fileID: 8300000, guid: 34bd7a67e1d0b9f4697014caf2b9e2b2, type: 3}
   playerJump: event:/Player/P_Jump
   playerHit: event:/Player/P_Hurt
   playerDeath: event:/Player/P_Death
@@ -1046,6 +1034,11 @@ MonoBehaviour:
   daronSuper: event:/Player/P_Daron/P_Daron_Atk_Sp
   serjShortRange: event:/Player/P_Serj/P_Serj_Atk_S
   serjLongRange: event:/Player/P_Serj/P_Serj_Atk_L
+  serjFlyStart: event:/Player/P_Serj/P_Serj_Fly_Start
+  serjFlyMid: event:/Player/P_Serj/P_Serj_Fly_Flap
+  serjFlyEnd: event:/Player/P_Serj/P_Serj_Fly_Decay
+  serjSuperStart: event:/Player/P_Serj/P_Serj_Atk_Sp
+  serjSuperEnd: 
 --- !u!95 &9117497486307095086
 Animator:
   serializedVersion: 3

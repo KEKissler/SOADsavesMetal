@@ -413,6 +413,7 @@ public class Player : MonoBehaviour
         if (curInvulnerableTime <= 0f)
         {
             curInvulnerableTime = invulnerabilityDuration;
+            PlayAudioEvent(playerHit);
             Health -= 1;
         }
     }

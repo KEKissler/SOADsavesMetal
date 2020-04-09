@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using FMOD.Studio;
 
 public class CandleEmitter : MonoBehaviour {
 
@@ -21,6 +22,12 @@ public class CandleEmitter : MonoBehaviour {
     public float minFireScale, maxFireScale;
     public GameplayPause gameplayPause;
 
+    #region FMODEvents
+    [FMODUnity.EventRef]
+    public string candleGrow;
+    [FMODUnity.EventRef]
+    public string candleShoot;
+    #endregion
 
     void Start()
 	{
@@ -52,6 +59,7 @@ public class CandleEmitter : MonoBehaviour {
                     StartCoroutine(createProjectile());
                     StartCoroutine(lerpFlameSizeToMinimum(0.04f));
                     ++currShots;
+                    PlayAudioEvent(candleShoot);
                 }
                 if (currShots >= maxShots) disableFire();
                 resizeFlameWhileActive();
@@ -135,7 +143,8 @@ public class CandleEmitter : MonoBehaviour {
 		active = true;
 		fire1.SetActive(true);
 		fire2.SetActive(true);
-		candleGlow.gameObject.SetActive(true);
+        PlayAudioEvent(candleGrow);
+        candleGlow.gameObject.SetActive(true);
 	}
 
 	public void disableFire()
@@ -173,4 +182,9 @@ public class CandleEmitter : MonoBehaviour {
 	{
 		disableFire();
 	}
+    public void PlayAudioEvent(string fmodEvent)
+    {
+        EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+        instance.start();
+    }
 }
