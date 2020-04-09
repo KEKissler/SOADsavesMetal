@@ -36,10 +36,12 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
 
     private Transform spawnTransform;
 
+    private FMOD.Studio.EventInstance instance;
 
 
     public override void Initialize(TsovinarAttackData data)
     {
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Enemy/E_Tsovinar/E_Tsov_StaticLoop");
         isLeft = false;
         screen1 = data.screen1;
         screen2 = data.screen2;
@@ -62,6 +64,7 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
 
     protected override IEnumerator Execute(float duration)
     {
+        instance.start();
         if (telescopingAntenna.GetCurrentAnimatorStateInfo(0).IsName(ANTENNA_BLINK))
         {
             yield break;
@@ -87,6 +90,7 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         tsovinar.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
         tsovinar.transform.rotation = new Quaternion(-23f, -16f, -7f, 90f);
         tsovinar.transform.position = screen1.transform.position;
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     protected override void OnStart()

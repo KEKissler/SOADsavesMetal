@@ -260,6 +260,8 @@ public class Nhang : MonoBehaviour
         snakeHeadHitbox.enabled = false;
         float timer = 0f;
 
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Enemy/E_Nhang/E_Nhang_SnakeEyes");
+        instance.start();
         // Indicator
         while(timer < 1.35f)
         {

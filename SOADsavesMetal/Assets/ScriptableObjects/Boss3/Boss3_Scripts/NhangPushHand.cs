@@ -8,6 +8,8 @@ public class NhangPushHand : NhangAttack
     [SerializeField]
     float speed = 0;
     GameObject[] PushHand;
+    [FMODUnity.EventRef]
+    public string groundShake;
 
     public override void Initialize(NhangAttackData data)
     {
@@ -21,6 +23,8 @@ public class NhangPushHand : NhangAttack
         Debug.Log("Push Damn it");
         for (int i = 0; i < PushHand.Length; i++)
         {
+            //FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(groundShake);
+            //instance.start();
             PushHand[i].GetComponent<PushScript>().Push();
             PushHand[i].GetComponent<PushScript>().setSpeed(speed);
         }
