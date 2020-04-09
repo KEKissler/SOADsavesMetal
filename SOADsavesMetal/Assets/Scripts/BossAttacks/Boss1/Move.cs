@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-[CreateAssetMenu(menuName = "New Attack/Agas/Move")]
 public class Move : AgasAttack
 {
     [Header("Duration is the sum of all delays below")]

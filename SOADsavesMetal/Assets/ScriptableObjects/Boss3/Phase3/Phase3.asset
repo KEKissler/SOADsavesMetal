@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossPosition: {fileID: 0}
   Player: {fileID: 0}
-  Default: {fileID: 11400000, guid: 65471f43e76053e49b5051e3e2a77df7, type: 2}
+  Default: {fileID: 11400000, guid: c043ba7196d63fe4794b2e53ca4e3a5c, type: 2}

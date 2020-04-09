@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "New Attack/Nhang/PushStart")]
 public class NhangPushHand : NhangAttack
 {
+    [SerializeField]
+    float speed = 0;
     GameObject[] PushHand;
 
     public override void Initialize(NhangAttackData data)
@@ -20,6 +22,7 @@ public class NhangPushHand : NhangAttack
         for (int i = 0; i < PushHand.Length; i++)
         {
             PushHand[i].GetComponent<PushScript>().Push();
+            PushHand[i].GetComponent<PushScript>().setSpeed(speed);
         }
     }
 
