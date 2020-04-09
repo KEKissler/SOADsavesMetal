@@ -33,7 +33,7 @@ public class AgasPhase : BossPhase
         //todo maybe: make priorities reorderable
         if(BossPosition.position.x < 0 && HasLeft)
         {
-            Debug.Log("YOU ARE IN LEFT PHASE");
+            //Debug.Log("YOU ARE IN LEFT PHASE");
             if (TooCloseToPlayer())
             {
                 return LeftCloseUpAttacks;
