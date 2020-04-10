@@ -42,6 +42,7 @@ sysinfo.txt
 Assets/Plugins/FMOD/Resources/FMODStudioCache.asset
 Assets/Plugins/FMOD/Resources/FMODStudioCache.asset.meta
 Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+FMODStudioCache.asset
 SOADsavesMetal/SOADsavesMetal_FMOD/SOADsavesMetal/.cache/*
 fmod_editor.log
 
