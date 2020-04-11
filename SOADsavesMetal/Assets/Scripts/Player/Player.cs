@@ -414,4 +414,17 @@ public class Player : MonoBehaviour
             Health -= 1;
         }
     }
+
+    IEnumerator PlayerFlashOnDamage(float duration)
+    {
+        float initialPeriod = 1.2f, finalPeriod = 0.5f;
+        float timer = 0f, tick = 0f;
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            tick += Time.deltaTime;
+
+        }
+        yield return null;
+    }
 }
