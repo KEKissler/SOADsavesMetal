@@ -699,22 +699,31 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2380804504942363386}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a4a682fb5bb5d846b0f440b1844bcb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   candle: {fileID: 1883100758368052, guid: bfc94cc7610841b418c48574685289b9, type: 3}
   spike: {fileID: 4219256326595800565, guid: 8979e7bb6d8193f4a8ceb1e502be3750, type: 3}
-  ghostball: {fileID: 0}
+  ghostball: {fileID: 1883100758368052, guid: cc1e07ece144cd241a99931749565888, type: 3}
   slime: {fileID: 0}
   overflowLiquid: {fileID: 2380804504558194934}
-  candles: []
-  agas: {fileID: 0}
-  healthScript: {fileID: 0}
-  goblet: {fileID: 0}
-  numberOfSpikes: 0
-  spikeSpacing: 0
+  candles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  agas: {fileID: 2380804503749740924}
+  healthScript: {fileID: 573222039197791906}
+  goblet: {fileID: 2380804505285666478}
+  numberOfSpikes: 16
+  spikeSpacing: 1
+  agasDunk: event:/Enemy/E_Agas/E_Agas_Dunk
+  agasShoot: event:/Enemy/E_Agas/E_Agas_Shoot
 --- !u!114 &573222039197791906
 MonoBehaviour:
   m_ObjectHideFlags: 0

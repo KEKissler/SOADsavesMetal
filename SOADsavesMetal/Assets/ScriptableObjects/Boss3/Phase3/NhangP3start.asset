@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 822ffd2f172712d4f802e405e66f342f, type: 3}
-  m_Name: Nhang Push Hand
+  m_Script: {fileID: 11500000, guid: a7c1756c819944341826874cff33cbc0, type: 3}
+  m_Name: NhangP3start
   m_EditorClassIdentifier: 
   duration: 0
-  speed: 0
-  groundShake: event:/Enemy/E_Hurt_Ranged
+  Attacks:
+  - Attack: {fileID: 11400000, guid: 860ccf5cd05de9648a7e89197325c4c3, type: 2}
+    duration: 0
+  - Attack: {fileID: 11400000, guid: 46d90518f38bcb54c88d5b8126310974, type: 2}
+    duration: 0

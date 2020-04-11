@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
 public class AgasAttackData
@@ -16,4 +17,5 @@ public class AgasAttackData
     public CandleEmitter candle4;
     public CandleEmitter candle5;
     public CandleEmitter candle6;
+    public List<Transform> movePathVertices;
 }

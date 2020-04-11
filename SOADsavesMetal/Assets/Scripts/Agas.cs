@@ -33,6 +33,13 @@ public class Agas : MonoBehaviour
     private bool attacking;
     System.Random randomGen = new System.Random();
 
+    #region FMODEvents
+    [FMODUnity.EventRef]
+    public string agasDunk;
+    [FMODUnity.EventRef]
+    public string agasShoot;
+    #endregion
+
     void Start()
     {
         player = GameObject.FindWithTag("Player");
