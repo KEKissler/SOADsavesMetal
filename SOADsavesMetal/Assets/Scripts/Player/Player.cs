@@ -15,10 +15,12 @@ public class Player : MonoBehaviour
     public float jumpHeight;
     public int startingHealth;
     private int health;
-    private float curInvulnerableTime;
+    public float curInvulnerableTime;
     public float invulnerabilityDuration = 3f;
     public float maxGroundSpeed, groundAccel, groundDecel, groundFrictionDecel;
     public float maxAirSpeed, airAccel, airDecel, airFrictionDecel;
+
+    private SpriteRenderer sr, srLegs;
 
     //Player Hitbox Variables
     [Header("Player Hitbox Variables")]
@@ -161,6 +163,9 @@ public class Player : MonoBehaviour
         superBar = GameObject.Find("Super Bar").GetComponent<Slider>();
         superBar.maxValue = maxSuperCharge;
 
+        sr = GetComponent<SpriteRenderer>();
+        srLegs = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+
         // Player-specific attack
         blockAttackProgress = true;
 
@@ -226,6 +231,8 @@ public class Player : MonoBehaviour
                 #endregion Friction
 
                 #region Super meter charge
+                // Uncomment the following line for instant meter recharge
+                superMeterCharge += maxSuperCharge;
                 // Passive meter charge, maybe vary by character
                 superMeterCharge += maxSuperCharge / 100f * Time.deltaTime;
                 if (superMeterCharge > maxSuperCharge) superMeterCharge = maxSuperCharge;
@@ -415,19 +422,31 @@ public class Player : MonoBehaviour
             curInvulnerableTime = invulnerabilityDuration;
             PlayAudioEvent(playerHit);
             Health -= 1;
+            if (!Dead) StartCoroutine(PlayerFlashOnDamage(invulnerabilityDuration));
         }
     }
 
     IEnumerator PlayerFlashOnDamage(float duration)
     {
-        float initialPeriod = 1.2f, finalPeriod = 0.5f;
+        float initialPeriod = 0.25f, finalPeriod = 0.05f;
+        float curPeriod;
         float timer = 0f, tick = 0f;
+        sr.enabled = false;
+        srLegs.enabled = false;
         while (timer < duration)
         {
+            curPeriod = Mathf.Lerp(initialPeriod, finalPeriod, timer / duration);
             timer += Time.deltaTime;
             tick += Time.deltaTime;
-
+            if (tick > curPeriod / 2)
+            {
+                sr.enabled = !sr.enabled;
+                srLegs.enabled = sr.enabled;
+                tick = 0f;
+            }
+            yield return null;
         }
-        yield return null;
+        sr.enabled = true;
+        srLegs.enabled = true;
     }
 }

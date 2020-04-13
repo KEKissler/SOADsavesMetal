@@ -102,6 +102,9 @@ public class PlayerAttackAnims : MonoBehaviour
     }
     public IEnumerator superAttackAnims()
     {
+        // Ensure invincibility from the beginning of the attack to the end
+        if (ps.currentBandMember != "John") ps.curInvulnerableTime = 7f;
+
         ps.blockAttackProgress = true;
         ps.attacking = true;
         ps.isSuperActive = true;
@@ -164,6 +167,8 @@ public class PlayerAttackAnims : MonoBehaviour
             ps.playerUpperAnim.Play("SerjSuper");
             yield return new WaitForSeconds(1.27f);
         }
+        // After attack, give one second of bonus invincibility
+        if (ps.currentBandMember != "John") ps.curInvulnerableTime = 1f;
         ps.blockAttackProgress = false;
         ps.attacking = false;
         ps.isSuperActive = false;

@@ -57,16 +57,16 @@ public class PlayerJump : MonoBehaviour
 
     public IEnumerator Dash()
     {
-        float dashPower = 18f;
+        float dashPower = 16f;
         yield return new WaitForSeconds(0.06f);
         ps.blockHorizontalMovement = true;
         if (!ps.attacking) ps.playerUpperAnim.Play(ps.GetAnimName("Dash"));
         ps.playerLowerAnim.Play(ps.GetAnimName("Dash"));
-        ps.rb.velocity = new Vector2(ps.rb.velocity.x * 0.3f, 0.1f);
+        ps.rb.velocity = new Vector2(ps.rb.velocity.x * 0.3f, 5f);
         yield return new WaitForSeconds(0.12f);
         var playerRotation = gameObject.transform.rotation;
-        ps.rb.velocity = new Vector2((playerRotation.y == 0 ? 1 : -1) * 1.5f * dashPower, 0.43f * dashPower);
-        yield return new WaitForSeconds(0.25f);
+        ps.rb.velocity = new Vector2((playerRotation.y == 0 ? 1 : -1) * 1.5f * dashPower, 1.1f * dashPower);
+        yield return new WaitForSeconds(0.17f);
         ps.rb.velocity *= 0.33f;
         ps.blockHorizontalMovement = false;
 
