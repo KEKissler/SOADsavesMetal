@@ -19,7 +19,7 @@ public class NewMoveScript : AgasAttack
         Transform currentTransform = null;
         totalDistance = 0;
 
-        foreach (Transform t in pathVertices)
+        foreach (Transform t in originalPathVertices)
         {
             if(currentTransform == null)
             {
