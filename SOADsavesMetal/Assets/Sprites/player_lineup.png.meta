@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: 4cc41d51417b9914d9ef4d764eb0cf73
+guid: 3a71b613b9e6166498fd5ae714e32cef
 TextureImporter:
   fileIDToRecycleName:
-    21300000: boss_heads_0
-    21300002: boss_heads_1
-    21300004: boss_heads_2
-    21300006: boss_heads_3
-    21300008: boss_heads_4
+    21300000: player_lineup_0
+    21300002: player_lineup_1
+    21300004: player_lineup_2
+    21300006: player_lineup_3
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -89,101 +88,81 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boss_heads_0
+      name: player_lineup_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 170
-        height: 170
+        width: 74
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f24a97099b4c09d4a95b68c20629b943
+      spriteID: 2b319efbeae56684597d5bfc5c2c114c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_heads_1
+      name: player_lineup_1
       rect:
         serializedVersion: 2
-        x: 170
+        x: 74
         y: 0
-        width: 170
-        height: 170
+        width: 74
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14f79dab023ee204382a243c13dead4b
+      spriteID: b87325cc3d39cc841b78b1ac8891a933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_heads_2
+      name: player_lineup_2
       rect:
         serializedVersion: 2
-        x: 340
+        x: 148
         y: 0
-        width: 170
-        height: 170
+        width: 74
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d821791a2e1e94043b2ee91f886c437e
+      spriteID: c63f2481498f7014ca039bdf75b52a3d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_heads_3
+      name: player_lineup_3
       rect:
         serializedVersion: 2
-        x: 510
+        x: 222
         y: 0
-        width: 170
-        height: 170
+        width: 74
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16fd03a1143c9534c9b33fb7c44fdc37
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss_heads_4
-      rect:
-        serializedVersion: 2
-        x: 680
-        y: 0
-        width: 170
-        height: 170
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ded680efa9c44346b617c6c3f75376c
+      spriteID: 2d527ae0a2d33c744926199c6aa5744a
       vertices: []
       indices: 
       edges: []
@@ -191,7 +170,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8104cb6ac3cfede418ac5c8958af0b9a
+    spriteID: f4190068dbb10e743998ee40ef344b4c
     vertices: []
     indices: 
     edges: []
