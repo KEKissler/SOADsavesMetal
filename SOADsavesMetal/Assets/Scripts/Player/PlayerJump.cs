@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour
 {
     public Player ps;
+    private bool tryJump;
+
+    void Start()
+    {
+        tryJump = false;
+    }
 
     public void HandleJump()
     {
@@ -12,46 +18,61 @@ public class PlayerJump : MonoBehaviour
             (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
                     && ps.remainingJumps > 0)
         {
-            if (ps.crouched) {
-                ps.crouched = false;
-                ps.upperBodyHitbox.SetActive(true);
-            }
-            ps.PlayAnims("Jump");
-            ps.remainingJumps -= 1;
+            tryJump = true;
+        }
+    }
 
-            ps.PlayAudioEvent(ps.playerJump);
+    private void Jump()
+    {
+        if (ps.crouched)
+        {
+            ps.crouched = false;
+            ps.upperBodyHitbox.SetActive(true);
+        }
+        ps.PlayAnims("Jump");
+        ps.remainingJumps -= 1;
 
-            if (ps.inAir)
-            {
-                if (ps.currentBandMember == "John")
-                {// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "JohnJumpLegs")
-                    ps.PlayAnims("Jump");
-                    ps.rb.velocity = new Vector2(ps.rb.velocity.x, ps.jumpHeight);
-                    ps.PlayAudioEvent(ps.johnJump); // problem: basic jump plays at the same time. can't auso.Stop() because if the super is active, it cancels that too....
-                }
-                else if (ps.currentBandMember == "Shavo")
-                {// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "ShavoJumpLegs")
-                 // PlayAnims("Dash");
-                    StartCoroutine(Dash());
-                    ps.PlayAudioEvent(ps.shavoDash);
-                }
-                else if (ps.currentBandMember == "Daron")
-                {
-                    StartCoroutine("Teleport");
-                    ps.PlayAudioEvent(ps.daronTeleport);
-                }
-                else if (ps.currentBandMember == "Serj")
-                {
-                    ps.PlayAudioEvent(ps.serjFlyStart);
-                    StartCoroutine(Hover());
-                }
-            }
-            else
-            {
-                ps.inAir = true;
+        ps.PlayAudioEvent(ps.playerJump);
+
+        if (ps.inAir)
+        {
+            if (ps.currentBandMember == "John")
+            {// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "JohnJumpLegs")
+                ps.PlayAnims("Jump");
                 ps.rb.velocity = new Vector2(ps.rb.velocity.x, ps.jumpHeight);
+                ps.PlayAudioEvent(ps.johnJump); // problem: basic jump plays at the same time. can't auso.Stop() because if the super is active, it cancels that too....
             }
-            //playerUpperAnim.Play("JohnJump2");
+            else if (ps.currentBandMember == "Shavo")
+            {// && playerLowerAnim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "ShavoJumpLegs")
+             // PlayAnims("Dash");
+                StartCoroutine(Dash());
+                ps.PlayAudioEvent(ps.shavoDash);
+            }
+            else if (ps.currentBandMember == "Daron")
+            {
+                StartCoroutine("Teleport");
+                ps.PlayAudioEvent(ps.daronTeleport);
+            }
+            else if (ps.currentBandMember == "Serj")
+            {
+                ps.PlayAudioEvent(ps.serjFlyStart);
+                StartCoroutine(Hover());
+            }
+        }
+        else
+        {
+            ps.inAir = true;
+            ps.rb.velocity = new Vector2(ps.rb.velocity.x, ps.jumpHeight);
+        }
+        //playerUpperAnim.Play("JohnJump2");
+    }
+
+    void FixedUpdate()
+    {
+        if(tryJump)
+        {
+            Jump();
+            tryJump = false;
         }
     }
 

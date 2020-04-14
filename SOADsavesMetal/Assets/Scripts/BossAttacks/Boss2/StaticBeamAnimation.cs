@@ -36,6 +36,7 @@ public class StaticBeamAnimation : MonoBehaviour
         transform.eulerAngles = new Vector3(transform.eulerAngles.x,
                                             transform.eulerAngles.y, 
                                             Mathf.Rad2Deg * Mathf.Atan2(transform.position.y - player.position.y, transform.position.x - player.position.x));
+        gameplayPause = FindObjectOfType<GameplayPause>();
     }
 
     // Update is called once per frame
@@ -45,7 +46,6 @@ public class StaticBeamAnimation : MonoBehaviour
         {
             if (tracking)
             {
-                Debug.Log("I am a moving beam!");
                 float toAngle = Mathf.Rad2Deg * Mathf.Atan2(transform.position.y - player.position.y, transform.position.x - player.position.x);
                 transform.eulerAngles += new Vector3(0, 0, Mathf.Sign(toAngle - transform.eulerAngles.z) * trackingSpeed);
             }
