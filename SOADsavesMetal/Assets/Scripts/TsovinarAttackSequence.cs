@@ -6,6 +6,7 @@ using UnityEngine;
 public class TsovinarAttackSequence : TsovinarAttack
 {
     public List<SubAttack> Attacks;
+    protected bool endEarly;
 
     //private List<float> originalDurations = new List<float>();
 
@@ -16,6 +17,7 @@ public class TsovinarAttackSequence : TsovinarAttack
 
     protected override void OnStart()
     {
+        endEarly = false;
         foreach(var subAttack in Attacks)
         {
             //originalDurations.Add(subAttack.Attack.duration);
@@ -28,6 +30,8 @@ public class TsovinarAttackSequence : TsovinarAttack
         yield return new WaitForEndOfFrame();
         foreach(var subAttack in Attacks)
         {
+            if (endEarly)
+                break;
             subAttack.Attack.ExecuteAttack();
             yield return new WaitForSeconds(subAttack.duration);
         }
