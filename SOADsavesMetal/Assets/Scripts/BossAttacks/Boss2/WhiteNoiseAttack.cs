@@ -8,7 +8,7 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
     private const string ANTENNA_UNFOLD = "antenna_unfold";
     private const string ANTENNA_BLINK = "antenna_blinkrapid";
     private const string ANTENNA_FOLD = "antenna_fold";
-
+    
     protected bool isLeft;
 
     public Material whiteNoise;
@@ -37,6 +37,9 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
     private Transform spawnTransform;
 
     private FMOD.Studio.EventInstance instance;
+    
+    protected AntennaWatcher antennaWatcherScript;
+    protected static int antennaCount;
 
 
     public override void Initialize(TsovinarAttackData data)
@@ -73,11 +76,10 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
 
         ScreenOff();
         telescopingAntenna.Play(ANTENNA_UNFOLD);
+        
+        yield return new WaitForSeconds(unfoldClip.length);
 
-        float clipLength = unfoldClip.length;
-        yield return new WaitForSeconds(clipLength);
-
-        while(true)
+        while(!endEarly)
         {
             yield return base.Execute(duration);
         }
@@ -85,12 +87,25 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
 
     protected override void OnEnd()
     {
-        telescopingAntenna.gameObject.GetComponent<AntennaWatcher>().OnEnd();
-        base.OnEnd();
-        tsovinar.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
-        tsovinar.transform.rotation = new Quaternion(-23f, -16f, -7f, 90f);
-        tsovinar.transform.position = screen1.transform.position;
-        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        End();
+    }
+
+    public void End()
+    {
+        if(!endEarly)
+        {
+            antennaWatcherScript.OnEnd();
+            base.OnEnd();
+            tsovinar.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
+            tsovinar.transform.rotation = new Quaternion(-23f, -16f, -7f, 90f);
+            tsovinar.transform.position = screen1.transform.position;
+            instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            endEarly = true;
+            --antennaCount;
+        }
+
+        if(antennaCount == 0)
+            ScreenOn();
     }
 
     protected override void OnStart()
@@ -104,13 +119,18 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
             telescopingAntenna = rightAntenna;
         }
         isLeft = !isLeft;
-        
-        spawnTransform = telescopingAntenna.GetComponent<AntennaWatcher>().spawnPosition;
+
+        antennaWatcherScript = telescopingAntenna.GetComponent<AntennaWatcher>();
+        antennaWatcherScript.whiteNoise = this;
+        endEarly = false;
+        antennaCount = 1;
+
+        spawnTransform = antennaWatcherScript.spawnPosition;
         foreach (var subAttack in Attacks)
         {
             ((AntennaBolt)subAttack.Attack).spawnPosition = spawnTransform;
         }
-
+        
         base.OnStart();
     }
 
@@ -127,20 +147,29 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         tsovinar.SetActive(false);
         antennaHitBox.enabled = true;
 
-        var script = telescopingAntenna.GetComponent<AntennaWatcher>();
+        antennaWatcherScript.screen1DefaultMat = screen1DefaultMat;
+        antennaWatcherScript.screen2DefaultMat = screen2DefaultMat;
+        antennaWatcherScript.screen3DefaultMat = screen3DefaultMat;
+        antennaWatcherScript.screen4DefaultMat = screen4DefaultMat;
+        antennaWatcherScript.screen5DefaultMat = screen5DefaultMat;
+        antennaWatcherScript.screen1 = screen1;
+        antennaWatcherScript.screen2 = screen2;
+        antennaWatcherScript.screen3 = screen3;
+        antennaWatcherScript.screen4 = screen4;
+        antennaWatcherScript.screen5 = screen5;
+        antennaWatcherScript.tsovinar = tsovinar;
+        antennaWatcherScript.antennaHitBox = antennaHitBox;
 
-        script.screen1DefaultMat = screen1DefaultMat;
-        script.screen2DefaultMat = screen2DefaultMat;
-        script.screen3DefaultMat = screen3DefaultMat;
-        script.screen4DefaultMat = screen4DefaultMat;
-        script.screen5DefaultMat = screen5DefaultMat;
-        script.screen1 = screen1;
-        script.screen2 = screen2;
-        script.screen3 = screen3;
-        script.screen4 = screen4;
-        script.screen5 = screen5;
-        script.tsovinar = tsovinar;
-        script.antennaHitBox = antennaHitBox;
+    }
 
+    public void ScreenOn()
+    {
+        screen1.GetComponent<SpriteRenderer>().sharedMaterial = screen1DefaultMat;
+        screen2.GetComponent<SpriteRenderer>().sharedMaterial = screen2DefaultMat;
+        screen3.GetComponent<SpriteRenderer>().sharedMaterial = screen3DefaultMat;
+        screen4.GetComponent<SpriteRenderer>().sharedMaterial = screen4DefaultMat;
+        screen5.GetComponent<SpriteRenderer>().sharedMaterial = screen5DefaultMat;
+        tsovinar.SetActive(true);
+        antennaHitBox.enabled = false;
     }
 }

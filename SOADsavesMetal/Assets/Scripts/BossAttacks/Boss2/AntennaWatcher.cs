@@ -8,8 +8,8 @@ public class AntennaWatcher : MonoBehaviour
 
     public AnimationClip foldClip;
     public Transform spawnPosition;
-    public int maxHits;
     public float hitTime;
+    public WhiteNoiseAttack whiteNoise;
 
     [System.NonSerialized]
     public GameObject screen1;
@@ -40,64 +40,27 @@ public class AntennaWatcher : MonoBehaviour
 
     private Animator telescopingAntenna;
 
-    private int hitCount = 0;
-    private float hitDelay = 0;
-
     private void Start()
     {
         telescopingAntenna = GetComponent<Animator>();
     }
 
-    private void Update()
-    {
-        hitDelay += Time.deltaTime;
-    }
-
     public void hit()
     {
-        Debug.Log(hitCount);
-        if (hitDelay <= hitTime)
-        {
-            return;
-        }
-
-        ++hitCount;
-        hitDelay = 0;
-        OnHit();
-
-        if (hitCount == maxHits)
-        {
-            StartCoroutine(FoldAntenna());
-            ScreenOn();
-            hitCount = 0;
-        }
-
-
+        whiteNoise.End();
+        //OnEnd();
     }
 
     public void OnEnd()
     {
         //StartCoroutine(FoldAntenna());
         telescopingAntenna.Play(ANTENNA_FOLD);
-        ScreenOn();
-        hitCount = 0;
     }
 
     IEnumerator FoldAntenna()
     {
         yield return new WaitForSeconds(foldClip.length);
         //telescopingAntenna.Play(ANTENNA_FOLD);
-    }
-
-    private void ScreenOn()
-    {
-        screen1.GetComponent<SpriteRenderer>().sharedMaterial = screen1DefaultMat;
-        screen2.GetComponent<SpriteRenderer>().sharedMaterial = screen2DefaultMat;
-        screen3.GetComponent<SpriteRenderer>().sharedMaterial = screen3DefaultMat;
-        screen4.GetComponent<SpriteRenderer>().sharedMaterial = screen4DefaultMat;
-        screen5.GetComponent<SpriteRenderer>().sharedMaterial = screen5DefaultMat;
-        tsovinar.SetActive(true);
-        antennaHitBox.enabled = false;
     }
 
     private void OnHit()
