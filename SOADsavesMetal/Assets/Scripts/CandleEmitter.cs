@@ -27,6 +27,8 @@ public class CandleEmitter : MonoBehaviour {
     public string candleGrow;
     [FMODUnity.EventRef]
     public string candleShoot;
+    [FMODUnity.EventRef]
+    public string candleExtinguish;
     #endregion
 
     void Start()
@@ -180,6 +182,8 @@ public class CandleEmitter : MonoBehaviour {
 	
 	public void hit()
 	{
+        if(active)
+            PlayAudioEvent(candleExtinguish);
 		disableFire();
 	}
     public void PlayAudioEvent(string fmodEvent)

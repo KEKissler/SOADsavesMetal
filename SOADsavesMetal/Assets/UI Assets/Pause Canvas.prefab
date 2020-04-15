@@ -384,6 +384,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4458810335765269914, guid: feaea676901b027458d98f16ea23d6de,
+        type: 3}
+      propertyPath: countDown
+      value: 
+      objectReference: {fileID: 8101416517323360479}
+    - target: {fileID: 4458810335765269914, guid: feaea676901b027458d98f16ea23d6de,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458810335765269914, guid: feaea676901b027458d98f16ea23d6de,
+        type: 3}
+      propertyPath: pauseSound
+      value: event:/UI/U_Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458810335765269914, guid: feaea676901b027458d98f16ea23d6de,
+        type: 3}
+      propertyPath: resumeSound
+      value: event:/UI/U_Resume
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: feaea676901b027458d98f16ea23d6de, type: 3}
 --- !u!224 &8084796019422964861 stripped

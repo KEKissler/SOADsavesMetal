@@ -312,6 +312,7 @@ MonoBehaviour:
   gameplayPause: {fileID: 0}
   candleGrow: event:/Enemy/E_Agas/E_Agas_CandleGrow
   candleShoot: event:/Enemy/E_Agas/E_Agas_CandleShoot
+  candleExtinguish: event:/Enemy/E_Agas/E_Agas_CandleExtinguish
 --- !u!50 &7863440074718537357
 Rigidbody2D:
   serializedVersion: 4

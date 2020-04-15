@@ -12,6 +12,10 @@ public class GameplayPause : MonoBehaviour
     public Player player;
 
     FMOD.Studio.EventInstance pauseEffect;
+    [FMODUnity.EventRef]
+    public string pauseSound;
+    [FMODUnity.EventRef]
+    public string resumeSound;
 
     private void Start()
     {
@@ -69,6 +73,8 @@ public class GameplayPause : MonoBehaviour
         paused = true;
         pauseMenu.SetActive(true);
         pauseEffect.setParameterByName("PauseMuteIntensity", 1);
+        FMOD.Studio.EventInstance pauseSoundInstance = FMODUnity.RuntimeManager.CreateInstance(pauseSound);
+        pauseSoundInstance.start();
     }
 
     private void Play()
@@ -78,5 +84,7 @@ public class GameplayPause : MonoBehaviour
         pauseMenu.SetActive(false);
         controlsScreen.SetActive(false);
         pauseEffect.setParameterByName("PauseMuteIntensity", 0);
+        FMOD.Studio.EventInstance resumeSoundInstance = FMODUnity.RuntimeManager.CreateInstance(resumeSound);
+        resumeSoundInstance.start();
     }
 }
