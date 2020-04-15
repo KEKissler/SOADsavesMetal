@@ -35,8 +35,6 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
     private CapsuleCollider2D antennaHitBox;
 
     private Transform spawnTransform;
-
-    private FMOD.Studio.EventInstance instance;
     
     protected AntennaWatcher antennaWatcherScript;
     protected static int antennaCount;
@@ -83,8 +81,8 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         {
             yield return base.Execute(duration);
         }
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
-
     protected override void OnEnd()
     {
         End();
@@ -171,5 +169,6 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         screen5.GetComponent<SpriteRenderer>().sharedMaterial = screen5DefaultMat;
         tsovinar.SetActive(true);
         antennaHitBox.enabled = false;
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 }

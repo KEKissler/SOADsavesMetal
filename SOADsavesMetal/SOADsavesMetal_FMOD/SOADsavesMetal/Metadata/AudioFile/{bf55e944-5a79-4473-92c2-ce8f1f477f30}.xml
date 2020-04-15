@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.00.00">
-	<object class="AudioFile" id="{bc5df397-2707-4663-b3d9-9b0676624b04}">
+	<object class="AudioFile" id="{bf55e944-5a79-4473-92c2-ce8f1f477f30}">
 		<property name="assetPath">
-			<value>Music/Spiders - Tutorial.wav</value>
+			<value>Music/Aerials - Sandaramet_81BPM.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
@@ -14,7 +14,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>27.546643990929706</value>
+			<value>235.12526077097505</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{583e0078-1f91-402a-91f8-51c998e8250d}</destination>
