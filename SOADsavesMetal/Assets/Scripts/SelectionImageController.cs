@@ -25,6 +25,7 @@ public class SelectionImageController : MonoBehaviour
     void Awake()
     {
         PlayerSelected = BossSelected = false;
+        Time.timeScale = 1f;
     }
     private void Update()
     {
