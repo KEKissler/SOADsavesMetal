@@ -65,14 +65,12 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
 
     protected override IEnumerator Execute(float duration)
     {
-        instance.start();
         if (telescopingAntenna.GetCurrentAnimatorStateInfo(0).IsName(ANTENNA_BLINK))
         {
             yield break;
         }
         yield return new WaitForEndOfFrame();
 
-        ScreenOff();
         telescopingAntenna.Play(ANTENNA_UNFOLD);
         
         yield return new WaitForSeconds(unfoldClip.length);
@@ -97,7 +95,6 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
             tsovinar.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
             tsovinar.transform.rotation = new Quaternion(-23f, -16f, -7f, 90f);
             tsovinar.transform.position = screen1.transform.position;
-            instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             endEarly = true;
             --antennaCount;
         }
@@ -122,6 +119,9 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         antennaWatcherScript.whiteNoise = this;
         endEarly = false;
         antennaCount = 1;
+
+        if(tsovinar.activeSelf)
+            ScreenOff();
 
         spawnTransform = antennaWatcherScript.spawnPosition;
         foreach (var subAttack in Attacks)
@@ -157,6 +157,8 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         antennaWatcherScript.screen5 = screen5;
         antennaWatcherScript.tsovinar = tsovinar;
         antennaWatcherScript.antennaHitBox = antennaHitBox;
+
+        instance.start();
 
     }
 
