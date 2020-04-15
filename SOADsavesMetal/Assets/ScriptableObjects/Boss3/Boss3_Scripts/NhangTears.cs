@@ -28,7 +28,6 @@ public class NhangTears : MonoBehaviour
 
         }
         else if(other.gameObject.tag == "Floor"){
-            Debug.Log("Floor");
             Destroy(this.gameObject);
         }
     }
