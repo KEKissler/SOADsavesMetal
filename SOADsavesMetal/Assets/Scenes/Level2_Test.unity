@@ -456,6 +456,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5119586942618362851, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+        type: 3}
+      propertyPath: countDown
+      value: 
+      objectReference: {fileID: 116138725}
     - target: {fileID: 5377065512036990222, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -566,11 +571,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 3.9000244
       objectReference: {fileID: 0}
-    - target: {fileID: 5119586942618362851, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
-        type: 3}
-      propertyPath: countDown
-      value: 
-      objectReference: {fileID: 116138725}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43, type: 3}
 --- !u!114 &116138725 stripped
@@ -927,10 +927,10 @@ MonoBehaviour:
     HealthPercentThreshhold: 80
     ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: 3c6351ec5c28a1b4182c13734ac47b2c, type: 2}
-    HealthPercentThreshhold: 55
+    HealthPercentThreshhold: 50
     ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: 5b94bd7d283c9484eb20161fd791152b, type: 2}
-    HealthPercentThreshhold: 25
+    HealthPercentThreshhold: 20
     ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: 57b232e42a219764a949f865bfc0c69e, type: 2}
     HealthPercentThreshhold: 0
@@ -1184,8 +1184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foldClip: {fileID: 7400000, guid: 2bd0c57b7c8714241ba4bb1608a444a1, type: 2}
   spawnPosition: {fileID: 703094286}
-  maxHits: 3
   hitTime: 0.4
+  whiteNoise: {fileID: 0}
 --- !u!1 &354913075
 GameObject:
   m_ObjectHideFlags: 0
@@ -4710,8 +4710,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foldClip: {fileID: 7400000, guid: 2bd0c57b7c8714241ba4bb1608a444a1, type: 2}
   spawnPosition: {fileID: 2083235102}
-  maxHits: 3
   hitTime: 0.4
+  whiteNoise: {fileID: 0}
 --- !u!70 &1723733931
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
