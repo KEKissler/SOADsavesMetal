@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d822f005d1a4546905e86e8d2a4e51, type: 3}
   m_Name: MoveRightToLeft
   m_EditorClassIdentifier: 
-  duration: 2
+  duration: 3
   isReverse: 0
