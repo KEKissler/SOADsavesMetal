@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae0250c731c0054182390d5baf9e802, type: 3}
   m_Name: AntennaLaser
   m_EditorClassIdentifier: 
-  duration: 5.5
+  duration: 6
   Attacks:
   - {fileID: 11400000, guid: d841b36e5bb73b947958be14869ce30f, type: 2}
   - {fileID: 11400000, guid: 8a1d13b22bdd8eb48b646fb176b4f033, type: 2}
