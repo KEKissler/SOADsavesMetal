@@ -21,7 +21,7 @@ public class MenuButtons : MonoBehaviour {
         StaticData.shavoUnlock = new bool[] {false, false};
         StaticData.daronUnlock = new bool[] {false, false};
         StaticData.serjUnlock = new bool[] {false, false, false};
-        SaveSystem.SaveGame();
+        //SaveSystem.SaveGame();
     }
 
     public void Continue() {

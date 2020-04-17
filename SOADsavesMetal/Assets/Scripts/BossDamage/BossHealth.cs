@@ -26,6 +26,8 @@ public class BossHealth : MonoBehaviour
     public BossAttackManager<AgasPhase> agasAttackManager;
     public BossAttackManager<TsovinarPhase> tsovinarAttackManager;
     public BossAttackManager<NhangPhase> nhangAttackManager;
+
+    private int currentBoss;
     bool Dead;
 
     // Should be accessible but not modifiable directly
@@ -40,16 +42,19 @@ public class BossHealth : MonoBehaviour
         if(temp1)
         {
             agasAttackManager = temp1;
+            currentBoss = 1;
         }
         BossAttackManager<TsovinarPhase> temp2 = gameObject.GetComponentInChildren<TsovinarAttackManager>();
         if (temp2)
         {
             tsovinarAttackManager = temp2;
+            currentBoss = 2;
         }
         BossAttackManager<NhangPhase> temp3 = gameObject.GetComponentInChildren<NhangAttackManager>();
         if (temp3)
         {
             nhangAttackManager = temp3;
+            currentBoss = 3;
         }
         HP = startingHP;
     }
@@ -58,7 +63,25 @@ public class BossHealth : MonoBehaviour
     void Update()
     {
         if (HP <= 0)
+        {
             this.Dead = true;
+            switch(currentBoss)
+            {
+                case 1:
+                    makeAllTrue(StaticData.shavoUnlock);
+                    break;
+                case 2:
+                    makeAllTrue(StaticData.daronUnlock);
+                    break;
+                case 3:
+                    makeAllTrue(StaticData.serjUnlock);
+                    break;
+                default:
+                    break;
+            }
+            SaveSystem.SaveGame();
+        }
+
     }
 
     public bool isDead()
@@ -97,5 +120,13 @@ public class BossHealth : MonoBehaviour
     public float getHPPercentage()
     {
         return (float)HP/(float)startingHP * 100f;
+    }
+
+    private void makeAllTrue(bool[] characterArray)
+    {
+        for (int i = 0; i < characterArray.Length; ++i)
+        {
+            characterArray[i] = true;
+        }
     }
 }

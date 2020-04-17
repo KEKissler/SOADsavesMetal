@@ -33,8 +33,8 @@ public static class SaveSystem
         else
         {
             Debug.Log("Created new save where there wasn't.");
-            SaveData data = SaveGame();
-            return data;
+            //SaveData data = SaveGame();
+            return null;
         }
     }
 }
