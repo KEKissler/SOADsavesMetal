@@ -16,7 +16,7 @@ public class DeactivateButton : MonoBehaviour
     {
         button.interactable = false;
         SaveSystem.LoadGame();
-        if (allTrue(StaticData.shavoUnlock))
+        if (!allTrue(StaticData.shavoUnlock))
         {
             button.interactable = false;
         }
