@@ -5,13 +5,19 @@ using UnityEngine.UI;
 
 public class DeactivateButton : MonoBehaviour
 {
+<<<<<<< HEAD
     public Button button;
     private string buttonName;
     //GameObject button;
+=======
+    public Button continueButton;
+    //GameObject continueButton;
+>>>>>>> 1bd4df8... Continue button has ability to be disabled
 
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< HEAD
         button.interactable = false;
         SaveSystem.LoadGame();
         if (!allTrue(StaticData.shavoUnlock))
@@ -62,5 +68,26 @@ public class DeactivateButton : MonoBehaviour
     {
         foreach(bool check in nameArray) if (!check) return false;
         return true;
+=======
+        SaveSystem.LoadGame();
+        if (StaticData.firstLoad)
+        {
+            continueButton.interactable = false;
+        }
+        else
+            continueButton.interactable = true;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //if(!buttonActive())
+            
+    }
+
+    private bool buttonActive()
+    {
+        return StaticData.firstLoad;
+>>>>>>> 1bd4df8... Continue button has ability to be disabled
     }
 }
