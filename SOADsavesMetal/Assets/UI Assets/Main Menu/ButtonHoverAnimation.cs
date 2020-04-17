@@ -9,10 +9,8 @@ public class ButtonHoverAnimation : MonoBehaviour, IPointerEnterHandler, IPointe
     public GameObject left_eye;
     public GameObject right_eye;
 
-
     public void OnPointerEnter(PointerEventData eventData)
     {
-
         left_eye.SetActive(true);
         right_eye.SetActive(true);
         left_eye.transform.position = new Vector3(left_eye.transform.position.x, transform.position.y+0.5f, 0);

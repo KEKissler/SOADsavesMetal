@@ -16,15 +16,15 @@ public class MenuButtons : MonoBehaviour {
     }
 
     public void NewGame() {
-    StaticData.firstLoad = true;
-    StaticData.characterUnlocks = new bool[] {false, false, false};
-    StaticData.shavoUnlock = new bool[] {false, false};
-    StaticData.daronUnlock = new bool[] {false, false};
-    StaticData.serjUnlock = new bool[] {false, false, false};
-    SaveSystem.SaveGame();
+        StaticData.firstLoad = true;
+        StaticData.characterUnlocks = new bool[] {false, false, false};
+        StaticData.shavoUnlock = new bool[] {false, false};
+        StaticData.daronUnlock = new bool[] {false, false};
+        StaticData.serjUnlock = new bool[] {false, false, false};
+        SaveSystem.SaveGame();
     }
 
     public void Continue() {
-    SaveSystem.LoadGame();
+        SaveSystem.LoadGame();
     }
 }
