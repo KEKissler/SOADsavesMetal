@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -371,6 +372,13 @@ public class Player : MonoBehaviour
         playerLowerAnim.Play("ShavoDashLegs");
         PlayAudioEvent(playerDeath);
         yield return new WaitForSeconds(1.0f);
+        SaveSystem.SaveGame();
+        yield return new WaitForSeconds(5);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level_Load_Test");
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 
     public bool isCrouching()

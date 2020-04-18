@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /* Instructions to use the BossHealth script:
  * 
@@ -21,11 +22,13 @@ public struct Phase
 public class BossHealth : MonoBehaviour
 {
     // Public
-    public float startingHP = 2000f;
+    public float startingHP = 200f;
     public float damageMultiplier = 1f;
     public BossAttackManager<AgasPhase> agasAttackManager;
     public BossAttackManager<TsovinarPhase> tsovinarAttackManager;
     public BossAttackManager<NhangPhase> nhangAttackManager;
+
+    AudioSource cheering;
 
     private int currentBoss;
     bool Dead;
@@ -80,10 +83,23 @@ public class BossHealth : MonoBehaviour
                     break;
             }
             SaveSystem.SaveGame();
+            StartCoroutine(LoadLevelSelector());
+            
+        }
+    }
+
+
+    IEnumerator LoadLevelSelector()
+    {
+        
+        yield return new WaitForSeconds(5);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level_Load_Test");
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
         }
 
     }
-
     public bool isDead()
     {
         return Dead;
