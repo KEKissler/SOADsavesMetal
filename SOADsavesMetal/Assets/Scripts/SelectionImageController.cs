@@ -8,15 +8,8 @@ public class SelectionImageController : MonoBehaviour
     public GameObject Player;
     public GameObject Boss;
 
-    public Sprite s_John;
-    public Sprite s_Shavo;
-    public Sprite s_Daron;
-    public Sprite s_Serj;
-
-    public Sprite boss_Agas;
-    public Sprite boss_Tsovinar;
-    public Sprite boss_Nhang;
-    public Sprite boss_Sandaramet;
+    public Sprite [] players;
+    public GameObject [] bosses;
 
     public Button FightButton;
     private bool PlayerSelected;
@@ -42,19 +35,19 @@ public class SelectionImageController : MonoBehaviour
 
         switch (player) {
             case 0:
-                p = s_John;
+                p = players[0];
                 break;
             case 1:
-                p = s_Shavo;
+                p = players[1];
                 break;
             case 2:
-                p = s_Daron;
+                p = players[2];
                 break;
             case 3:
-                p = s_Serj;
+                p = players[2];
                 break;
             default:
-                p = s_John;
+                p = players[0];
                 break;
 
         }
@@ -63,27 +56,40 @@ public class SelectionImageController : MonoBehaviour
 
     public void SwitchBossSprites(int boss)
     {
-        Sprite p;
         switch(boss)
         {
             case 0:
-                p = boss_Agas;
+                bosses[0].SetActive(true);
+                bosses[1].SetActive(false);
+                bosses[2].SetActive(false);
+                bosses[3].SetActive(false);
                 break;
             case 1:
-                p = boss_Tsovinar;
+                bosses[0].SetActive(false);
+                bosses[1].SetActive(true);
+                bosses[2].SetActive(false);
+                bosses[3].SetActive(false);
                 break;
             case 2:
-                p = boss_Nhang;
+                bosses[0].SetActive(false);
+                bosses[1].SetActive(false);
+                bosses[2].SetActive(true);
+                bosses[3].SetActive(false);
                 break;
             case 3:
-                p = boss_Sandaramet;
+                bosses[0].SetActive(false);
+                bosses[1].SetActive(false);
+                bosses[2].SetActive(false);
+                bosses[3].SetActive(true);
                 break;
             default:
-                p = boss_Agas;
+                bosses[0].SetActive(true);
+                bosses[1].SetActive(false);
+                bosses[2].SetActive(false);
+                bosses[3].SetActive(false);
                 break;
 
         }
-        Boss.GetComponent<Image>().sprite = p;
 
     }
 
