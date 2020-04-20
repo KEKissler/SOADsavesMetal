@@ -21,7 +21,7 @@ public class FlameSphere : SandarametAttack
     {
         attackParent = data.attackParent;
         playerPosition = data.player.transform;
-        spawnPosition = data.sandaramet.transform;
+        spawnPosition = data.topHand;
     }
 
     protected override void OnStart()

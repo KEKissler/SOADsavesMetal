@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "New Attack/Tsovinar/AttackSequence")]
+[CreateAssetMenu(menuName = "New Attack/Sandaramet/AttackSequence")]
 public class SandarametAttackSequence : SandarametAttack
 {
     public List<SubAttack> Attacks;

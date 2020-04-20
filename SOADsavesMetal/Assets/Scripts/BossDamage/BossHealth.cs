@@ -27,6 +27,7 @@ public class BossHealth : MonoBehaviour
     public BossAttackManager<AgasPhase> agasAttackManager;
     public BossAttackManager<TsovinarPhase> tsovinarAttackManager;
     public BossAttackManager<NhangPhase> nhangAttackManager;
+    public BossAttackManager<SandarametPhase> sandarametAttackManager;
 
     AudioSource cheering;
 
@@ -58,6 +59,12 @@ public class BossHealth : MonoBehaviour
         {
             nhangAttackManager = temp3;
             currentBoss = 3;
+        }
+        BossAttackManager<SandarametPhase> temp4 = gameObject.GetComponentInChildren<SandarametAttackManager>();
+        if (temp4)
+        {
+            sandarametAttackManager = temp4;
+            currentBoss = 4;
         }
         HP = startingHP;
     }
@@ -119,6 +126,10 @@ public class BossHealth : MonoBehaviour
         else if (nhangAttackManager)
         {
             nhangAttackManager.bossHit();
+        }
+        else if (sandarametAttackManager)
+        {
+            sandarametAttackManager.bossHit();
         }
         Debug.Log(HP);
     }
