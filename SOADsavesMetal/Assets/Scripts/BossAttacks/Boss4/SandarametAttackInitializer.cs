@@ -5,7 +5,6 @@ using UnityEngine;
 public class SandarametAttackInitializer : MonoBehaviour
 {
     public SandarametAttackData AttackData;
-
     public List<SandarametAttack> AttacksToInitialize = new List<SandarametAttack>();
 
     private void Start()
