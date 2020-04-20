@@ -2,15 +2,20 @@ Team Lead:
 Nazely Hartoonian
 
 Programmers:
-Christopher Chu (Character Lead)
-Ulises Perez (Character Lead)
+Christopher Dipalma (Character Lead)
+Ulises Perez
 Kyle Kissler (Boss Lead)
 Keegan Fredrick
-Oscar Diaz
+
 
 Gameplay Designers:
 Luke Miller
 Chase Taylor
+
+UI and Systems Designers:
+Victoria Barinova 
+Keegan Fredrick
+Oscar Diaz
 
 Artists:
 Rachel Lee
