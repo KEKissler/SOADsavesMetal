@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 2b4c84ff6dddc664da436385ee9fd9c5
+guid: dfc24812d29d68141ac75865715f9549
 TextureImporter:
   fileIDToRecycleName:
-    21300000: player_heads_0
-    21300002: player_heads_1
-    21300004: player_heads_2
-    21300006: player_heads_3
-    21300008: player_heads_4
-    21300010: player_heads_5
-    21300012: player_heads_6
+    21300000: player_heads_highlights_0
+    21300002: player_heads_highlights_1
+    21300004: player_heads_highlights_2
+    21300006: player_heads_highlights_3
+    21300008: player_heads_highlights_4
+    21300010: player_heads_highlights_5
+    21300012: player_heads_highlights_6
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -38,7 +38,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -135,7 +135,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_heads_0
+      name: player_heads_highlights_0
       rect:
         serializedVersion: 2
         x: 5
@@ -149,13 +149,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9f496ce430ae2c40bed48cc533a4f42
+      spriteID: cee4f9f9aa663f0498f894b61ce17127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_heads_1
+      name: player_heads_highlights_1
       rect:
         serializedVersion: 2
         x: 88
@@ -169,19 +169,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 629810a1b5ba88b4d8d4607fec2c6392
+      spriteID: 1c1a73e3fbc55274dabc2b0d314ea35c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_heads_2
+      name: player_heads_highlights_2
       rect:
         serializedVersion: 2
-        x: 169
-        y: 0
-        width: 66
-        height: 108
+        x: 178
+        y: 7
+        width: 48
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,13 +189,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40a2e68a626e530428fff44cb98dc9d4
+      spriteID: de294a9a310c6554eb79d3072334dd07
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_heads_3
+      name: player_heads_highlights_3
       rect:
         serializedVersion: 2
         x: 244
@@ -209,19 +209,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9746087d3802dae47aafe73d786d73d5
+      spriteID: 7a98192d3ef84ee48b3891e83363edf3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_heads_4
+      name: player_heads_highlights_4
       rect:
         serializedVersion: 2
-        x: 324
-        y: 16
-        width: 81
-        height: 80
+        x: 333
+        y: 24
+        width: 63
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,13 +229,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57307b416bb6c154f82b63db643ea723
+      spriteID: 93591b1aaa784f846b1ffb88a8244d47
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_heads_5
+      name: player_heads_highlights_5
       rect:
         serializedVersion: 2
         x: 409
@@ -249,19 +249,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ece475bc991e4e45bfd9854e8dac546
+      spriteID: d15a905742bb05b4581d7d392f89b952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_heads_6
+      name: player_heads_highlights_6
       rect:
         serializedVersion: 2
-        x: 492
-        y: 15
-        width: 69
-        height: 81
+        x: 501
+        y: 22
+        width: 51
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,7 +269,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4ca08abb372bc44e9699b810839c96d
+      spriteID: 160cf2444d2600a439041bfafb43d963
       vertices: []
       indices: 
       edges: []
@@ -277,7 +277,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e2cf1db6414558e41b12db0b40da4296
+    spriteID: 7d4b8590a719f54469449f5376b21a31
     vertices: []
     indices: 
     edges: []
