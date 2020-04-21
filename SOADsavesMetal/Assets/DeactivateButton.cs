@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class DeactivateButton : MonoBehaviour
 {
     public Button button;
-
-
     private string buttonName;
     //GameObject button;
 
@@ -58,12 +56,6 @@ public class DeactivateButton : MonoBehaviour
             }
         }
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private bool allTrue(bool[] nameArray)

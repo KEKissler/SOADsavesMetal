@@ -14,7 +14,8 @@ public enum ProjectileSpeed
     Stop,
     Slow,
     Med,
-    Fast
+    Fast,
+    Faster
 };
 
 public class Projectile : MonoBehaviour
@@ -25,6 +26,7 @@ public class Projectile : MonoBehaviour
     private const float SLOW_VEL = 5.0f;
     private const float MED_VEL = 6.7f;
     private const float FAST_VEL = 9.0f;
+    private const float FASTER_VEL = 12.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -86,6 +88,9 @@ public class Projectile : MonoBehaviour
                 break;
             case ProjectileSpeed.Fast:
                 v = FAST_VEL;
+                break;
+            case ProjectileSpeed.Faster:
+                v = FASTER_VEL;
                 break;
             default:
                 v = MED_VEL;

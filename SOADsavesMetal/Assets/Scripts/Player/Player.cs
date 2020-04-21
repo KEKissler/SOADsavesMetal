@@ -133,6 +133,11 @@ public class Player : MonoBehaviour
         return currentBandMember + animSuffix;
     }
 
+    public void SetCurrentBandMember(string newBandMember)
+    {
+        currentBandMember = newBandMember;
+    }
+
     public void PlayAudioEvent(string fmodEvent)
     {
         EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);

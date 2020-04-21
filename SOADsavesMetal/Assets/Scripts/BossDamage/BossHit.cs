@@ -17,6 +17,8 @@ public class BossHit : MonoBehaviour
     private const string SANDARAMET_DAMAGE2 = "sandaramet_phase2_damage";
     private const string SANDARAMET_DEATH = "sandaramet_death";
 
+    private const string DUMMY_DAMAGE = "dummy_damage";
+
 
     public BossHealth healthScript;
     public float damageMultiplier = 1f;
@@ -31,12 +33,6 @@ public class BossHit : MonoBehaviour
     void Start()
     {
         bossAnimations = GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void hit(int damage)
@@ -99,6 +95,10 @@ public class BossHit : MonoBehaviour
             {
                 bossAnimations.Play(SANDARAMET_DEATH);
             }
+        }
+        else if(name == "Dummy")
+        {
+            bossAnimations.Play(DUMMY_DAMAGE);
         }
 
     }
