@@ -30,7 +30,6 @@ public class DeactivateButton : MonoBehaviour
                         button.interactable = true;
                     break;
                 case "Daron  Button":
-                    Debug.Log("Igothere");
                     if (allTrue(StaticData.daronUnlock))
                         button.interactable = true;
                     break;
