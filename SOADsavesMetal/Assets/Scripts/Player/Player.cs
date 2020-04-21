@@ -242,7 +242,7 @@ public class Player : MonoBehaviour
 
                 #region Super meter charge
                 // Uncomment the following line for instant meter recharge
-                superMeterCharge += maxSuperCharge;
+                // superMeterCharge += maxSuperCharge;
                 // Passive meter charge, maybe vary by character
                 superMeterCharge += maxSuperCharge / 100f * Time.deltaTime;
                 if (superMeterCharge > maxSuperCharge) superMeterCharge = maxSuperCharge;
