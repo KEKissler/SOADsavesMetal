@@ -42,10 +42,12 @@ public class Player : MonoBehaviour
     public float maxSuperCharge = 100f;
     public bool isSuperActive;
     public bool blockHorizontalMovement;
+    public bool blockNormalJumpAnims;
     public bool moving;
     public bool movedWhileAttacking;
     public bool deathStarted;
     public bool listeningForDoubleDownTap;
+    public bool daronListeningForParry;
 
     //Attack state blocker
     public bool blockAttackProgress;
@@ -163,6 +165,8 @@ public class Player : MonoBehaviour
         superMeterCharge = 0f;
         superBar = GameObject.Find("Super Bar").GetComponent<Slider>();
         superBar.maxValue = maxSuperCharge;
+        blockNormalJumpAnims = false;
+        daronListeningForParry = false;
 
         sr = GetComponent<SpriteRenderer>();
         srLegs = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
@@ -242,7 +246,7 @@ public class Player : MonoBehaviour
                 #endregion Super meter charge
 
                 #region Falling and jumping animations
-                if (!blockHorizontalMovement && !isSuperActive)  // Or any other special condition is in effect
+                if (!blockHorizontalMovement && !isSuperActive && !blockNormalJumpAnims)  // Or any other special condition is in effect
                 {
                     if (rb.velocity.y < -0.5f)
                     {
