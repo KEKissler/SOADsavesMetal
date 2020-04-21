@@ -17,13 +17,7 @@ public class DaronAttack : PlayerAttack
     private const float LONG_ATTACK_WINDUP = 0.04f;
 
     // Super attack
-    public GameObject cymbal;
-    private const float SUPER_LENGTH = 3.7f;
-    private const float TIME_BETWEEN_SHOTS_HIGH = 0.11f;
-    private const float TIME_BETWEEN_SHOTS_LOW = 0.016f;
-    private const int FINAL_BURST_SIZE = 1;
-    private float curr_time_between_shots;
-    private float shotTimer = 0.0f;
+    public GameObject superObject;
 
     // Copied from JohnAttack
     // Amount to lower the spawn location of projectiles when Daron is crouching
@@ -32,7 +26,7 @@ public class DaronAttack : PlayerAttack
 	// Use this for initialization
 	void Start () {
         ps = GameObject.FindWithTag("Player").GetComponent<Player>();
-
+        superObject.SetActive(false);
 	}
 
     /*
@@ -62,9 +56,15 @@ public class DaronAttack : PlayerAttack
         float yReductionWhenCrouched = 0f;
         if (ps.isCrouching()) yReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
 
-    	GameObject attackObj = Instantiate(stringBreak, transform.parent.position +
+    	Instantiate(stringBreak, transform.parent.position +
             new Vector3(0.7f * getDirection(transform.parent), yReductionWhenCrouched, 0),
             transform.parent.rotation);
+        Instantiate(stringBreak, transform.parent.position +
+            new Vector3(0.7f * getDirection(transform.parent), yReductionWhenCrouched, 0),
+            transform.parent.rotation * Quaternion.Euler(0, 0, 40f));
+        Instantiate(stringBreak, transform.parent.position +
+            new Vector3(0.7f * getDirection(transform.parent), yReductionWhenCrouched, 0),
+            transform.parent.rotation * Quaternion.Euler(0, 0, -40f));
 
         yield return null;
 
@@ -91,30 +91,24 @@ public class DaronAttack : PlayerAttack
 
     public override IEnumerator AttackSuper()
     {
-        curr_time_between_shots = TIME_BETWEEN_SHOTS_HIGH;
-        attackTimer = 0.0f;
-        shotTimer = 0.0f;
-        while(attackTimer < SUPER_LENGTH)
-        {
-            shotTimer += Time.deltaTime;
-            attackTimer += Time.deltaTime;
-            
-            float frac = attackTimer/SUPER_LENGTH;
-            curr_time_between_shots = (1-frac) * TIME_BETWEEN_SHOTS_HIGH + frac * TIME_BETWEEN_SHOTS_LOW;
+        superObject.SetActive(true);
+        superObject.SendMessage("refreshHit");
+        superObject.transform.position = ps.transform.position;
 
-            if(shotTimer > curr_time_between_shots)
+        for (int i=0; i<16; ++i)
+        {
+            attackTimer = 0f;
+            while (attackTimer < 0.125f)
             {
-                shotTimer %= curr_time_between_shots;
-                // Debug.Log(shotTimer);
-                GameObject cymbalClone = Instantiate(cymbal, transform.position, transform.parent.rotation);
+                attackTimer += Time.deltaTime;
+                yield return null;
             }
-            yield return null;
+            transform.position += transform.right * 1.25f;
         }
 
-        for(int i=0; i<FINAL_BURST_SIZE; ++i)
-        {
-            GameObject cymbalClone = Instantiate(cymbal, transform.position, transform.parent.rotation);
-            cymbalClone.transform.localScale *= new Vector2(1.2f, 1.2f);
-        }
+        superObject.transform.position = ps.transform.position;
+        superObject.SetActive(false);
+
+        yield return null;
     }
 }

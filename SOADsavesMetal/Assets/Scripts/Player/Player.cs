@@ -242,7 +242,7 @@ public class Player : MonoBehaviour
 
                 #region Super meter charge
                 // Uncomment the following line for instant meter recharge
-                // superMeterCharge += maxSuperCharge;
+                superMeterCharge += maxSuperCharge;
                 // Passive meter charge, maybe vary by character
                 superMeterCharge += maxSuperCharge / 100f * Time.deltaTime;
                 if (superMeterCharge > maxSuperCharge) superMeterCharge = maxSuperCharge;
@@ -251,18 +251,20 @@ public class Player : MonoBehaviour
                 #endregion Super meter charge
 
                 #region Falling and jumping animations
-                if (!blockHorizontalMovement && !isSuperActive && !blockNormalJumpAnims)  // Or any other special condition is in effect
+                if (!blockHorizontalMovement && !blockNormalJumpAnims)  // Or any other special condition is in effect
                 {
                     if (rb.velocity.y < -0.5f)
                     {
                         // landing = true;
-                        PlayAnims("Fall");
+                        if (!isSuperActive)
+                            PlayAnims("Fall");
                         lowerBodyHitbox.offset = lowOriginalOffset;
                         lowerBodyHitbox.size = lowOriginalSize;
                     }
                     if (rb.velocity.y > 0.5)
                     {
-                        PlayAnims("Jump");
+                        if (!isSuperActive)
+                            PlayAnims("Jump");
                         lowerBodyHitbox.offset = new Vector2(lowOriginalOffset.x, -0.05f);
                         lowerBodyHitbox.size = new Vector2(lowOriginalSize.x, 0.35f);
                     }
@@ -434,17 +436,38 @@ public class Player : MonoBehaviour
 
     public void DamagePlayer()
     {
+        if (daronListeningForParry)
+        {
+            daronListeningForParry = false;
+            remainingJumps += 1;
+        }
+
         if (curInvulnerableTime <= 0f)
         {
             curInvulnerableTime = invulnerabilityDuration;
-            PlayAudioEvent(playerHit);
-            Health -= 1;
             if (!Dead) StartCoroutine(PlayerFlashOnDamage(invulnerabilityDuration));
         }
     }
 
     IEnumerator PlayerFlashOnDamage(float duration)
     {
+        if (currentBandMember == "Daron")
+        {
+            float forgiveTime = 0.09f, t2 = 0f;
+            while (t2 < forgiveTime)
+            {
+                t2 += Time.deltaTime;
+                if (daronListeningForParry)
+                {
+                    curInvulnerableTime += forgiveTime;
+                    daronListeningForParry = false;
+                    yield break;
+                }
+                yield return null;
+            }
+        }
+        PlayAudioEvent(playerHit);
+        Health -= 1;
         float initialPeriod = 0.25f, finalPeriod = 0.05f;
         float curPeriod;
         float timer = 0f, tick = 0f;

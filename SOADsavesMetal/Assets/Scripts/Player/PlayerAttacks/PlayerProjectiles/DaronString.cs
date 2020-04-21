@@ -33,9 +33,9 @@ public class DaronString : PlayerProjectile
     {
         float curLife = timer / LIFESPAN;
         animator.speed = Mathf.Lerp(1.35f, 0, curLife);
-        speed = Mathf.Lerp(initialSpeed, initialSpeed / 4, curLife);
+        speed = Mathf.Lerp(initialSpeed, initialSpeed / 10, curLife * 1.2f);
         sr.color = setAlpha(Mathf.Sqrt(Mathf.Lerp(initialColor.w, 0, curLife)));
-        rb.velocity = new Vector2(speed * Mathf.Cos(angle), speed * Mathf.Sin(angle));
+        rb.velocity = transform.right * speed;
 
         timer += Time.deltaTime;
     }

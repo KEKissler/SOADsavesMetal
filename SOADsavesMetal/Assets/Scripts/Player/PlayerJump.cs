@@ -50,7 +50,7 @@ public class PlayerJump : MonoBehaviour
             }
             else if (ps.currentBandMember == "Daron")
             {
-                StartCoroutine("Teleport");
+                StartCoroutine("Parry");
                 ps.PlayAudioEvent(ps.daronTeleport);
             }
             else if (ps.currentBandMember == "Serj")
@@ -93,27 +93,29 @@ public class PlayerJump : MonoBehaviour
 
     }
 
-    public IEnumerator Teleport()
+    public IEnumerator Parry()
     {
-        ps.blockHorizontalMovement = true;
-        if (!ps.attacking) ps.playerUpperAnim.Play(ps.GetAnimName("Teleport"));
-        ps.playerLowerAnim.Play(ps.GetAnimName("Teleport"));
-        yield return new WaitForSeconds(0.04f);
-        float dashPower = 15f;
-        var playerRotation = gameObject.transform.rotation;
-        ps.rb.velocity = new Vector2((playerRotation.y == 0 ? 1 : -1) * 1.5f * dashPower, 0f);
+        ps.blockNormalJumpAnims = true;
+        ps.curInvulnerableTime = 0.3f > ps.curInvulnerableTime ? 0.3f : ps.curInvulnerableTime;
+        ps.playerUpperAnim.Play(ps.GetAnimName("Parry"));
 
-        ps.rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-        ps.upperBodyHitbox.GetComponent<BoxCollider2D>().enabled = false;
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        yield return new WaitForSeconds(0.25f);
+        float totalDuration = 0.25f, timer = 0f;
 
-        ps.upperBodyHitbox.GetComponent<BoxCollider2D>().enabled = true;
-        gameObject.GetComponent<BoxCollider2D>().enabled = true;
-        ps.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        transform.position -= new Vector3(0f, 0.05f, 0f);
-        ps.rb.velocity = new Vector2(ps.rb.velocity.x * -0.15f, -2.5f);
-        ps.blockHorizontalMovement = false;
+        ps.daronListeningForParry = true;
+        while (timer < 0.2f)
+        {
+            timer += Time.deltaTime;
+            if (!ps.daronListeningForParry)
+            {
+                ps.rb.velocity = new Vector2(ps.rb.velocity.x, ps.jumpHeight * 0.75f);
+                break;
+            }
+            yield return null;
+        }
+        ps.daronListeningForParry = false;
+        yield return new WaitForSeconds(totalDuration - timer);
+
+        ps.blockNormalJumpAnims = false;
     }
 
     public IEnumerator Hover()
