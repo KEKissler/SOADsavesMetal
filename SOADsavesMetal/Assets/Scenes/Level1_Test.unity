@@ -5084,14 +5084,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5119586942618362851, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
-<<<<<<< HEAD
-=======
+
       propertyPath: countDown
       value: 
       objectReference: {fileID: 1073603423}
     - target: {fileID: 5119586942618362851, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
->>>>>>> 1bd4df8... Continue button has ability to be disabled
+
       propertyPath: player
       value: 
       objectReference: {fileID: 1105088041}
