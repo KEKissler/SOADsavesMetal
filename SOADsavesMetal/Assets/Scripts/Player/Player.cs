@@ -136,6 +136,7 @@ public class Player : MonoBehaviour
     public void SetCurrentBandMember(string newBandMember)
     {
         currentBandMember = newBandMember;
+        StartCoroutine(pam.SetPlayerName());
     }
 
     public void PlayAudioEvent(string fmodEvent)

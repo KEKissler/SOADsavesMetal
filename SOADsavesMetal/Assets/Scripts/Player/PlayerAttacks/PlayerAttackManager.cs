@@ -24,7 +24,7 @@ public class PlayerAttackManager : MonoBehaviour
         StartCoroutine(SetPlayerName());
     }
 
-    IEnumerator SetPlayerName()
+    public IEnumerator SetPlayerName()
     {
         yield return new WaitForSeconds(0.1f);
         JohnAttack.SetActive(false);
