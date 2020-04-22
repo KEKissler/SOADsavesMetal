@@ -355,8 +355,7 @@ public class Player : MonoBehaviour
             {
                 rb.velocity = new Vector3(desiredVelocity, rb.velocity.y, 0);
             }
-
-            Debug.Log(rb.velocity.x);
+            
             performFriction = false;
         }
     }

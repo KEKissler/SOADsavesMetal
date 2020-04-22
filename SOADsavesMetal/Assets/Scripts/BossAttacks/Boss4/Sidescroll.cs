@@ -83,8 +83,7 @@ public class Sidescroll : MonoBehaviour
             if (p.transform.position.x - p.GetComponentInChildren<SpriteRenderer>().bounds.extents.x > screenBound)
                 p.transform.Translate(new Vector3(-screenBound * 2 - platformWidth, 0, 0));
         }
-
-        Debug.Log((player.transform.position - lastPosition).x / Time.deltaTime);
+        
         lastPosition = player.transform.position;
     }
 }
