@@ -6,16 +6,17 @@ using FMOD.Studio;
 
 public class DummyCandle: MonoBehaviour
 {
+	private static float TIMEOFF = 5;
+
 	private float fireScaleRange;
 	private GameObject player;
-	private int maxShots, currShots;
 	private float timer, disableTimer;
 	private float firePeriod = 2.0f;
 	private Transform candleGlow;
 	private GameObject fire1, fire2;
 	private Vector2 fire1Start, fire2Start;
-	private bool active;
-
+	private bool active = false;
+	
 	public float minFireScale, maxFireScale;
 
 	#region FMODEvents
@@ -56,8 +57,8 @@ public class DummyCandle: MonoBehaviour
 			disableTimer = 0f;
 			fire1.transform.position = fire1Start;
 			fire2.transform.position = fire2Start;
-			CandleOff();
-			enableFire();
+			CandleOff(TIMEOFF);
+
 
 		}
 	}
@@ -87,9 +88,10 @@ public class DummyCandle: MonoBehaviour
 		fire2.transform.position = fire2Start;
 	}
 
-	IEnumerator CandleOff()
+	IEnumerator CandleOff(float timeOff)
     {
-		yield return new WaitForSeconds(5f);
+		yield return new WaitForSeconds(timeOff);
+		enableFire();
 	}
 
 	IEnumerator lerpFlameSizeToMinimum(float maxTimeToLerp)
