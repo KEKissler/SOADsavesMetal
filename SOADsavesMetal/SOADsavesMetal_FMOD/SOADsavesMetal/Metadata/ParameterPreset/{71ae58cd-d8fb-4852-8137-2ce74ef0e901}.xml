@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{71ae58cd-d8fb-4852-8137-2ce74ef0e901}">
+		<property name="name">
+			<value>TrackSelect</value>
+		</property>
+		<relationship name="folder">
+			<destination>{fce644a8-dcfd-472a-b600-5841f345ce8f}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{67d98c26-0add-474d-9044-4113dc758b8e}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{67d98c26-0add-474d-9044-4113dc758b8e}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>7</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

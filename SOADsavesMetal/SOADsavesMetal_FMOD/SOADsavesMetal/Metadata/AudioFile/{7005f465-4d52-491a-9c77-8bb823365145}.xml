@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{7005f465-4d52-491a-9c77-8bb823365145}">
+		<property name="assetPath">
+			<value>Music/TOXICITY (2019 REMASTER) - 8 BIT FULL.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>224.82151927437641</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{583e0078-1f91-402a-91f8-51c998e8250d}</destination>
+		</relationship>
+	</object>
+</objects>
