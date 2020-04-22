@@ -51,7 +51,7 @@ public class Sidescroll : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         sky.transform.Translate(new Vector3(skySpeed * Time.deltaTime, 0, 0));
         if(sky.transform.position.x - sky.GetComponentInChildren<SpriteRenderer>().bounds.extents.x > screenBound)
@@ -84,5 +84,7 @@ public class Sidescroll : MonoBehaviour
                 p.transform.Translate(new Vector3(-screenBound * 2 - platformWidth, 0, 0));
         }
 
+        Debug.Log((player.transform.position - lastPosition).x / Time.deltaTime);
+        lastPosition = player.transform.position;
     }
 }
