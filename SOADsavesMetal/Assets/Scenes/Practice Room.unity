@@ -1207,7 +1207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eeec4cad5755ae42a06ebbcefc4926c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHP: 200
+  startingHP: 3.4028235e+38
   damageMultiplier: 1
   HP: 0
 --- !u!1 &787220914
