@@ -64,7 +64,7 @@ public class PlayerHorizontalMovement : MonoBehaviour
             }
 
             // Moving in direction of current velocity or when player was not moving before
-            if ((Mathf.Sign(oldSpeed) == Mathf.Sign(input)) || Mathf.Approximately(oldSpeed, 0))
+            if ((Mathf.Sign(oldSpeed - ps.desiredVelocity) == Mathf.Sign(input)) || Mathf.Approximately(oldSpeed - ps.desiredVelocity, 0))
             {
                 // If applying max accel would not put speed above target limit
                 if (Mathf.Abs(oldSpeed + (input * accel * Time.deltaTime)) < maxSpeed)

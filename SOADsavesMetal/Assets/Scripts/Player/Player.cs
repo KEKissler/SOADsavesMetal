@@ -71,6 +71,9 @@ public class Player : MonoBehaviour
 
     public Platform[] platforms;
 
+    [HideInInspector]
+    public float desiredVelocity;
+
     #region FMODEvents
     [Header("General Events")]
     [FMODUnity.EventRef]
@@ -155,6 +158,11 @@ public class Player : MonoBehaviour
         playerLowerAnim.Play(GetAnimName(animSuffix + "Legs"));
     }
 
+    private void Awake()
+    {
+        desiredVelocity = 0;
+    }
+
     void Start()
     {
         // Initialize player state
@@ -202,6 +210,7 @@ public class Player : MonoBehaviour
         {
             currentBandMember = "John";
         }
+
     }
 
     public AudioClip GetRandomSoundEffect(AudioClip[] array)
@@ -231,13 +240,13 @@ public class Player : MonoBehaviour
                     speedReductionThisFrame = Time.deltaTime * airFrictionDecel * frictionMultiplier;
                 else
                     speedReductionThisFrame = Time.deltaTime * groundFrictionDecel * frictionMultiplier;
-                if (Mathf.Abs(rb.velocity.x) > speedReductionThisFrame)
+                if (Mathf.Abs(rb.velocity.x - desiredVelocity) > speedReductionThisFrame)
                 {
-                    rb.velocity += new Vector2(-1 * Mathf.Sign(rb.velocity.x) * speedReductionThisFrame, 0);
+                    rb.velocity += new Vector2(-1 * Mathf.Sign(rb.velocity.x - desiredVelocity) * speedReductionThisFrame, 0);
                 }
                 else
                 {
-                    rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                    rb.velocity = new Vector3(desiredVelocity, rb.velocity.y, 0);
                 }
                 #endregion Friction
 
