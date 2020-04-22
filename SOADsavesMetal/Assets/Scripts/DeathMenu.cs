@@ -61,7 +61,5 @@ public class DeathMenu : MonoBehaviour
         paused = true;
         deathMenu.SetActive(true);
         deathEffect.setParameterByName("PauseMuteIntensity", 1);
-        FMOD.Studio.EventInstance pauseSoundInstance = FMODUnity.RuntimeManager.CreateInstance(pauseSound);
-        pauseSoundInstance.start();
     }
 }
