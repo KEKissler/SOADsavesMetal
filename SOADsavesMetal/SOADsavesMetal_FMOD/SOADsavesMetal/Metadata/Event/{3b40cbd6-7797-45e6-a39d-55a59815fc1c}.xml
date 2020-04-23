@@ -60,7 +60,7 @@
 	<object class="MarkerTrack" id="{d8e01edd-0aea-4eaf-9c06-7c82f2f4eac6}" />
 	<object class="GroupTrack" id="{7ad08404-d842-4ac8-9435-1e0c1279dc87}">
 		<relationship name="modules">
-			<destination>{9fd992c2-6f75-4a54-b064-f4daf2202a6d}</destination>
+			<destination>{05e9163b-1d2a-47c7-a350-a6168ec31f71}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{e59ca148-b15a-47b6-b428-33d14d1502a3}</destination>
@@ -68,7 +68,7 @@
 	</object>
 	<object class="Timeline" id="{f2bd36bb-571c-4f39-b7a4-7c519d43fd00}">
 		<relationship name="modules">
-			<destination>{9fd992c2-6f75-4a54-b064-f4daf2202a6d}</destination>
+			<destination>{05e9163b-1d2a-47c7-a350-a6168ec31f71}</destination>
 		</relationship>
 		<relationship name="markers">
 			<destination>{c943fb81-40d8-43cb-8b59-e90deb3f5fea}</destination>
@@ -91,17 +91,17 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{a0a028fd-f33b-4a49-9799-e7f0177cbe5d}" />
-	<object class="SingleSound" id="{9fd992c2-6f75-4a54-b064-f4daf2202a6d}">
+	<object class="SingleSound" id="{05e9163b-1d2a-47c7-a350-a6168ec31f71}">
 		<property name="length">
-			<value>192.98068027210886</value>
+			<value>192.65385487528346</value>
 		</property>
 		<relationship name="audioFile">
-			<destination>{a10fdc4f-1d64-4510-84ee-68f5cb2af9c7}</destination>
+			<destination>{405f524f-5fc4-4967-bee8-a697a67a69e5}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{e59ca148-b15a-47b6-b428-33d14d1502a3}">
 		<property name="volume">
-			<value>-5</value>
+			<value>-2</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -118,10 +118,10 @@
 	</object>
 	<object class="LoopRegion" id="{c943fb81-40d8-43cb-8b59-e90deb3f5fea}">
 		<property name="position">
-			<value>34.36575238566347</value>
+			<value>34.775023198052466</value>
 		</property>
 		<property name="length">
-			<value>130.06512275130916</value>
+			<value>130.04238548395412</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{f2bd36bb-571c-4f39-b7a4-7c519d43fd00}</destination>
