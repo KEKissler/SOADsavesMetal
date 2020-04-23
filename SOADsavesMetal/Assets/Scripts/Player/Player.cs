@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     public bool blockNormalJumpAnims;
     public bool moving;
     public bool movedWhileAttacking;
+    public bool isDead = false;
     public bool deathStarted;
     public bool listeningForDoubleDownTap;
     public bool daronListeningForParry;
@@ -60,6 +61,7 @@ public class Player : MonoBehaviour
     //Scripts to identify if in countdown or paused		
     public GameplayPause gameplayPause;
     public CountDown countDown;
+    public DeathMenu deathMenu;
 
     //Player Animation Variables
     [Header("Player Animation Variables")]
@@ -323,6 +325,7 @@ public class Player : MonoBehaviour
                 //Death animation
                 if (!deathStarted)
                 {
+                    isDead = true;
                     StartCoroutine("Kill");
                     deathStarted = true;
                 }
@@ -406,12 +409,8 @@ public class Player : MonoBehaviour
         PlayAudioEvent(playerDeath);
         yield return new WaitForSeconds(1.0f);
         SaveSystem.SaveGame();
-        yield return new WaitForSeconds(5);
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level_Load_Test");
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
+        yield return new WaitForSeconds(2.0f);
+        deathMenu.deathMenuPop();
     }
 
     public bool isCrouching()
@@ -473,42 +472,46 @@ public class Player : MonoBehaviour
 
     IEnumerator PlayerFlashOnDamage(float duration)
     {
-        if (currentBandMember == "Daron")
+        Health -= 1;
+        if (Health != 0)
         {
-            float forgiveTime = 0.09f, t2 = 0f;
-            while (t2 < forgiveTime)
+            if (currentBandMember == "Daron")
             {
-                t2 += Time.deltaTime;
-                if (daronListeningForParry)
+                float forgiveTime = 0.09f, t2 = 0f;
+                while (t2 < forgiveTime)
                 {
-                    curInvulnerableTime += forgiveTime;
-                    daronListeningForParry = false;
-                    yield break;
+                    t2 += Time.deltaTime;
+                    if (daronListeningForParry)
+                    {
+                        curInvulnerableTime += forgiveTime;
+                        daronListeningForParry = false;
+                        yield break;
+                    }
+                    yield return null;
+                }
+            }
+            PlayAudioEvent(playerHit);
+
+            float initialPeriod = 0.25f, finalPeriod = 0.05f;
+            float curPeriod;
+            float timer = 0f, tick = 0f;
+            sr.enabled = false;
+            srLegs.enabled = false;
+            while (timer < duration)
+            {
+                curPeriod = Mathf.Lerp(initialPeriod, finalPeriod, timer / duration);
+                timer += Time.deltaTime;
+                tick += Time.deltaTime;
+                if (tick > curPeriod / 2)
+                {
+                    sr.enabled = !sr.enabled;
+                    srLegs.enabled = sr.enabled;
+                    tick = 0f;
                 }
                 yield return null;
             }
+            sr.enabled = true;
+            srLegs.enabled = true;
         }
-        PlayAudioEvent(playerHit);
-        Health -= 1;
-        float initialPeriod = 0.25f, finalPeriod = 0.05f;
-        float curPeriod;
-        float timer = 0f, tick = 0f;
-        sr.enabled = false;
-        srLegs.enabled = false;
-        while (timer < duration)
-        {
-            curPeriod = Mathf.Lerp(initialPeriod, finalPeriod, timer / duration);
-            timer += Time.deltaTime;
-            tick += Time.deltaTime;
-            if (tick > curPeriod / 2)
-            {
-                sr.enabled = !sr.enabled;
-                srLegs.enabled = sr.enabled;
-                tick = 0f;
-            }
-            yield return null;
-        }
-        sr.enabled = true;
-        srLegs.enabled = true;
     }
 }
