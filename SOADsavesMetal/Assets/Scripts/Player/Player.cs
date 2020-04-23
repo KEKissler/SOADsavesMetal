@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     public bool blockNormalJumpAnims;
     public bool moving;
     public bool movedWhileAttacking;
+    public bool isDead = false;
     public bool deathStarted;
     public bool listeningForDoubleDownTap;
     public bool daronListeningForParry;
@@ -323,6 +324,7 @@ public class Player : MonoBehaviour
                 //Death animation
                 if (!deathStarted)
                 {
+                    isDead = true;
                     StartCoroutine("Kill");
                     deathStarted = true;
                 }

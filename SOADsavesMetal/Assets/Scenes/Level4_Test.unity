@@ -2796,9 +2796,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5119586942618362851, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
-      propertyPath: countDown
+      propertyPath: player
       value: 
-      objectReference: {fileID: 1479844870}
+      objectReference: {fileID: 1105088042}
     - target: {fileID: 5377065512036990222, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2904,16 +2904,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1293190732906632034, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+    - target: {fileID: 8857609954847487176, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 3.9000244
-      objectReference: {fileID: 0}
-    - target: {fileID: 2238783689447440687, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -3.9000244
-      objectReference: {fileID: 0}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1105088042}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43, type: 3}
 --- !u!114 &1479844870 stripped

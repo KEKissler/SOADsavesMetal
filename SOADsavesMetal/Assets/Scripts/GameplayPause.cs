@@ -53,7 +53,7 @@ public class GameplayPause : MonoBehaviour
     }
     public void togglePause()
     {
-        if (countDown == null || !countDown.getCountDown())
+        if ((countDown == null || !countDown.getCountDown()) && !player.isDead)
         {
             if (paused)
             {
