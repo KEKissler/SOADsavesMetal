@@ -44,11 +44,9 @@ public class DeathMenu : MonoBehaviour
     }
     private void Update()
     {
-        if (player.Health == 0)
-        {
-            deathMenuPop();
-        }
+
     }
+
     public void deathMenuPop()
     {
         Pause();

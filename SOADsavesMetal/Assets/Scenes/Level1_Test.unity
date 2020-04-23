@@ -2779,6 +2779,11 @@ PrefabInstance:
       propertyPath: daronDash
       value: event:/Player/P_Daron/P_Daron_Teleport
       objectReference: {fileID: 0}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: deathMenu
+      value: 
+      objectReference: {fileID: 8857609954847487175}
     - target: {fileID: 4277835215915131891, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: ps
@@ -5229,3 +5234,15 @@ PrefabInstance:
       objectReference: {fileID: 1105088041}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43, type: 3}
+--- !u!114 &8857609954847487175 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8857609954847487176, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+    type: 3}
+  m_PrefabInstance: {fileID: 8857609954847487174}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4442ab5201055c41a05011b4f1a21a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
