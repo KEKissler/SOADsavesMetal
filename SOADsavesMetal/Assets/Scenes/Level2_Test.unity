@@ -451,6 +451,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8101416517323360479, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+        type: 3}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 131605979}
     - target: {fileID: 5119586942618362851, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
       propertyPath: player
@@ -620,7 +625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &131605980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,7 +640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionTag: 
   Event: event:/Music/M_Level2
-  PlayEvent: 1
+  PlayEvent: 11
   StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
@@ -4343,6 +4348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHP: 200
   damageMultiplier: 1
+  bossHit: 
   HP: 0
 --- !u!114 &1545064848
 MonoBehaviour:

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0
   speed: 0
-  groundShake: event:/Enemy/E_Hurt_Ranged
+  groundShake: event:/Enemy/E_Nhang/E_Nhang_HandAttack

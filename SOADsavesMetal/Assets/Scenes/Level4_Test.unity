@@ -1755,6 +1755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHP: 1
   damageMultiplier: 1
+  bossHit: 
   HP: 0
 --- !u!1 &835909532
 GameObject:
@@ -2799,6 +2800,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8101416517323360479, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+        type: 3}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 673011424}
     - target: {fileID: 5119586942618362851, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
       propertyPath: player
@@ -3438,6 +3444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHP: 300
   damageMultiplier: 1
+  bossHit: 
   HP: 0
 --- !u!70 &1539245693
 CapsuleCollider2D:

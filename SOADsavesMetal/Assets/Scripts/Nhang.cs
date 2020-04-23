@@ -283,6 +283,8 @@ public class Nhang : MonoBehaviour
         toggleAnchors();
         canHitPlayer(true);
         timer = 0f;
+        FMOD.Studio.EventInstance attackInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Enemy/E_Nhang/E_Nhang_LungeAttack");
+        attackInstance.start();
         bodyRB[bodyLength-1].velocity += new Vector2(-7.7f, -0.7f);
         float startLungeMagnitude = 777f;
         float veryWellNamedAngle = Mathf.Atan2(target.transform.position.y - body[bodyLength-1].transform.position.y + 0.77f,
@@ -400,6 +402,8 @@ public class Nhang : MonoBehaviour
 
         GameObject temp = Instantiate(projectile, body[bodyLength-1].transform.position, Quaternion.identity);
         yield return null;
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Enemy/E_Nhang/E_Nhang_AcidAttack");
+        instance.start();
         temp.GetComponent<Projectile>().Configure(target, pt, ps, degreeModifier);
         
         attacking = false;
@@ -541,7 +545,9 @@ public class Nhang : MonoBehaviour
         }
 
         timer = 0.0f;
-        while(timer < HAND_MOVE_TIME)
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Enemy/E_Nhang/E_Nhang_HandAttack");
+        instance.start();
+        while (timer < HAND_MOVE_TIME)
         {
             timer += Time.deltaTime;
             statueRB.velocity = new Vector2(0, (highVelocity-minVelocity) * (1 - timer / HAND_MOVE_TIME) + minVelocity * timer / HAND_MOVE_TIME);

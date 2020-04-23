@@ -30,6 +30,9 @@ public class BossHealth : MonoBehaviour
     public BossAttackManager<SandarametPhase> sandarametAttackManager;
 
     AudioSource cheering;
+    
+    [FMODUnity.EventRef]
+    public string bossHit;
 
     private int currentBoss;
     bool Dead;
@@ -115,6 +118,11 @@ public class BossHealth : MonoBehaviour
     public void hitF(float damage)
     {
         HP -= damage * damageMultiplier;
+        if(bossHit != null)
+        {
+            FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(bossHit);
+            instance.start();
+        }
         if(agasAttackManager)
         {
             agasAttackManager.bossHit();

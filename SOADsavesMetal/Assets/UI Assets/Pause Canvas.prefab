@@ -716,6 +716,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 6736422676065917762}
+  countDownTick: event:/UI/U_Countdown
+  levelMusic: {fileID: 0}
 --- !u!114 &8857609954847487176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,7 +733,7 @@ MonoBehaviour:
   deathMenu: {fileID: 890166868}
   player: {fileID: 0}
   deathSong: 
-  buttonClick: 
+  buttonClick: event:/UI/U_Select
 --- !u!1 &3212145720244505243
 GameObject:
   m_ObjectHideFlags: 0
