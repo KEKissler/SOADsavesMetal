@@ -472,7 +472,8 @@ public class Player : MonoBehaviour
 
     IEnumerator PlayerFlashOnDamage(float duration)
     {
-        if (health > 0)
+        Health -= 1;
+        if (Health != 0)
         {
             if (currentBandMember == "Daron")
             {
@@ -490,7 +491,7 @@ public class Player : MonoBehaviour
                 }
             }
             PlayAudioEvent(playerHit);
-            Health -= 1;
+
             float initialPeriod = 0.25f, finalPeriod = 0.05f;
             float curPeriod;
             float timer = 0f, tick = 0f;
