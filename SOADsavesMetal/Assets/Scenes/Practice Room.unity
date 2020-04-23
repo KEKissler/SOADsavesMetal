@@ -1305,6 +1305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHP: 3.4028235e+38
   damageMultiplier: 1
+  bossHit: event:/Enemy/E_Dummy_Hit
   HP: 0
 --- !u!1 &787220914
 GameObject:

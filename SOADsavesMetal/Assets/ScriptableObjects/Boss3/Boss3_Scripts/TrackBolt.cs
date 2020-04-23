@@ -32,8 +32,13 @@ public class TrackBolt : NhangAttack
     {
         yield return null;
         if (fireboltObject.GetComponent<Projectile>() != null)
+        {
             fireboltObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed,
                 degreeModifier);
+            FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Enemy/E_Nhang/E_Nhang_AcidAttack");
+            instance.start();
+        }
+
 
     }
 

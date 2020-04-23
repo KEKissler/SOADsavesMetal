@@ -18,19 +18,28 @@ public class DeathMenu : MonoBehaviour
     private void Start()
     {
         deathMenu.SetActive(false);
-        deathEffect = FMODUnity.RuntimeManager.CreateInstance("snapshot:/DeathEffect");
-        deathEffect.setParameterByName("DeathIntensity", 0);
-        deathEffect.start();
+        if (deathSong != null)
+        {
+            deathEffect = FMODUnity.RuntimeManager.CreateInstance(deathSong);
+            deathEffect.setParameterByName("DeathIntensity", 0);
+            deathEffect.start();
+        }
     }
     private void OnEnable()
     {
-        deathEffect.setParameterByName("PauseMuteIntensity", 0);
-        deathEffect.start();
+        if (deathEffect.isValid())
+        {
+            deathEffect.setParameterByName("PauseMuteIntensity", 0);
+            deathEffect.start();
+        }
     }
     private void OnDisable()
     {
-        deathEffect.setParameterByName("PauseMuteIntensity", 0);
-        deathEffect.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        if (deathEffect.isValid())
+        {
+            deathEffect.setParameterByName("PauseMuteIntensity", 0);
+            deathEffect.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
     }
 
     public bool getPaused()
@@ -60,6 +69,9 @@ public class DeathMenu : MonoBehaviour
         Time.timeScale = 0f;
         paused = true;
         deathMenu.SetActive(true);
-        deathEffect.setParameterByName("PauseMuteIntensity", 1);
+        if (deathEffect.isValid())
+        {
+            deathEffect.setParameterByName("PauseMuteIntensity", 1);
+        }
     }
 }

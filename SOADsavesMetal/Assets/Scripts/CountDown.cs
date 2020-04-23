@@ -7,6 +7,14 @@ public class CountDown : MonoBehaviour
 {
     public Text text;
     private bool countDownRunning = false;
+
+    //Only use a singular instance for countdown object
+    public FMOD.Studio.EventInstance instance;
+    [FMODUnity.EventRef]
+    public string countDownTick;
+
+    public GameObject levelMusic;
+
     void Start()
     {
         StartCoroutine("countDown");
@@ -23,17 +31,35 @@ public class CountDown : MonoBehaviour
         yield return new WaitForSecondsRealtime(.1f);
         Time.timeScale = 0f;
         text.text = "3";
+        PlayWithStop(countDownTick);
         yield return new WaitForSecondsRealtime(.75f);
         text.text = "2";
+        PlayWithStop(countDownTick);
         yield return new WaitForSecondsRealtime(.75f);
         text.text = "1";
+        PlayWithStop(countDownTick);
         yield return new WaitForSecondsRealtime(.75f);
         text.text = "Let's Rock!";
+        PlayWithStop(countDownTick);
         yield return new WaitForSecondsRealtime(.75f);
         text.text = "";
         countDownRunning = false;
         Time.timeScale = 1f;
-        text.transform.parent.gameObject.SetActive(false);
-        
+        levelMusic.SetActive(true);
+        text.transform.parent.gameObject.SetActive(false);    
     }
+
+    public void PlayWithStop(string audioEvent)
+    {
+        if (instance.isValid())
+        {
+            FMOD.Studio.PLAYBACK_STATE state;
+            instance.getPlaybackState(out state);
+            if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+                instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
+        instance = FMODUnity.RuntimeManager.CreateInstance(audioEvent);
+        instance.start();
+    }
+
 }
