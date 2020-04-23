@@ -71,6 +71,10 @@ public class Player : MonoBehaviour
 
     public Platform[] platforms;
 
+    [HideInInspector]
+    public float desiredVelocity;
+    private bool performFriction;
+
     #region FMODEvents
     [Header("General Events")]
     [FMODUnity.EventRef]
@@ -155,6 +159,11 @@ public class Player : MonoBehaviour
         playerLowerAnim.Play(GetAnimName(animSuffix + "Legs"));
     }
 
+    private void Awake()
+    {
+        desiredVelocity = 0;
+    }
+
     void Start()
     {
         // Initialize player state
@@ -173,6 +182,7 @@ public class Player : MonoBehaviour
         superBar.maxValue = maxSuperCharge;
         blockNormalJumpAnims = false;
         daronListeningForParry = false;
+        performFriction = false;
 
         sr = GetComponent<SpriteRenderer>();
         srLegs = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
@@ -202,6 +212,7 @@ public class Player : MonoBehaviour
         {
             currentBandMember = "John";
         }
+
     }
 
     public AudioClip GetRandomSoundEffect(AudioClip[] array)
@@ -222,24 +233,7 @@ public class Player : MonoBehaviour
         {
             if (!Dead)
             {
-                #region Friction
-                float speedReductionThisFrame;
-                float frictionMultiplier = 1f;
-                if (isSuperActive) frictionMultiplier = 0.55f;
-                else if (crouched) frictionMultiplier = 0.33f;
-                if (inAir)
-                    speedReductionThisFrame = Time.deltaTime * airFrictionDecel * frictionMultiplier;
-                else
-                    speedReductionThisFrame = Time.deltaTime * groundFrictionDecel * frictionMultiplier;
-                if (Mathf.Abs(rb.velocity.x) > speedReductionThisFrame)
-                {
-                    rb.velocity += new Vector2(-1 * Mathf.Sign(rb.velocity.x) * speedReductionThisFrame, 0);
-                }
-                else
-                {
-                    rb.velocity = new Vector3(0, rb.velocity.y, 0);
-                }
-                #endregion Friction
+                performFriction = true;
 
                 #region Super meter charge
                 // Uncomment the following line for instant meter recharge
@@ -339,6 +333,33 @@ public class Player : MonoBehaviour
             PlayAnims("Idle");
         }
     }
+
+    #region Friction
+    private void FixedUpdate()
+    {
+        if(performFriction)
+        {
+            float speedReductionThisFrame;
+            float frictionMultiplier = 1f;
+            if (isSuperActive) frictionMultiplier = 0.55f;
+            else if (crouched) frictionMultiplier = 0.33f;
+            if (inAir)
+                speedReductionThisFrame = Time.deltaTime * airFrictionDecel * frictionMultiplier;
+            else
+                speedReductionThisFrame = Time.deltaTime * groundFrictionDecel * frictionMultiplier;
+            if (Mathf.Abs(rb.velocity.x - desiredVelocity) > speedReductionThisFrame)
+            {
+                rb.velocity += new Vector2(-1 * Mathf.Sign(rb.velocity.x - desiredVelocity) * speedReductionThisFrame, 0);
+            }
+            else
+            {
+                rb.velocity = new Vector3(desiredVelocity, rb.velocity.y, 0);
+            }
+            
+            performFriction = false;
+        }
+    }
+    #endregion Friction
 
     #region Collision Detection
     public void OnCollisionEnter2D(Collision2D coll)

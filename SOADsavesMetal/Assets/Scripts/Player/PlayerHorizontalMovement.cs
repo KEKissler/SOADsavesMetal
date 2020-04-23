@@ -5,7 +5,14 @@ using UnityEngine;
 public class PlayerHorizontalMovement : MonoBehaviour
 {
     public Player ps;
+    private bool tryMove;
+    private float input;
     // private const float CROUCH_SPEED_MODIFIER = 0.2f;
+
+    private void Start()
+    {
+        tryMove = false;
+    }
 
     public void HandleHorizontalMovement()
     {
@@ -14,11 +21,16 @@ public class PlayerHorizontalMovement : MonoBehaviour
             return;
         }
 
-        float oldSpeed = ps.rb.velocity.x; // Grounded can only occur against flat surfaces below player, speed should only be in x dir
         // Debug.Log("old speed " + oldSpeed);
-        float input = Input.GetAxisRaw("Horizontal");
+        input = Input.GetAxisRaw("Horizontal");
+        tryMove = true;
+    }
+
+    private void Move()
+    {
         if (input != 0f)
         {
+            float oldSpeed = ps.rb.velocity.x; // Grounded can only occur against flat surfaces below player, speed should only be in x dir
             // Handle changing direction
             if (input > 0)
             {
@@ -64,7 +76,7 @@ public class PlayerHorizontalMovement : MonoBehaviour
             }
 
             // Moving in direction of current velocity or when player was not moving before
-            if ((Mathf.Sign(oldSpeed) == Mathf.Sign(input)) || Mathf.Approximately(oldSpeed, 0))
+            if ((Mathf.Sign(oldSpeed - ps.desiredVelocity) == Mathf.Sign(input)) || Mathf.Approximately(oldSpeed - ps.desiredVelocity, 0))
             {
                 // If applying max accel would not put speed above target limit
                 if (Mathf.Abs(oldSpeed + (input * accel * Time.deltaTime)) < maxSpeed)
@@ -102,6 +114,16 @@ public class PlayerHorizontalMovement : MonoBehaviour
             {
                 ps.playerLowerAnim.Play(ps.GetAnimName("LandLegs"));
             }
+        }
+
+    }
+
+    private void FixedUpdate()
+    {
+        if(tryMove)
+        {
+            Move();
+            tryMove = false;
         }
     }
 
