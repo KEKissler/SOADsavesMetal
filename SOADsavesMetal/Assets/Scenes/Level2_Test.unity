@@ -571,6 +571,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1295414931}
+    - target: {fileID: 8857609954847487176, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+        type: 3}
+      propertyPath: deathSong
+      value: event:/Player/P_Death
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43, type: 3}
 --- !u!114 &116138725 stripped
@@ -4348,7 +4353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHP: 200
   damageMultiplier: 1
-  bossHit: 
+  bossHit: event:/Enemy/E_Hurt_Melee
   HP: 0
 --- !u!114 &1545064848
 MonoBehaviour:

@@ -545,8 +545,8 @@ public class Nhang : MonoBehaviour
         }
 
         timer = 0.0f;
-        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Enemy/E_Nhang/E_Nhang_HandAttack");
-        instance.start();
+        //FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Enemy/E_Nhang/E_Nhang_HandAttack");
+        //instance.start();
         while (timer < HAND_MOVE_TIME)
         {
             timer += Time.deltaTime;

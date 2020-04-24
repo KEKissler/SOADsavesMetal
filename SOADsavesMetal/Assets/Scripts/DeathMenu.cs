@@ -22,7 +22,7 @@ public class DeathMenu : MonoBehaviour
         {
             deathEffect = FMODUnity.RuntimeManager.CreateInstance(deathSong);
             deathEffect.setParameterByName("DeathIntensity", 0);
-            deathEffect.start();
+            //deathEffect.start();
         }
     }
     private void OnEnable()
