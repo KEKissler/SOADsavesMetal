@@ -18,6 +18,7 @@ public class CandleEmitter : MonoBehaviour {
 	private bool active;
 	private ProjectileSpeed speed;
 
+	public Player playerScript;
     public GameObject projectile;
     public float minFireScale, maxFireScale;
     public GameplayPause gameplayPause;
@@ -49,7 +50,7 @@ public class CandleEmitter : MonoBehaviour {
 
 	void Update()
 	{
-        if (!gameplayPause.getPaused())
+        if (!playerScript.isDead && !gameplayPause.getPaused())
         {
             if (active)
             {
