@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Nhang Push Hand
   m_EditorClassIdentifier: 
   duration: 0
-  speed: 0
+  speed: 0.05
   groundShake: event:/Enemy/E_Nhang/E_Nhang_HandAttack
