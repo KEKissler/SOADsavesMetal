@@ -3444,7 +3444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHP: 300
   damageMultiplier: 1
-  bossHit: 
+  bossHit: event:/Enemy/E_Hurt_Melee
   HP: 0
 --- !u!70 &1539245693
 CapsuleCollider2D:
