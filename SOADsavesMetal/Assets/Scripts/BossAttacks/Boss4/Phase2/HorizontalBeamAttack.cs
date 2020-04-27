@@ -21,7 +21,7 @@ public class HorizontalBeamAttack : SandarametAttack
 
 
     
-    private Transform tsovinarLocation;
+    private Transform spawnLocation;
     private Transform playerLocation;
     private Transform attackParent;
 
@@ -31,7 +31,7 @@ public class HorizontalBeamAttack : SandarametAttack
     public override void Initialize(SandarametAttackData data)
     {
         playerLocation = data.player.transform;
-        tsovinarLocation = data.sandaramet.transform;
+        spawnLocation = data.frontHand.transform;
         attackParent = data.attackParent;
         topMiddle = new Vector3(0, laserHeight, 0);
     }
