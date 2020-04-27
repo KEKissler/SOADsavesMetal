@@ -29,6 +29,7 @@ public class HorizontalBeamAnimation : MonoBehaviour
     {
         alpha = GetComponentInChildren<SpriteRenderer>();
         alpha.transform.localScale = new Vector3(X_LENGTH, preYLength, 1);
+        alpha.transform.position += new Vector3(-X_LENGTH / 2, 0, 0);
         alpha.color = startingColor;
         beamHitBox = GetComponentInChildren<BoxCollider2D>();
         beamHitBox.enabled = false;
@@ -107,6 +108,7 @@ public class HorizontalBeamAnimation : MonoBehaviour
     private IEnumerator Shrink()
     {
         alpha.transform.LeanScaleY(0, endDuration);
-        yield return new WaitForSeconds(endDuration);      
+        yield return new WaitForSeconds(endDuration);
+        Destroy(transform.parent.gameObject);
     }
 }

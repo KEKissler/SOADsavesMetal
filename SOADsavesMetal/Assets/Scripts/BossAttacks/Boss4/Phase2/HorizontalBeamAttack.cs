@@ -49,7 +49,7 @@ public class HorizontalBeamAttack : SandarametAttack
     {
         var beamObject = Instantiate(BeamPrefab, topMiddle, Quaternion.identity, attackParent).GetComponentInChildren<HorizontalBeamAnimation>();
 
-        beamObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 2;
+        beamObject.transform.position = spawnLocation.position;
         beamObject.preYLength = preYLength;
         beamObject.yAttackSize = yAttackSize;
         beamObject.chargeDuration = chargeDuration;

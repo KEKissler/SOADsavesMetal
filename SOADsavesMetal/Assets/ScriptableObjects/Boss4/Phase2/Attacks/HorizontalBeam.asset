@@ -22,7 +22,7 @@ MonoBehaviour:
   attackDuration: 0.25
   flashDuration: 0
   endDuration: 0.25
-  trackingSpeed: 0.1
+  trackingSpeed: 0.01
   laserHeight: 0
   startingColor: {r: 0, g: 0, b: 0, a: 0}
   attackColor: {r: 1, g: 1, b: 0.39215687, a: 1}
