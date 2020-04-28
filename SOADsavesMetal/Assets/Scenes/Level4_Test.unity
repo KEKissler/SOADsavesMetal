@@ -1780,6 +1780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHP: 1
   damageMultiplier: 1
+  player: {fileID: 0}
   bossHit: 
   Dead: 0
   HP: 0
@@ -3490,6 +3491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHP: 300
   damageMultiplier: 1
+  player: {fileID: 1105088042}
   bossHit: event:/Enemy/E_Hurt_Melee
   Dead: 0
   HP: 0

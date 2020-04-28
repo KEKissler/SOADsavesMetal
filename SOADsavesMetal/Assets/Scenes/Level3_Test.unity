@@ -10630,6 +10630,11 @@ PrefabInstance:
       propertyPath: bossHit
       value: event:/Enemy/E_Hurt_Melee
       objectReference: {fileID: 0}
+    - target: {fileID: 2937212759991998290, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1816248751}
     - target: {fileID: 3554888995909705114, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
         type: 3}
       propertyPath: groundTargets.Array.data[0]

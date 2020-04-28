@@ -28,6 +28,7 @@ public class BossHealth : MonoBehaviour
     public BossAttackManager<TsovinarPhase> tsovinarAttackManager;
     public BossAttackManager<NhangPhase> nhangAttackManager;
     public BossAttackManager<SandarametPhase> sandarametAttackManager;
+    public Player player;
 
     AudioSource cheering;
     
@@ -78,6 +79,7 @@ public class BossHealth : MonoBehaviour
         if (HP <= 0)
         {
             this.Dead = true;
+            player.curInvulnerableTime = 30f;
             switch(currentBoss)
             {
                 case 1:
@@ -117,7 +119,7 @@ public class BossHealth : MonoBehaviour
 
     public void hitF(float damage)
     {
-        HP -= damage * damageMultiplier;
+        HP -= damage * damageMultiplier;            
         if(bossHit != null)
         {
             FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(bossHit);
