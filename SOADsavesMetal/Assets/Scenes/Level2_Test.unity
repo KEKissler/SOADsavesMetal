@@ -4230,6 +4230,7 @@ MonoBehaviour:
   startingHP: 200
   damageMultiplier: 1
   bossHit: event:/Enemy/E_Hurt_Melee
+  Dead: 0
   HP: 0
 --- !u!114 &1545064848
 MonoBehaviour:
@@ -4764,6 +4765,11 @@ PrefabInstance:
       propertyPath: deathMenu
       value: 
       objectReference: {fileID: 116138727}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: bossDead
+      value: 
+      objectReference: {fileID: 1545064847}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc0d8d3460c18043896482f0ba598cb, type: 3}
 --- !u!1 &1753296866

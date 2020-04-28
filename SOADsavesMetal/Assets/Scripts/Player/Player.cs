@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
     public GameplayPause gameplayPause;
     public CountDown countDown;
     public DeathMenu deathMenu;
+    public BossHealth bossDead;
 
     //Player Animation Variables
     [Header("Player Animation Variables")]
@@ -231,6 +232,12 @@ public class Player : MonoBehaviour
         //Debug.Log("crouched " + crouched);
         //Debug.Log("inair " + inAir);
         //stops player from being able to move if in pause or countdown
+
+        if (bossDead.isDead())
+        {
+            curInvulnerableTime = 30f;
+        }
+
         if ((countDown == null || !countDown.getCountDown()) && (gameplayPause == null || !gameplayPause.getPaused()))
         {
             if (!Dead)

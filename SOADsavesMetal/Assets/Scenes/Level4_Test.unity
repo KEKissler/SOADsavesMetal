@@ -1781,6 +1781,7 @@ MonoBehaviour:
   startingHP: 1
   damageMultiplier: 1
   bossHit: 
+  Dead: 0
   HP: 0
 --- !u!1 &835909532
 GameObject:
@@ -2268,6 +2269,11 @@ PrefabInstance:
       propertyPath: platforms.Array.data[2]
       value: 
       objectReference: {fileID: 295899699}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: bossDead
+      value: 
+      objectReference: {fileID: 1539245692}
     - target: {fileID: 1832133128532563320, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3485,6 +3491,7 @@ MonoBehaviour:
   startingHP: 300
   damageMultiplier: 1
   bossHit: event:/Enemy/E_Hurt_Melee
+  Dead: 0
   HP: 0
 --- !u!70 &1539245693
 CapsuleCollider2D:

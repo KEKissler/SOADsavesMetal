@@ -1306,6 +1306,7 @@ MonoBehaviour:
   startingHP: 3.4028235e+38
   damageMultiplier: 1
   bossHit: event:/Enemy/E_Dummy_Hit
+  Dead: 0
   HP: 0
 --- !u!1 &787220914
 GameObject:
@@ -1694,6 +1695,11 @@ PrefabInstance:
       propertyPath: platforms.Array.data[0]
       value: 
       objectReference: {fileID: 6977039927280716537}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: bossDead
+      value: 
+      objectReference: {fileID: 692455263}
     - target: {fileID: 9117497486307095082, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: m_SortingOrder
@@ -3587,8 +3593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dfc2525ea3c1d747bc02d9b874ef2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minFireScale: 1
-  maxFireScale: 1.8
   candleGrow: event:/Enemy/E_Agas/E_Agas_CandleGrow
   candleExtinguish: event:/Enemy/E_Agas/E_Agas_CandleExtinguish
 --- !u!1 &1886784222805905

@@ -35,7 +35,7 @@ public class BossHealth : MonoBehaviour
     public string bossHit;
 
     private int currentBoss;
-    bool Dead;
+    [SerializeField] bool Dead;
 
     // Should be accessible but not modifiable directly
     [SerializeField] float HP;
