@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     public bool blockNormalJumpAnims;
     public bool moving;
     public bool movedWhileAttacking;
+    public bool isDead = false;
     public bool deathStarted;
     public bool listeningForDoubleDownTap;
     public bool daronListeningForParry;
@@ -60,6 +61,7 @@ public class Player : MonoBehaviour
     //Scripts to identify if in countdown or paused		
     public GameplayPause gameplayPause;
     public CountDown countDown;
+    public DeathMenu deathMenu;
 
     //Player Animation Variables
     [Header("Player Animation Variables")]
@@ -70,6 +72,10 @@ public class Player : MonoBehaviour
     private Slider superBar;
 
     public Platform[] platforms;
+
+    [HideInInspector]
+    public float desiredVelocity;
+    private bool performFriction;
 
     #region FMODEvents
     [Header("General Events")]
@@ -136,6 +142,7 @@ public class Player : MonoBehaviour
     public void SetCurrentBandMember(string newBandMember)
     {
         currentBandMember = newBandMember;
+        StartCoroutine(pam.SetPlayerName());
     }
 
     public void PlayAudioEvent(string fmodEvent)
@@ -152,6 +159,11 @@ public class Player : MonoBehaviour
             playerUpperAnim.Play(GetAnimName(animSuffix));
         }
         playerLowerAnim.Play(GetAnimName(animSuffix + "Legs"));
+    }
+
+    private void Awake()
+    {
+        desiredVelocity = 0;
     }
 
     void Start()
@@ -172,6 +184,7 @@ public class Player : MonoBehaviour
         superBar.maxValue = maxSuperCharge;
         blockNormalJumpAnims = false;
         daronListeningForParry = false;
+        performFriction = false;
 
         sr = GetComponent<SpriteRenderer>();
         srLegs = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
@@ -201,6 +214,7 @@ public class Player : MonoBehaviour
         {
             currentBandMember = "John";
         }
+
     }
 
     public AudioClip GetRandomSoundEffect(AudioClip[] array)
@@ -217,28 +231,12 @@ public class Player : MonoBehaviour
         //Debug.Log("crouched " + crouched);
         //Debug.Log("inair " + inAir);
         //stops player from being able to move if in pause or countdown
+
         if ((countDown == null || !countDown.getCountDown()) && (gameplayPause == null || !gameplayPause.getPaused()))
         {
             if (!Dead)
             {
-                #region Friction
-                float speedReductionThisFrame;
-                float frictionMultiplier = 1f;
-                if (isSuperActive) frictionMultiplier = 0.55f;
-                else if (crouched) frictionMultiplier = 0.33f;
-                if (inAir)
-                    speedReductionThisFrame = Time.deltaTime * airFrictionDecel * frictionMultiplier;
-                else
-                    speedReductionThisFrame = Time.deltaTime * groundFrictionDecel * frictionMultiplier;
-                if (Mathf.Abs(rb.velocity.x) > speedReductionThisFrame)
-                {
-                    rb.velocity += new Vector2(-1 * Mathf.Sign(rb.velocity.x) * speedReductionThisFrame, 0);
-                }
-                else
-                {
-                    rb.velocity = new Vector3(0, rb.velocity.y, 0);
-                }
-                #endregion Friction
+                performFriction = true;
 
                 #region Super meter charge
                 // Uncomment the following line for instant meter recharge
@@ -328,6 +326,7 @@ public class Player : MonoBehaviour
                 //Death animation
                 if (!deathStarted)
                 {
+                    isDead = true;
                     StartCoroutine("Kill");
                     deathStarted = true;
                 }
@@ -338,6 +337,33 @@ public class Player : MonoBehaviour
             PlayAnims("Idle");
         }
     }
+
+    #region Friction
+    private void FixedUpdate()
+    {
+        if(performFriction)
+        {
+            float speedReductionThisFrame;
+            float frictionMultiplier = 1f;
+            if (isSuperActive) frictionMultiplier = 0.55f;
+            else if (crouched) frictionMultiplier = 0.33f;
+            if (inAir)
+                speedReductionThisFrame = Time.deltaTime * airFrictionDecel * frictionMultiplier;
+            else
+                speedReductionThisFrame = Time.deltaTime * groundFrictionDecel * frictionMultiplier;
+            if (Mathf.Abs(rb.velocity.x - desiredVelocity) > speedReductionThisFrame)
+            {
+                rb.velocity += new Vector2(-1 * Mathf.Sign(rb.velocity.x - desiredVelocity) * speedReductionThisFrame, 0);
+            }
+            else
+            {
+                rb.velocity = new Vector3(desiredVelocity, rb.velocity.y, 0);
+            }
+            
+            performFriction = false;
+        }
+    }
+    #endregion Friction
 
     #region Collision Detection
     public void OnCollisionEnter2D(Collision2D coll)
@@ -384,12 +410,8 @@ public class Player : MonoBehaviour
         PlayAudioEvent(playerDeath);
         yield return new WaitForSeconds(1.0f);
         SaveSystem.SaveGame();
-        yield return new WaitForSeconds(5);
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level_Load_Test");
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
+        yield return new WaitForSeconds(2.0f);
+        deathMenu.deathMenuPop();
     }
 
     public bool isCrouching()
@@ -451,42 +473,46 @@ public class Player : MonoBehaviour
 
     IEnumerator PlayerFlashOnDamage(float duration)
     {
-        if (currentBandMember == "Daron")
+        Health -= 1;
+        if (Health != 0)
         {
-            float forgiveTime = 0.09f, t2 = 0f;
-            while (t2 < forgiveTime)
+            if (currentBandMember == "Daron")
             {
-                t2 += Time.deltaTime;
-                if (daronListeningForParry)
+                float forgiveTime = 0.09f, t2 = 0f;
+                while (t2 < forgiveTime)
                 {
-                    curInvulnerableTime += forgiveTime;
-                    daronListeningForParry = false;
-                    yield break;
+                    t2 += Time.deltaTime;
+                    if (daronListeningForParry)
+                    {
+                        curInvulnerableTime += forgiveTime;
+                        daronListeningForParry = false;
+                        yield break;
+                    }
+                    yield return null;
+                }
+            }
+            PlayAudioEvent(playerHit);
+
+            float initialPeriod = 0.25f, finalPeriod = 0.05f;
+            float curPeriod;
+            float timer = 0f, tick = 0f;
+            sr.enabled = false;
+            srLegs.enabled = false;
+            while (timer < duration)
+            {
+                curPeriod = Mathf.Lerp(initialPeriod, finalPeriod, timer / duration);
+                timer += Time.deltaTime;
+                tick += Time.deltaTime;
+                if (tick > curPeriod / 2)
+                {
+                    sr.enabled = !sr.enabled;
+                    srLegs.enabled = sr.enabled;
+                    tick = 0f;
                 }
                 yield return null;
             }
+            sr.enabled = true;
+            srLegs.enabled = true;
         }
-        PlayAudioEvent(playerHit);
-        Health -= 1;
-        float initialPeriod = 0.25f, finalPeriod = 0.05f;
-        float curPeriod;
-        float timer = 0f, tick = 0f;
-        sr.enabled = false;
-        srLegs.enabled = false;
-        while (timer < duration)
-        {
-            curPeriod = Mathf.Lerp(initialPeriod, finalPeriod, timer / duration);
-            timer += Time.deltaTime;
-            tick += Time.deltaTime;
-            if (tick > curPeriod / 2)
-            {
-                sr.enabled = !sr.enabled;
-                srLegs.enabled = sr.enabled;
-                tick = 0f;
-            }
-            yield return null;
-        }
-        sr.enabled = true;
-        srLegs.enabled = true;
     }
 }

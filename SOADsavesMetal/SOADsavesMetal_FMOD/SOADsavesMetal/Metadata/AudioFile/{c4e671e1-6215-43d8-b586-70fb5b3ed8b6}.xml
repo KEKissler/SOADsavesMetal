@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{c4e671e1-6215-43d8-b586-70fb5b3ed8b6}">
+		<property name="assetPath">
+			<value>Music/Level 4 - Aerials.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>234.86056689342405</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{583e0078-1f91-402a-91f8-51c998e8250d}</destination>
+		</relationship>
+	</object>
+</objects>

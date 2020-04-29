@@ -12,6 +12,9 @@ TagManager:
   - BossHittable
   - Boss
   - Pause Menu
+  - Player Projectile
+  - Minnion
+  - Shot Minion Perch
   layers:
   - Default
   - TransparentFX

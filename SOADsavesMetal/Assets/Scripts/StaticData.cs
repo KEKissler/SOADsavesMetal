@@ -48,12 +48,14 @@ public class StaticData: MonoBehaviour
 
     public void reloadLevel()
     {
+        SaveGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void SaveGame() //saves current static data
     {
         SaveSystem.SaveGame();
+        waitForSave();
     }
 
     public void LoadGame() //loads saved data onto static data
@@ -68,8 +70,15 @@ public class StaticData: MonoBehaviour
 
     public void Quit()
     {
+        SaveGame();
+
         Application.Quit();
         Debug.Log("quit game");
+    }
+
+    IEnumerator waitForSave()
+    {
+        yield return new WaitForSeconds(3f);
     }
 
     void Awake()

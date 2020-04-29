@@ -1634,6 +1634,11 @@ PrefabInstance:
       propertyPath: gameplayPause
       value: 
       objectReference: {fileID: 1073603425}
+    - target: {fileID: 6372772262343451347, guid: bfc94cc7610841b418c48574685289b9,
+        type: 3}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 1105088041}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc94cc7610841b418c48574685289b9, type: 3}
 --- !u!114 &825907028 stripped
@@ -1916,6 +1921,11 @@ PrefabInstance:
       propertyPath: gameplayPause
       value: 
       objectReference: {fileID: 1073603425}
+    - target: {fileID: 6372772262343451347, guid: bfc94cc7610841b418c48574685289b9,
+        type: 3}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 1105088041}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc94cc7610841b418c48574685289b9, type: 3}
 --- !u!114 &920546870 stripped
@@ -2052,6 +2062,11 @@ PrefabInstance:
       propertyPath: gameplayPause
       value: 
       objectReference: {fileID: 1073603425}
+    - target: {fileID: 6372772262343451347, guid: bfc94cc7610841b418c48574685289b9,
+        type: 3}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 1105088041}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc94cc7610841b418c48574685289b9, type: 3}
 --- !u!114 &1024568502 stripped
@@ -2443,6 +2458,11 @@ PrefabInstance:
       propertyPath: gameplayPause
       value: 
       objectReference: {fileID: 1073603425}
+    - target: {fileID: 6372772262343451347, guid: bfc94cc7610841b418c48574685289b9,
+        type: 3}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 1105088041}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc94cc7610841b418c48574685289b9, type: 3}
 --- !u!114 &1073603423 stripped
@@ -2522,6 +2542,11 @@ PrefabInstance:
       propertyPath: gameplayPause
       value: 
       objectReference: {fileID: 1073603425}
+    - target: {fileID: 6372772262343451347, guid: bfc94cc7610841b418c48574685289b9,
+        type: 3}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 1105088041}
     - target: {fileID: 1886785510655580, guid: bfc94cc7610841b418c48574685289b9, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2754,6 +2779,16 @@ PrefabInstance:
       propertyPath: daronDash
       value: event:/Player/P_Daron/P_Daron_Teleport
       objectReference: {fileID: 0}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: deathMenu
+      value: 
+      objectReference: {fileID: 8857609954847487175}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: bossDead
+      value: 
+      objectReference: {fileID: 1443309143}
     - target: {fileID: 4277835215915131891, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: ps
@@ -3085,7 +3120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1267418105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3100,7 +3135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionTag: 
   Event: event:/Music/M_Level1
-  PlayEvent: 1
+  PlayEvent: 11
   StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
@@ -3255,6 +3290,11 @@ PrefabInstance:
       propertyPath: gameplayPause
       value: 
       objectReference: {fileID: 1073603425}
+    - target: {fileID: 6372772262343451347, guid: bfc94cc7610841b418c48574685289b9,
+        type: 3}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 1105088041}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc94cc7610841b418c48574685289b9, type: 3}
 --- !u!114 &1301791792 stripped
@@ -3788,6 +3828,16 @@ PrefabInstance:
       propertyPath: startingHP
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 573222039197791906, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+        type: 3}
+      propertyPath: bossHit
+      value: event:/Enemy/E_Hurt_Melee
+      objectReference: {fileID: 0}
+    - target: {fileID: 573222039197791906, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1105088041}
     - target: {fileID: 1944043208692453105, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_Offset.x
@@ -4805,6 +4855,11 @@ PrefabInstance:
       propertyPath: gameplayPause
       value: 
       objectReference: {fileID: 1073603425}
+    - target: {fileID: 6372772262343451347, guid: bfc94cc7610841b418c48574685289b9,
+        type: 3}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 1105088041}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc94cc7610841b418c48574685289b9, type: 3}
 --- !u!1 &1924595297 stripped
@@ -5077,11 +5132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 5377065512036990218, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+    - target: {fileID: 8101416517323360479, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 1267418104}
     - target: {fileID: 5119586942618362851, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
       propertyPath: player
@@ -5192,25 +5247,22 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1293190732906632034, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+    - target: {fileID: 8857609954847487176, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 3.9000244
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293190732906632034, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -19.30017
-      objectReference: {fileID: 0}
-    - target: {fileID: 2238783689447440687, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 19.300049
-      objectReference: {fileID: 0}
-    - target: {fileID: 2238783689447440687, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -3.9000244
-      objectReference: {fileID: 0}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1105088041}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43, type: 3}
+--- !u!114 &8857609954847487175 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8857609954847487176, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+    type: 3}
+  m_PrefabInstance: {fileID: 8857609954847487174}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4442ab5201055c41a05011b4f1a21a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
