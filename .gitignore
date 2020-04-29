@@ -1,9 +1,12 @@
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
+
+# this part is important because if this is not done, .bank files from FMOD will not be included.
 ![Bb]uild/
 [Bb]uild/*
 ![Bb]uild/*.bank
+
 [Bb]uilds/
 Assets/AssetStoreTools*
 
@@ -38,12 +41,14 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-#FMOD
+# FMOD
 Assets/Plugins/FMOD/Resources/FMODStudioCache.asset
 Assets/Plugins/FMOD/Resources/FMODStudioCache.asset.meta
 Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
 FMODStudioCache.asset
 FMODStudioCache.asset.meta
+
+
 SOADsavesMetal/SOADsavesMetal_FMOD/SOADsavesMetal/.cache/*
 fmod_editor.log
 

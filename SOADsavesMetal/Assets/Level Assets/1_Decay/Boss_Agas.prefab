@@ -736,8 +736,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eeec4cad5755ae42a06ebbcefc4926c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHP: 2000
+  startingHP: 200
   damageMultiplier: 1
+  bossHit: event:/Enemy/E_Hurt_Melee
   HP: 0
 --- !u!114 &9100881232957509134
 MonoBehaviour:

@@ -7720,24 +7720,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eeec4cad5755ae42a06ebbcefc4926c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1016729869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1016729862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 1
-  UnloadEvent: 2
-  Banks:
-  - Level 3
-  CollisionTag: 
-  PreloadSamples: 0
 --- !u!114 &1016729870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10615,16 +10597,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2937212759991998290, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
-        type: 3}
-      propertyPath: startingHP
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937212759991998290, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
-        type: 3}
-      propertyPath: bossHit
-      value: event:/Enemy/E_Hurt_Melee
-      objectReference: {fileID: 0}
     - target: {fileID: 3554888995909705114, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
         type: 3}
       propertyPath: groundTargets.Array.data[0]
@@ -11325,6 +11297,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8857609954847487176, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1816248751}
+    - target: {fileID: 8857609954847487176, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+        type: 3}
+      propertyPath: deathSong
+      value: event:/Player/P_Death
+      objectReference: {fileID: 0}
     - target: {fileID: 8101416517323360479, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
       propertyPath: countDownTick
@@ -11455,11 +11437,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 3.9000244
       objectReference: {fileID: 0}
-    - target: {fileID: 8857609954847487176, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1816248751}
     - target: {fileID: 890166868, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43, type: 3}
       propertyPath: m_IsActive
       value: 0
