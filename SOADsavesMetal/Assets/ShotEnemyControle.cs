@@ -16,6 +16,7 @@ public class ShotEnemyControle : MonoBehaviour
     GameObject player;
     GameObject[] perches;
     GameObject perch;
+    int perchCount = 0;
     //Time stuff
     float lastPerchSwitch;
     //Time stuff done
@@ -25,7 +26,9 @@ public class ShotEnemyControle : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag(playerTag);
         perches = GameObject.FindGameObjectsWithTag(perchTag);
-        perch = perches[0];
+        Debug.Log(perches.Length);
+        Debug.Log(perches);
+        perch = perches[perchCount];
         lastPerchSwitch = Time.time;
     }
 
@@ -44,19 +47,20 @@ public class ShotEnemyControle : MonoBehaviour
 
     private void MoveToPerch()
     {
-        Vector3.MoveTowards(gameObject.transform.position, perch.transform.position,speed);
+        //Vector3.MoveTowards(gameObject.transform.position, perch.transform.position,speed);
+        if((perch.transform.position - transform.position).magnitude >= .05f )
+            transform.position += (perch.transform.position - transform.position).normalized * speed * Time.deltaTime;
     }
 
     private void SelectNewPerch()
     {
-        GameObject newPerch = perch;
-        int temp = 0;
-        while(newPerch == perch && temp < 5)
-        {
-            newPerch = perches[UnityEngine.Random.Range(0, perches.Length)];
-            temp++;
-        }
-            
+        
+            perchCount++;
+            if (perchCount == perches.Length)
+            {
+                perchCount = 0;
+            }
+            perch = perches[perchCount];
         
     }
 
@@ -71,5 +75,6 @@ public class ShotEnemyControle : MonoBehaviour
 
         float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 180));
+        
     }
 }
