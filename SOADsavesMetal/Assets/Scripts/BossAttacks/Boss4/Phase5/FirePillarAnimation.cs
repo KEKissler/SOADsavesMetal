@@ -30,7 +30,7 @@ public class FirePillarAnimation : MonoBehaviour
     void Start()
     {
         alpha = GetComponentInChildren<SpriteRenderer>();
-        alpha.transform.localScale = new Vector3(preXLength, Y_LENGTH, 1);
+        alpha.transform.parent.localScale = new Vector3(preXLength, Y_LENGTH, 1);
         alpha.color = startingColor;
         beamHitBox = GetComponentInChildren<BoxCollider2D>();
         beamHitBox.enabled = false;
@@ -41,7 +41,7 @@ public class FirePillarAnimation : MonoBehaviour
 
     private IEnumerator Coalesce()
     {
-        alpha.transform.LeanScaleX(xAttackSize, chargeDuration);
+        alpha.transform.parent.LeanScaleX(xAttackSize, chargeDuration);
         var a = StartCoroutine(LerpColor(alpha, startingColor, flashColor, chargeDuration));
 
         yield return new WaitForSeconds(chargeDuration);
@@ -111,7 +111,7 @@ public class FirePillarAnimation : MonoBehaviour
 
     private IEnumerator Shrink()
     {
-        alpha.transform.LeanScaleX(0, endDuration);
+        alpha.transform.parent.LeanScaleX(0, endDuration);
 
         fire.transform.parent = null;
         var m = fire.main;

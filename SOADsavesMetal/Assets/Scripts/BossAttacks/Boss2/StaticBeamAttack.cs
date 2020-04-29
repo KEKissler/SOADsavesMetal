@@ -49,7 +49,7 @@ public class StaticBeamAttack : TsovinarAttack
     {
         var beamObject = Instantiate(BeamPrefab, topMiddle, Quaternion.identity, attackParent).GetComponent<StaticBeamAnimation>();
 
-        beamObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        beamObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 2;
         beamObject.preYLength = preYLength;
         beamObject.yAttackSize = yAttackSize;
         beamObject.chargeDuration = chargeDuration;
