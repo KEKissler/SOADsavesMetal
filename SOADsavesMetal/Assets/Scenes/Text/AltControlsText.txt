@@ -1,0 +1,32 @@
+GENERAL EDITS TO THE CONTROLS PAGE (Arrow Keys Scheme):
+1. Next to long range there should be a bullet point that says "Hold down for continuous flow"
+
+
+Edit to Arrow Keys Scheme:
+1. Add in "ESC to pause" right, across the "MOVEMENT" text 
+
+For WASD Scheme:
+Move = A and D buttons
+Crouch = S button
+Jump = W button
+Drop Through Platform = x2 tap S button
+Unique Aerial = x2 tap W button
+
+Short Range = J button
+Long Range = K button
+Super = L button
+
+
+
+For Xbox Controller Scheme:
+Move = left and right on joystick
+Crouch = down on joystick
+Jump = A button
+Drop Through Platform = x2 tap down on joystick
+Unique Aerial = x2 tap A button
+
+Short Range = B button
+Long Range = X button
+Super = Y button
+
+Start button to pause
