@@ -51,7 +51,7 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
     private IEnumerator ManageAttacks()
     {
         yield return new WaitForEndOfFrame();
-        while (true)
+        while (!BossHealth.isDead())
         {
             BossAttack newAttack = SelectNextAttack();
             if(attack == newAttack)
