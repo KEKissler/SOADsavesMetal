@@ -231,6 +231,7 @@ public class Player : MonoBehaviour
         //Debug.Log("crouched " + crouched);
         //Debug.Log("inair " + inAir);
         //stops player from being able to move if in pause or countdown
+
         if ((countDown == null || !countDown.getCountDown()) && (gameplayPause == null || !gameplayPause.getPaused()))
         {
             if (!Dead)

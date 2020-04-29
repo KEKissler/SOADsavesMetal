@@ -2784,6 +2784,11 @@ PrefabInstance:
       propertyPath: deathMenu
       value: 
       objectReference: {fileID: 8857609954847487175}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: bossDead
+      value: 
+      objectReference: {fileID: 1443309143}
     - target: {fileID: 4277835215915131891, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: ps
@@ -3828,6 +3833,11 @@ PrefabInstance:
       propertyPath: bossHit
       value: event:/Enemy/E_Hurt_Melee
       objectReference: {fileID: 0}
+    - target: {fileID: 573222039197791906, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1105088041}
     - target: {fileID: 1944043208692453105, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_Offset.x
@@ -5242,11 +5252,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1105088041}
-    - target: {fileID: 8857609954847487176, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
-        type: 3}
-      propertyPath: deathSong
-      value: event:/Player/P_Death
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43, type: 3}
 --- !u!114 &8857609954847487175 stripped

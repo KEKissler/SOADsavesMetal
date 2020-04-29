@@ -4,22 +4,27 @@
 public class BossAttackHitBox : MonoBehaviour
 {
     private Collider2D hitbox;
+    private GameObject dummy;
 
     void Start()
     {
         hitbox = GetComponent<Collider2D>();
+        dummy = GameObject.Find("Dummy");
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (!dummy)
         {
-            Player p = other.gameObject.GetComponent<Player>();
-            if(p == null)
+            if (other.gameObject.tag == "Player")
             {
-                p = other.gameObject.GetComponentInParent<Player>();
+                Player p = other.gameObject.GetComponent<Player>();
+                if (p == null)
+                {
+                    p = other.gameObject.GetComponentInParent<Player>();
+                }
+                p.DamagePlayer();
             }
-            p.DamagePlayer();
         }
     }
 }
