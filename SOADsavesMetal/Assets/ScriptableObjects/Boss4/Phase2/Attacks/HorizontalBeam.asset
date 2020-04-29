@@ -18,7 +18,7 @@ MonoBehaviour:
   CycleTime: 1
   preYLength: 10
   yAttackSize: 0.15
-  chargeDuration: 3
+  chargeDuration: 2.75
   attackDuration: 0.25
   flashDuration: 0
   endDuration: 0.25
