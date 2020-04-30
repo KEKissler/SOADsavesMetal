@@ -11,6 +11,9 @@ public class DecayOverflow : MonoBehaviour
 
     private float travel_distance = 2.3f;
 
+    [FMODUnity.EventRef]
+    public string overflowEvent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,9 @@ public class DecayOverflow : MonoBehaviour
 
     public IEnumerator flood(Animator FlowAnimator, string defaultFlowStateName)
     {
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(overflowEvent);
+        instance.start();
+        instance.release();
         float timer = 0f;
         rb.velocity = new Vector2(0, speed);
         while(timer < travel_distance/speed)
@@ -37,6 +43,8 @@ public class DecayOverflow : MonoBehaviour
         }
         //liquid fully up, stop the flow animation
         FlowAnimator.Play(defaultFlowStateName);
+ 
+
 
         timer = 0f;
         rb.velocity = new Vector2(0, 0);
