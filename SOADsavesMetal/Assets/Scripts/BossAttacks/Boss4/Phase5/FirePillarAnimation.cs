@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StaticBeamAnimation : MonoBehaviour
+public class FirePillarAnimation : MonoBehaviour
 { 
-    private static float X_LENGTH = 60;
+    private static float Y_LENGTH = 20;
 
-    public float preYLength;
-    public float yAttackSize;
+    public float preXLength;
+    public float xAttackSize;
     public float chargeDuration;
     public float attackDuration;
     public float flashDuration;
@@ -18,6 +18,8 @@ public class StaticBeamAnimation : MonoBehaviour
     public Color flashColor;
     public Transform player;
     public GameplayPause gameplayPause;
+    public ParticleSystem smoke;
+    public ParticleSystem fire;
 
     private BoxCollider2D beamHitBox;
     private float postYLength = 0;
@@ -28,34 +30,18 @@ public class StaticBeamAnimation : MonoBehaviour
     void Start()
     {
         alpha = GetComponentInChildren<SpriteRenderer>();
-        transform.localScale = new Vector3(X_LENGTH, preYLength, 1);
+        alpha.transform.parent.localScale = new Vector3(preXLength, Y_LENGTH, 1);
         alpha.color = startingColor;
-        beamHitBox = GetComponent<BoxCollider2D>();
+        beamHitBox = GetComponentInChildren<BoxCollider2D>();
         beamHitBox.enabled = false;
         StartCoroutine(Coalesce());
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x,
-                                            transform.eulerAngles.y, 
-                                            Mathf.Rad2Deg * Mathf.Atan2(transform.position.y - player.position.y, transform.position.x - player.position.x));
         gameplayPause = FindObjectOfType<GameplayPause>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!gameplayPause.getPaused())
-        {
-            if (tracking)
-            {
-                float toAngle = Mathf.Rad2Deg * Mathf.Atan2(transform.position.y - player.position.y, transform.position.x - player.position.x);
-                transform.eulerAngles += new Vector3(0, 0, Mathf.Sign(toAngle - transform.eulerAngles.z) * trackingSpeed);
-            }
-        }
-        
+        fire.gameObject.SetActive(false);
     }
 
     private IEnumerator Coalesce()
     {
-        transform.LeanScaleY(yAttackSize, chargeDuration);
+        alpha.transform.parent.LeanScaleX(xAttackSize, chargeDuration);
         var a = StartCoroutine(LerpColor(alpha, startingColor, flashColor, chargeDuration));
 
         yield return new WaitForSeconds(chargeDuration);
@@ -103,6 +89,21 @@ public class StaticBeamAnimation : MonoBehaviour
     private IEnumerator Firing()
     {
         beamHitBox.enabled = true;
+        fire.gameObject.SetActive(true);
+        var particles = new ParticleSystem.Particle[100];
+        smoke.GetParticles(particles);
+        for(int i = 0; i < particles.Length; ++i)
+        {
+            if (particles[i].Equals(null))
+                break;
+            particles[i].startColor = fire.main.startColor.colorMax;
+            particles[i].rotation = 0;
+            particles[i].velocity *= 1.5f;
+            particles[i].startSize *= 2;
+        }
+
+        fire.SetParticles(particles);
+        smoke.gameObject.SetActive(false);
         yield return new WaitForSeconds(attackDuration);
         beamHitBox.enabled = false;
         StartCoroutine(Shrink());
@@ -110,7 +111,22 @@ public class StaticBeamAnimation : MonoBehaviour
 
     private IEnumerator Shrink()
     {
-        transform.LeanScaleY(0, endDuration);
-        yield return new WaitForSeconds(endDuration);      
+        alpha.transform.parent.LeanScaleX(0, endDuration);
+
+        fire.transform.parent = null;
+        var m = fire.main;
+        Destroy(fire, m.startLifetime.constant + m.duration);
+        m.loop = false;
+        m.startLifetime = 0.25f;
+        var particles = new ParticleSystem.Particle[100];
+        for (int i = 0; i < particles.Length; ++i)
+        {
+            if (particles[i].Equals(null))
+                break;
+            particles[i].remainingLifetime /= 4f;
+        }
+
+        yield return new WaitForSeconds(endDuration);
+        Destroy(transform.parent.gameObject);
     }
 }

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "New Attack/Static Beam Attack")]
-public class StaticBeamAttack : TsovinarAttack
+[CreateAssetMenu(menuName = "New Attack/Sandaramet/Fire Pillar Attack")]
+public class FirePillarAttack : SandarametAttack
 {
     public GameObject BeamPrefab;
     public float CycleTime;
-    public float preYLength;
-    public float yAttackSize;
+    public float preXLength;
+    public float xAttackSize;
     public float chargeDuration;
     public float attackDuration;
     public float flashDuration;
@@ -18,20 +18,16 @@ public class StaticBeamAttack : TsovinarAttack
     public Color startingColor;
     public Color attackColor;
     public Color flashColor;
-
-
     
-    private Transform tsovinarLocation;
     private Transform playerLocation;
     private Transform attackParent;
 
     private Vector3 topMiddle;
 
 
-    public override void Initialize(TsovinarAttackData data)
+    public override void Initialize(SandarametAttackData data)
     {
         playerLocation = data.player.transform;
-        tsovinarLocation = data.tsovinar.transform;
         attackParent = data.attackParent;
         topMiddle = new Vector3(0, laserHeight, 0);
     }
@@ -47,11 +43,12 @@ public class StaticBeamAttack : TsovinarAttack
 
     protected override void OnStart()
     {
-        var beamObject = Instantiate(BeamPrefab, topMiddle, Quaternion.identity, attackParent).GetComponent<StaticBeamAnimation>();
+        var beamObject = Instantiate(BeamPrefab, topMiddle, Quaternion.identity, attackParent).GetComponentInChildren<FirePillarAnimation>();
+        var particles = beamObject.GetComponentsInChildren<ParticleSystem>();
 
-        beamObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 2;
-        beamObject.preYLength = preYLength;
-        beamObject.yAttackSize = yAttackSize;
+        beamObject.transform.position = new Vector3(playerLocation.position.x, 0, 0);
+        beamObject.preXLength = preXLength;
+        beamObject.xAttackSize = xAttackSize;
         beamObject.chargeDuration = chargeDuration;
         beamObject.attackDuration = attackDuration;
         beamObject.flashDuration = flashDuration;
@@ -61,5 +58,7 @@ public class StaticBeamAttack : TsovinarAttack
         beamObject.attackColor = attackColor;
         beamObject.flashColor = flashColor;
         beamObject.player = playerLocation;
+        beamObject.smoke = particles[0];
+        beamObject.fire = particles[1];
     }
 }
