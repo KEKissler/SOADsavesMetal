@@ -18,6 +18,9 @@ public class Fireball : AgasAttack
     private Transform agasPosition;
     private GameObject fireballObject;
 
+    [FMODUnity.EventRef]
+    public string fireballEvent;
+
     public override void Initialize(AgasAttackData data)
     {
         attackParent = data.attackParent;
@@ -43,6 +46,9 @@ public class Fireball : AgasAttack
             if (fireballObject.GetComponent<Projectile>() != null)
                 fireballObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, degreeModifier, fixedAngle);
         }
+        FMOD.Studio.EventInstance fireballInstance = FMODUnity.RuntimeManager.CreateInstance(fireballEvent);
+        fireballInstance.start();
+        fireballInstance.release();
     }
 
     protected override void OnEnd()

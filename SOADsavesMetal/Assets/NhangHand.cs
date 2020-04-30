@@ -17,8 +17,13 @@ public class NhangHand : MonoBehaviour
     float Duration;
     float time;
     // Start is called before the first frame update
+    [FMODUnity.EventRef]
+    public string groundShake;
+
+    FMOD.Studio.EventInstance instance;
     void Start()
     {
+        instance = FMODUnity.RuntimeManager.CreateInstance(groundShake);
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         if (UseCurrentPosForBottom)
             BottomPosition = rb.position.y;
@@ -51,6 +56,7 @@ public class NhangHand : MonoBehaviour
 
     public void moveUp()
     {
+        instance.start();
         Up = true;
         time = Time.time;
     }
