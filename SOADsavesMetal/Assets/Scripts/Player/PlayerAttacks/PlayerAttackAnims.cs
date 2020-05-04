@@ -163,6 +163,7 @@ public class PlayerAttackAnims : MonoBehaviour
         }
         else if (ps.currentBandMember == "Serj")
         {
+            ps.PlayAudioEvent(ps.serjSuper);
             ps.playerLowerAnim.Play("SerjLongLegs");
             ps.playerUpperAnim.Play("SerjSuper");
             yield return new WaitForSeconds(1.27f);
