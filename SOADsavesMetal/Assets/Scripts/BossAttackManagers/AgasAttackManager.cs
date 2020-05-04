@@ -2,6 +2,12 @@
 
 public class AgasAttackManager : BossAttackManager<AgasPhase>
 {
+    private new void Start()
+    {
+        base.Start();
+        attackParent = FindObjectOfType<AgasAttackInitializer>().AttackData.attackParent;
+    }
+
     protected override AttackOptions GetNextOptions(AgasPhase phase)
     {
         return phase.SelectNextAttackOption();

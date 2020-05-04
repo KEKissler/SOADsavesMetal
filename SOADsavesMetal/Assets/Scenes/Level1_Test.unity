@@ -2694,51 +2694,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: platforms.Array.data[0]
-      value: 
-      objectReference: {fileID: 929484366}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: platforms.Array.data[1]
-      value: 
-      objectReference: {fileID: 1112076965}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: platforms.Array.data[2]
-      value: 
-      objectReference: {fileID: 62412576}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: gameplayPause
-      value: 
-      objectReference: {fileID: 1073603425}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: countDown
-      value: 
-      objectReference: {fileID: 1073603423}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: daronDash
-      value: event:/Player/P_Daron/P_Daron_Teleport
-      objectReference: {fileID: 0}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: deathMenu
-      value: 
-      objectReference: {fileID: 8857609954847487175}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: bossDead
-      value: 
-      objectReference: {fileID: 1443309143}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: startingHealth
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 9117497486307095081, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2793,6 +2748,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: platforms.Array.data[0]
+      value: 
+      objectReference: {fileID: 929484366}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: platforms.Array.data[1]
+      value: 
+      objectReference: {fileID: 1112076965}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: platforms.Array.data[2]
+      value: 
+      objectReference: {fileID: 62412576}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: gameplayPause
+      value: 
+      objectReference: {fileID: 1073603425}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: countDown
+      value: 
+      objectReference: {fileID: 1073603423}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: daronDash
+      value: event:/Player/P_Daron/P_Daron_Teleport
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: deathMenu
+      value: 
+      objectReference: {fileID: 8857609954847487175}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: bossDead
+      value: 
+      objectReference: {fileID: 1443309143}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: startingHealth
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4277835215915131891, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
@@ -4504,7 +4504,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765169194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.34, y: 1.35, z: 0}
+  m_LocalPosition: {x: 6.07, y: 1.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1505558761}
@@ -4534,7 +4534,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779962945}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.37, y: 1.52, z: 0}
+  m_LocalPosition: {x: -11.98, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1505558761}

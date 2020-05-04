@@ -24,6 +24,11 @@ public abstract class BossAttack : ScriptableObject
     protected abstract IEnumerator Execute(float duration);
     protected abstract void OnEnd();
 
+    public void EndAttackEarly()
+    {
+        CoroutineRunner.instance.StopCoroutine(executingAttack);
+    }
+
     private IEnumerator EndAttack()
     {
         yield return new WaitForSeconds(duration);

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class NhangAttackManager : BossAttackManager<NhangPhase>
 {
+    private new void Start()
+    {
+        base.Start();
+        attackParent = FindObjectOfType<NhangAttackInitializer>().AttackData.attackParent;
+    }
+
     protected override AttackOptions GetNextOptions(NhangPhase phase)
     {
         return phase.SelectNextAttackOption();
