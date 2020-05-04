@@ -86,6 +86,7 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
                 if (PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart)
                 {
                     PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart.ExecuteAttack();
+                    timer = PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart.duration;
                 }
             }
             else
