@@ -1430,8 +1430,7 @@ MonoBehaviour:
   serjFlyStart: event:/Player/P_Serj/P_Serj_Fly_Start
   serjFlyMid: event:/Player/P_Serj/P_Serj_Fly_Flap
   serjFlyEnd: event:/Player/P_Serj/P_Serj_Fly_Decay
-  serjSuperStart: event:/Player/P_Serj/P_Serj_Atk_Sp
-  serjSuperEnd: 
+  serjSuper: event:/Player/P_Serj/P_Serj_Atk_Sp
 --- !u!95 &9117497486307095086
 Animator:
   serializedVersion: 3
