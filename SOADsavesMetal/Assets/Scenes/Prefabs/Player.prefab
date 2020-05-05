@@ -314,6 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSuper: 0
   meterCharge: 8
   damage: 5
 --- !u!58 &5186917033745648097
@@ -657,6 +658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSuper: 0
   meterCharge: 8
   damage: 5
 --- !u!1 &8216758325658497405
@@ -752,6 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSuper: 0
   meterCharge: 9
   damage: 8
 --- !u!70 &7895546297531701038
@@ -931,6 +934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSuper: 1
   meterCharge: 0
   damage: 35
 --- !u!1 &8542579718681961154
@@ -1043,6 +1047,8 @@ MonoBehaviour:
   longMicrophone: {fileID: 5549783632657337775, guid: 7b56553e2814d124ca2ef893f13d95e2,
     type: 3}
   table: {fileID: 5940223194046452803, guid: c32b0862fa1880c4b9669796e87f48b1, type: 3}
+  bigTable: {fileID: 5940223194046452803, guid: b22fb54724e5e054093157749e91d4a3,
+    type: 3}
 --- !u!1 &8606488155122572079
 GameObject:
   m_ObjectHideFlags: 0

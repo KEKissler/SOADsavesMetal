@@ -45,7 +45,7 @@ public class PlayerAttackAnims : MonoBehaviour
         }
         else if (ps.currentBandMember == "Serj")
         {
-            yield return new WaitForSeconds(0.55f);
+            yield return new WaitForSeconds(0.39f);
             ps.PlayAudioEvent(ps.serjShortRange);
         }
         ps.PlayAnims("Idle");

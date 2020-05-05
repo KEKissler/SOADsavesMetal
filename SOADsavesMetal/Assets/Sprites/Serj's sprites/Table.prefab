@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 5940223194046452802}
   - component: {fileID: 1823041667}
   - component: {fileID: 1823041668}
+  - component: {fileID: 270022965407738115}
+  - component: {fileID: 3258670365106286668}
   m_Layer: 0
-  m_Name: table
+  m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 79
   m_Sprite: {fileID: 21300000, guid: 2564382a7292a1749b3d811ec911fb6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -128,3 +130,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.06, y: 0.4}
   m_EdgeRadius: 0
+--- !u!114 &270022965407738115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5940223194046452803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660bd39282d6f004eb1e609299d31ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  isBigTable: 0
+--- !u!114 &3258670365106286668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5940223194046452803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSuper: 0
+  meterCharge: 0
+  damage: 8

@@ -130,7 +130,7 @@ public class PlayerJump : MonoBehaviour
         float timer = 0f;
         while (timer < 2f)
         {
-            if (!ps.inAir)
+            if (!ps.inAir || ps.isSuperActive)
             {
                 ps.serjFlightActive = false;
                 break;

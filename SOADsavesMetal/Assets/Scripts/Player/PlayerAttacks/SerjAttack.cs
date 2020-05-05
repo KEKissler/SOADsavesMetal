@@ -6,14 +6,13 @@ public class SerjAttack : PlayerAttack
 {
     GameObject boss;
 
-	private bool attacking;
 	private float attackTimer = 0.0f; // General purpose timer
 
 	// Short range attack
     // Should target nearby enemy if in range, otherwise shoots straight forward
     public GameObject shortRangeHitbox;
-    private const float SHORT_ATTACK_WINDUP = 0.25f;
-    private const float SHORT_ATTACK_HOLD_DURATION = 0.26f;
+    private const float SHORT_ATTACK_WINDUP = 0.04f;
+    private const float SHORT_ATTACK_HOLD_DURATION = 0.4f;
     private const float SHORT_ATTACK_COOLDOWN = 0.01f;
     public const float MIC_FORWARD_OFFSET = 0.08f;
     
@@ -24,6 +23,7 @@ public class SerjAttack : PlayerAttack
 
     // Super attack
     public GameObject table;
+    public GameObject bigTable;
 
     // Yes
     public const float WE_DONT_LIKE_EYE_LASER_MICROPHONES = -0.84f;
@@ -33,7 +33,6 @@ public class SerjAttack : PlayerAttack
         boss = GameObject.FindWithTag("Boss");
         shortRangeHitbox.SetActive(false);
         ps = GameObject.FindWithTag("Player").GetComponent<Player>();
-        attacking = false;
 	}
 
 	// Update is called once per frame
@@ -44,35 +43,13 @@ public class SerjAttack : PlayerAttack
 
     public override IEnumerator AttackShort()
     {
-        attacking = true;
 
-        // Windup period
-        attackTimer = 0.0f;
-        while(attackTimer < SHORT_ATTACK_WINDUP)
-        {
-            attackTimer += Time.deltaTime;
-            yield return null;
-        }
+        yield return new WaitForSeconds(SHORT_ATTACK_WINDUP);
 
-        // Attack
         shortRangeHitbox.SetActive(true);
-        attackTimer = 0.0f;
-        while(attackTimer < SHORT_ATTACK_HOLD_DURATION)
-        {
-        	attackTimer += Time.deltaTime;
-        	yield return null;
-        }
+        yield return new WaitForSeconds(SHORT_ATTACK_HOLD_DURATION);
+        shortRangeHitbox.SendMessage("refreshHit");
         shortRangeHitbox.SetActive(false);
-
-        // Cooldown period
-        attackTimer = 0.0f;
-        while(attackTimer < SHORT_ATTACK_COOLDOWN)
-        {
-        	attackTimer += Time.deltaTime;
-        	yield return null;
-        }
-
-        attacking = false;
     }
 
     public override IEnumerator AttackLong()
@@ -95,16 +72,20 @@ public class SerjAttack : PlayerAttack
     // (Disrupts attack patterns but that would require attack patterns to be created first)
     public override IEnumerator AttackSuper()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.35f);
 
-        float startX = -12f, startY = 13f;
+        float startX = -13.37f, startY = 11f;
 
         while (startX < 10f)
         {
             GameObject curTable = Instantiate(table);
             curTable.transform.position = new Vector3(startX, startY, 0f);
-            startX += 5f;
-            yield return new WaitForSeconds(0.5f);
+            startX += 4.9f;
+            yield return new WaitForSeconds(0.15f);
         }
+        yield return new WaitForSeconds(0.15f);
+
+        GameObject bTable = Instantiate(bigTable);
+        bTable.transform.position = new Vector3(-9f, 28f, 0f);
     }
 }

@@ -8,6 +8,7 @@ public class ExplosiveMic : MonoBehaviour {
     public int damage = 30;
     protected float speed;
     public float playerRotationY;
+    public Collider2D micHitbox;
 
 	// Use this for initialization
 	void Start () {
@@ -29,14 +30,16 @@ public class ExplosiveMic : MonoBehaviour {
     {
         if (col.gameObject.tag == "BossHittable")
         {
-            // Disable collider
-            
             col.gameObject.SendMessage("hit", damage);
 
-            Animator anim = GetComponent<Animator>();
-            anim.SetBool("explode", true);
+            micHitbox.enabled = false;
 
-            Destroy(gameObject, 0.03f);
+            Animator anim = GetComponent<Animator>();
+            anim.Play("explode");
+            rb.velocity /= 3f;
+            rb.gravityScale /= 2f;
+
+            Destroy(gameObject, 0.8f);
         }
     }
 
