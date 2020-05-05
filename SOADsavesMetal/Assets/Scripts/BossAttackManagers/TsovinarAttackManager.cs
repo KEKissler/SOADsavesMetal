@@ -2,6 +2,12 @@
 
 public class TsovinarAttackManager : BossAttackManager<TsovinarPhase>
 {
+    private new void Start()
+    {
+        base.Start();
+        attackParent = FindObjectOfType<TsovinarAttackInitializer>().AttackData.attackParent;
+    }
+
     protected override AttackOptions GetNextOptions(TsovinarPhase phase)
     {
         return phase.SelectNextAttackOption();

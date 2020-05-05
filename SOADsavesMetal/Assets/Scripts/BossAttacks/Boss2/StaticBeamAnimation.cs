@@ -27,7 +27,7 @@ public class StaticBeamAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        alpha = GetComponent<SpriteRenderer>();
+        alpha = GetComponentInChildren<SpriteRenderer>();
         transform.localScale = new Vector3(X_LENGTH, preYLength, 1);
         alpha.color = startingColor;
         beamHitBox = GetComponent<BoxCollider2D>();

@@ -27,12 +27,20 @@ public class BossHit : MonoBehaviour
     public AnimationClip deathAnim;
 
     private Animator bossAnimations;
+    private float transformationCutoff;
 
 
     // Start is called before the first frame update
     void Start()
     {
         bossAnimations = GetComponent<Animator>();
+
+        SandarametAttackManager manager = GetComponent<SandarametAttackManager>();
+        if(manager != null)
+        {
+            transformationCutoff = GetComponent<BossHealth>().startingHP * manager.PhaseChangeThreshholds[4].HealthPercentThreshhold / 100f;
+            Debug.Log("TransformationCutoff: " + transformationCutoff);
+        }
     }
 
     public void hit(int damage)
@@ -80,20 +88,23 @@ public class BossHit : MonoBehaviour
         }
         else if(name == "sandaramet")
         {
-            if(HP > 0)
+            if(damageMultiplier != 0)
             {
-                if (HP > startHP/2)
+                if (HP > 0)
                 {
-                    bossAnimations.Play(SANDARAMET_DAMAGE1);
+                    if (HP > transformationCutoff)
+                    {
+                        bossAnimations.Play(SANDARAMET_DAMAGE1);
+                    }
+                    else
+                    {
+                        bossAnimations.Play(SANDARAMET_DAMAGE2);
+                    }
                 }
                 else
                 {
-                    bossAnimations.Play(SANDARAMET_DAMAGE2);
+                    bossAnimations.Play(SANDARAMET_DEATH);
                 }
-            }
-            else
-            {
-                bossAnimations.Play(SANDARAMET_DEATH);
             }
         }
         else if(name == "Dummy")

@@ -716,10 +716,17 @@ MonoBehaviour:
     bottomBackHand: {fileID: 1020453514}
     screenTop: {fileID: 52430932}
     screenBottom: {fileID: 835909533}
+    animator: {fileID: 1539245688}
+    transformationAnim: {fileID: 7400000, guid: 50606b117da0eb348ba5a0c517d01685,
+      type: 2}
   AttacksToInitialize:
   - {fileID: 11400000, guid: 9bed7aaedab8092479ef18581ebc40a5, type: 2}
   - {fileID: 11400000, guid: 34155382dda651046929f2256e189445, type: 2}
   - {fileID: 11400000, guid: 652923ad8894bcb4e9f7177b4fc78e13, type: 2}
+  - {fileID: 11400000, guid: 5dd7297c3ab27634ea9024884e01e2c4, type: 2}
+  - {fileID: 11400000, guid: a2328e665d5c73d478e9b65656a2c580, type: 2}
+  - {fileID: 11400000, guid: efe2d2692f2453b4fab7e8279989e186, type: 2}
+  - {fileID: 11400000, guid: 85e94a36d0e4b724883df45ad608c536, type: 2}
 --- !u!4 &321495025
 Transform:
   m_ObjectHideFlags: 0
@@ -3531,7 +3538,8 @@ MonoBehaviour:
     ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: 4ed25ccdba0176546b3eb43492ba1bdf, type: 2}
     HealthPercentThreshhold: 60
-    ExecuteOnPhaseStart: {fileID: 0}
+    ExecuteOnPhaseStart: {fileID: 11400000, guid: 85e94a36d0e4b724883df45ad608c536,
+      type: 2}
   - BossPhase: {fileID: 11400000, guid: ead73af070a885c4f96d29aa5488f9f4, type: 2}
     HealthPercentThreshhold: 40
     ExecuteOnPhaseStart: {fileID: 0}
@@ -3540,7 +3548,8 @@ MonoBehaviour:
     ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: b5b8fd229560303449cf7ae718935e02, type: 2}
     HealthPercentThreshhold: 10
-    ExecuteOnPhaseStart: {fileID: 0}
+    ExecuteOnPhaseStart: {fileID: 11400000, guid: 85e94a36d0e4b724883df45ad608c536,
+      type: 2}
   - BossPhase: {fileID: 11400000, guid: a0b950d1a92bf8748aab1fad27030bac, type: 2}
     HealthPercentThreshhold: 0
     ExecuteOnPhaseStart: {fileID: 0}

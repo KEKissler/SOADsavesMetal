@@ -11,7 +11,8 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
     private int phaseIndex;
     private float timer = 3;
 
-    private Coroutine attackManager;
+    protected Coroutine attackManager;
+    protected Transform attackParent;
 
     //switch phases depending on game state, for now just based on boss health
     public BossHealth BossHealth;
@@ -19,7 +20,7 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
     public List<PhaseChangeThreshhold> PhaseChangeThreshholds = new List<PhaseChangeThreshhold>();
    
 
-    private void Start()
+    protected void Start()
     {
         if (PhaseChangeThreshholds.Count < 1)
         {
@@ -51,7 +52,7 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
     private IEnumerator ManageAttacks()
     {
         yield return new WaitForEndOfFrame();
-        while (true)
+        while (!BossHealth.isDead())
         {
             BossAttack newAttack = SelectNextAttack();
             if(attack == newAttack)
@@ -86,6 +87,8 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
                 if (PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart)
                 {
                     PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart.ExecuteAttack();
+                    stopCurrentAttack();
+                    timer = PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart.duration;
                 }
             }
             else
@@ -100,10 +103,19 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
     protected abstract AttackOptions GetNextOptions(T phase);
     protected abstract T GetNextPhase(List<PhaseChangeThreshhold> phaseChangeThreshhold, int phaseIndex);
 
+    public void stopCurrentAttack()
+    {
+        attack.EndAttackEarly();
+        StopCoroutine(attackManager);
+        for (int i = 0; i < attackParent.childCount; ++i)
+        {
+            Destroy(attackParent.GetChild(i).gameObject);
+        }
+    }
 
     private void FinalPhaseEnded()
     {
-        StopCoroutine(attackManager);
+        stopCurrentAttack();
         attackManager = null;
         Debug.Log("Ran Out of Phases, could not get next attack.");
     }

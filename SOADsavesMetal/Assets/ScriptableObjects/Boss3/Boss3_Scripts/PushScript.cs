@@ -27,8 +27,7 @@ public class PushScript : MonoBehaviour
     }
 
     public void Push()
-    {
-        
+    {        
         isPushing = true;
     }
 

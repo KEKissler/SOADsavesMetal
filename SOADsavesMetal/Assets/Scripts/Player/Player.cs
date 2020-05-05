@@ -128,9 +128,7 @@ public class Player : MonoBehaviour
     [FMODUnity.EventRef]
     public string serjFlyEnd;
     [FMODUnity.EventRef]
-    public string serjSuperStart;
-    [FMODUnity.EventRef]
-    public string serjSuperEnd;
+    public string serjSuper;
 
     #endregion
 

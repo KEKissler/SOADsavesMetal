@@ -78,5 +78,6 @@ public class NewMoveScript : AgasAttack
 
     protected override void OnEnd()
     {
+        agas.transform.position = pathVertices[pathVertices.Count-1].position;
     }
 }
