@@ -87,13 +87,14 @@ public class PlayerAttackAnims : MonoBehaviour
         }
         else if (ps.currentBandMember == "Serj")
         {
+            Debug.Log("Serj");
             ps.playerUpperAnim.Play("SerjLong");
             if (!ps.moving && !ps.crouched && !ps.inAir)
             {
                 ps.playerLowerAnim.Play("SerjLongLegs");
             }
             ps.PlayAudioEvent(ps.serjLongRange);
-            yield return new WaitForSeconds(0.45f);
+            yield return new WaitForSeconds(0.48f);
         }
         yield return new WaitForSeconds(0.07f);
         ps.blockAttackProgress = false;
@@ -103,7 +104,7 @@ public class PlayerAttackAnims : MonoBehaviour
     public IEnumerator superAttackAnims()
     {
         // Ensure invincibility from the beginning of the attack to the end
-        if (ps.currentBandMember != "John") ps.curInvulnerableTime = 7f;
+        if (ps.currentBandMember != "John") ps.curInvulnerableTime = 9f;
 
         ps.blockAttackProgress = true;
         ps.attacking = true;
@@ -165,7 +166,7 @@ public class PlayerAttackAnims : MonoBehaviour
         {
             ps.playerLowerAnim.Play("SerjLongLegs");
             ps.playerUpperAnim.Play("SerjSuper");
-            yield return new WaitForSeconds(1.27f);
+            yield return new WaitForSeconds(2.57f);
         }
         // After attack, give one second of bonus invincibility
         if (ps.currentBandMember != "John") ps.curInvulnerableTime = 1f;
