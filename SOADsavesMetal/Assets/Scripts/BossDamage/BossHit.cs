@@ -19,13 +19,13 @@ public class BossHit : MonoBehaviour
 
     private const string DUMMY_DAMAGE = "dummy_damage";
 
-
     public BossHealth healthScript;
     public float damageMultiplier = 1f;
     public AnimationClip damageAnim;
     public AnimationClip damageAnim2;
     public AnimationClip deathAnim;
 
+    private Vector3 bossStart;
     private Animator bossAnimations;
     private float transformationCutoff;
 
@@ -34,7 +34,7 @@ public class BossHit : MonoBehaviour
     void Start()
     {
         bossAnimations = GetComponent<Animator>();
-
+        bossStart = GetComponentInParent<Transform>().position;
         SandarametAttackManager manager = GetComponent<SandarametAttackManager>();
         if(manager != null)
         {
@@ -58,6 +58,7 @@ public class BossHit : MonoBehaviour
             }
             else
             {
+                transform.parent.position = bossStart;
                 bossAnimations.Play(TSOVINAR_DEATH);
                 Destroy(gameObject, deathAnim.length-cutoff);
                 //gameObject.
@@ -71,6 +72,7 @@ public class BossHit : MonoBehaviour
             }
             else
             {
+                transform.parent.position = bossStart;
                 bossAnimations.Play(AGAS_DEATH);
                 Destroy(gameObject, deathAnim.length - 1);
             }
