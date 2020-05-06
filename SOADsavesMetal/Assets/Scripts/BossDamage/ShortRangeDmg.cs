@@ -10,6 +10,8 @@ using UnityEngine;
 public class ShortRangeDmg : MonoBehaviour {
 
     private Player ps;
+    public bool isSuper;
+    private string hitFuncName;
     public float meterCharge = 0f;
 	public int damage = 111;
 	bool canHit = true;
@@ -17,6 +19,8 @@ public class ShortRangeDmg : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         ps = GameObject.FindWithTag("Player").GetComponent<Player>();
+        if (isSuper) hitFuncName = "hitTrueDmg";
+        else hitFuncName = "hit";
 	}
 	
 	// Update is called once per frame
@@ -28,7 +32,7 @@ public class ShortRangeDmg : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		if(col.gameObject.tag == "BossHittable" && canHit) {
-			col.gameObject.SendMessage("hit", damage);
+			col.gameObject.SendMessage(hitFuncName, damage);
             float dmgMult = col.gameObject.GetComponent<BossHit>().damageMultiplier;
             //Debug.Log("yee " + dmgMult);
             ps.superMeterCharge += meterCharge * dmgMult;
@@ -45,9 +49,9 @@ public class ShortRangeDmg : MonoBehaviour {
 	{
 		if(col.gameObject.tag == "BossHittable" && canHit)
 		{
-			col.gameObject.SendMessage("hit", damage);
+			col.gameObject.SendMessage(hitFuncName, damage);
             float dmgMult = col.gameObject.GetComponent<BossHit>().damageMultiplier;
-            Debug.Log("yee " + dmgMult);
+            // Debug.Log("yee " + dmgMult);
             ps.superMeterCharge += meterCharge * dmgMult;
 			canHit = false;
 		}

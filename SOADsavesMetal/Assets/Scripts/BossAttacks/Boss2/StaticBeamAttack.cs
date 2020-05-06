@@ -27,6 +27,9 @@ public class StaticBeamAttack : TsovinarAttack
 
     private Vector3 topMiddle;
 
+    [FMODUnity.EventRef]
+    public string laserEvent;
+
 
     public override void Initialize(TsovinarAttackData data)
     {
@@ -47,9 +50,12 @@ public class StaticBeamAttack : TsovinarAttack
 
     protected override void OnStart()
     {
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(laserEvent);
+        instance.start();
+        instance.release();
         var beamObject = Instantiate(BeamPrefab, topMiddle, Quaternion.identity, attackParent).GetComponent<StaticBeamAnimation>();
 
-        beamObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        beamObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 2;
         beamObject.preYLength = preYLength;
         beamObject.yAttackSize = yAttackSize;
         beamObject.chargeDuration = chargeDuration;

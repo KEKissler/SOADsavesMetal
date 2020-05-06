@@ -46,7 +46,7 @@ public class FirePillarAttack : SandarametAttack
         var beamObject = Instantiate(BeamPrefab, topMiddle, Quaternion.identity, attackParent).GetComponentInChildren<FirePillarAnimation>();
         var particles = beamObject.GetComponentsInChildren<ParticleSystem>();
 
-        beamObject.transform.position = playerLocation.position;
+        beamObject.transform.position = new Vector3(playerLocation.position.x, 0, 0);
         beamObject.preXLength = preXLength;
         beamObject.xAttackSize = xAttackSize;
         beamObject.chargeDuration = chargeDuration;

@@ -20,3 +20,4 @@ MonoBehaviour:
   degreeModifier: 3
   fixedAngle: -3.4028235e+38
   Y_offset: 0
+  fireballEvent: event:/Enemy/E_Agas/E_Agas_Shoot

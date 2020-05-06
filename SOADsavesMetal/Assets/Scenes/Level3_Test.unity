@@ -710,6 +710,7 @@ MonoBehaviour:
   UseCurrentPosForBottom: 1
   BottomPosition: 0
   Duration: 5
+  groundShake: event:/Enemy/E_Nhang/E_Nhang_HandAttack
 --- !u!50 &91590846
 Rigidbody2D:
   serializedVersion: 4
@@ -1860,6 +1861,7 @@ MonoBehaviour:
   UseCurrentPosForBottom: 1
   BottomPosition: 0
   Duration: 5
+  groundShake: event:/Enemy/E_Nhang/E_Nhang_HandAttack
 --- !u!1 &773661263
 GameObject:
   m_ObjectHideFlags: 0
@@ -2425,6 +2427,7 @@ MonoBehaviour:
   UseCurrentPosForBottom: 1
   BottomPosition: 0
   Duration: 5
+  groundShake: event:/Enemy/E_Nhang/E_Nhang_HandAttack
 --- !u!50 &889151020
 Rigidbody2D:
   serializedVersion: 4
@@ -6278,6 +6281,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404952190003351313, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1133584929645064597, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
         type: 3}

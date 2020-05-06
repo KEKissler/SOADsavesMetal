@@ -120,15 +120,27 @@ public class PlayerJump : MonoBehaviour
 
     public IEnumerator Hover()
     {
-        ps.playerUpperAnim.Play("SerjWings");
+        // ps.playerUpperAnim.Play("SerjWings");
         ps.playerLowerAnim.Play("SerjIdleLegs");
+        ps.serjFlightActive = true;
+        float oldGravity = ps.rb.gravityScale;
+        ps.rb.gravityScale = 0f;
+        ps.rb.velocity = new Vector2(0, 0);
+        ps.rb.drag = 10f;
         float timer = 0f;
         while (timer < 2f)
         {
-            ps.rb.velocity = new Vector2(0, 0.3f);
+            if (!ps.inAir || ps.isSuperActive)
+            {
+                ps.serjFlightActive = false;
+                break;
+            }
             timer += Time.deltaTime;
             yield return null;
         }
+        ps.rb.gravityScale = oldGravity;
+        ps.rb.drag = 0f;
+        ps.serjFlightActive = false;
         ps.PlayAudioEvent(ps.serjFlyEnd);
     }
 }

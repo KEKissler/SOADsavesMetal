@@ -76,5 +76,14 @@ public class ShotEnemyControle : MonoBehaviour
         float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 180));
         
+        if(targ.x < objectPos.x)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().flipY = false;
+        }
+        else
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().flipY = true;
+        }
+        
     }
 }

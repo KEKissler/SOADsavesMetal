@@ -6,161 +6,86 @@ public class SerjAttack : PlayerAttack
 {
     GameObject boss;
 
-	private bool attacking;
 	private float attackTimer = 0.0f; // General purpose timer
 
 	// Short range attack
     // Should target nearby enemy if in range, otherwise shoots straight forward
     public GameObject shortRangeHitbox;
-    private const float SHORT_ATTACK_WINDUP = 0.25f;
-    private const float SHORT_ATTACK_HOLD_DURATION = 0.26f;
+    private const float SHORT_ATTACK_WINDUP = 0.04f;
+    private const float SHORT_ATTACK_HOLD_DURATION = 0.4f;
     private const float SHORT_ATTACK_COOLDOWN = 0.01f;
+    public const float MIC_FORWARD_OFFSET = 0.08f;
     
     // Long range attack
-    public GameObject musicNote;
+    public GameObject longMicrophone;
     private const float LONG_ATTACK_WINDUP = 0.33f;
     private const float LONG_ATTACK_COOLDOWN = 0.47f;
 
     // Super attack
-    public GameObject cymbal;
-    private const float SUPER_LENGTH = 3.7f;
-    private const float TIME_BETWEEN_SHOTS_HIGH = 0.11f;
-    private const float TIME_BETWEEN_SHOTS_LOW = 0.016f;
-    private const int FINAL_BURST_SIZE = 1;
-    private float curr_time_between_shots;
-    private float shotTimer = 0.0f;
+    public GameObject table;
+    public GameObject bigTable;
+
+    // Yes
+    public const float WE_DONT_LIKE_EYE_LASER_MICROPHONES = -0.84f;
     
 	// Use this for initialization
 	void Start () {
         boss = GameObject.FindWithTag("Boss");
         shortRangeHitbox.SetActive(false);
         ps = GameObject.FindWithTag("Player").GetComponent<Player>();
-        attacking = false;
 	}
 
 	// Update is called once per frame
 	void Update ()
 	{
-		if(!attacking)
-		{
-			if(Input.GetKey(KeyCode.Z))
-			{
-				StartCoroutine(AttackShort());
-			}
-			else if(Input.GetKey(KeyCode.X))
-			{
-				StartCoroutine(AttackLong());
-			}
-            else if(Input.GetKey(KeyCode.C))
-            {
-                StartCoroutine(AttackSuper());
-            }
-		}
-	}
 
-    // Returns the enemy that should be targeted by the long range attack
-    GameObject getTarget()
-    {
-        return boss;
-    }
+	}
 
     public override IEnumerator AttackShort()
     {
-        attacking = true;
 
-        // Windup period
-        attackTimer = 0.0f;
-        while(attackTimer < SHORT_ATTACK_WINDUP)
-        {
-            attackTimer += Time.deltaTime;
-            yield return null;
-        }
+        yield return new WaitForSeconds(SHORT_ATTACK_WINDUP);
 
-        // Attack
         shortRangeHitbox.SetActive(true);
-        attackTimer = 0.0f;
-        while(attackTimer < SHORT_ATTACK_HOLD_DURATION)
-        {
-        	attackTimer += Time.deltaTime;
-        	yield return null;
-        }
+        yield return new WaitForSeconds(SHORT_ATTACK_HOLD_DURATION);
+        shortRangeHitbox.SendMessage("refreshHit");
         shortRangeHitbox.SetActive(false);
-
-        // Cooldown period
-        attackTimer = 0.0f;
-        while(attackTimer < SHORT_ATTACK_COOLDOWN)
-        {
-        	attackTimer += Time.deltaTime;
-        	yield return null;
-        }
-
-        attacking = false;
     }
 
     public override IEnumerator AttackLong()
     {
-    	attacking = true;
+        yield return new WaitForSeconds(0.1f);
+        float drumstickYReductionWhenCrouched = 0f;
+        if (ps.isCrouching()) drumstickYReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_MICROPHONES;
 
-        attackTimer = 0.0f;
-        while(attackTimer < LONG_ATTACK_WINDUP)
-        {
-            attackTimer += Time.deltaTime;
-        	yield return null;     
-        }
+    	// Create projectile (mic)
+    	GameObject micClone = Instantiate(longMicrophone, transform.position +
+            new Vector3(MIC_FORWARD_OFFSET, drumstickYReductionWhenCrouched, 0),
+            transform.parent.rotation);
+        ExplosiveMic mScript = micClone.GetComponent<ExplosiveMic>();
+        mScript.playerRotationY = transform.parent.rotation.y;
 
-    	// Create projectile (musicNote)
-    	GameObject dsClone = Instantiate(musicNote, getTarget().transform.position + new Vector3(0, 4f, 0), transform.parent.rotation);
-
-        // Cooldown period
-        attackTimer = 0.0f;
-        while(attackTimer < LONG_ATTACK_COOLDOWN)
-        {
-        	attackTimer += Time.deltaTime;
-        	yield return null;
-        }
-
-    	attacking = false;
+        yield return null;
     }
 
     // Maybe super bleeds / distracts boss if it hits?
     // (Disrupts attack patterns but that would require attack patterns to be created first)
     public override IEnumerator AttackSuper()
     {
-        attacking = true;
+        yield return new WaitForSeconds(0.35f);
 
-        curr_time_between_shots = TIME_BETWEEN_SHOTS_HIGH;
-        attackTimer = 0.0f;
-        shotTimer = 0.0f;
-        while(attackTimer < SUPER_LENGTH)
+        float startX = -13.37f, startY = 11f;
+
+        while (startX < 10f)
         {
-            shotTimer += Time.deltaTime;
-            attackTimer += Time.deltaTime;
-            
-            float frac = attackTimer/SUPER_LENGTH;
-            curr_time_between_shots = (1-frac) * TIME_BETWEEN_SHOTS_HIGH + frac * TIME_BETWEEN_SHOTS_LOW;
-
-            if(shotTimer > curr_time_between_shots)
-            {
-                shotTimer %= curr_time_between_shots;
-                // Debug.Log(shotTimer);
-                GameObject cymbalClone = Instantiate(cymbal, transform.position, transform.parent.rotation);
-            }
-            yield return null;
+            GameObject curTable = Instantiate(table);
+            curTable.transform.position = new Vector3(startX, startY, 0f);
+            startX += 4.9f;
+            yield return new WaitForSeconds(0.15f);
         }
+        yield return new WaitForSeconds(0.15f);
 
-        for(int i=0; i<FINAL_BURST_SIZE; ++i)
-        {
-            GameObject cymbalClone = Instantiate(cymbal, transform.position, transform.parent.rotation);
-            cymbalClone.transform.localScale *= new Vector2(1.2f, 1.2f);
-        }
-
-        attackTimer = 0.0f;
-        while(attackTimer < LONG_ATTACK_COOLDOWN)
-        {
-            attackTimer += Time.deltaTime;
-            yield return null;
-        }
-
-        attacking = false;
+        GameObject bTable = Instantiate(bigTable);
+        bTable.transform.position = new Vector3(-9f, 28f, 0f);
     }
 }
