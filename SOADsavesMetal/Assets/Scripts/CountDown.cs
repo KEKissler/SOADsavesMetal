@@ -13,7 +13,7 @@ public class CountDown : MonoBehaviour
     [FMODUnity.EventRef]
     public string countDownTick;
 
-    public GameObject levelMusic;
+    public MusicSetter music;
 
     void Start()
     {
@@ -45,7 +45,7 @@ public class CountDown : MonoBehaviour
         text.text = "";
         countDownRunning = false;
         Time.timeScale = 1f;
-        levelMusic.SetActive(true);
+        music.StartMusic();
         text.transform.parent.gameObject.SetActive(false);    
     }
 
