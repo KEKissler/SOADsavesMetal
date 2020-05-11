@@ -19,3 +19,5 @@ MonoBehaviour:
   ProjectileType: 0
   degreeModifier: 0
   fixedAngle: 325
+  Y_offset: 0
+  fireballEvent: event:/Enemy/E_Agas/E_Agas_Shoot
