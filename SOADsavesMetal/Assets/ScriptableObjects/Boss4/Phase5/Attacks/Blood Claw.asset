@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ba68134464898428f1f62f26f4fd40, type: 3}
   m_Name: Blood Claw
   m_EditorClassIdentifier: 
-  duration: 2
+  duration: 1.5
   spawnTime: 0.35
   bloodWavePrefab: {fileID: 1883100758368052, guid: 9b521583065fbaa4092f80a85ca7e596,
     type: 3}

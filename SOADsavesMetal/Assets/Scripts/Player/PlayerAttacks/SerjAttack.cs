@@ -74,7 +74,7 @@ public class SerjAttack : PlayerAttack
     {
         yield return new WaitForSeconds(0.35f);
 
-        float startX = -13.37f, startY = 11f;
+        float startX = -15f, startY = 11f;
 
         while (startX < 10f)
         {

@@ -24,7 +24,7 @@ public class ShavoSuperRocks : PlayerProjectile
         if (!hasHitBoss)
         {
             hasHitBoss = true;
-            col.gameObject.SendMessage("hitTrueDmg", damage);
+            col.gameObject.SendMessage("hit", damage);
         }
     }
 }
