@@ -20,15 +20,6 @@ public class MusicSystem : MonoBehaviour
     public int trackSelectIndex = 0;
     public int currentMusicIndex;
 
-    private void OnDestroy()
-    {
-        StopMusic();
-        if (FMODUnity.RuntimeManager.HasBankLoaded(musicBank))
-        {
-            FMODUnity.RuntimeManager.UnloadBank(musicBank);
-        }
-    }
-
     private void Awake()
     {
         if (instance != null)
@@ -38,13 +29,8 @@ public class MusicSystem : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         instance = this;
-
+        FMODUnity.RuntimeManager.LoadBank(musicBank);
         currentMusicIndex = 0;
-        currentMusic = FMODUnity.RuntimeManager.CreateInstance(musicEvents[currentMusicIndex]);
-    }
-    private void Start()
-    {
-        
     }
 
     public void ChangeMusic(int index)
@@ -70,7 +56,7 @@ public class MusicSystem : MonoBehaviour
     {
         FMOD.Studio.PLAYBACK_STATE state;
         FMOD.RESULT res = currentMusic.getPlaybackState(out state);
-        if (res == FMOD.RESULT.OK && (state == FMOD.Studio.PLAYBACK_STATE.STOPPED))
+        if ((res == FMOD.RESULT.OK && (state == FMOD.Studio.PLAYBACK_STATE.STOPPED)) || res == FMOD.RESULT.ERR_INVALID_HANDLE)
         {
             currentMusic = FMODUnity.RuntimeManager.CreateInstance(musicEvents[currentMusicIndex]);
             currentMusic.start();

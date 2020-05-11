@@ -36,4 +36,8 @@ public class MusicSetter : MonoBehaviour
             }
         }
     }
+    public void StopMusic()
+    {
+        MusicSystem.instance.StopMusic();
+    }
 }

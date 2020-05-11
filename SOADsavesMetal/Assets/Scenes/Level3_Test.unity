@@ -572,6 +572,7 @@ MonoBehaviour:
   speed: 0.075
   upPosition: -3
   bottomPosition: -4.3
+  pushHandEvent: event:/Enemy/E_Nhang/E_Nhang_PushHand
 --- !u!61 &74635915
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1455,6 +1456,7 @@ MonoBehaviour:
   speed: 0.075
   upPosition: -3
   bottomPosition: -4.3
+  pushHandEvent: event:/Enemy/E_Nhang/E_Nhang_PushHand
 --- !u!50 &534705643
 Rigidbody2D:
   serializedVersion: 4
@@ -5106,7 +5108,7 @@ PrefabInstance:
     - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: startingHealth
-      value: 3
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 9117497486007347996, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
@@ -6115,7 +6117,7 @@ PrefabInstance:
     - target: {fileID: 2937212759991998290, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
         type: 3}
       propertyPath: bossHit
-      value: event:/Enemy/E_Hurt_Melee
+      value: event:/Enemy/E_Hurt_Ranged
       objectReference: {fileID: 0}
     - target: {fileID: 2937212759991998290, guid: 1cab3b4bc7984c24a94b4f5556c765e6,
         type: 3}

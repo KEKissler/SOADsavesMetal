@@ -19,6 +19,9 @@ public class PushScript : MonoBehaviour
     bool isPushing;
     bool goUp;
     bool Up;
+
+    [FMODUnity.EventRef]
+    public string pushHandEvent;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +50,6 @@ public class PushScript : MonoBehaviour
             if (!Left && transform.position.x > leftPosition)
             {
                 transform.position = transform.position - new Vector3(speed, 0, 0);
-
             }
             else if (Left && transform.position.x < rightPosition)
             {
