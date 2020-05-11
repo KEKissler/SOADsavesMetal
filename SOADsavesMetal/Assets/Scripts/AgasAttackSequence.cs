@@ -35,10 +35,11 @@ public class AgasAttackSequence : AgasAttack
 
     protected override void OnEnd()
     {
+        /*
         for (int i = 0; i < Attacks.Count; ++i)
         {
             Attacks[i].Attack.duration = originalDurations[i];
-        }
+        }*/
     }
     [System.Serializable]
     public class SubAttack
