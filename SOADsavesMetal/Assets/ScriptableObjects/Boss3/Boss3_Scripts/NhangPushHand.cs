@@ -19,9 +19,9 @@ public class NhangPushHand : NhangAttack
     protected override IEnumerator Execute(float duration)
     {
         yield return null;
-        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(groundShake);
-        instance.start();
-        instance.release();
+        //FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(groundShake);
+        //instance.start();
+        //instance.release();
         Debug.Log("Push Damn it");
         for (int i = 0; i < PushHand.Length; i++)
         {            

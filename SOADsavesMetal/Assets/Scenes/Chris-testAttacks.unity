@@ -591,7 +591,7 @@ PrefabInstance:
     - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: currentBandMember
-      value: Daron
+      value: Serj
       objectReference: {fileID: 0}
     - target: {fileID: 9117497486007347994, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
@@ -617,6 +617,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1592019094, guid: efc0d8d3460c18043896482f0ba598cb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 590440848210964681, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4dd932eac45da314fa5a20ec9d7250e9, type: 2}
     - target: {fileID: 9117497486897271003, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: m_IsActive
@@ -646,19 +655,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.15
       objectReference: {fileID: 0}
-    - target: {fileID: 1592019094, guid: efc0d8d3460c18043896482f0ba598cb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8280204451143781763, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 590440848210964681, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 4dd932eac45da314fa5a20ec9d7250e9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc0d8d3460c18043896482f0ba598cb, type: 3}

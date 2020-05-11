@@ -19,13 +19,13 @@ public class BossHit : MonoBehaviour
 
     private const string DUMMY_DAMAGE = "dummy_damage";
 
-
     public BossHealth healthScript;
     public float damageMultiplier = 1f;
     public AnimationClip damageAnim;
     public AnimationClip damageAnim2;
     public AnimationClip deathAnim;
 
+    private Vector3 bossStart;
     private Animator bossAnimations;
     private float transformationCutoff;
 
@@ -34,7 +34,7 @@ public class BossHit : MonoBehaviour
     void Start()
     {
         bossAnimations = GetComponent<Animator>();
-
+        bossStart = GetComponentInParent<Transform>().position;
         SandarametAttackManager manager = GetComponent<SandarametAttackManager>();
         if(manager != null)
         {
@@ -49,6 +49,78 @@ public class BossHit : MonoBehaviour
         float startHP = healthScript.startingHP;
         float cutoff = 0.5F;
         healthScript.hitF(damage * damageMultiplier);
+        HP = healthScript.getHP();
+        if(name == "TsovinarFace")
+        {
+            if(HP > 0)
+            {
+                bossAnimations.Play(TSOVINAR_DAMAGE);
+            }
+            else
+            {
+                transform.parent.position = bossStart;
+                bossAnimations.Play(TSOVINAR_DEATH);
+                Destroy(gameObject, deathAnim.length-cutoff);
+                //gameObject.
+            }
+        }
+        else if(name == "Agas")
+        {
+            if (HP > 0)
+            {
+                bossAnimations.Play(AGAS_DAMAGE);
+            }
+            else
+            {
+                transform.parent.position = bossStart;
+                bossAnimations.Play(AGAS_DEATH);
+                Destroy(gameObject, deathAnim.length - 1);
+            }
+        }
+        else if(name == "Boss_Nhang")
+        {
+            if(HP > 0)
+            {
+                bossAnimations.Play(NHANG_DAMAGE);
+            }
+            else
+            {
+                bossAnimations.Play(NHANG_DEATH);
+            }
+        }
+        else if(name == "sandaramet")
+        {
+            if(damageMultiplier != 0)
+            {
+                if (HP > 0)
+                {
+                    if (HP > transformationCutoff)
+                    {
+                        bossAnimations.Play(SANDARAMET_DAMAGE1);
+                    }
+                    else
+                    {
+                        bossAnimations.Play(SANDARAMET_DAMAGE2);
+                    }
+                }
+                else
+                {
+                    bossAnimations.Play(SANDARAMET_DEATH);
+                }
+            }
+        }
+        else if(name == "Dummy")
+        {
+            bossAnimations.Play(DUMMY_DAMAGE);
+        }
+    }
+
+    public void hitTrueDmg(int damage)
+    {
+        float HP;
+        float startHP = healthScript.startingHP;
+        float cutoff = 0.5F;
+        healthScript.hitT(damage);
         HP = healthScript.getHP();
         if(name == "TsovinarFace")
         {
@@ -111,6 +183,6 @@ public class BossHit : MonoBehaviour
         {
             bossAnimations.Play(DUMMY_DAMAGE);
         }
-
     }
+
 }

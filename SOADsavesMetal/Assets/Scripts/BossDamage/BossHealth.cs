@@ -29,6 +29,7 @@ public class BossHealth : MonoBehaviour
     public BossAttackManager<NhangPhase> nhangAttackManager;
     public BossAttackManager<SandarametPhase> sandarametAttackManager;
     public Player player;
+    
 
     AudioSource cheering;
     
@@ -50,7 +51,7 @@ public class BossHealth : MonoBehaviour
         if(temp1)
         {
             agasAttackManager = temp1;
-            currentBoss = 1;
+            currentBoss = 1;   
         }
         BossAttackManager<TsovinarPhase> temp2 = gameObject.GetComponentInChildren<TsovinarAttackManager>();
         if (temp2)
@@ -143,6 +144,34 @@ public class BossHealth : MonoBehaviour
         }
         Debug.Log(HP);
     }
+
+    public void hitT(float damage)
+    {
+        HP -= damage;
+        if(bossHit != null)
+        {
+            FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(bossHit);
+            instance.start();
+        }
+        if(agasAttackManager)
+        {
+            agasAttackManager.bossHit();
+        }
+        else if (tsovinarAttackManager)
+        {
+            tsovinarAttackManager.bossHit();
+        }
+        else if (nhangAttackManager)
+        {
+            nhangAttackManager.bossHit();
+        }
+        else if (sandarametAttackManager)
+        {
+            sandarametAttackManager.bossHit();
+        }
+        Debug.Log(HP);
+    }
+
 
     public void changeMultiplier(float multiplier)
     {

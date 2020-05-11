@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
     public bool deathStarted;
     public bool listeningForDoubleDownTap;
     public bool daronListeningForParry;
+    public bool serjFlightActive;
 
     //Attack state blocker
     public bool blockAttackProgress;
@@ -182,6 +183,7 @@ public class Player : MonoBehaviour
         superBar.maxValue = maxSuperCharge;
         blockNormalJumpAnims = false;
         daronListeningForParry = false;
+        serjFlightActive = false;
         performFriction = false;
 
         sr = GetComponent<SpriteRenderer>();
@@ -310,6 +312,20 @@ public class Player : MonoBehaviour
                 #endregion Attacks
 
                 phm.HandleHorizontalMovement();
+
+                #region Serj flight vertical movement
+                if (serjFlightActive)
+                {
+                    if (Input.GetKey(KeyCode.UpArrow))
+                    {
+                        rb.velocity = new Vector2(rb.velocity.x, maxAirSpeed * 0.85f);
+                    }
+                    else if (Input.GetKey(KeyCode.DownArrow))
+                    {
+                        rb.velocity = new Vector2(rb.velocity.x, -maxAirSpeed * 0.85f);
+                    }
+                }
+                #endregion
 
                 #region Invulnerability Timer Tick
                 if (curInvulnerableTime > 0f)
