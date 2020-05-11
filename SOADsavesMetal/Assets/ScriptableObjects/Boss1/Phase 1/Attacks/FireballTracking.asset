@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FireballTracking
   m_EditorClassIdentifier: 
   duration: 1
-  FireballPrefab: {fileID: 1883100758368052, guid: cc1e07ece144cd241a99931749565888,
+  FireballPrefab: {fileID: 1883100758368052, guid: 7319f21d48234e247a9dd0c1f1172c50,
     type: 3}
   ProjectileSpeed: 3
   ProjectileType: 0

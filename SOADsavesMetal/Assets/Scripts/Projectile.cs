@@ -104,16 +104,7 @@ public class Projectile : MonoBehaviour
 
         switch(pt)
         {
-            case ProjectileType.Linear:
-                rb.gravityScale = 0f;
-                break;
             case ProjectileType.Gravity:
-                rb.gravityScale = 0.24f;
-                rb.velocity += new Vector2(0, 1.2f);
-                break;
-            case ProjectileType.Honing:
-                // Temporary patch
-                rb.gravityScale = 0f;
                 break;
             default:
                 rb.gravityScale = 0f;

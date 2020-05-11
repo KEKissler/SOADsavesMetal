@@ -59,7 +59,6 @@ MonoBehaviour:
   LoadEvent: 1
   UnloadEvent: 2
   Banks:
-  - Music
   - UI
   CollisionTag: 
   PreloadSamples: 0
