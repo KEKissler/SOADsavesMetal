@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9141d41ad91526b46b268ea77425478d, type: 3}
   m_Name: 1stShot
   m_EditorClassIdentifier: 
-  duration: 2
+  duration: 1
   AttackPrefab: {fileID: 1094636117859559870, guid: 2b03fbbe1842b184ca3741582d99f5d7,
     type: 3}
   ProjectileSpeed: 0
