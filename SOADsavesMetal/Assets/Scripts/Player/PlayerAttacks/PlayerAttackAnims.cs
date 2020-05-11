@@ -45,8 +45,8 @@ public class PlayerAttackAnims : MonoBehaviour
         }
         else if (ps.currentBandMember == "Serj")
         {
-            yield return new WaitForSeconds(0.39f);
             ps.PlayAudioEvent(ps.serjShortRange);
+            yield return new WaitForSeconds(0.38f);
         }
         ps.PlayAnims("Idle");
         ps.blockAttackProgress = false;
@@ -68,12 +68,12 @@ public class PlayerAttackAnims : MonoBehaviour
                 ps.playerLowerAnim.Play("ShavoLongLegs");
             }
             ps.PlayAudioEvent(ps.shavoLongRange);
-            yield return new WaitForSeconds(0.27f);
+            yield return new WaitForSeconds(0.4f);
         }
         else if (ps.currentBandMember == "John")
         {
             ps.PlayAudioEvent(ps.johnLongRange);
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.21f);
         }
         else if (ps.currentBandMember == "Daron")
         {
@@ -83,7 +83,7 @@ public class PlayerAttackAnims : MonoBehaviour
                 ps.playerLowerAnim.Play("DaronAttackLegs");
             }
             ps.PlayAudioEvent(ps.daronLongRange);
-            yield return new WaitForSeconds(0.24f);
+            yield return new WaitForSeconds(0.38f);
         }
         else if (ps.currentBandMember == "Serj")
         {
@@ -94,9 +94,8 @@ public class PlayerAttackAnims : MonoBehaviour
                 ps.playerLowerAnim.Play("SerjLongLegs");
             }
             ps.PlayAudioEvent(ps.serjLongRange);
-            yield return new WaitForSeconds(0.48f);
+            yield return new WaitForSeconds(0.56f);
         }
-        yield return new WaitForSeconds(0.07f);
         ps.blockAttackProgress = false;
         ps.attacking = false;
         yield return null;
