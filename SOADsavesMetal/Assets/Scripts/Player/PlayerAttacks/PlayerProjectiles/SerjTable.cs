@@ -31,13 +31,13 @@ public class SerjTable : MonoBehaviour
             if (transform.position.y < 0.1f)
             {
                 speed = 0f;
-                shaker.shake();
+                shaker.shake(0.25f);
                 Destroy(gameObject, 0.75f);
                 rb.velocity = new Vector2(0f, 0f);
                 if (isBigTable)
                 {
                     yield return new WaitForSeconds(0.2f);
-                    shaker.shake();
+                    shaker.shake(0.4f);
                     //yield return new WaitForSeconds(0.2f);
                     //shaker.shake();
                 }

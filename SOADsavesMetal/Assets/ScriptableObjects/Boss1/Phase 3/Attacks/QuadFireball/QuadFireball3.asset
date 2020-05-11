@@ -18,6 +18,6 @@ MonoBehaviour:
   ProjectileSpeed: 3
   ProjectileType: 0
   degreeModifier: 0
-  fixedAngle: 195
+  fixedAngle: 190
   Y_offset: 0
   fireballEvent: event:/Enemy/E_Agas/E_Agas_Shoot
