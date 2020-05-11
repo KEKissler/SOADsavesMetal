@@ -11,6 +11,7 @@ public class NewMoveScript : AgasAttack
     private List<Transform> pathVertices;
     private GameObject agas;
     private float totalDistance;
+    private ScreenShake shake;
 
     public override void Initialize(AgasAttackData data)
     {
@@ -18,6 +19,7 @@ public class NewMoveScript : AgasAttack
         originalPathVertices = data.movePathVertices;
         Transform currentTransform = null;
         totalDistance = 0;
+        shake = Camera.main.GetComponent<ScreenShake>();
 
         foreach (Transform t in originalPathVertices)
         {
@@ -48,14 +50,20 @@ public class NewMoveScript : AgasAttack
         float speed = totalDistance / duration * Time.fixedDeltaTime;
         float movementLeftover = 0;
         Rigidbody2D rb = agas.GetComponent<Rigidbody2D>();
+        int count = 0;
         foreach (Transform t in pathVertices)
         {
             float angle = Mathf.Atan2(t.position.y - agas.transform.position.y, t.position.x - agas.transform.position.x);
 
-            if(movementLeftover > 0)
+            if (movementLeftover > 0)
             {
                 rb.MovePosition(new Vector2(movementLeftover * Mathf.Cos(angle), movementLeftover * Mathf.Sin(angle)));
                 movementLeftover = 0;
+            }
+
+            if (count >= 3 && count <= 5)
+            {
+                shake.shake(0.2f);
             }
 
             while(true)
@@ -73,6 +81,7 @@ public class NewMoveScript : AgasAttack
                     yield return new WaitForFixedUpdate();
                 }
             }
+            ++count;
         }
     }
 

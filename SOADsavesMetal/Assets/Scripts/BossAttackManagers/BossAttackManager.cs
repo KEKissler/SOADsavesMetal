@@ -83,7 +83,7 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
             if (phaseIndex < PhaseChangeThreshholds.Count - 1)
             {
                 phaseIndex++;
-                screenShake.shake();
+                screenShake.shake(0.5f);
                 Debug.Log("The Phase is: " + phase);
                 if (PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart)
                 {

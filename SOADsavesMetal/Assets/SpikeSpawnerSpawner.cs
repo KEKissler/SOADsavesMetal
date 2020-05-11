@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class SpikeSpawnerSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    GameObject toSpawn;
+    
+    public void Spawn()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Instantiate(toSpawn, gameObject.transform.position, gameObject.transform.rotation);
     }
 }

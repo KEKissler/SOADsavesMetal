@@ -23,8 +23,8 @@ public class ScreenShake : MonoBehaviour
         }
     }
 
-    public void shake()
+    public void shake(float intensity)
     {
-        shakeAmount = 0.5f;
+        shakeAmount = intensity;
     }
 }

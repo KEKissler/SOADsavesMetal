@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c67457a00981c41a0038c23e8f2c56, type: 3}
+  m_Name: LeftDecayBallSequence
+  m_EditorClassIdentifier: 
+  duration: 1.5
+  Attacks:
+  - Attack: {fileID: 11400000, guid: e7e3bd4771d139c4886aed34d72427e2, type: 2}
+    duration: 0
+  - Attack: {fileID: 11400000, guid: 3bf82ba79f2930348b2c994801637448, type: 2}
+    duration: 0
+  - Attack: {fileID: 11400000, guid: 548c62ffbf1c31a47b166b0a8fdecc05, type: 2}
+    duration: 0
+  distance: 2
+  timeDown: 0.25
+  timeStay: 0.25
+  timeUp: 0.5
