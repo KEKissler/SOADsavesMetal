@@ -56,7 +56,10 @@ public class NhangHand : MonoBehaviour
 
     public void moveUp()
     {
-        instance.start();
+        if (!Up)
+        {
+            instance.start();
+        }
         Up = true;
         time = Time.time;
     }
