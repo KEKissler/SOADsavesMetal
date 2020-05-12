@@ -52,7 +52,6 @@ public class StaticBeamAttack : TsovinarAttack
     {
         FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(laserEvent);
         instance.start();
-        instance.release();
         var beamObject = Instantiate(BeamPrefab, topMiddle, Quaternion.identity, attackParent).GetComponent<StaticBeamAnimation>();
 
         beamObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 2;

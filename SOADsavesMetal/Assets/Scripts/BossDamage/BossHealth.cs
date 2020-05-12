@@ -41,6 +41,8 @@ public class BossHealth : MonoBehaviour
 
     // Should be accessible but not modifiable directly
     [SerializeField] float HP;
+
+    public MusicSetter music;
     
 
     // Start is called before the first frame update
@@ -95,6 +97,7 @@ public class BossHealth : MonoBehaviour
                 default:
                     break;
             }
+            music.StopMusic();
             SaveSystem.SaveGame();
             StartCoroutine(LoadLevelSelector());
             
