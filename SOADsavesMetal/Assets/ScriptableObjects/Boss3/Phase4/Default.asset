@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackSelectionType: 1
   Attacks:
-  - attack: {fileID: 11400000, guid: ba13f7c423dc1c54e8dd115ae36ea948, type: 2}
-    percentThreshold: 25
-  - attack: {fileID: 11400000, guid: 95b61440967bcd7478421c521270e192, type: 2}
+  - attack: {fileID: 11400000, guid: b803004b591df5a439d49e089b45a043, type: 2}
+    percentThreshold: 40
+  - attack: {fileID: 11400000, guid: 5cec9a5e9e2aaf246a92397359352025, type: 2}
     percentThreshold: 50
   - attack: {fileID: 11400000, guid: e69244b2d3e85494689bcb931663b5dc, type: 2}
-    percentThreshold: 80
-  - attack: {fileID: 11400000, guid: 860ccf5cd05de9648a7e89197325c4c3, type: 2}
+    percentThreshold: 75
+  - attack: {fileID: 11400000, guid: 86ba7dc11774efa439bc629b6a6b5a3c, type: 2}
     percentThreshold: 100

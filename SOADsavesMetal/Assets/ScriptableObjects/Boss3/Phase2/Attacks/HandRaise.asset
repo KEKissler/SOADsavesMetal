@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a1e6d9bec7ee3045bb1a2f189295bb4, type: 3}
-  m_Name: Lunge
+  m_Script: {fileID: 11500000, guid: a19f81f9a57dee2429c160b29003723b, type: 3}
+  m_Name: HandRaise
   m_EditorClassIdentifier: 
-  duration: 4
+  duration: 1

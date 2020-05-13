@@ -29,7 +29,7 @@ public class PlayerProjectile : MonoBehaviour
     {
         if (col.gameObject.tag == "BossHittable")
         {
-            col.gameObject.SendMessage("hit", damage);
+            col.gameObject.SendMessage("hit", damage, SendMessageOptions.DontRequireReceiver);
             Destroy(gameObject, 0.03f);
         }
     }
