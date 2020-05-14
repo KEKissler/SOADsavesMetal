@@ -29,7 +29,7 @@ public class NhangPushHand : NhangAttack
         yield return new WaitForEndOfFrame();
 
         PushScript pushScript = pushHand.GetComponent<PushScript>();
-        if (!pushScript.isPushing)
+        if (!pushScript.isPushing && !pushScript.isAboveGround)
         {
             onLeft = player.transform.position.x < 0;
             pushHand.transform.position = new Vector3(player.transform.position.x + (onLeft ? -2 : 2), pushHand.transform.position.y, pushHand.transform.position.z);

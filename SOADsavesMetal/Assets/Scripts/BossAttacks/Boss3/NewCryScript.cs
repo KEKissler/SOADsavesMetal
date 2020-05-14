@@ -12,6 +12,7 @@ public class NewCryScript : NhangAttack
     [SerializeField] private GameObject prefab;
 
     private Transform attackParent;
+    private BloodRainManager rainManager;
 
     public override void Initialize(NhangAttackData data)
     {
@@ -21,7 +22,10 @@ public class NewCryScript : NhangAttack
     protected override IEnumerator Execute(float duration)
     {
         yield return null;
-        CoroutineRunner.instance.StartCoroutine(cryBlood());
+        GameObject temp = new GameObject();
+        temp.name = "BloodRain Manager";
+        rainManager = temp.AddComponent<BloodRainManager>();
+        rainManager.StartCoroutine(cryBlood());
     }
 
     protected override void OnEnd()

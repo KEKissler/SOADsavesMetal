@@ -13,8 +13,9 @@ public class PushScript : MonoBehaviour
     [SerializeField] float bottomPosition;
 
     public bool isPushing;
+    public bool isAboveGround;
+
     bool goUp;
-    bool Up;
     bool roaming;
     float startXScale;
     private Vector3 startPos;
@@ -70,16 +71,23 @@ public class PushScript : MonoBehaviour
             }
         }
 
-        Debug.Log(gameObject.ToString() + roaming + goUp + isPushing);
+        isAboveGround = false;
 
-        if (((roaming && !goUp) || !(roaming || isPushing)) && transform.position.y > bottomPosition)
+        if (((roaming && (!goUp || ShouldGoDown())) || !(roaming || isPushing)) && transform.position.y > bottomPosition)
         {
             transform.position = transform.position - new Vector3(0, speed, 0);
+            isAboveGround = true;
         }
         else if (((roaming && goUp) || isPushing) && transform.position.y < upPosition)
         {
             transform.position = transform.position + new Vector3(0, speed, 0);
+            isAboveGround = true;
         }
+    }
+
+    private bool ShouldGoDown()
+    {
+        return transform.position.x < -7 || transform.position.x > 4;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

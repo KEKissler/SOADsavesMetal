@@ -16,5 +16,5 @@ MonoBehaviour:
   Attacks:
   - Attack: {fileID: 11400000, guid: 8055c44626659264eacd566839e248f0, type: 2}
     duration: 0
-  - Attack: {fileID: 11400000, guid: 0951e97539ceacc40a6b52eb8f5fbc8f, type: 2}
+  - Attack: {fileID: 11400000, guid: e2c5b9caf6f0240429d864b35769aee8, type: 2}
     duration: 0
