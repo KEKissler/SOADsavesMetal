@@ -6426,6 +6426,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11500000, guid: da7b2d976e23dcf44b74a08740556639, type: 3}
+        m_MethodName: set_name
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Song 4
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!224 &3493856638738131782
@@ -6459,13 +6470,27 @@ GameObject:
   - component: {fileID: 3493856638738131803}
   - component: {fileID: 3493856638738131780}
   - component: {fileID: 3493856638738131781}
+  - component: {fileID: 3493856638738131784}
   m_Layer: 5
-  m_Name: ButtonSong4
+  m_Name: Song 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3493856638738131784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493856638738131783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151dc68ed7d71fc4c89c2d7f29d2d902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 3493856638738131781}
 --- !u!222 &3493856638738131803
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6547,13 +6572,27 @@ GameObject:
   - component: {fileID: 3493856639879352781}
   - component: {fileID: 3493856639879352782}
   - component: {fileID: 3493856639879352783}
+  - component: {fileID: 3493856639879352778}
   m_Layer: 5
-  m_Name: ButtonSong2
+  m_Name: Song 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3493856639879352778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493856639879352777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151dc68ed7d71fc4c89c2d7f29d2d902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 3493856639879352783}
 --- !u!222 &3493856639879352781
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6653,6 +6692,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11500000, guid: da7b2d976e23dcf44b74a08740556639, type: 3}
+        m_MethodName: set_name
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Song 2
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &3493856639903353368
@@ -6717,6 +6767,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11500000, guid: da7b2d976e23dcf44b74a08740556639, type: 3}
+        m_MethodName: set_name
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Song 3
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!224 &3493856639903353369
@@ -6750,13 +6811,27 @@ GameObject:
   - component: {fileID: 3493856639903353374}
   - component: {fileID: 3493856639903353375}
   - component: {fileID: 3493856639903353368}
+  - component: {fileID: 3493856639903353371}
   m_Layer: 5
-  m_Name: ButtonSong3
+  m_Name: Song 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3493856639903353371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493856639903353370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151dc68ed7d71fc4c89c2d7f29d2d902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 3493856639903353368}
 --- !u!222 &3493856639903353374
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7018,7 +7093,7 @@ GameObject:
   - component: {fileID: 3493856640248152837}
   - component: {fileID: 3493856640248152838}
   m_Layer: 5
-  m_Name: ButtonSong1
+  m_Name: Song 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7121,6 +7196,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11500000, guid: da7b2d976e23dcf44b74a08740556639, type: 3}
+        m_MethodName: set_name
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Song 1
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,

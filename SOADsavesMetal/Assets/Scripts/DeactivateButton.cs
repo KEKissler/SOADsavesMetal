@@ -49,6 +49,18 @@ public class DeactivateButton : MonoBehaviour
                     if (allTrue(StaticData.serjUnlock))
                         button.interactable = true;
                     break;
+                case "Song 2":
+                    if (allTrue(StaticData.shavoUnlock))
+                        button.interactable = true;
+                    break;
+                case "Song 3":
+                    if (allTrue(StaticData.daronUnlock))
+                        button.interactable = true;
+                    break;
+                case "Song 4":
+                    if (allTrue(StaticData.serjUnlock))
+                        button.interactable = true;
+                    break;
                 default:
                     button.interactable = true;
                     break;
