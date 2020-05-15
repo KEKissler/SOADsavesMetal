@@ -6471,6 +6471,8 @@ GameObject:
   - component: {fileID: 3493856638738131780}
   - component: {fileID: 3493856638738131781}
   - component: {fileID: 3493856638738131784}
+  - component: {fileID: 3493856638738131785}
+  - component: {fileID: 3493856638738131786}
   m_Layer: 5
   m_Name: Song 4
   m_TagString: Untagged
@@ -6491,6 +6493,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 3493856638738131781}
+--- !u!114 &3493856638738131785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493856638738131783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3493856638738131786}
+          m_MethodName: PlayErrorWithContext
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
+--- !u!114 &3493856638738131786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493856638738131783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ea3f71ad5430941a0f8aa5ae193f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 3493856638738131781}
+  audio: {fileID: 1772920229}
 --- !u!222 &3493856638738131803
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6573,6 +6620,8 @@ GameObject:
   - component: {fileID: 3493856639879352782}
   - component: {fileID: 3493856639879352783}
   - component: {fileID: 3493856639879352778}
+  - component: {fileID: 3493856639879352779}
+  - component: {fileID: 3493856639879352780}
   m_Layer: 5
   m_Name: Song 2
   m_TagString: Untagged
@@ -6593,6 +6642,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 3493856639879352783}
+--- !u!114 &3493856639879352779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493856639879352777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3493856639879352780}
+          m_MethodName: PlayErrorWithContext
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
+--- !u!114 &3493856639879352780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493856639879352777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ea3f71ad5430941a0f8aa5ae193f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 3493856639879352783}
+  audio: {fileID: 1772920229}
 --- !u!222 &3493856639879352781
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6812,6 +6906,8 @@ GameObject:
   - component: {fileID: 3493856639903353375}
   - component: {fileID: 3493856639903353368}
   - component: {fileID: 3493856639903353371}
+  - component: {fileID: 3493856639903353372}
+  - component: {fileID: 3493856639903353373}
   m_Layer: 5
   m_Name: Song 3
   m_TagString: Untagged
@@ -6832,6 +6928,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 3493856639903353368}
+--- !u!114 &3493856639903353372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493856639903353370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3493856639903353373}
+          m_MethodName: PlayErrorWithContext
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
+--- !u!114 &3493856639903353373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493856639903353370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ea3f71ad5430941a0f8aa5ae193f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 3493856639903353368}
+  audio: {fileID: 1772920229}
 --- !u!222 &3493856639903353374
 CanvasRenderer:
   m_ObjectHideFlags: 0
