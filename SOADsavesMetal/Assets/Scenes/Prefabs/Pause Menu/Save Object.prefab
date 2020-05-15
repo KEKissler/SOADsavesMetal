@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7b2d976e23dcf44b74a08740556639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FadeOutAnim: {fileID: 7400000, guid: 1536b87bd8d73b6489b7f303fe2d9775, type: 2}
+  FadeInAnim: {fileID: 7400000, guid: 78ce0a957a333ab4cad8aa3fb33616b5, type: 2}
+  changeCharacter: 1

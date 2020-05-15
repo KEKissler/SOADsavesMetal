@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class StaticData: MonoBehaviour
 {
+    public AnimationClip FadeOutAnim;
+    public AnimationClip FadeInAnim;
+
     static public string playerSelected = "";
     static public string levelSelect = "";
     static public SpriteRenderer selectedCharacter;
@@ -38,12 +41,34 @@ public class StaticData: MonoBehaviour
 
     public void loadLevel() //loads the selected level
     {
+        StartCoroutine(loadLevelFade());
+        /*SceneManager.LoadScene(levelSelect);*/
+    }
+
+    IEnumerator loadLevelFade()
+    {
+        if (!SceneManager.GetActiveScene().Equals("Main Menu") && !levelSelect.Equals("Main Menu"))
+        {
+            yield return new WaitForSeconds(FadeOutAnim.length);
+            Debug.Log("Am I here?");
+        }
         SceneManager.LoadScene(levelSelect);
+    }
+
+    IEnumerator loadLevelFade(string sceneName)
+    {
+        if (!SceneManager.GetActiveScene().Equals("Main Menu") && !sceneName.Equals("Main Menu"))
+        {
+            yield return new WaitForSeconds(FadeOutAnim.length);
+            Debug.Log("Am I here?");
+        }
+        SceneManager.LoadScene(sceneName);
     }
 
     public void loadLevel(string sceneName) //loads a level by name
     {
-        SceneManager.LoadScene(sceneName);
+        Debug.Log("Am I here?");
+        StartCoroutine(loadLevelFade(sceneName));
     }
 
     public void reloadLevel()
@@ -83,7 +108,6 @@ public class StaticData: MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("I RUN");
         if(changeCharacter)
         {
             Player playerScript = FindObjectOfType<Player>(); //gets Player component

@@ -8,6 +8,8 @@ public class Fading : MonoBehaviour
 
     public Image fadeImage;
     public float fadeStrength;
+    public Animation fadeInAnim;
+    public Animation fadeOutAnim;
     IEnumerator fadeIn()
     {
         float alpha = 0f;

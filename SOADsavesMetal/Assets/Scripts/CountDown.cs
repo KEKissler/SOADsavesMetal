@@ -7,6 +7,7 @@ public class CountDown : MonoBehaviour
 {
     public Text text;
     private bool countDownRunning = false;
+    public AnimationClip FadeInAnim;
 
     //Only use a singular instance for countdown object
     public FMOD.Studio.EventInstance instance;
@@ -27,7 +28,9 @@ public class CountDown : MonoBehaviour
 
     public IEnumerator countDown()
     {
+        
         countDownRunning = true;
+        yield return new WaitForSecondsRealtime(FadeInAnim.length);
         yield return new WaitForSecondsRealtime(.1f);
         Time.timeScale = 0f;
         text.text = "3";
