@@ -8,6 +8,7 @@ public class GameplayPause : MonoBehaviour
     private float currentScale;
     public GameObject pauseMenu;
     public GameObject controlsScreen;
+    public GameObject optionsScreen;
     public CountDown countDown;
     public Player player;
 
@@ -83,6 +84,7 @@ public class GameplayPause : MonoBehaviour
         paused = false;
         pauseMenu.SetActive(false);
         controlsScreen.SetActive(false);
+        optionsScreen.SetActive(false);
         pauseEffect.setParameterByName("PauseMuteIntensity", 0);
         FMOD.Studio.EventInstance resumeSoundInstance = FMODUnity.RuntimeManager.CreateInstance(resumeSound);
         resumeSoundInstance.start();
