@@ -67,7 +67,6 @@ public class StaticData: MonoBehaviour
 
     public void loadLevel(string sceneName) //loads a level by name
     {
-        Debug.Log("Am I here?");
         StartCoroutine(loadLevelFade(sceneName));
     }
 
