@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee4057deb479dc742ac4c0e9862d7f1d, type: 3}
-  m_Name: Default4
+  m_Script: {fileID: 11500000, guid: a056e4f8ad4186d4d92d51a1950bb949, type: 3}
+  m_Name: New Spawn Stalactite
   m_EditorClassIdentifier: 
-  AttackSelectionType: 1
-  Attacks:
-  - attack: {fileID: 11400000, guid: 22867f92a836a9149998183d386a6c72, type: 2}
-    percentThreshold: 0
+  duration: 0

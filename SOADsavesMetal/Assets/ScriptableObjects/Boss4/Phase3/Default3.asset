@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Default3
   m_EditorClassIdentifier: 
   AttackSelectionType: 1
-  Attacks: []
+  Attacks:
+  - attack: {fileID: 11400000, guid: d60553c9469b9564f9a2f8d2e0f6121d, type: 2}
+    percentThreshold: 0

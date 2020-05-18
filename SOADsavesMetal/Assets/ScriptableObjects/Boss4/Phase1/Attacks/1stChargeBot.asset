@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9141d41ad91526b46b268ea77425478d, type: 3}
   m_Name: 1stChargeBot
   m_EditorClassIdentifier: 
-  duration: 1
+  duration: 0.5
   AttackPrefab: {fileID: 933048218820041064, guid: 834132926d8552c46b70a52e4d11f756,
     type: 3}
-  ProjectileSpeed: 2
+  ProjectileSpeed: 3
   ProjectileType: 1
-  angle: 170
+  angle: 160
   Y_offset: -4

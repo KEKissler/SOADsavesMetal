@@ -144,5 +144,5 @@ MonoBehaviour:
   longwaitTime: 1.5
   shortWaitTime: 0.5
   shot: {fileID: 1883100758368052, guid: cc1e07ece144cd241a99931749565888, type: 3}
-  ProjectileSpeed: 1
+  ProjectileSpeed: 3
   ProjectileType: 0

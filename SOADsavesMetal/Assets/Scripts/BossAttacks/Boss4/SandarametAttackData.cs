@@ -18,4 +18,6 @@ public class SandarametAttackData
     public Collider2D screenBottom;
     public Animator animator;
     public AnimationClip transformationAnim;
+    [SerializeField]
+    public GameObject SpikeSpawnerSpawner;
 }

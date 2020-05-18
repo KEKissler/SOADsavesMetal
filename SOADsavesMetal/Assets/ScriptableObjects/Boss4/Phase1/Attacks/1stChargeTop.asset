@@ -15,7 +15,7 @@ MonoBehaviour:
   duration: 0.5
   AttackPrefab: {fileID: 933048218820041064, guid: 834132926d8552c46b70a52e4d11f756,
     type: 3}
-  ProjectileSpeed: 2
+  ProjectileSpeed: 4
   ProjectileType: 1
-  angle: 170
+  angle: 140
   Y_offset: 0.5

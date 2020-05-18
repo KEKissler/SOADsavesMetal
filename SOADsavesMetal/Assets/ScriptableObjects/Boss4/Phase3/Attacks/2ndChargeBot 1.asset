@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee4057deb479dc742ac4c0e9862d7f1d, type: 3}
-  m_Name: Default4
+  m_Script: {fileID: 11500000, guid: 9141d41ad91526b46b268ea77425478d, type: 3}
+  m_Name: 2ndChargeBot 1
   m_EditorClassIdentifier: 
-  AttackSelectionType: 1
-  Attacks:
-  - attack: {fileID: 11400000, guid: 22867f92a836a9149998183d386a6c72, type: 2}
-    percentThreshold: 0
+  duration: 0.5
+  AttackPrefab: {fileID: 6821792994629316775, guid: d38d0bd953aa91440bbb871cd2734684,
+    type: 3}
+  ProjectileSpeed: 3
+  ProjectileType: 1
+  angle: 160
+  Y_offset: -4
