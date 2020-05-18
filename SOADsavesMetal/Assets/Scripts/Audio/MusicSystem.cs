@@ -7,6 +7,17 @@ public class MusicSystem : MonoBehaviour
 {
     public static MusicSystem instance;
 
+    //I am doing a real bad here because I really should be using a diff class to store these
+    //These values will store the settings from the panel
+    public float MasterVolume;
+    public float MusicVolume;
+    public float SFXVolume;
+
+    public FMOD.Studio.Bus Music;
+    public FMOD.Studio.Bus SFX;
+    public FMOD.Studio.Bus Master;
+
+    [Header("Music System Settings")]
     //Keep the bank loaded throughout all scenes
     [FMODUnity.BankRef]
     public string musicBank;
@@ -31,6 +42,15 @@ public class MusicSystem : MonoBehaviour
         instance = this;
         FMODUnity.RuntimeManager.LoadBank(musicBank);
         currentMusicIndex = 0;
+        MasterVolume = 1f;
+        MusicVolume = .5f;
+        SFXVolume = .5f;
+        Music = FMODUnity.RuntimeManager.GetBus("bus:/MASTER/MUS");
+        SFX = FMODUnity.RuntimeManager.GetBus("bus:/MASTER/SFX");
+        Master = FMODUnity.RuntimeManager.GetBus("bus:/MASTER");
+        Music.setVolume(MusicVolume);
+        SFX.setVolume(SFXVolume);
+        Master.setVolume(MasterVolume);
     }
 
     public void ChangeMusic(int index)

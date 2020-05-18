@@ -1459,13 +1459,14 @@ GameObject:
   - component: {fileID: 8940701294730291735}
   - component: {fileID: 8940701294730291737}
   - component: {fileID: 8940701294730291734}
+  - component: {fileID: 1068526002613393323}
   m_Layer: 5
   m_Name: Audio Settings Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8940701294730291735
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1523,6 +1524,21 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 1
+--- !u!114 &1068526002613393323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8940701294730291732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11951ac96129bd1438161fd73224fe32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterSlider: {fileID: 4059499307086413107}
+  musicSlider: {fileID: 4059499308155358917}
+  sfxSlider: {fileID: 4059499307039196549}
 --- !u!1 &8940701295562261257
 GameObject:
   m_ObjectHideFlags: 0
