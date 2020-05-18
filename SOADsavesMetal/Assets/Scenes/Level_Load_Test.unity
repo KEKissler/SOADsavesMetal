@@ -3617,7 +3617,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: Level3_Test
+          m_StringArgument: Level2_Test
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1034133088}
@@ -3628,7 +3628,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 3
+          m_StringArgument: Level 2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1305956303}
@@ -3708,7 +3708,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300016, guid: 6cb889a9031c49248aff79d94a5acca9, type: 3}
+  m_Sprite: {fileID: 21300014, guid: 6cb889a9031c49248aff79d94a5acca9, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4130,6 +4130,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FadeCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069514375013134480, guid: 9c6c25a1fc321be47a0c51fe0b18b8fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3305532287042616861, guid: 9c6c25a1fc321be47a0c51fe0b18b8fd,
         type: 3}
@@ -4575,8 +4580,8 @@ MonoBehaviour:
   - {fileID: 21300006, guid: 3a71b613b9e6166498fd5ae714e32cef, type: 3}
   bosses:
   - {fileID: 958827948}
-  - {fileID: 252950556}
   - {fileID: 905010643}
+  - {fileID: 252950556}
   - {fileID: 100541203}
   FightButton: {fileID: 176599226}
 --- !u!4 &1305956304
@@ -5783,7 +5788,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: Level2_Test
+          m_StringArgument: Level3_Test
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1034133088}
@@ -5794,7 +5799,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 2
+          m_StringArgument: Level 3
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1305956303}
@@ -5874,7 +5879,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300014, guid: 6cb889a9031c49248aff79d94a5acca9, type: 3}
+  m_Sprite: {fileID: 21300016, guid: 6cb889a9031c49248aff79d94a5acca9, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6510,7 +6515,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 1
+  m_UseSpriteMesh: 0
 --- !u!114 &3493856638738131781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6553,11 +6558,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3493856640174679075}
         m_MethodName: Play
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: KnobAnimation3
           m_BoolArgument: 0
@@ -6755,7 +6760,7 @@ RectTransform:
   m_GameObject: {fileID: 3493856639879352777}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6686992, y: 0.79844683, z: 0.79844683}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 3493856638944938851}
   m_RootOrder: 2
@@ -6763,7 +6768,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -412, y: -56.39}
-  m_SizeDelta: {x: 259.04, y: 30}
+  m_SizeDelta: {x: 181, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3493856639879352777
 GameObject:
@@ -6873,7 +6878,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300038, guid: d753f06418205f449a482dd90a14c862, type: 3}
+  m_Sprite: {fileID: 21300040, guid: d753f06418205f449a482dd90a14c862, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6881,7 +6886,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 1
+  m_UseSpriteMesh: 0
 --- !u!114 &3493856639879352783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6924,13 +6929,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3493856640174679075}
         m_MethodName: Play
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: KnobAnimation1
+          m_StringArgument: KnobAnimation2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1772920229}
@@ -6952,7 +6957,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Song 2
+          m_StringArgument: Song 3
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1736597928}
@@ -7010,11 +7015,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3493856640174679075}
         m_MethodName: Play
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: KnobAnimation2
           m_BoolArgument: 0
@@ -7038,7 +7043,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Song 3
+          m_StringArgument: Song 2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1736597928}
@@ -7063,7 +7068,7 @@ RectTransform:
   m_GameObject: {fileID: 3493856639903353370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.79844683, y: 0.79844683, z: 0.79844683}
+  m_LocalScale: {x: 0.66, y: 0.66, z: 0.66}
   m_Children: []
   m_Father: {fileID: 3493856638944938851}
   m_RootOrder: 3
@@ -7071,7 +7076,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -191, y: -58}
-  m_SizeDelta: {x: 181, y: 30}
+  m_SizeDelta: {x: 259.04, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3493856639903353370
 GameObject:
@@ -7181,7 +7186,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300040, guid: d753f06418205f449a482dd90a14c862, type: 3}
+  m_Sprite: {fileID: 21300038, guid: d753f06418205f449a482dd90a14c862, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7189,7 +7194,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 1
+  m_UseSpriteMesh: 0
 --- !u!224 &3493856640001009552
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7285,8 +7290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7353,7 +7358,7 @@ Animator:
   m_GameObject: {fileID: 3493856640174679085}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 677abbfb43aed9b46a6cc84539fc11c3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 54cd4b6e5e3ff0b489b11dd04fb22370, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7456,7 +7461,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 1
+  m_UseSpriteMesh: 0
 --- !u!114 &3493856640248152838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7499,7 +7504,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3493856640174679075}
         m_MethodName: Play
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

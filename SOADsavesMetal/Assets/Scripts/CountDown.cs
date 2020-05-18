@@ -9,6 +9,8 @@ public class CountDown : MonoBehaviour
     private bool countDownRunning = false;
     public AnimationClip FadeInAnim;
 
+    public Animator Fader;
+
     //Only use a singular instance for countdown object
     public FMOD.Studio.EventInstance instance;
     [FMODUnity.EventRef]
@@ -25,6 +27,13 @@ public class CountDown : MonoBehaviour
     {
         return countDownRunning;
     }
+
+    /*public bool isFading()
+    {
+        if (Fader.GetCurrentAnimatorStateInfo(0).IsName("FadeInAnim") || Fader.GetCurrentAnimatorStateInfo(2).IsName("FadeOutAnim"))
+            return true;
+        return false;
+    }*/
 
     public IEnumerator countDown()
     {
