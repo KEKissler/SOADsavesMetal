@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c1756c819944341826874cff33cbc0, type: 3}
+  m_Name: Advanced Tri Beam
+  m_EditorClassIdentifier: 
+  duration: 0.5
+  Attacks:
+  - Attack: {fileID: 11400000, guid: 09b309e73025b1d4389ee8d14a7af82a, type: 2}
+    duration: 0.1
+  - Attack: {fileID: 11400000, guid: 09b309e73025b1d4389ee8d14a7af82a, type: 2}
+    duration: 0.1
+  - Attack: {fileID: 11400000, guid: 09b309e73025b1d4389ee8d14a7af82a, type: 2}
+    duration: 0.1

@@ -76,7 +76,7 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
 
     public void bossHit()
     {
-        Debug.Log("The Phase is: " + phase);
+        //Debug.Log("The Phase is: " + phase);
         //if new phase condition reached, switch phase (or announce end of final phase)
         if (BossHealth.getHPPercentage() <= PhaseChangeThreshholds[phaseIndex].HealthPercentThreshhold)
         {

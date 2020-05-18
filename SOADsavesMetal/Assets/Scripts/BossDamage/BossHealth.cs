@@ -22,6 +22,9 @@ public struct Phase
 public class BossHealth : MonoBehaviour
 {
     // Public
+    public AnimationClip deathAnim;
+    public AnimationClip fadeOut;
+    public Animator fader;
     public float startingHP = 200f;
     public float damageMultiplier = 1f;
     public BossAttackManager<AgasPhase> agasAttackManager;
@@ -29,6 +32,8 @@ public class BossHealth : MonoBehaviour
     public BossAttackManager<NhangPhase> nhangAttackManager;
     public BossAttackManager<SandarametPhase> sandarametAttackManager;
     public Player player;
+
+    public SpriteRenderer enemyGameObject;
     
 
     AudioSource cheering;
@@ -97,6 +102,7 @@ public class BossHealth : MonoBehaviour
                 default:
                     break;
             }
+
             music.StopMusic();
             SaveSystem.SaveGame();
             StartCoroutine(LoadLevelSelector());
@@ -108,13 +114,14 @@ public class BossHealth : MonoBehaviour
     IEnumerator LoadLevelSelector()
     {
         
-        yield return new WaitForSeconds(5);
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level_Load_Test");
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-
+        yield return new WaitForSecondsRealtime(deathAnim.length-2);
+        //enemyGameObject.enabled = false;
+        fader.SetBool("Fade", true);
+        
+        yield return new WaitForSecondsRealtime(1.0f);
+        Debug.Log("DaFuk?");
+        SceneManager.LoadScene("Level_Load_Test");
+        
     }
     public bool isDead()
     {

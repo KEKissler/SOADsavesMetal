@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822ffd2f172712d4f802e405e66f342f, type: 3}
   m_Name: Nhang Push Hand
   m_EditorClassIdentifier: 
-  duration: 0
-  speed: 0.05
+  duration: 1
   groundShake: event:/Enemy/E_Nhang/E_Nhang_HandAttack
+  speed: 0.05
+  pushDuration: 1.5

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a1e6d9bec7ee3045bb1a2f189295bb4, type: 3}
   m_Name: Lunge
   m_EditorClassIdentifier: 
-  duration: 3
+  duration: 4

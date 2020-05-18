@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a056e4f8ad4186d4d92d51a1950bb949, type: 3}
   m_Name: New Spawn Stalactite
   m_EditorClassIdentifier: 
-  duration: 0
+  duration: 0.5
