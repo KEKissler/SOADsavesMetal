@@ -232,7 +232,7 @@ public class Player : MonoBehaviour
         //Debug.Log("inair " + inAir);
         //stops player from being able to move if in pause or countdown
 
-        if ((countDown == null || !countDown.getCountDown()) && (gameplayPause == null || !gameplayPause.getPaused()))
+        if ((countDown == null || !countDown.getCountDown()) && (gameplayPause == null || !gameplayPause.getPaused()) /*&& (!countDown.isFading())*/)
         {
             if (!Dead)
             {
@@ -346,9 +346,13 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        else
+        else if(!Dead)
         {
             PlayAnims("Idle");
+        }
+        else
+        {
+            PlayAnims("Death");
         }
     }
 
