@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59b4f3ea6fff6f84686dd9af53b19f1f, type: 3}
-  m_Name: 2ndChargeSummons 1
+  m_Name: 2ndChargeSummons 2
   m_EditorClassIdentifier: 
   duration: 0
   Attacks:

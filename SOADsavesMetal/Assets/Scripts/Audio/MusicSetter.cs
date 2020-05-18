@@ -40,4 +40,8 @@ public class MusicSetter : MonoBehaviour
     {
         MusicSystem.instance.StopMusic();
     }
+    public void QueueBattleMusic(int track)
+    {
+        MusicSystem.instance.trackSelectIndex = track;
+    }
 }
