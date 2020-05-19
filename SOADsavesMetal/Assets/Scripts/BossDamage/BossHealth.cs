@@ -64,13 +64,13 @@ public class BossHealth : MonoBehaviour
         if (temp2)
         {
             tsovinarAttackManager = temp2;
-            currentBoss = 2;
+            currentBoss = 3;
         }
         BossAttackManager<NhangPhase> temp3 = gameObject.GetComponentInChildren<NhangAttackManager>();
         if (temp3)
         {
             nhangAttackManager = temp3;
-            currentBoss = 3;
+            currentBoss = 2;
         }
         BossAttackManager<SandarametPhase> temp4 = gameObject.GetComponentInChildren<SandarametAttackManager>();
         if (temp4)
