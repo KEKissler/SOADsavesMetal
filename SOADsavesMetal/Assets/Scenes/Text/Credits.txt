@@ -5,8 +5,7 @@ Programmers:
 Christopher Dipalma (Character Lead)
 Ulises Perez
 Kyle Kissler (Boss Lead)
-Keegan Fredrick
-
+Keegan Frederick
 
 Gameplay Designers:
 Luke Miller
@@ -14,7 +13,7 @@ Chase Taylor
 
 UI and Systems Designers:
 Victoria Barinova 
-Keegan Fredrick
+Keegan Frederick
 Oscar Diaz
 
 Artists:
