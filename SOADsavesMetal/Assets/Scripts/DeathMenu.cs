@@ -51,10 +51,6 @@ public class DeathMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
     }
-    private void Update()
-    {
-
-    }
 
     public void deathMenuPop()
     {
@@ -71,5 +67,13 @@ public class DeathMenu : MonoBehaviour
         {
             deathEffect.setParameterByName("PauseMuteIntensity", 1);
         }
+    }
+
+    public void UnPause()
+    {
+        Time.timeScale = currentScale;
+        paused = false;
+        deathMenu.SetActive(false);
+        
     }
 }
