@@ -28,12 +28,12 @@ public class CountDown : MonoBehaviour
         return countDownRunning;
     }
 
-    /*public bool isFading()
+    public bool isFading()
     {
-        if (Fader.GetCurrentAnimatorStateInfo(0).IsName("FadeInAnim") || Fader.GetCurrentAnimatorStateInfo(2).IsName("FadeOutAnim"))
+        if (Fader.GetCurrentAnimatorStateInfo(0).IsName("FadeOutAnim"))
             return true;
         return false;
-    }*/
+    }
 
     public IEnumerator countDown()
     {
