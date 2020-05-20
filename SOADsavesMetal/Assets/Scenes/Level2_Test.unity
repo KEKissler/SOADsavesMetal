@@ -456,6 +456,11 @@ PrefabInstance:
       propertyPath: FadeInAnim
       value: 
       objectReference: {fileID: 7400000, guid: 78ce0a957a333ab4cad8aa3fb33616b5, type: 2}
+    - target: {fileID: 8101416517323360479, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+        type: 3}
+      propertyPath: Fader
+      value: 
+      objectReference: {fileID: 390642333}
     - target: {fileID: 5119586942618362851, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
       propertyPath: player
