@@ -115,12 +115,18 @@ public class BossHealth : MonoBehaviour
     {
         
         yield return new WaitForSecondsRealtime(deathAnim.length-2);
-        //enemyGameObject.enabled = false;
         fader.SetBool("Fade", true);
         
         yield return new WaitForSecondsRealtime(1.0f);
-        Debug.Log("DaFuk?");
-        SceneManager.LoadScene("Level_Load_Test");
+
+        if (currentBoss == 4 && StaticData.firstPlay.Equals(true))
+        {
+            Debug.Log("I got here");
+            SceneManager.LoadScene("EndingSequence");
+            StaticData.firstPlay = false;
+        }
+        else
+            SceneManager.LoadScene("Level_Load_Test");
         
     }
     public bool isDead()

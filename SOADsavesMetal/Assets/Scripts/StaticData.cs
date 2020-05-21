@@ -12,10 +12,12 @@ public class StaticData: MonoBehaviour
     static public string levelSelect = "";
     static public SpriteRenderer selectedCharacter;
     static public bool firstLoad = true;
+    static public bool firstPlay = true;
     static public bool[] characterUnlocks = {false, false, false};
     static public bool[] shavoUnlock = {false, false};
     static public bool[] daronUnlock = {false, false};
     static public bool[] serjUnlock = {false, false, false};
+    
 
     [SerializeField] bool changeCharacter = true;
 
@@ -86,6 +88,7 @@ public class StaticData: MonoBehaviour
     {
         SaveData data = SaveSystem.LoadGame();
         firstLoad = data.firstLoad;
+        firstPlay = data.firstPlay;
         characterUnlocks = data.characterUnlocks;
         shavoUnlock = data.shavoUnlock;
         daronUnlock = data.daronUnlock;

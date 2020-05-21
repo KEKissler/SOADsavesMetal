@@ -6,6 +6,7 @@ using UnityEngine;
 public class SaveData
 {
     public bool firstLoad;
+    public bool firstPlay;
     public bool[] characterUnlocks;
     public bool[] shavoUnlock;
     public bool[] daronUnlock;
@@ -14,6 +15,7 @@ public class SaveData
     public SaveData ()
     {
         firstLoad = StaticData.firstLoad;
+        firstPlay = StaticData.firstPlay;
         characterUnlocks = StaticData.characterUnlocks;
         shavoUnlock = StaticData.shavoUnlock;
         daronUnlock = StaticData.daronUnlock;
