@@ -10,6 +10,7 @@ public class StaticData: MonoBehaviour
 
     static public string playerSelected = "";
     static public string levelSelect = "";
+    static public int controlScheme = 0;
     static public SpriteRenderer selectedCharacter;
     static public bool firstLoad = true;
     static public bool firstPlay = true;
@@ -76,6 +77,11 @@ public class StaticData: MonoBehaviour
     {
         SaveGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void setControlScheme(int newControlScheme)
+    {
+        controlScheme = newControlScheme;
     }
 
     public void SaveGame() //saves current static data

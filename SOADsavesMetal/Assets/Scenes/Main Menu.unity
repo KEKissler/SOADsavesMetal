@@ -1542,6 +1542,7 @@ GameObject:
   - component: {fileID: 1026283099}
   - component: {fileID: 1026283101}
   - component: {fileID: 1026283100}
+  - component: {fileID: 1026283102}
   m_Layer: 5
   m_Name: Controls Image
   m_TagString: Untagged
@@ -1588,7 +1589,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 27410b5e5937dd84f86c0c1aa6947742, type: 3}
+  m_Texture: {fileID: 2800000, guid: 2a1f5137f131fd94d9a80f1efe64da77, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1603,6 +1604,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1026283098}
   m_CullTransparentMesh: 0
+--- !u!114 &1026283102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026283098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f7df601d2de2a4ba5e23bf3b32056e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowControls: {fileID: 2800000, guid: 2a1f5137f131fd94d9a80f1efe64da77, type: 3}
+  wasdControls: {fileID: 2800000, guid: a577a8f2ee31b3f49909f441d2acb394, type: 3}
+  controllerControls: {fileID: 2800000, guid: e902bb7bcc301da40ae9dedca55a23ce, type: 3}
+  currentControlImg: {fileID: 1026283100}
 --- !u!1 &1135842710
 GameObject:
   m_ObjectHideFlags: 0
