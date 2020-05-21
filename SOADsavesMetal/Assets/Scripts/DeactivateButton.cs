@@ -61,6 +61,10 @@ public class DeactivateButton : MonoBehaviour
                     if (allTrue(StaticData.serjUnlock))
                         button.interactable = true;
                     break;
+                case "End_Scene":
+                    if (!StaticData.firstPlay)
+                        button.interactable = true;
+                    break;
                 default:
                     button.interactable = true;
                     break;

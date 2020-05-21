@@ -3839,7 +3839,7 @@ MonoBehaviour:
   deathAnim: {fileID: 7400000, guid: 43a5ba77e1a29fb45aa77e94b7925864, type: 2}
   fadeOut: {fileID: 7400000, guid: 1536b87bd8d73b6489b7f303fe2d9775, type: 2}
   fader: {fileID: 1984526877}
-  startingHP: 300
+  startingHP: 1
   damageMultiplier: 1
   player: {fileID: 1105088042}
   enemyGameObject: {fileID: 1539245689}
