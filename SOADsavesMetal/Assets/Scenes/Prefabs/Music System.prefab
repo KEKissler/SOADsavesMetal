@@ -43,6 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac35fcebde3132c4dbab74e8b31823bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MasterVolume: 0
+  MusicVolume: 0
+  SFXVolume: 0
   musicBank: Music
   musicEvents:
   - event:/Music/M_MainMenu

@@ -79,11 +79,11 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         {
             yield return base.Execute(duration);
         }
-        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
     protected override void OnEnd()
     {
         End();
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     public void End()
