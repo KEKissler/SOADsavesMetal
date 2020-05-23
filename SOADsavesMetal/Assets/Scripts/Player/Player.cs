@@ -86,6 +86,9 @@ public class Player : MonoBehaviour
     public string playerHit;
     [FMODUnity.EventRef]
     public string playerDeath;
+    [FMODUnity.EventRef]
+    public string playerSuperReady;
+
 
     [Header("John Events")]
     [FMODUnity.EventRef]

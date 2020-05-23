@@ -2782,6 +2782,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43, type: 3}
+--- !u!114 &1365414059 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2553096693110458400, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+    type: 3}
+  m_PrefabInstance: {fileID: 1365414058}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13e00248aea8e6418b2447dc3c16955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1398045885
 GameObject:
   m_ObjectHideFlags: 0
@@ -3599,7 +3611,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1365414059}
         m_MethodName: StopMusic
         m_Mode: 1
         m_Arguments:

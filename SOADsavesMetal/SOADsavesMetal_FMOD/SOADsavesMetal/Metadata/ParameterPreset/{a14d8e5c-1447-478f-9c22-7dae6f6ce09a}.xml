@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{a14d8e5c-1447-478f-9c22-7dae6f6ce09a}">
+		<property name="name">
+			<value>SuperReady</value>
+		</property>
+		<relationship name="folder">
+			<destination>{fce644a8-dcfd-472a-b600-5841f345ce8f}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{bcafe11b-374f-4ae8-a4fb-e5f6f398c0e8}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{bcafe11b-374f-4ae8-a4fb-e5f6f398c0e8}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
