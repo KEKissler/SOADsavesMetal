@@ -68,7 +68,7 @@ public class MusicSystem : MonoBehaviour
             FMOD.RESULT res = currentMusic.getPlaybackState(out state);
             if (res == FMOD.RESULT.OK && state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
             {
-                currentMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                currentMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             }
         }
     }

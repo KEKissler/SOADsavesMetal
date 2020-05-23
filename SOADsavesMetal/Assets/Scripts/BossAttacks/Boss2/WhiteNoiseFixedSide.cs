@@ -14,4 +14,8 @@ public class WhiteNoiseFixedSide : WhiteNoiseAttack
         antennaWatcherScript.whiteNoise = this;
         antennaCount = 2;
     }
+    protected override void OnEnd()
+    {
+
+    }
 }

@@ -11,6 +11,7 @@ public class CreditsManager : MonoBehaviour
     public float Timer = 3.0f;
     public int MaxTextSection = 8;
     public GameObject GameLogo;
+    public MusicSetter music;
     
     private TMPro.TextMeshProUGUI creditsText;
     private int currline; //0-7 credit sections
@@ -56,6 +57,7 @@ public class CreditsManager : MonoBehaviour
         StartCoroutine(FadeLogo(1.0f, 1.0f, 3.0f));
         StartCoroutine(FadeLogo(7.0f, 0.0f, 1.0f));
         yield return new WaitForSeconds(Timer+3.0f);
+        music.StopMusic();
         SceneManager.LoadScene("Main Menu");
     }
 
