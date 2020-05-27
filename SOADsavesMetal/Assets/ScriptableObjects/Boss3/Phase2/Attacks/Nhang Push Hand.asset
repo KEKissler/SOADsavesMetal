@@ -16,3 +16,4 @@ MonoBehaviour:
   groundShake: event:/Enemy/E_Nhang/E_Nhang_HandAttack
   speed: 0.05
   pushDuration: 1.5
+  pushHandEvent: event:/Enemy/E_Nhang/E_Nhang_PushHand

@@ -33,8 +33,13 @@ public class PushScript : MonoBehaviour
     }
 
     public void Push(bool push, bool pushLeft = true)
-    {        
+    {
         isPushing = push;
+        if (isPushing)
+        {
+            FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(pushHandEvent);
+            instance.start();
+        }
         Left = pushLeft;
         transform.localScale = new Vector3(startXScale * (Left ? -1 : 1), transform.localScale.y, 1);
     }
@@ -82,6 +87,11 @@ public class PushScript : MonoBehaviour
         {
             transform.position = transform.position + new Vector3(0, speed, 0);
             isAboveGround = true;
+        }
+        if(roaming && transform.position.y > upPosition)
+        {
+            FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(pushHandEvent);
+            instance.start();
         }
     }
 

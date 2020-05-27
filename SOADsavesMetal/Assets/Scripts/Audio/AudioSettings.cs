@@ -40,7 +40,9 @@ public class AudioSettings : MonoBehaviour
     public void SFXVolumeLevel()
     {
         MusicSystem.instance.SFXVolume = sfxSlider.value;
-
+    }
+    public void SFXTest()
+    {
         FMOD.Studio.PLAYBACK_STATE state;
         FMOD.RESULT res = SFXVolumeTest.getPlaybackState(out state);
         if (res == FMOD.RESULT.OK && state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
