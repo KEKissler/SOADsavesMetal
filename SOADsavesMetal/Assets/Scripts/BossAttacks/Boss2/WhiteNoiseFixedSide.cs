@@ -16,6 +16,6 @@ public class WhiteNoiseFixedSide : WhiteNoiseAttack
     }
     protected override void OnEnd()
     {
-
+        base.OnEnd();
     }
 }

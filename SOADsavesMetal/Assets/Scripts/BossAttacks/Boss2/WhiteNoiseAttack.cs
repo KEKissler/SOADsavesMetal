@@ -35,14 +35,19 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
     private CapsuleCollider2D antennaHitBox;
 
     private Transform spawnTransform;
-    
+
+    protected AntennaHandler handler;
     protected AntennaWatcher antennaWatcherScript;
     protected static int antennaCount;
 
+    public delegate void OnAntennaUnfold();
+    public event OnAntennaUnfold OnUnfold;
+
+    public delegate void OnAntennaFold();
+    public event OnAntennaFold OnFold;
 
     public override void Initialize(TsovinarAttackData data)
     {
-        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Enemy/E_Tsovinar/E_Tsov_StaticLoop");
         isLeft = false;
         screen1 = data.screen1;
         screen2 = data.screen2;
@@ -52,6 +57,8 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         leftAntenna = data.antennaAnimatorLeft;
         rightAntenna = data.antennaAnimatorRight;
         telescopingAntenna = rightAntenna;
+        handler = data.antennaHandler;
+        handler.SetupHandler(this);
         screen1DefaultMat = screen1.GetComponent<SpriteRenderer>().sharedMaterial;
         screen2DefaultMat = screen2.GetComponent<SpriteRenderer>().sharedMaterial;
         screen3DefaultMat = screen3.GetComponent<SpriteRenderer>().sharedMaterial;
@@ -83,11 +90,11 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
     protected override void OnEnd()
     {
         End();
-        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     public void End()
     {
+        //Debug.Log(antennaCount);
         if(!endEarly)
         {
             antennaWatcherScript.OnEnd();
@@ -99,8 +106,10 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
             --antennaCount;
         }
 
-        if(antennaCount == 0)
+        if (antennaCount == 0)
+        {
             ScreenOn();
+        }
     }
 
     protected override void OnStart()
@@ -114,7 +123,7 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
             telescopingAntenna = rightAntenna;
         }
         isLeft = !isLeft;
-
+        antennaHitBox = telescopingAntenna.GetComponent<CapsuleCollider2D>();
         antennaWatcherScript = telescopingAntenna.GetComponent<AntennaWatcher>();
         antennaWatcherScript.whiteNoise = this;
         endEarly = false;
@@ -157,8 +166,7 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         antennaWatcherScript.screen5 = screen5;
         antennaWatcherScript.tsovinar = tsovinar;
         antennaWatcherScript.antennaHitBox = antennaHitBox;
-
-        instance.start();
+        OnUnfold.Invoke();
 
     }
 
@@ -171,6 +179,6 @@ public class WhiteNoiseAttack : TsovinarAttackSequence
         screen5.GetComponent<SpriteRenderer>().sharedMaterial = screen5DefaultMat;
         tsovinar.SetActive(true);
         antennaHitBox.enabled = false;
-        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        OnFold.Invoke();
     }
 }
