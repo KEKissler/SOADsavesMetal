@@ -80,8 +80,8 @@ public class PlayerJump : MonoBehaviour
     public IEnumerator Dash()
     {
         float dashPower = 16f;
-        yield return new WaitForSeconds(0.06f);
         ps.blockHorizontalMovement = true;
+        yield return null;
         if (!ps.attacking) ps.playerUpperAnim.Play(ps.GetAnimName("Dash"));
         ps.playerLowerAnim.Play(ps.GetAnimName("Dash"));
         ps.rb.velocity = new Vector2(ps.rb.velocity.x * 0.3f, 5f);
