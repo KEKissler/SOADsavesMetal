@@ -100,9 +100,9 @@ public class PlayerAttackAnims : MonoBehaviour
         ps.blockAttackProgress = true;
         ps.attacking = true;
         ps.isSuperActive = true;
-        ps.playerLowerBody.GetComponent<SpriteRenderer>().enabled = false;
         if (ps.currentBandMember == "Shavo")
         {
+            ps.playerLowerBody.GetComponent<SpriteRenderer>().enabled = false;
             float initialAnimSpeed;  // Change the animation timing to account for jumping, i.e. wait a bit longer if you just started a jump
             if (ps.inAir) initialAnimSpeed = 0.01f;
             else initialAnimSpeed = 0.8f;
