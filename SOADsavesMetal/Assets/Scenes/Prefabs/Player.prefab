@@ -1510,6 +1510,7 @@ MonoBehaviour:
   countDown: {fileID: 0}
   deathMenu: {fileID: 0}
   playerUpperBody: {fileID: 7763047120998121680}
+  playerLowerBody: {fileID: 9117497486779350955}
   playerUpperAnim: {fileID: 1679345358232777187}
   playerLowerAnim: {fileID: 9117497486779350954}
   shortRange: {fileID: 0}
@@ -1840,6 +1841,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SerjWings
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443553847271393034, guid: 205d6aa3a38fc5346b5069d87046239c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4443553847271393035, guid: 205d6aa3a38fc5346b5069d87046239c,
         type: 3}

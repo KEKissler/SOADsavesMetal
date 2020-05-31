@@ -68,6 +68,7 @@ public class Player : MonoBehaviour
     //Player Animation Variables
     [Header("Player Animation Variables")]
     public GameObject playerUpperBody;
+    public GameObject playerLowerBody;
     public Animator playerUpperAnim;
     public Animator playerLowerAnim;
     public Animator shortRange;
@@ -245,7 +246,7 @@ public class Player : MonoBehaviour
 
                 #region Super meter charge
                 // Uncomment the following line for instant meter recharge
-                superMeterCharge += maxSuperCharge;
+                // superMeterCharge += maxSuperCharge;
                 // Passive meter charge, maybe vary by character
                 superMeterCharge += maxSuperCharge / 100f * Time.deltaTime;
                 if (superMeterCharge > maxSuperCharge) superMeterCharge = maxSuperCharge;
@@ -276,7 +277,7 @@ public class Player : MonoBehaviour
 
                 #region Crouching
                 if (Input.GetKey(KeyCode.DownArrow) && !inAir
-                    && (currentBandMember != "Daron" || !isSuperActive)) // This is a hacky fix
+                    && (currentBandMember == "John" || !isSuperActive)) // This is a hacky fix
                 { // This line used to have !attacking
                     if(!crouched) playerUpperBody.transform.localPosition = new Vector3(0, -crouchDistance);
                     crouched = true;

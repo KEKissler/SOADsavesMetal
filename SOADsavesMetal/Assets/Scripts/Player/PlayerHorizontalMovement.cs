@@ -16,7 +16,8 @@ public class PlayerHorizontalMovement : MonoBehaviour
 
     public void HandleHorizontalMovement()
     {
-        if (ps.blockHorizontalMovement || (ps.currentBandMember == "Daron" && ps.isSuperActive))
+        if (ps.blockHorizontalMovement ||
+            ((ps.currentBandMember == "Daron" || ps.currentBandMember == "Serj") && ps.isSuperActive))
         { 
             return;
         }

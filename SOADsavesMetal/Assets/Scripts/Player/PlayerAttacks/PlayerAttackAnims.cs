@@ -100,15 +100,14 @@ public class PlayerAttackAnims : MonoBehaviour
         ps.blockAttackProgress = true;
         ps.attacking = true;
         ps.isSuperActive = true;
+        ps.playerLowerBody.GetComponent<SpriteRenderer>().enabled = false;
         if (ps.currentBandMember == "Shavo")
         {
             float initialAnimSpeed;  // Change the animation timing to account for jumping, i.e. wait a bit longer if you just started a jump
             if (ps.inAir) initialAnimSpeed = 0.01f;
             else initialAnimSpeed = 0.8f;
             ps.playerUpperAnim.speed = initialAnimSpeed;
-            ps.playerLowerAnim.speed = initialAnimSpeed;
             ps.playerUpperAnim.Play("ShavoSuperIdle");
-            ps.playerLowerAnim.Play("ShavoSuperIdle");
             float timeWaited = 0f;
             while (ps.inAir)
             {
@@ -119,7 +118,6 @@ public class PlayerAttackAnims : MonoBehaviour
             // One more wait
             while (ps.inAir) yield return null;
             ps.playerUpperAnim.Play("ShavoSuper");
-            ps.playerLowerAnim.Play("ShavoSuper");
             yield return new WaitForSeconds(0.03f);
 
             // Start the attack
@@ -128,13 +126,12 @@ public class PlayerAttackAnims : MonoBehaviour
             yield return null;
             ps.blockAttackProgress = true;
             ps.playerUpperAnim.speed = 0.77f;
-            ps.playerLowerAnim.speed = 0.77f;
             yield return new WaitForSeconds(0.65f);
             ps.blockAttackProgress = false;
             yield return new WaitForSeconds(0.5f);
             ps.blockAttackProgress = true;
             ps.playerUpperAnim.speed = 1f;
-            ps.playerLowerAnim.speed = 1f;
+            ps.playerLowerBody.GetComponent<SpriteRenderer>().enabled = true;
         }
         else if (ps.currentBandMember == "John")
         {
