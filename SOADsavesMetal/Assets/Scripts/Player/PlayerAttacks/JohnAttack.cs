@@ -83,7 +83,7 @@ public class JohnAttack : PlayerAttack {
     public override IEnumerator AttackLong()
     {
         float drumstickYReductionWhenCrouched = 0f;
-        if (ps.isCrouching()) drumstickYReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
+        //if (ps.isCrouching()) drumstickYReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
 
     	// Create projectile (drumstick)
     	GameObject dsClone = Instantiate(drumstick, transform.position +
@@ -102,8 +102,7 @@ public class JohnAttack : PlayerAttack {
         shotTimer = 0.0f;
         while(attackTimer < SUPER_LENGTH)
         {
-            if (ps.isCrouching()) drumstickYReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
-            else drumstickYReductionWhenCrouched = 0f;
+            //if (ps.isCrouching()) drumstickYReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
             shotTimer += Time.deltaTime;
             attackTimer += Time.deltaTime;
             

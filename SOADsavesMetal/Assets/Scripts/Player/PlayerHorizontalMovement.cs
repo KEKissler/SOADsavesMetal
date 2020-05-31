@@ -102,10 +102,10 @@ public class PlayerHorizontalMovement : MonoBehaviour
             }
 
         }
-        else if (!ps.inAir && !ps.Dead)
+        else if (!ps.crouched && !ps.inAir && !ps.Dead)
         {
             // moving = false;
-            if (!ps.crouched && !ps.attacking && !ps.Dead)
+            if (!ps.attacking && !ps.Dead)
             {
                 ps.playerUpperAnim.Play(ps.GetAnimName("Idle"));
                 ps.playerLowerAnim.Play(ps.GetAnimName("IdleLegs"));

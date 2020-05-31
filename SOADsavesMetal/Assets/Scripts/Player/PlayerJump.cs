@@ -27,6 +27,7 @@ public class PlayerJump : MonoBehaviour
         if (ps.crouched)
         {
             ps.crouched = false;
+            ps.playerUpperBody.transform.localPosition = new Vector3(0, 0);
             ps.upperBodyHitbox.SetActive(true);
         }
         ps.PlayAnims("Jump");
@@ -120,8 +121,7 @@ public class PlayerJump : MonoBehaviour
 
     public IEnumerator Hover()
     {
-        // ps.playerUpperAnim.Play("SerjWings");
-        ps.playerLowerAnim.Play("SerjIdleLegs");
+        // ps.playerLowerAnim.Play("SerjLegs");
         ps.serjFlightActive = true;
         float oldGravity = ps.rb.gravityScale;
         ps.rb.gravityScale = 0f;

@@ -34,9 +34,7 @@ public class PlayerAttackManager : MonoBehaviour
 
         ps = GameObject.FindWithTag("Player").GetComponent<Player>();
 
-        string currentBandMember = transform.parent.gameObject.GetComponent<Player>().currentBandMember;
-
-        switch (currentBandMember)
+        switch (ps.currentBandMember)
         {
             case "John":
                 JohnAttack.SetActive(true);

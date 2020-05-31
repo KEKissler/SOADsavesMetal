@@ -54,7 +54,7 @@ public class DaronAttack : PlayerAttack
     public override IEnumerator AttackShort()
     {
         float yReductionWhenCrouched = 0f;
-        if (ps.isCrouching()) yReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
+        //if (ps.isCrouching()) yReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
 
     	Instantiate(stringBreak, transform.parent.position +
             new Vector3(0.7f * getDirection(transform.parent), yReductionWhenCrouched, 0),
@@ -80,7 +80,7 @@ public class DaronAttack : PlayerAttack
         }
 
         float yReductionWhenCrouched = 0f;
-        if (ps.isCrouching()) yReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
+        //if (ps.isCrouching()) yReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
 
     	GameObject pick = Instantiate(guitarPick, transform.parent.position +
             new Vector3(0.02f, yReductionWhenCrouched + 0.4f, 0),
@@ -93,6 +93,7 @@ public class DaronAttack : PlayerAttack
     {
         superObject.SetActive(true);
         superObject.SendMessage("refreshHit");
+        yield return null;
         superObject.transform.position = ps.transform.position;
 
         for (int i=0; i<16; ++i)

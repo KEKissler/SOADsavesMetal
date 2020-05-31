@@ -17,7 +17,7 @@ public class PlayerAttackAnims : MonoBehaviour
             // ps.playerUpperAnim.pivotPosition.Set(0.49f, 0.83f, 0.0f);
         }
         ps.playerUpperAnim.Play(ps.GetAnimName("Short"));
-        if ((ps.currentBandMember == "Shavo" || ps.currentBandMember == "Serj") && !ps.inAir && !ps.Dead)
+        if (ps.currentBandMember == "Shavo" && !ps.inAir && !ps.Dead)
         {
             ps.playerLowerAnim.Play(ps.GetAnimName("ShortLegs"));
         }
@@ -29,7 +29,7 @@ public class PlayerAttackAnims : MonoBehaviour
             ps.blockAttackProgress = false;
             yield return null;
             yield return new WaitForSeconds(0.28f);
-            ps.shortRange.Play("BaseSound");
+            // ps.shortRange.Play("BaseSound");
         }
         else if (ps.currentBandMember == "Shavo")
         {
@@ -48,7 +48,7 @@ public class PlayerAttackAnims : MonoBehaviour
             ps.PlayAudioEvent(ps.serjShortRange);
             yield return new WaitForSeconds(0.38f);
         }
-        ps.PlayAnims("Idle");
+        // ps.PlayAnims("Idle");
         ps.blockAttackProgress = false;
         ps.attacking = false;
         ps.movedWhileAttacking = false;
@@ -63,10 +63,6 @@ public class PlayerAttackAnims : MonoBehaviour
         if (ps.currentBandMember == "Shavo")
         {
             ps.playerUpperAnim.Play("ShavoLong");
-            if (!ps.moving && !ps.crouched && !ps.inAir)
-            {
-                ps.playerLowerAnim.Play("ShavoLongLegs");
-            }
             ps.PlayAudioEvent(ps.shavoLongRange);
             yield return new WaitForSeconds(0.4f);
         }
@@ -89,10 +85,6 @@ public class PlayerAttackAnims : MonoBehaviour
         {
             Debug.Log("Serj");
             ps.playerUpperAnim.Play("SerjLong");
-            if (!ps.moving && !ps.crouched && !ps.inAir)
-            {
-                ps.playerLowerAnim.Play("SerjLongLegs");
-            }
             ps.PlayAudioEvent(ps.serjLongRange);
             yield return new WaitForSeconds(0.56f);
         }
@@ -166,7 +158,7 @@ public class PlayerAttackAnims : MonoBehaviour
             ps.PlayAudioEvent(ps.serjSuper);
             ps.playerLowerAnim.Play("SerjLongLegs");
             ps.playerUpperAnim.Play("SerjSuper");
-            yield return new WaitForSeconds(2.57f);
+            yield return new WaitForSeconds(3.63f);
         }
         // After attack, give one second of bonus invincibility
         if (ps.currentBandMember != "John") ps.curInvulnerableTime = 1f;

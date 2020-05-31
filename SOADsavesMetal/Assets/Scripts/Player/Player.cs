@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
     public bool attacking;
     public float superMeterCharge; // Ranges between 0 to maxSuperCharge
     public float maxSuperCharge = 100f;
+    private float crouchDistance = 0.24f;
     public bool isSuperActive;
     public bool blockHorizontalMovement;
     public bool blockNormalJumpAnims;
@@ -66,11 +67,13 @@ public class Player : MonoBehaviour
 
     //Player Animation Variables
     [Header("Player Animation Variables")]
+    public GameObject playerUpperBody;
     public Animator playerUpperAnim;
     public Animator playerLowerAnim;
     public Animator shortRange;
     private PlayerAttackAnims paa;
     private Slider superBar;
+    public GameObject serjWings;
 
     public Platform[] platforms;
 
@@ -189,25 +192,24 @@ public class Player : MonoBehaviour
         serjFlightActive = false;
         performFriction = false;
 
-        sr = GetComponent<SpriteRenderer>();
-        srLegs = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
-
         // Player-specific attack
         blockAttackProgress = true;
 
         // Get components from gameobjects
+        sr = transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
+        srLegs = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+
         rb = gameObject.GetComponent<Rigidbody2D>();
-        playerUpperAnim = gameObject.GetComponent<Animator>();
         shortRange = shortRangeHitbox.GetComponent<Animator>();
         lowerBodyHitbox = gameObject.GetComponent<BoxCollider2D>();
         lowOriginalOffset = lowerBodyHitbox.offset;
         lowOriginalSize = lowerBodyHitbox.size;
 
         // Configure other player scripts
-        paa = GetComponentInChildren<PlayerAttackAnims>();
+        paa = playerUpperBody.GetComponentInChildren<PlayerAttackAnims>();
         phm = GetComponent<PlayerHorizontalMovement>();
         pj = GetComponent<PlayerJump>();
-        pam = GetComponentInChildren<PlayerAttackManager>();
+        pam = playerUpperBody.GetComponentInChildren<PlayerAttackManager>();
         paa.ps = this;
         phm.ps = this;
         pj.ps = this;
@@ -243,7 +245,7 @@ public class Player : MonoBehaviour
 
                 #region Super meter charge
                 // Uncomment the following line for instant meter recharge
-                // superMeterCharge += maxSuperCharge;
+                superMeterCharge += maxSuperCharge;
                 // Passive meter charge, maybe vary by character
                 superMeterCharge += maxSuperCharge / 100f * Time.deltaTime;
                 if (superMeterCharge > maxSuperCharge) superMeterCharge = maxSuperCharge;
@@ -257,14 +259,14 @@ public class Player : MonoBehaviour
                     if (rb.velocity.y < -0.5f)
                     {
                         // landing = true;
-                        if (!isSuperActive)
+                        if (currentBandMember == "John" || !isSuperActive)
                             PlayAnims("Fall");
                         lowerBodyHitbox.offset = lowOriginalOffset;
                         lowerBodyHitbox.size = lowOriginalSize;
                     }
                     if (rb.velocity.y > 0.5)
                     {
-                        if (!isSuperActive)
+                        if (currentBandMember == "John" || !isSuperActive)
                             PlayAnims("Jump");
                         lowerBodyHitbox.offset = new Vector2(lowOriginalOffset.x, -0.05f);
                         lowerBodyHitbox.size = new Vector2(lowOriginalSize.x, 0.35f);
@@ -273,8 +275,10 @@ public class Player : MonoBehaviour
                 #endregion Falling and jumping animations
 
                 #region Crouching
-                if (Input.GetKey(KeyCode.DownArrow) && !inAir)
+                if (Input.GetKey(KeyCode.DownArrow) && !inAir
+                    && (currentBandMember != "Daron" || !isSuperActive)) // This is a hacky fix
                 { // This line used to have !attacking
+                    if(!crouched) playerUpperBody.transform.localPosition = new Vector3(0, -crouchDistance);
                     crouched = true;
                     PlayAnims("Crouch");
                     upperBodyHitbox.SetActive(false);
@@ -286,7 +290,13 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
+                    if (crouched)
+                    {
+                        playerUpperBody.transform.localPosition = new Vector3(0, 0);
+                        playerLowerAnim.Play(GetAnimName("IdleLegs"));
+                    }
                     crouched = false;
+                    playerUpperBody.transform.localPosition = new Vector3(0, 0);
                     upperBodyHitbox.SetActive(true);
                 }
                 #endregion Crouching
@@ -327,6 +337,17 @@ public class Player : MonoBehaviour
                     {
                         rb.velocity = new Vector2(rb.velocity.x, -maxAirSpeed * 0.85f);
                     }
+                }
+                #endregion
+
+                #region Serj wing animations
+                if (serjFlightActive)
+                {
+                    serjWings.GetComponent<SpriteRenderer>().enabled = true;
+                }
+                else
+                {
+                    serjWings.GetComponent<SpriteRenderer>().enabled = false;
                 }
                 #endregion
 

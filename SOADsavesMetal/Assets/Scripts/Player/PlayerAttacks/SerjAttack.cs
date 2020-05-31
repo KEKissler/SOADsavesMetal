@@ -56,7 +56,7 @@ public class SerjAttack : PlayerAttack
     {
         yield return new WaitForSeconds(0.1f);
         float drumstickYReductionWhenCrouched = 0f;
-        if (ps.isCrouching()) drumstickYReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_MICROPHONES;
+        //if (ps.isCrouching()) drumstickYReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_MICROPHONES;
 
     	// Create projectile (mic)
     	GameObject micClone = Instantiate(longMicrophone, transform.position +
