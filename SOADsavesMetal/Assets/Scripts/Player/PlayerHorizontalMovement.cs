@@ -5,13 +5,17 @@ using UnityEngine;
 public class PlayerHorizontalMovement : MonoBehaviour
 {
     public Player ps;
+    
     private bool tryMove;
     private float input;
+
+    private string hori;
     // private const float CROUCH_SPEED_MODIFIER = 0.2f;
 
     private void Start()
     {
         tryMove = false;
+        hori = ps.GetHori();
     }
 
     public void HandleHorizontalMovement()
@@ -23,7 +27,7 @@ public class PlayerHorizontalMovement : MonoBehaviour
         }
 
         // Debug.Log("old speed " + oldSpeed);
-        input = Input.GetAxisRaw("Horizontal");
+        input = Input.GetAxisRaw(ps.GetHori());
         tryMove = true;
     }
 

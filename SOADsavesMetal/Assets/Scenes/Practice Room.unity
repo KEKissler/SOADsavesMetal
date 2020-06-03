@@ -2178,21 +2178,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   up: 273
   down: 274
+  hori: Horizontal
   left: 276
   right: 275
   jump: 273
   CAttack: 122
   RAttack: 120
   SAttack: 99
+  pause: 27
   scheme: 0
-  currentScheme:
-    firstLoad: 0
-    firstPlay: 1
-    characterUnlocks: 000000
-    shavoUnlock: 0000
-    daronUnlock: 0000
-    serjUnlock: 000000
-    controlScheme: 1
 --- !u!1 &953076650
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,6 +2506,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4277835215915131891, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: ps
+      value: 
+      objectReference: {fileID: 126624461}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc0d8d3460c18043896482f0ba598cb, type: 3}
 --- !u!50 &1052962944 stripped

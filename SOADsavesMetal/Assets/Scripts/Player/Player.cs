@@ -65,6 +65,9 @@ public class Player : MonoBehaviour
     private KeyCode CAttack;
     private KeyCode RAttack;
     private KeyCode SAttack;
+    private KeyCode pause;
+    private string hori; 
+
 
     //Scripts
     private PlayerHorizontalMovement phm;
@@ -154,6 +157,16 @@ public class Player : MonoBehaviour
     public string GetAnimName(string animSuffix)
     {
         return currentBandMember + animSuffix;
+    }
+
+    public string GetHori()
+    {
+        return hori;
+    }
+
+    public KeyCode GetUp()
+    {
+        return up;
     }
 
     public void SetCurrentBandMember(string newBandMember)
@@ -290,7 +303,7 @@ public class Player : MonoBehaviour
                 #endregion Falling and jumping animations
 
                 #region Crouching
-                if (Input.GetKey(KeyCode.DownArrow) && !inAir
+                if (Input.GetKey(down) && !inAir
                     && (currentBandMember == "John" || !isSuperActive)) // This is a hacky fix
                 { // This line used to have !attacking
                     if(!crouched) playerUpperBody.transform.localPosition = new Vector3(0, -crouchDistance);
@@ -344,11 +357,11 @@ public class Player : MonoBehaviour
                 #region Serj flight vertical movement
                 if (serjFlightActive)
                 {
-                    if (Input.GetKey(KeyCode.UpArrow))
+                    if (Input.GetKey(up))
                     {
                         rb.velocity = new Vector2(rb.velocity.x, maxAirSpeed * 0.85f);
                     }
-                    else if (Input.GetKey(KeyCode.DownArrow))
+                    else if (Input.GetKey(down))
                     {
                         rb.velocity = new Vector2(rb.velocity.x, -maxAirSpeed * 0.85f);
                     }
@@ -462,21 +475,33 @@ public class Player : MonoBehaviour
 
     //Sets current control schemes
     public void updateControlScheme()
-    {
-        up = controlSchemes.up;
-        Debug.Log(up + " " + controlSchemes.up);
-        down = controlSchemes.down;
-        left = controlSchemes.left;
-        right = controlSchemes.right;
-        jump = controlSchemes.jump;
-        CAttack = controlSchemes.CAttack;
-        RAttack = controlSchemes.RAttack;
-        SAttack = controlSchemes.SAttack;
+    {        
         StartCoroutine(ControllerUpdatePause());
     }
 
     public IEnumerator ControllerUpdatePause()
     {
+        yield return new WaitForEndOfFrame();
+        up = controlSchemes.up;
+        yield return new WaitForEndOfFrame();
+        Debug.Log(up + " " + controlSchemes.up);
+        down = controlSchemes.down;
+        yield return new WaitForEndOfFrame();
+        hori = controlSchemes.hori;
+        yield return new WaitForEndOfFrame();
+        pause = controlSchemes.pause;
+        yield return new WaitForEndOfFrame();
+        left = controlSchemes.left;
+        yield return new WaitForEndOfFrame();
+        right = controlSchemes.right;
+        yield return new WaitForEndOfFrame();
+        jump = controlSchemes.jump;
+        yield return new WaitForEndOfFrame();
+        CAttack = controlSchemes.CAttack;
+        yield return new WaitForEndOfFrame();
+        RAttack = controlSchemes.RAttack;
+        yield return new WaitForEndOfFrame();
+        SAttack = controlSchemes.SAttack;
         yield return new WaitForEndOfFrame();
     }
 
@@ -503,7 +528,7 @@ public class Player : MonoBehaviour
         while (timer < 0.30f)
         {
             timer += Time.deltaTime;
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(down))
             {
                 // Toggle platform colliders off
                 for (int i = 0; i < platforms.Length; ++i)

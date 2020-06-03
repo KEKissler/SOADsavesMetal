@@ -7,15 +7,17 @@ public class PlayerJump : MonoBehaviour
     public Player ps;
     private bool tryJump;
 
+    private KeyCode up;
     void Start()
     {
         tryJump = false;
+        up = ps.GetUp();
     }
 
     public void HandleJump()
     {
         if ((ps.currentBandMember == "John" || !ps.isSuperActive) &&
-            (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(ps.GetUp()))
                     && ps.remainingJumps > 0)
         {
             tryJump = true;
