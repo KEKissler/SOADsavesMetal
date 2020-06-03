@@ -472,8 +472,13 @@ public class Player : MonoBehaviour
         CAttack = controlSchemes.CAttack;
         RAttack = controlSchemes.RAttack;
         SAttack = controlSchemes.SAttack;
+        StartCoroutine(ControllerUpdatePause());
     }
 
+    public IEnumerator ControllerUpdatePause()
+    {
+        yield return new WaitForEndOfFrame();
+    }
 
     public IEnumerator Kill()
     {
