@@ -229,6 +229,7 @@ RectTransform:
   - {fileID: 1282551596}
   - {fileID: 753321037}
   - {fileID: 2063366643}
+  - {fileID: 7803040322467975341}
   m_Father: {fileID: 8084796019422964861}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1046,6 +1047,85 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!1 &1242533144477890304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7803040322467975341}
+  - component: {fileID: 6879026737787839046}
+  - component: {fileID: 3537155900624694202}
+  m_Layer: 5
+  m_Name: DeathTip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7803040322467975341
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242533144477890304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.9, y: 2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 890166869}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -175.66}
+  m_SizeDelta: {x: 489.27, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6879026737787839046
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242533144477890304}
+  m_CullTransparentMesh: 0
+--- !u!114 &3537155900624694202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242533144477890304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: a91cf18209be1424f9fbe667207a0c37, type: 3}
+    m_FontSize: 18
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 180
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: Bottom Text
 --- !u!1 &1489953443754896744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,6 +1280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathMenu: {fileID: 890166868}
   player: {fileID: 0}
+  bossHealth: {fileID: 0}
+  deathTipBox: {fileID: 3537155900624694202}
   deathSong: event:/Player/P_Death
   buttonClick: event:/UI/U_Select
 --- !u!1 &3212145720244505243
@@ -2630,12 +2712,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3455550636946957888, guid: feaea676901b027458d98f16ea23d6de, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: feaea676901b027458d98f16ea23d6de, type: 3}
---- !u!1 &3277690467085016380 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6309612683680723781, guid: feaea676901b027458d98f16ea23d6de,
-    type: 3}
-  m_PrefabInstance: {fileID: 8857609956889718393}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8684780768018552061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 173959555564976772, guid: feaea676901b027458d98f16ea23d6de,
@@ -2690,12 +2766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c13e00248aea8e6418b2447dc3c16955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &207609188942575288 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8650603609556818113, guid: feaea676901b027458d98f16ea23d6de,
-    type: 3}
-  m_PrefabInstance: {fileID: 8857609956889718393}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8084796019422964861 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 783198034521309700, guid: feaea676901b027458d98f16ea23d6de,
@@ -2717,6 +2787,18 @@ GameObject:
 --- !u!224 &3275294673641773116 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6311973498914502213, guid: feaea676901b027458d98f16ea23d6de,
+    type: 3}
+  m_PrefabInstance: {fileID: 8857609956889718393}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &207609188942575288 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8650603609556818113, guid: feaea676901b027458d98f16ea23d6de,
+    type: 3}
+  m_PrefabInstance: {fileID: 8857609956889718393}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3277690467085016380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6309612683680723781, guid: feaea676901b027458d98f16ea23d6de,
     type: 3}
   m_PrefabInstance: {fileID: 8857609956889718393}
   m_PrefabAsset: {fileID: 0}

@@ -18,31 +18,51 @@ public class DeathTipGenerator
         Serj
     }
 
-    public static string GenerateDeathTip(Boss boss, Character character, int phase)
+    public static string GenerateDeathTip(Boss boss, string bandMember, int phase)
     {
         List<string> tipPool = new List<string>(generalTips);
 
+        Character character;
+        switch(bandMember)
+        {
+            case "John":
+                character = Character.John;
+                break;
+            case "Shavo":
+                character = Character.Shavo;
+                break;
+            case "Daron":
+                character = Character.Daron;
+                break;
+            case "Serj":
+                character = Character.Serj;
+                break;
+            default:
+                character = Character.John;
+                break;
+        }
+
         switch(boss) {
             case Boss.Agas:
-                for(int i = 0; i < phase; ++i)
+                for(int i = 0; i <= phase; ++i)
                 {
                     tipPool.AddRange(agasTips[i]);
                 }
                 break;
             case Boss.Nhang:
-                for(int i = 0; i < phase; ++i)
+                for(int i = 0; i <= phase; ++i)
                 {
                     tipPool.AddRange(nhangTips[i]);
                 }
                 break;
             case Boss.Tsovinar:
-                for(int i = 0; i < phase; ++i)
+                for(int i = 0; i <= phase; ++i)
                 {
                     tipPool.AddRange(tsovinarTips[i]);
                 }
                 break;
             case Boss.Sandaramet:
-                for(int i = 0; i < phase; ++i)
+                for(int i = 0; i <= phase; ++i)
                 {
                     tipPool.AddRange(sandarametTips[i]);
                 }
@@ -64,7 +84,7 @@ public class DeathTipGenerator
                 break;
         }
 
-        return tipPool[(int)Random.Range(0, tipPool.Count)];
+        return tipPool[Random.Range(0, tipPool.Count)];
     }
 
     private static readonly string[][] agasTips = {

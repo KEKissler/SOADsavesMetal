@@ -41,7 +41,7 @@ public class BossHealth : MonoBehaviour
     [FMODUnity.EventRef]
     public string bossHit;
 
-    private int currentBoss;
+    public int currentBoss;
     [SerializeField] bool Dead;
 
     // Should be accessible but not modifiable directly
@@ -60,17 +60,17 @@ public class BossHealth : MonoBehaviour
             agasAttackManager = temp1;
             currentBoss = 1;   
         }
-        BossAttackManager<TsovinarPhase> temp2 = gameObject.GetComponentInChildren<TsovinarAttackManager>();
+        BossAttackManager<NhangPhase> temp2 = gameObject.GetComponentInChildren<NhangAttackManager>();
         if (temp2)
         {
-            tsovinarAttackManager = temp2;
-            currentBoss = 3;
+            nhangAttackManager = temp2;
+            currentBoss = 2;
         }
-        BossAttackManager<NhangPhase> temp3 = gameObject.GetComponentInChildren<NhangAttackManager>();
+        BossAttackManager<TsovinarPhase> temp3 = gameObject.GetComponentInChildren<TsovinarAttackManager>();
         if (temp3)
         {
-            nhangAttackManager = temp3;
-            currentBoss = 2;
+            tsovinarAttackManager = temp3;
+            currentBoss = 3;
         }
         BossAttackManager<SandarametPhase> temp4 = gameObject.GetComponentInChildren<SandarametAttackManager>();
         if (temp4)

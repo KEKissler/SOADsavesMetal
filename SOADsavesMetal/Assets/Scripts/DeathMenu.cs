@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DeathMenu : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class DeathMenu : MonoBehaviour
     private float currentScale;
     public GameObject deathMenu;
     public Player player;
+    public BossHealth bossHealth;
+    public Text deathTipBox;
 
     FMOD.Studio.EventInstance deathEffect;
     [FMODUnity.EventRef]
@@ -25,6 +28,7 @@ public class DeathMenu : MonoBehaviour
             //deathEffect.start();
         }
     }
+
     private void OnEnable()
     {
         if (deathEffect.isValid())
@@ -33,6 +37,7 @@ public class DeathMenu : MonoBehaviour
             deathEffect.start();
         }
     }
+
     private void OnDisable()
     {
         if (deathEffect.isValid())
@@ -67,6 +72,24 @@ public class DeathMenu : MonoBehaviour
         {
             deathEffect.setParameterByName("PauseMuteIntensity", 1);
         }
+        
+        string deathTip = "Tip: ";
+        switch(bossHealth.currentBoss)
+        {
+            case 1:
+                deathTip += DeathTipGenerator.GenerateDeathTip(DeathTipGenerator.Boss.Agas, player.currentBandMember, bossHealth.agasAttackManager.phaseIndex);
+                break;
+            case 2:
+                deathTip += DeathTipGenerator.GenerateDeathTip(DeathTipGenerator.Boss.Nhang, player.currentBandMember, bossHealth.nhangAttackManager.phaseIndex);
+                break;
+            case 3:
+                deathTip += DeathTipGenerator.GenerateDeathTip(DeathTipGenerator.Boss.Tsovinar, player.currentBandMember, bossHealth.tsovinarAttackManager.phaseIndex);
+                break;
+            case 4:
+                deathTip += DeathTipGenerator.GenerateDeathTip(DeathTipGenerator.Boss.Sandaramet, player.currentBandMember, bossHealth.sandarametAttackManager.phaseIndex);
+                break;
+        }
+        deathTipBox.text = deathTip;
     }
 
     public void UnPause()
