@@ -66,11 +66,11 @@ public class ControlSchemes: MonoBehaviour
                 hori = "ContHori";
                 left = KeyCode.A;
                 right = KeyCode.D;
-                jump = KeyCode.Joystick1Button1;
-                CAttack = KeyCode.Joystick1Button2;
-                RAttack = KeyCode.Joystick1Button3;
-                SAttack = KeyCode.Joystick1Button4;
-                pause = KeyCode.Joystick1Button8;
+                jump = KeyCode.JoystickButton0;
+                CAttack = KeyCode.JoystickButton1;
+                RAttack = KeyCode.JoystickButton2;
+                SAttack = KeyCode.JoystickButton3;
+                pause = KeyCode.JoystickButton7;
                 break;
 
 
