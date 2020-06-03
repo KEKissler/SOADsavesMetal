@@ -88,6 +88,7 @@ public class Player : MonoBehaviour
     public Animator shortRange;
     private PlayerAttackAnims paa;
     private Slider superBar;
+    private Image superBarGlow;
     public GameObject serjWings;
 
     public Platform[] platforms;
@@ -211,7 +212,9 @@ public class Player : MonoBehaviour
         remainingJumps = 1;
         superMeterCharge = 0f;
         superBar = GameObject.Find("Super Bar").GetComponent<Slider>();
+        superBarGlow = superBar.transform.GetChild(0).GetComponent<Image>();
         superBar.maxValue = maxSuperCharge;
+        superBarGlow.color = new Color(0.8784314f, 1f, 0f, 0f);
         blockNormalJumpAnims = false;
         daronListeningForParry = false;
         serjFlightActive = false;
@@ -279,6 +282,7 @@ public class Player : MonoBehaviour
                 if (superMeterCharge > maxSuperCharge) superMeterCharge = maxSuperCharge;
                 // Debug.Log("meter charge " + superMeterCharge);
                 superBar.value = superMeterCharge;
+                superBarglow.color = new Color(0.8784314f, 1f, 0f, superMeterCharge/100f);
                 #endregion Super meter charge
 
                 #region Falling and jumping animations
