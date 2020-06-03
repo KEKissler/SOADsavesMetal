@@ -3180,14 +3180,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Canvas
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
-    - target: {fileID: 5377065512036990218, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
->>>>>>> 512be61... Working on the controls
     - target: {fileID: 4666415390057058617, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
       propertyPath: FadeOutAnim
