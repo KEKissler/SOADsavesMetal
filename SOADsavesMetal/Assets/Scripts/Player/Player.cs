@@ -55,6 +55,17 @@ public class Player : MonoBehaviour
     //Attack state blocker
     public bool blockAttackProgress;
 
+    //Player Control Components
+    public ControlSchemes controlSchemes;
+    private KeyCode up;
+    private KeyCode down;
+    private KeyCode left;
+    private KeyCode right;
+    private KeyCode jump;
+    private KeyCode CAttack;
+    private KeyCode RAttack;
+    private KeyCode SAttack;
+
     //Scripts
     private PlayerHorizontalMovement phm;
     private PlayerJump pj;
@@ -221,6 +232,9 @@ public class Player : MonoBehaviour
             currentBandMember = "John";
         }
 
+        //Get the starting control scheme
+        updateControlScheme();
+
     }
 
     public AudioClip GetRandomSoundEffect(AudioClip[] array)
@@ -306,17 +320,17 @@ public class Player : MonoBehaviour
 
                 #region Attacks
                 //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
-                if (Input.GetKeyDown(KeyCode.Z) && !attacking)
+                if (Input.GetKeyDown(CAttack) && !attacking)
                 {
                     StartCoroutine(paa.shortRangeAttackAnims());
                     StartCoroutine(pam.pa.AttackShort());
                 }
-                else if (Input.GetKey(KeyCode.X) && !attacking)
+                else if (Input.GetKey(RAttack) && !attacking)
                 {
                     StartCoroutine(paa.longRangeAttackAnims());
                     StartCoroutine(pam.pa.AttackLong());
                 }
-                else if (Input.GetKeyDown(KeyCode.C) && !attacking &&
+                else if (Input.GetKeyDown(SAttack) && !attacking &&
                         !isSuperActive && superMeterCharge >= maxSuperCharge)
                 {
                     superMeterCharge = 0f;
@@ -445,6 +459,21 @@ public class Player : MonoBehaviour
     {
         StartCoroutine(phm.blockMovement(duration));
     }
+
+    //Sets current control schemes
+    public void updateControlScheme()
+    {
+        up = controlSchemes.up;
+        Debug.Log(up + " " + controlSchemes.up);
+        down = controlSchemes.down;
+        left = controlSchemes.left;
+        right = controlSchemes.right;
+        jump = controlSchemes.jump;
+        CAttack = controlSchemes.CAttack;
+        RAttack = controlSchemes.RAttack;
+        SAttack = controlSchemes.SAttack;
+    }
+
 
     public IEnumerator Kill()
     {

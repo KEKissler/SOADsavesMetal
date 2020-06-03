@@ -11,6 +11,7 @@ public class SaveData
     public bool[] shavoUnlock;
     public bool[] daronUnlock;
     public bool[] serjUnlock;
+    public int controlScheme;
 
     public SaveData ()
     {
@@ -20,5 +21,6 @@ public class SaveData
         shavoUnlock = StaticData.shavoUnlock;
         daronUnlock = StaticData.daronUnlock;
         serjUnlock = StaticData.serjUnlock;
+        controlScheme = StaticData.controlScheme;
     }
 }

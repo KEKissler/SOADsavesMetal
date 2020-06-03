@@ -24,21 +24,26 @@ public class ControlSelectionRI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (currentControls)
+        
+        currentControls = StaticData.controlScheme;
+        if (currentControlImg != null)
         {
-            case 0:
-                currentControlImg.texture = arrowControls;
-                break;
-            case 1:
-                currentControlImg.texture = wasdControls;
-                break;
-            case 2:
-                currentControlImg.texture = controllerControls;
-                break;
-            default:
-                currentControlImg.texture = arrowControls;
-                break;
+            switch (currentControls)
+            {
+                case 0:
+                    currentControlImg.texture = arrowControls;
+                    break;
+                case 1:
+                    currentControlImg.texture = wasdControls;
+                    break;
+                case 2:
+                    currentControlImg.texture = controllerControls;
+                    break;
+                default:
+                    currentControlImg.texture = arrowControls;
+                    break;
 
+            }
         }
     }
 }

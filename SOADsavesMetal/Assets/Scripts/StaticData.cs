@@ -79,6 +79,10 @@ public class StaticData: MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public int getControlScheme()
+    {
+        return controlScheme;
+    }
     public void setControlScheme(int newControlScheme)
     {
         controlScheme = newControlScheme;
