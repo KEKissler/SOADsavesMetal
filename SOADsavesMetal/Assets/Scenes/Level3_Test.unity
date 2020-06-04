@@ -7246,6 +7246,11 @@ PrefabInstance:
       propertyPath: Fader
       value: 
       objectReference: {fileID: 284469757}
+    - target: {fileID: 8101416517323360479, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5377065512036990222, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7533,6 +7538,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4290183802223714425, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489953443754896744, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 890166868, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7591,7 +7606,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 2079894222}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079894229}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a0e3aeb177899b4cbb56793b7e54253, type: 3}
   m_Name: 
@@ -7675,9 +7690,7 @@ MonoBehaviour:
   up: 273
   down: 274
   hori: Horizontal
-  left: 276
-  right: 275
-  jump: 273
+  vert: Vertical
   CAttack: 122
   RAttack: 120
   SAttack: 99
