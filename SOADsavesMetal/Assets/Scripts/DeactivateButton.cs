@@ -7,11 +7,13 @@ public class DeactivateButton : MonoBehaviour
 {
     public Button button;
     private string buttonName;
+    private GameplayPause gameplayPause;
     //GameObject button;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameplayPause = FindObjectOfType<GameplayPause>();
         button.interactable = false;
         SaveSystem.LoadGame();
         if (StaticData.firstLoad.Equals(true))

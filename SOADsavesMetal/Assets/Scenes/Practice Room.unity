@@ -3422,6 +3422,7 @@ GameObject:
   - component: {fileID: 1844366468}
   - component: {fileID: 1844366471}
   - component: {fileID: 1844366470}
+  - component: {fileID: 1844366472}
   - component: {fileID: 1844366469}
   m_Layer: 5
   m_Name: BackButton
@@ -3473,7 +3474,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3573,6 +3574,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1844366467}
   m_CullTransparentMesh: 0
+--- !u!114 &1844366472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844366467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f2897875e6db24782824c21513fc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  control: {fileID: 881242220}
+  backButton: {fileID: 1844366469}
 --- !u!1001 &1876183598
 PrefabInstance:
   m_ObjectHideFlags: 0
