@@ -47,7 +47,7 @@ public class GameplayPause : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(player.GetPause()))
         {
             togglePause();
         }

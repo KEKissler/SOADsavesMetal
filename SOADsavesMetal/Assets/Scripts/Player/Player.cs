@@ -59,14 +59,12 @@ public class Player : MonoBehaviour
     public ControlSchemes controlSchemes;
     private KeyCode up;
     private KeyCode down;
-    private KeyCode left;
-    private KeyCode right;
-    private KeyCode jump;
     private KeyCode CAttack;
     private KeyCode RAttack;
     private KeyCode SAttack;
     private KeyCode pause;
-    private string hori; 
+    private string hori;
+    private string vert;
 
 
     //Scripts
@@ -168,6 +166,11 @@ public class Player : MonoBehaviour
     public KeyCode GetUp()
     {
         return up;
+    }
+
+    public KeyCode GetPause()
+    {
+        return pause;
     }
 
     public void SetCurrentBandMember(string newBandMember)
@@ -307,7 +310,7 @@ public class Player : MonoBehaviour
                 #endregion Falling and jumping animations
 
                 #region Crouching
-                if (Input.GetKey(down) && !inAir
+                if ((Input.GetKey(down) || (Input.GetAxis(vert) > 0.5)) && !inAir
                     && (currentBandMember == "John" || !isSuperActive)) // This is a hacky fix
                 { // This line used to have !attacking
                     if(!crouched) playerUpperBody.transform.localPosition = new Vector3(0, -crouchDistance);
@@ -495,11 +498,7 @@ public class Player : MonoBehaviour
         yield return new WaitForEndOfFrame();
         pause = controlSchemes.pause;
         yield return new WaitForEndOfFrame();
-        left = controlSchemes.left;
-        yield return new WaitForEndOfFrame();
-        right = controlSchemes.right;
-        yield return new WaitForEndOfFrame();
-        jump = controlSchemes.jump;
+        vert = controlSchemes.vert;
         yield return new WaitForEndOfFrame();
         CAttack = controlSchemes.CAttack;
         yield return new WaitForEndOfFrame();
@@ -532,7 +531,7 @@ public class Player : MonoBehaviour
         while (timer < 0.30f)
         {
             timer += Time.deltaTime;
-            if (Input.GetKeyDown(down))
+            if (Input.GetKeyDown(down) || (Input.GetAxis(vert) > 0.5))
             {
                 // Toggle platform colliders off
                 for (int i = 0; i < platforms.Length; ++i)

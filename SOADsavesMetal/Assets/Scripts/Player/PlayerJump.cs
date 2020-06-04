@@ -6,12 +6,9 @@ public class PlayerJump : MonoBehaviour
 {
     public Player ps;
     private bool tryJump;
-
-    private KeyCode up;
     void Start()
     {
         tryJump = false;
-        up = ps.GetUp();
     }
 
     public void HandleJump()

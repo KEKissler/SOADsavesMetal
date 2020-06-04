@@ -9,9 +9,7 @@ public class ControlSchemes: MonoBehaviour
     public KeyCode up = KeyCode.UpArrow;
     public KeyCode down = KeyCode.DownArrow;
     public string hori = "Horizontal";
-    public KeyCode left = KeyCode.LeftArrow;
-    public KeyCode right = KeyCode.RightArrow;
-    public KeyCode jump = KeyCode.UpArrow;
+    public string vert = "Vertical";
     public KeyCode CAttack = KeyCode.Z;
     public KeyCode RAttack = KeyCode.X;
     public KeyCode SAttack = KeyCode.C;
@@ -35,9 +33,7 @@ public class ControlSchemes: MonoBehaviour
                 up = KeyCode.UpArrow;
                 down = KeyCode.DownArrow;
                 hori = "Horizontal";
-                left = KeyCode.LeftArrow;
-                right = KeyCode.RightArrow;
-                jump = KeyCode.UpArrow;
+                vert = "Vertical";
                 CAttack = KeyCode.Z;
                 RAttack = KeyCode.X;
                 SAttack = KeyCode.C;
@@ -50,9 +46,7 @@ public class ControlSchemes: MonoBehaviour
                 up = KeyCode.W;
                 down = KeyCode.S;
                 hori = "WASDHori";
-                left = KeyCode.A;
-                right = KeyCode.D;
-                jump = KeyCode.W;
+                vert = "WASDVert";
                 CAttack = KeyCode.J;
                 RAttack = KeyCode.K;
                 SAttack = KeyCode.L;
@@ -61,12 +55,10 @@ public class ControlSchemes: MonoBehaviour
 
             //Controller controls
             case 2:
-                up = KeyCode.W;
+                up = KeyCode.JoystickButton0;
                 down = KeyCode.S;
                 hori = "ContHori";
-                left = KeyCode.A;
-                right = KeyCode.D;
-                jump = KeyCode.JoystickButton0;
+                vert = "ContVert";
                 CAttack = KeyCode.JoystickButton1;
                 RAttack = KeyCode.JoystickButton2;
                 SAttack = KeyCode.JoystickButton3;
@@ -79,9 +71,7 @@ public class ControlSchemes: MonoBehaviour
                 up = KeyCode.UpArrow;
                 down = KeyCode.DownArrow;
                 hori = "Horizontal";
-                left = KeyCode.LeftArrow;
-                right = KeyCode.RightArrow;
-                jump = KeyCode.UpArrow;
+                vert = "Vertical";
                 CAttack = KeyCode.Z;
                 RAttack = KeyCode.X;
                 SAttack = KeyCode.C;

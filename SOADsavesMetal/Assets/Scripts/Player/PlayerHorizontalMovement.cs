@@ -8,14 +8,11 @@ public class PlayerHorizontalMovement : MonoBehaviour
     
     private bool tryMove;
     private float input;
-
-    private string hori;
     // private const float CROUCH_SPEED_MODIFIER = 0.2f;
 
     private void Start()
     {
         tryMove = false;
-        hori = ps.GetHori();
     }
 
     public void HandleHorizontalMovement()
