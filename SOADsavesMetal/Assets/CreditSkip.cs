@@ -9,6 +9,7 @@ public class CreditSkip : MonoBehaviour
     public string levelName;
     private AsyncOperation synclevel;
 
+    public MusicSetter musicSetter;
     public GameObject hint;
 
     void Start()
@@ -28,6 +29,7 @@ public class CreditSkip : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Skipping credits");
+            musicSetter.StopMusic();
             synclevel.allowSceneActivation = true;
         }
 

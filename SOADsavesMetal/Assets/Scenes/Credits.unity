@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Main Menu
+  musicSetter: {fileID: 1813318600}
   hint: {fileID: 2035368209}
 --- !u!4 &131189336
 Transform:
