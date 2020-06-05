@@ -877,7 +877,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1097975887}
+      - m_Target: {fileID: 1189227760}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -885,7 +885,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: FadeOutAnim
+          m_StringArgument: CurtainsClose
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2463,6 +2463,125 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 748975510}
   audio: {fileID: 1772920229}
+--- !u!1001 &782293418
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5850730668526564444, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_Name
+      value: CurtainsCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850730668526564432, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c15a3c0b2447ef498cd5e42bda48135, type: 3}
 --- !u!1 &784223657
 GameObject:
   m_ObjectHideFlags: 0
@@ -2875,7 +2994,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1097975887}
+      - m_Target: {fileID: 1189227760}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -2883,7 +3002,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: FadeOutAnim
+          m_StringArgument: CurtainsClose
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1772920229}
@@ -4268,7 +4387,7 @@ PrefabInstance:
     - target: {fileID: 2069514375013134480, guid: 9c6c25a1fc321be47a0c51fe0b18b8fd,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3305532287042616861, guid: 9c6c25a1fc321be47a0c51fe0b18b8fd,
         type: 3}
@@ -4377,12 +4496,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c6c25a1fc321be47a0c51fe0b18b8fd, type: 3}
---- !u!95 &1097975887 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1260783493, guid: 9c6c25a1fc321be47a0c51fe0b18b8fd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1097975886}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1121163462
 GameObject:
   m_ObjectHideFlags: 0
@@ -4425,6 +4538,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1189227760 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5850730668216206190, guid: 1c15a3c0b2447ef498cd5e42bda48135,
+    type: 3}
+  m_PrefabInstance: {fileID: 782293418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1230805460
 GameObject:
   m_ObjectHideFlags: 0
@@ -5302,7 +5421,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1097975887}
+      - m_Target: {fileID: 1189227760}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -5310,7 +5429,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: FadeOutAnim
+          m_StringArgument: CurtainsClose
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1736597928}
@@ -8169,6 +8288,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Save Object
       objectReference: {fileID: 0}
+    - target: {fileID: 5447013713423087464, guid: ec4f0334ae90895429207493b15c6ef4,
+        type: 3}
+      propertyPath: FadeOutAnim
+      value: 
+      objectReference: {fileID: 7400000, guid: 156b0f22ef8346a4395d38085dff5cca, type: 2}
+    - target: {fileID: 5447013713423087464, guid: ec4f0334ae90895429207493b15c6ef4,
+        type: 3}
+      propertyPath: FadeInAnim
+      value: 
+      objectReference: {fileID: 7400000, guid: 2b48dcc4bd1ea584c9acc3f8663bcfa8, type: 2}
     - target: {fileID: 5447013713423087465, guid: ec4f0334ae90895429207493b15c6ef4,
         type: 3}
       propertyPath: m_LocalPosition.x
