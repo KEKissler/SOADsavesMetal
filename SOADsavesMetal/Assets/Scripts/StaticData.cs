@@ -83,6 +83,8 @@ public class StaticData: MonoBehaviour
     {
         return controlScheme;
     }
+
+    // 0 is arrows, 1 is WASD, 2 is controller
     public void setControlScheme(int newControlScheme)
     {
         controlScheme = newControlScheme;
