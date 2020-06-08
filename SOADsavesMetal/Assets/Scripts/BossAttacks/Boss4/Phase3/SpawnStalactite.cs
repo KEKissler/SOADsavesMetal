@@ -18,9 +18,9 @@ public class SpawnStalactite : SandarametAttack
 
     protected override void OnStart()
     {
-        //if (StalactiteSpawnerSpawner.GetComponent<SpikeSpawnerSpawner>() != null)
+        if (StalactiteSpawnerSpawner.GetComponent<SpikeSpawnerSpawner>() != null)
         {
-            //StalactiteSpawnerSpawner.GetComponent<SpikeSpawnerSpawner>().Spawn();
+            StalactiteSpawnerSpawner.GetComponent<SpikeSpawnerSpawner>().Spawn();
         }
         
     }

@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e7c72deae689114f9706a0bf4eba392, type: 3}
-  m_Name: HorizontalBeam
+  m_Name: HorizontalBeam Short
   m_EditorClassIdentifier: 
-  duration: 2
+  duration: 0.5
   BeamPrefab: {fileID: 5406669656197480969, guid: a44607891009485488a926c49a3b3924,
     type: 3}
-  CycleTime: 2
-  preYLength: 10
+  CycleTime: 1
+  preYLength: 3
   yAttackSize: 0.15
-  chargeDuration: 2.75
+  chargeDuration: 1
   attackDuration: 0.25
-  flashDuration: 0
+  flashDuration: 0.1
   endDuration: 0.25
-  trackingSpeed: 0.01
+  trackingSpeed: 0.05
   laserHeight: 0
-  startingColor: {r: 0, g: 0, b: 0, a: 0}
-  attackColor: {r: 1, g: 1, b: 0.39215687, a: 1}
+  startingColor: {r: 0.4198113, g: 0.888927, b: 1, a: 0}
+  attackColor: {r: 0.42187494, g: 0.39215684, b: 1, a: 1}
   flashColor: {r: 0, g: 0, b: 0, a: 0}

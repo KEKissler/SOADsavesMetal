@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b4f3ea6fff6f84686dd9af53b19f1f, type: 3}
   m_Name: 2ndChargeSummons 2
   m_EditorClassIdentifier: 
-  duration: 0
+  duration: 2
   Attacks:
   - Attack: {fileID: 11400000, guid: 1af3059c99a077d4b9a1db5955366ef3, type: 2}
     duration: 0.5

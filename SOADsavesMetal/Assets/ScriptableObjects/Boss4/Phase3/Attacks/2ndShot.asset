@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b4e16b1bc8f97c469210f3577f54761, type: 3}
-  m_Name: Spawn Rising Hand
+  m_Script: {fileID: 11500000, guid: 9141d41ad91526b46b268ea77425478d, type: 3}
+  m_Name: 2ndShot
   m_EditorClassIdentifier: 
-  duration: 1.5
-  AttackPrefab: {fileID: 6261517199396502498, guid: c12964878effb0c4d9d5d7487f3f2fef,
+  duration: 1
+  AttackPrefab: {fileID: 5036355610137651110, guid: ee98264bc30393344a5c9277b62589c9,
     type: 3}
   ProjectileSpeed: 0
   ProjectileType: 0
   angle: 0
-  Y_offset: -10
+  Y_offset: 0
