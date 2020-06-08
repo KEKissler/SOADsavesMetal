@@ -3,7 +3,12 @@ guid: b9df723e7816ed143bc87ee17dd5e148
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - arrowControls: {fileID: 21300000, guid: 2a1f5137f131fd94d9a80f1efe64da77, type: 3}
+  - wasdControls: {fileID: 21300000, guid: a577a8f2ee31b3f49909f441d2acb394, type: 3}
+  - controllerControls: {fileID: 21300000, guid: e902bb7bcc301da40ae9dedca55a23ce,
+      type: 3}
+  - currentControlImg: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

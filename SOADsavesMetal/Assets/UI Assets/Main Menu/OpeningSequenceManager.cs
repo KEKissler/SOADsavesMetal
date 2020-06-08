@@ -9,6 +9,7 @@ public class OpeningSequenceManager : MonoBehaviour
 
     public VideoPlayer Cutscene;
     public string levelName;
+
     private AsyncOperation synclevel;
 
     public GameObject hint;

@@ -8,7 +8,6 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
     private BossAttack attack;
     private AttackOptions options;
     private T phase;
-    private int phaseIndex;
     private float timer = 3;
 
     protected Coroutine attackManager;
@@ -18,6 +17,7 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
     public BossHealth BossHealth;
     public ScreenShake screenShake;
     public List<PhaseChangeThreshhold> PhaseChangeThreshholds = new List<PhaseChangeThreshhold>();
+    public int phaseIndex;
    
 
     protected void Start()

@@ -24,6 +24,7 @@ public class ControlSelectionSR : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentControls = StaticData.controlScheme;
         switch (currentControls)
         {
             case 0:

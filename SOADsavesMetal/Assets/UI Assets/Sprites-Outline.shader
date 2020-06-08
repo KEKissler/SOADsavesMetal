@@ -5,8 +5,8 @@ Shader "Custom/Outline-Shader"
 	Properties
 	{
 		_MainTex("Sprite Texture", 2D) = "white" {}
-		_Offset("Outline Offset", float) = 0.05
-		_Color("Outline Color", Color) = (1,1,1,1)
+		_Offset("Outline Size", float) = 0.05
+		//_Color("Outline Color", Color) = (1,1,1,1)
 	}
 		SubShader
 		{
@@ -27,12 +27,14 @@ Shader "Custom/Outline-Shader"
 				{
 					float4 vertex : POSITION;
 					float2 uv : TEXCOORD0;
+					float4 color : COLOR;
 				};
 
 				struct v2f
 				{
 					float2 uv : TEXCOORD0;
 					float4 vertex : SV_POSITION;
+					float4 color: COLOR;
 				};
 
 				v2f vert(appdata v)
@@ -40,12 +42,13 @@ Shader "Custom/Outline-Shader"
 					v2f o;
 					o.vertex = UnityObjectToClipPos(v.vertex);
 					o.uv = v.uv;
+					o.color = v.color;
 					return o;
 				}
 
 				sampler2D _MainTex;
 				float _Offset;
-				float4 _Color;
+				//float4 _Color;
 
 
 
@@ -60,7 +63,7 @@ Shader "Custom/Outline-Shader"
 
 					float outline = clamp(right + left + up + down, 0, 1);
 					
-					float4 outlinecol = _Color * outline;
+					float4 outlinecol = i.color * outline;
 
 
 					col += outlinecol;

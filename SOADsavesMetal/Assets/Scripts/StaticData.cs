@@ -79,6 +79,12 @@ public class StaticData: MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public int getControlScheme()
+    {
+        return controlScheme;
+    }
+
+    // 0 is arrows, 1 is WASD, 2 is controller
     public void setControlScheme(int newControlScheme)
     {
         controlScheme = newControlScheme;

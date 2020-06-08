@@ -55,6 +55,18 @@ public class Player : MonoBehaviour
     //Attack state blocker
     public bool blockAttackProgress;
 
+    //Player Control Components
+    public ControlSchemes controlSchemes;
+    private KeyCode up;
+    private KeyCode down;
+    private KeyCode CAttack;
+    private KeyCode RAttack;
+    private KeyCode SAttack;
+    private KeyCode pause;
+    private string hori;
+    private string vert;
+
+
     //Scripts
     private PlayerHorizontalMovement phm;
     private PlayerJump pj;
@@ -74,6 +86,7 @@ public class Player : MonoBehaviour
     public Animator shortRange;
     private PlayerAttackAnims paa;
     private Slider superBar;
+    private Image superBarGlow;
     public GameObject serjWings;
 
     public Platform[] platforms;
@@ -145,6 +158,21 @@ public class Player : MonoBehaviour
         return currentBandMember + animSuffix;
     }
 
+    public string GetHori()
+    {
+        return hori;
+    }
+
+    public KeyCode GetUp()
+    {
+        return up;
+    }
+
+    public KeyCode GetPause()
+    {
+        return pause;
+    }
+
     public void SetCurrentBandMember(string newBandMember)
     {
         currentBandMember = newBandMember;
@@ -187,7 +215,9 @@ public class Player : MonoBehaviour
         remainingJumps = 1;
         superMeterCharge = 0f;
         superBar = GameObject.Find("Super Bar").GetComponent<Slider>();
+        superBarGlow = superBar.transform.GetChild(0).GetComponent<Image>();
         superBar.maxValue = maxSuperCharge;
+        superBarGlow.color = new Color(0.8784314f, 1f, 0f, 0f);
         blockNormalJumpAnims = false;
         daronListeningForParry = false;
         serjFlightActive = false;
@@ -221,6 +251,9 @@ public class Player : MonoBehaviour
             currentBandMember = "John";
         }
 
+        //Get the starting control scheme
+        updateControlScheme();
+
     }
 
     public AudioClip GetRandomSoundEffect(AudioClip[] array)
@@ -252,6 +285,7 @@ public class Player : MonoBehaviour
                 if (superMeterCharge > maxSuperCharge) superMeterCharge = maxSuperCharge;
                 // Debug.Log("meter charge " + superMeterCharge);
                 superBar.value = superMeterCharge;
+                superBarGlow.color = new Color(0.8784314f, 1f, 0f, superMeterCharge/100f);
                 #endregion Super meter charge
 
                 #region Falling and jumping animations
@@ -276,7 +310,7 @@ public class Player : MonoBehaviour
                 #endregion Falling and jumping animations
 
                 #region Crouching
-                if (Input.GetKey(KeyCode.DownArrow) && !inAir
+                if ((Input.GetKey(down) || (Input.GetAxis(vert) > 0.5)) && !inAir
                     && (currentBandMember == "John" || !isSuperActive)) // This is a hacky fix
                 { // This line used to have !attacking
                     if(!crouched) playerUpperBody.transform.localPosition = new Vector3(0, -crouchDistance);
@@ -306,17 +340,17 @@ public class Player : MonoBehaviour
 
                 #region Attacks
                 //Z: Short Range Attack    X: Long Range Attack    C: Super Attack
-                if (Input.GetKeyDown(KeyCode.Z) && !attacking)
+                if (Input.GetKeyDown(CAttack) && !attacking)
                 {
                     StartCoroutine(paa.shortRangeAttackAnims());
                     StartCoroutine(pam.pa.AttackShort());
                 }
-                else if (Input.GetKey(KeyCode.X) && !attacking)
+                else if (Input.GetKey(RAttack) && !attacking)
                 {
                     StartCoroutine(paa.longRangeAttackAnims());
                     StartCoroutine(pam.pa.AttackLong());
                 }
-                else if (Input.GetKeyDown(KeyCode.C) && !attacking &&
+                else if (Input.GetKeyDown(SAttack) && !attacking &&
                         !isSuperActive && superMeterCharge >= maxSuperCharge)
                 {
                     superMeterCharge = 0f;
@@ -330,11 +364,11 @@ public class Player : MonoBehaviour
                 #region Serj flight vertical movement
                 if (serjFlightActive)
                 {
-                    if (Input.GetKey(KeyCode.UpArrow))
+                    if (Input.GetKey(up))
                     {
                         rb.velocity = new Vector2(rb.velocity.x, maxAirSpeed * 0.85f);
                     }
-                    else if (Input.GetKey(KeyCode.DownArrow))
+                    else if (Input.GetKey(down))
                     {
                         rb.velocity = new Vector2(rb.velocity.x, -maxAirSpeed * 0.85f);
                     }
@@ -446,6 +480,34 @@ public class Player : MonoBehaviour
         StartCoroutine(phm.blockMovement(duration));
     }
 
+    //Sets current control schemes
+    public void updateControlScheme()
+    {        
+        StartCoroutine(ControllerUpdatePause());
+    }
+
+    public IEnumerator ControllerUpdatePause()
+    {
+        yield return new WaitForEndOfFrame();
+        up = controlSchemes.up;
+        yield return new WaitForEndOfFrame();
+        Debug.Log(up + " " + controlSchemes.up);
+        down = controlSchemes.down;
+        yield return new WaitForEndOfFrame();
+        hori = controlSchemes.hori;
+        yield return new WaitForEndOfFrame();
+        pause = controlSchemes.pause;
+        yield return new WaitForEndOfFrame();
+        vert = controlSchemes.vert;
+        yield return new WaitForEndOfFrame();
+        CAttack = controlSchemes.CAttack;
+        yield return new WaitForEndOfFrame();
+        RAttack = controlSchemes.RAttack;
+        yield return new WaitForEndOfFrame();
+        SAttack = controlSchemes.SAttack;
+        yield return new WaitForEndOfFrame();
+    }
+
     public IEnumerator Kill()
     {
         playerUpperAnim.Play(GetAnimName("Death"));
@@ -469,7 +531,7 @@ public class Player : MonoBehaviour
         while (timer < 0.30f)
         {
             timer += Time.deltaTime;
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(down) || (Input.GetAxis(vert) > 0.5))
             {
                 // Toggle platform colliders off
                 for (int i = 0; i < platforms.Length; ++i)
