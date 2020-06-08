@@ -14,7 +14,7 @@ public class PlayerJump : MonoBehaviour
     public void HandleJump()
     {
         if ((ps.currentBandMember == "John" || !ps.isSuperActive) &&
-            (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(ps.GetUp()))
+            (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(ps.GetUp()) || (Input.GetAxis("ContVert") < 0))
                     && ps.remainingJumps > 0)
         {
             tryJump = true;
