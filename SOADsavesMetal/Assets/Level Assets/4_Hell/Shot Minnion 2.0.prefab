@@ -126,8 +126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTag: Player
   perchTag: Shot Minion Perch
-  perchSwitchTime: 0.5
-  speed: 4
+  perchSwitchTime: 0.25
+  speed: 5
 --- !u!114 &5392030318906291160
 MonoBehaviour:
   m_ObjectHideFlags: 0

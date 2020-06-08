@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b4f3ea6fff6f84686dd9af53b19f1f, type: 3}
   m_Name: 1stChargeSummons 1
   m_EditorClassIdentifier: 
-  duration: 2
+  duration: 3
   Attacks:
   - Attack: {fileID: 11400000, guid: 6621d70aa26b5544997397869bb81d86, type: 2}
     duration: 0.5
   - Attack: {fileID: 11400000, guid: 79bc505e6b8a5c642ac472b3328133b9, type: 2}
     duration: 0.5
   - Attack: {fileID: 11400000, guid: 33c3c1435b0f5ab4aaab68aeed96235c, type: 2}
+    duration: 1
+  - Attack: {fileID: 11400000, guid: cd4e9c20df331a84cbc4c4ad71ea8440, type: 2}
     duration: 1
