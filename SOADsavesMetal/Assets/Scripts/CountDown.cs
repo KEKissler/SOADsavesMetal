@@ -30,7 +30,7 @@ public class CountDown : MonoBehaviour
 
     public bool isFading()
     {
-        if (Fader.GetCurrentAnimatorStateInfo(0).IsName("FadeOutAnim"))
+        if (Fader.GetCurrentAnimatorStateInfo(0).IsName("CurtainsClose"))
             return true;
         return false;
     }
