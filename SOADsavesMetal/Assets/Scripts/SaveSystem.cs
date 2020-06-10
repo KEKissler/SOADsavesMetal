@@ -4,12 +4,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
+
     static string path = Application.persistentDataPath + "/SOAD.save";
+
     public static SaveData SaveGame() //will assume player is not new
     {
         Debug.Log("Saved current game.");
         BinaryFormatter formatter = new BinaryFormatter();
-        FileStream stream = new FileStream(path, FileMode.Create);
+        FileStream stream = File.Create(path);
 
         SaveData data = new SaveData();
 
@@ -24,7 +26,7 @@ public static class SaveSystem
         {
             Debug.Log("Loaded prexisting save.");
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
+            FileStream stream = File.Open(path, FileMode.Open);
             SaveData data = formatter.Deserialize(stream) as SaveData;
             stream.Close();
             StaticData.firstLoad = false;

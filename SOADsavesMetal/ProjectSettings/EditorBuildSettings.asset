@@ -6,26 +6,29 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level_Load_Test.unity
-    guid: 11121550f074d8242b1d03e46590739a
-  - enabled: 1
-    path: Assets/Scenes/Level4_Test.unity
-    guid: aad147862fed10a4e930a9cd92c0158c
-  - enabled: 1
-    path: Assets/Scenes/Level3_Test.unity
-    guid: 62c747860b40ae24cb9fcf61baeea119
-  - enabled: 1
-    path: Assets/Scenes/Level2_Test.unity
-    guid: a6297e74023be3841b62d02acc807b9b
-  - enabled: 1
-    path: Assets/Scenes/Level1_Test.unity
-    guid: 0e36ffadc01a8264d8ecfde42ab06de5
+    path: Assets/Scenes/OpeningSequence.unity
+    guid: d99a23c23c193f2469ef09ba4a646a1a
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 4e483fe1266a45d4eac21ef59170f9e9
   - enabled: 1
+    path: Assets/Scenes/Level_Load_Test.unity
+    guid: 11121550f074d8242b1d03e46590739a
+  - enabled: 1
     path: Assets/Scenes/Practice Room.unity
     guid: 2f46d328f4572374ba29c2f6c0c8bed1
+  - enabled: 1
+    path: Assets/Scenes/Level1_Test.unity
+    guid: 0e36ffadc01a8264d8ecfde42ab06de5
+  - enabled: 1
+    path: Assets/Scenes/Level2_Test.unity
+    guid: a6297e74023be3841b62d02acc807b9b
+  - enabled: 1
+    path: Assets/Scenes/Level3_Test.unity
+    guid: 62c747860b40ae24cb9fcf61baeea119
+  - enabled: 1
+    path: Assets/Scenes/Level4_Test.unity
+    guid: aad147862fed10a4e930a9cd92c0158c
   - enabled: 1
     path: Assets/Scenes/EndingSequence.unity
     guid: 0bbb4a91c63a91e4e96eaa00d23d3d54
