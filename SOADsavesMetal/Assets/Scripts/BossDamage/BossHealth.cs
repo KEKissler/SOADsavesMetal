@@ -91,20 +91,21 @@ public class BossHealth : MonoBehaviour
             switch(currentBoss)
             {
                 case 1:
-                    makeAllTrue(StaticData.shavoUnlock);
+                    StaticData.shavoUnlock = true;
+                    StaticData.firstLoad = false;
                     break;
                 case 2:
-                    makeAllTrue(StaticData.daronUnlock);
+                    StaticData.daronUnlock = true;
                     break;
                 case 3:
-                    makeAllTrue(StaticData.serjUnlock);
+                    StaticData.serjUnlock = true;
                     break;
                 default:
                     break;
             }
 
             music.StopMusic();
-            SaveSystem.SaveGame();
+            
             StartCoroutine(LoadLevelSelector());
             
         }
@@ -121,13 +122,13 @@ public class BossHealth : MonoBehaviour
 
         if (currentBoss == 4 && StaticData.firstPlay.Equals(true))
         {
-            Debug.Log("I got here");
             SceneManager.LoadScene("EndingSequence");
             StaticData.firstPlay = false;
         }
         else
             SceneManager.LoadScene("Level_Load_Test");
-        
+        SaveSystem.SaveGame();
+
     }
     public bool isDead()
     {

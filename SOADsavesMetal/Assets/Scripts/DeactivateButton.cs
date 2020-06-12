@@ -15,7 +15,7 @@ public class DeactivateButton : MonoBehaviour
     {
         gameplayPause = FindObjectOfType<GameplayPause>();
         button.interactable = false;
-        SaveSystem.LoadGame();
+        //SaveSystem.LoadGame();
         if (StaticData.firstLoad.Equals(true))
         {
             button.interactable = false;
@@ -23,44 +23,42 @@ public class DeactivateButton : MonoBehaviour
         else
         {
             buttonName = gameObject.name;
-            Debug.Log(buttonName);
-
             switch (buttonName)
             {
                 case "Shavo Button":
-                    if (allTrue(StaticData.shavoUnlock))
+                    if (StaticData.shavoUnlock)
                         button.interactable = true;
                     break;
                 case "Daron  Button":
-                    if (allTrue(StaticData.daronUnlock))
+                    if (StaticData.daronUnlock)
                         button.interactable = true;
                     break;
                 case "Serj  Button":
-                    if (allTrue(StaticData.serjUnlock))
+                    if (StaticData.serjUnlock)
                         button.interactable = true;
                     break;
                 case "Level 2":
-                    if (allTrue(StaticData.shavoUnlock))
+                    if (StaticData.shavoUnlock)
                         button.interactable = true;
                     break;
                 case "Level 3":
-                    if (allTrue(StaticData.daronUnlock))
+                    if (StaticData.daronUnlock)
                         button.interactable = true;
                     break;
                 case "Level 4":
-                    if (allTrue(StaticData.serjUnlock))
+                    if (StaticData.serjUnlock)
                         button.interactable = true;
                     break;
                 case "Song 2":
-                    if (allTrue(StaticData.shavoUnlock))
+                    if (StaticData.shavoUnlock)
                         button.interactable = true;
                     break;
                 case "Song 3":
-                    if (allTrue(StaticData.daronUnlock))
+                    if (StaticData.daronUnlock)
                         button.interactable = true;
                     break;
                 case "Song 4":
-                    if (allTrue(StaticData.serjUnlock))
+                    if (StaticData.serjUnlock)
                         button.interactable = true;
                     break;
                 case "End_Scene":
@@ -73,11 +71,5 @@ public class DeactivateButton : MonoBehaviour
             }
         }
 
-    }
-
-    private bool allTrue(bool[] nameArray)
-    {
-        foreach(bool check in nameArray) if (!check) return false;
-        return true;
     }
 }

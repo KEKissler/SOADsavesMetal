@@ -491,7 +491,6 @@ public class Player : MonoBehaviour
         yield return new WaitForEndOfFrame();
         up = controlSchemes.up;
         yield return new WaitForEndOfFrame();
-        Debug.Log(up + " " + controlSchemes.up);
         down = controlSchemes.down;
         yield return new WaitForEndOfFrame();
         hori = controlSchemes.hori;

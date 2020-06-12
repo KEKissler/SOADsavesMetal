@@ -14,10 +14,10 @@ public class StaticData: MonoBehaviour
     static public SpriteRenderer selectedCharacter;
     static public bool firstLoad = true;
     static public bool firstPlay = true;
-    static public bool[] characterUnlocks = {false, false, false};
-    static public bool[] shavoUnlock = {false, false};
-    static public bool[] daronUnlock = {false, false};
-    static public bool[] serjUnlock = {false, false, false};
+    //static public bool[] characterUnlocks = {false, false, false};
+    static public bool shavoUnlock = false;
+    static public bool daronUnlock = false;
+    static public bool serjUnlock = false;
     
 
     [SerializeField] bool changeCharacter = true;
@@ -53,7 +53,7 @@ public class StaticData: MonoBehaviour
         if (!SceneManager.GetActiveScene().Equals("Main Menu") && !levelSelect.Equals("Main Menu"))
         {
             yield return new WaitForSeconds(FadeOutAnim.length);
-            Debug.Log("Am I here?");
+
         }
         SceneManager.LoadScene(levelSelect);
     }
@@ -63,7 +63,7 @@ public class StaticData: MonoBehaviour
         if (!SceneManager.GetActiveScene().Equals("Main Menu") && !sceneName.Equals("Main Menu"))
         {
             yield return new WaitForSeconds(FadeOutAnim.length);
-            Debug.Log("Am I here?");
+
         }
         SceneManager.LoadScene(sceneName);
     }
@@ -101,7 +101,7 @@ public class StaticData: MonoBehaviour
         SaveData data = SaveSystem.LoadGame();
         firstLoad = data.firstLoad;
         firstPlay = data.firstPlay;
-        characterUnlocks = data.characterUnlocks;
+        //characterUnlocks = data.characterUnlocks;
         shavoUnlock = data.shavoUnlock;
         daronUnlock = data.daronUnlock;
         serjUnlock = data.serjUnlock;
