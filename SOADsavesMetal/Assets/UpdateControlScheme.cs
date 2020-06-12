@@ -39,5 +39,9 @@ public class UpdateControlScheme : MonoBehaviour
         yield return new WaitForEndOfFrame();
         SAttack = controlSchemes.SAttack;
         yield return new WaitForEndOfFrame();
+        if (StaticData.firstLoad)
+            StaticData.firstLoad = false;
+            SaveSystem.SaveGame();
+        
     }
 }
