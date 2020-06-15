@@ -38,7 +38,7 @@ public class BossHit : MonoBehaviour
         SandarametAttackManager manager = GetComponent<SandarametAttackManager>();
         if(manager != null)
         {
-            transformationCutoff = GetComponent<BossHealth>().startingHP * manager.PhaseChangeThreshholds[4].HealthPercentThreshhold / 100f;
+            transformationCutoff = GetComponent<BossHealth>().startingHP * manager.PhaseChangeThreshholds[3].HealthPercentThreshhold / 100f;
             Debug.Log("TransformationCutoff: " + transformationCutoff);
         }
     }
