@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /* Instructions to use the BossHealth script:
  * 
@@ -32,6 +33,7 @@ public class BossHealth : MonoBehaviour
     public BossAttackManager<NhangPhase> nhangAttackManager;
     public BossAttackManager<SandarametPhase> sandarametAttackManager;
     public Player player;
+    public Slider deathHealth;
 
     public SpriteRenderer enemyGameObject;
     
@@ -84,6 +86,9 @@ public class BossHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        deathHealth.value = Mathf.Clamp(HP/startingHP, 0, 1);
+        deathHealth.GetComponentInChildren<Text>().text = "Boss Progress: " + (int)((1 - HP/startingHP) * 100) + "%";
+        
         if (HP <= 0)
         {
             this.Dead = true;

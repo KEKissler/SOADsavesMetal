@@ -35,7 +35,6 @@ public class ShotEnemyShooting : MonoBehaviour
         if(Time.time - timeLastShot > waitTime)
         {
             shotSent++;
-            Debug.Log(Time.time - timeLastShot);
             Shoot();
             timeLastShot = Time.time;
             waitTime = shortWaitTime;
@@ -51,7 +50,6 @@ public class ShotEnemyShooting : MonoBehaviour
 
     private void Shoot()
     {
-        Debug.Log("SHOOT!!!");
         GameObject fireballObject = Instantiate(shot, transform.position, Quaternion.identity);
         if (fireballObject.GetComponent<Projectile>() != null)
         {
