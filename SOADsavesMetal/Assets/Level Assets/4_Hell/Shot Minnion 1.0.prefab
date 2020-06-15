@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1094636117859559865}
   - component: {fileID: 1094636117859559861}
   - component: {fileID: 1125367232}
+  - component: {fileID: 1561477173619020107}
   m_Layer: 0
   m_Name: Shot Minnion 1.0
   m_TagString: Minnion
@@ -146,3 +147,22 @@ MonoBehaviour:
   shot: {fileID: 1883100758368052, guid: cc1e07ece144cd241a99931749565888, type: 3}
   ProjectileSpeed: 3
   ProjectileType: 0
+--- !u!95 &1561477173619020107
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094636117859559870}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d52157aae07ca3d44a9907b7cbf85834, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
