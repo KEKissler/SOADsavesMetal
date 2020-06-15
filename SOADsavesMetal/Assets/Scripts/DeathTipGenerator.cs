@@ -111,6 +111,8 @@ public class DeathTipGenerator
         },
         new string[] {
             "The Nhang’s blood rain attack can be difficult to avoid, but the droplets stop when they hit a platform. Be sure to keep an eye on the sky!"
+        },
+        new string[] {
         }
     };
 
@@ -123,6 +125,8 @@ public class DeathTipGenerator
         },
         new string[] {
             "The electricity on the floor makes the ground dangerous, but it always comes from the right side of the screen. Perfecting your double jump move is crucial!"
+        },
+        new string[] {
         }
     };
 
