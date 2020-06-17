@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 872a0ea6111887b40b7d383f1b9a8738, type: 3}
+  m_Name: FastBloodSphere
+  m_EditorClassIdentifier: 
+  duration: 0.4
+  AttackPrefab: {fileID: 1883100758368052, guid: 9ece4fdd1fc9c47478809046e10a14fd,
+    type: 3}
+  ProjectileSpeed: 4
+  ProjectileType: 0
+  angle: 230
+  Y_offset: 0
