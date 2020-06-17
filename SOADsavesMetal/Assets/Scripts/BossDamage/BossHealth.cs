@@ -86,8 +86,11 @@ public class BossHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        deathHealth.value = Mathf.Clamp(HP/startingHP, 0, 1);
-        deathHealth.GetComponentInChildren<Text>().text = "Boss Progress: " + (int)((1 - HP/startingHP) * 100) + "%";
+        if(deathHealth != null)
+        {
+            deathHealth.value = Mathf.Clamp(HP/startingHP, 0, 1);
+            deathHealth.GetComponentInChildren<Text>().text = "Boss Progress: " + (int)((1 - HP/startingHP) * 100) + "%";
+        }
         
         if (HP <= 0)
         {

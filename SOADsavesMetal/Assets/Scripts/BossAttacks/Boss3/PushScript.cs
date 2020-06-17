@@ -97,7 +97,7 @@ public class PushScript : MonoBehaviour
 
     private bool ShouldGoDown()
     {
-        return transform.position.x < -7 || transform.position.x > 4;
+        return transform.position.x < -7 || transform.position.x > (Left ? 6 : 4);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
