@@ -15,9 +15,6 @@ public static class SaveSystem
 
         SaveData data = new SaveData();
 
-        Debug.Log("Control Scheme: " + data.controlScheme + " " + data.firstLoad + " " + data.firstPlay + " " + data.shavoUnlock + " " + data.daronUnlock + " " + data.serjUnlock);
-
-
         formatter.Serialize(stream, data);
         stream.Close();
         return data;
@@ -32,18 +29,15 @@ public static class SaveSystem
             FileStream stream = File.Open(path, FileMode.Open);
             SaveData data = formatter.Deserialize(stream) as SaveData;
             stream.Close();
-            Debug.Log("Save Data FL: " + data.firstLoad);
-            Debug.Log("Save Data SHU: " + data.shavoUnlock);
-            Debug.Log("Static Data FL before: " + StaticData.firstLoad);
-            Debug.Log("Static Data SHU before: " + StaticData.shavoUnlock);
+
+            //Writing all the save data pulled in over to the local static data
             StaticData.firstLoad = data.firstLoad;
             StaticData.shavoUnlock = data.shavoUnlock;
             StaticData.daronUnlock = data.daronUnlock;
             StaticData.serjUnlock = data.serjUnlock;
             StaticData.controlScheme = data.controlScheme;
             StaticData.firstPlay = data.firstPlay;
-            Debug.Log("Static Data FL after: " + StaticData.firstLoad);
-            Debug.Log("Static Data SHU after: " + StaticData.shavoUnlock);
+
             return data;
             
         }
