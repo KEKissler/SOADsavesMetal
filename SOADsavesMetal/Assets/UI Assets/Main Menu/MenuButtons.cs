@@ -15,6 +15,7 @@ public class MenuButtons : MonoBehaviour {
 
     public void NewGame() {
         StaticData.firstLoad = true;
+        StaticData.firstPlay = true;
         //StaticData.characterUnlocks = new bool[] {false, false, false};
         StaticData.shavoUnlock = false;
         StaticData.daronUnlock = false;
