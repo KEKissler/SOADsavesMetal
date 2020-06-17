@@ -17,5 +17,5 @@ MonoBehaviour:
     type: 3}
   ProjectileSpeed: 3
   ProjectileType: 0
-  angle: 240
+  angle: 230
   Y_offset: 0
