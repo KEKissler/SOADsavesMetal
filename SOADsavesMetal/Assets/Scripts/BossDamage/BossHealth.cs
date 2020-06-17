@@ -89,7 +89,7 @@ public class BossHealth : MonoBehaviour
         if(deathHealth != null)
         {
             deathHealth.value = Mathf.Clamp(HP/startingHP, 0, 1);
-            deathHealth.GetComponentInChildren<Text>().text = "Boss Progress: " + (int)((1 - HP/startingHP) * 100) + "%";
+            deathHealth.GetComponentInChildren<Text>().text = "Boss Health Remaining: " + (int)(HP/startingHP * 100) + "%";
         }
         
         if (HP <= 0)
