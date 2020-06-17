@@ -30,7 +30,8 @@ public class Fireball : AgasAttack
 
     protected override void OnStart()
     {
-        fireballObject = Instantiate(FireballPrefab, agasPosition.position + new Vector3(0,Y_offset), Quaternion.identity, attackParent);
+        if(agasPosition != null)
+            fireballObject = Instantiate(FireballPrefab, agasPosition.position + new Vector3(0,Y_offset), Quaternion.identity, attackParent);
     }
 
     protected override IEnumerator Execute(float duration)
