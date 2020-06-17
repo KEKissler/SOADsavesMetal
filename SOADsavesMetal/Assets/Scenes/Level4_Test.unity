@@ -860,7 +860,7 @@ PrefabInstance:
     - target: {fileID: 6261517199396502501, guid: c12964878effb0c4d9d5d7487f3f2fef,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.647706
+      value: 9.75
       objectReference: {fileID: 0}
     - target: {fileID: 6261517199396502501, guid: c12964878effb0c4d9d5d7487f3f2fef,
         type: 3}
@@ -3184,6 +3184,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5377065512036990218, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+        type: 3}
+      propertyPath: m_Name
+      value: Pause Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 5909654529114422228, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3198,11 +3203,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5377065512036990218, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
-        type: 3}
-      propertyPath: m_Name
-      value: Pause Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 8101416517323360479, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
@@ -4048,7 +4048,7 @@ PrefabInstance:
     - target: {fileID: 6261517199396502501, guid: c12964878effb0c4d9d5d7487f3f2fef,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.56188
+      value: 15.78
       objectReference: {fileID: 0}
     - target: {fileID: 6261517199396502501, guid: c12964878effb0c4d9d5d7487f3f2fef,
         type: 3}
