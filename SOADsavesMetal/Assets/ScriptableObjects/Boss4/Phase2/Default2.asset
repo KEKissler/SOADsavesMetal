@@ -18,11 +18,11 @@ MonoBehaviour:
     percentThreshold: 25
   - attack: {fileID: 11400000, guid: 34155382dda651046929f2256e189445, type: 2}
     percentThreshold: 50
-  - attack: {fileID: 11400000, guid: cd11e520b3f1f6a4c8d048b866833b1c, type: 2}
+  - attack: {fileID: 11400000, guid: 6621d70aa26b5544997397869bb81d86, type: 2}
     percentThreshold: 62
-  - attack: {fileID: 11400000, guid: d4dd1470d77d8be498db3d6e15b65520, type: 2}
+  - attack: {fileID: 11400000, guid: 79bc505e6b8a5c642ac472b3328133b9, type: 2}
     percentThreshold: 74
-  - attack: {fileID: 11400000, guid: bd0495f00baa1d6459a66b6569a2dd9f, type: 2}
+  - attack: {fileID: 11400000, guid: 33c3c1435b0f5ab4aaab68aeed96235c, type: 2}
     percentThreshold: 86
   - attack: {fileID: 11400000, guid: cd4e9c20df331a84cbc4c4ad71ea8440, type: 2}
     percentThreshold: 100
