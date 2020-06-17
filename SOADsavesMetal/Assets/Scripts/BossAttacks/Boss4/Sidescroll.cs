@@ -56,34 +56,49 @@ public class Sidescroll : MonoBehaviour
         sky.transform.Translate(new Vector3(skySpeed * Time.deltaTime, 0, 0));
         if(sky.transform.position.x - sky.GetComponentInChildren<SpriteRenderer>().bounds.extents.x > screenBound)
             sky.transform.Translate(new Vector3(-skyWidth * 2, 0, 0));
+        if(sky.transform.position.x + sky.GetComponentInChildren<SpriteRenderer>().bounds.extents.x < -screenBound)
+            sky.transform.Translate(new Vector3(skyWidth * 2, 0, 0));
 
         skyDuplicate.transform.Translate(new Vector3(skySpeed * Time.deltaTime, 0, 0));
         if (skyDuplicate.transform.position.x - skyDuplicate.GetComponentInChildren<SpriteRenderer>().bounds.extents.x > screenBound)
             skyDuplicate.transform.Translate(new Vector3(-skyWidth * 2, 0, 0));
+        if (skyDuplicate.transform.position.x + skyDuplicate.GetComponentInChildren<SpriteRenderer>().bounds.extents.x < -screenBound)
+            skyDuplicate.transform.Translate(new Vector3(skyWidth * 2, 0, 0));
 
         city.transform.Translate(new Vector3(citySpeed * Time.deltaTime, 0, 0));
         if (city.transform.position.x - city.GetComponentInChildren<SpriteRenderer>().bounds.extents.x > screenBound)
             city.transform.Translate(new Vector3(-cityWidth * 2, 0, 0));
+        if (city.transform.position.x - city.GetComponentInChildren<SpriteRenderer>().bounds.extents.x < -screenBound)
+            city.transform.Translate(new Vector3(cityWidth * 2, 0, 0));
 
         cityDuplicate.transform.Translate(new Vector3(citySpeed * Time.deltaTime, 0, 0));
         if (cityDuplicate.transform.position.x - cityDuplicate.GetComponentInChildren<SpriteRenderer>().bounds.extents.x > screenBound)
             cityDuplicate.transform.Translate(new Vector3(-cityWidth * 2, 0, 0));
+        if (cityDuplicate.transform.position.x + cityDuplicate.GetComponentInChildren<SpriteRenderer>().bounds.extents.x < -screenBound)
+            cityDuplicate.transform.Translate(new Vector3(cityWidth * 2, 0, 0));
 
         ground.transform.Translate(new Vector3(groundSpeed * Time.deltaTime, 0, 0));
         if (ground.transform.position.x - ground.GetComponentInChildren<SpriteRenderer>().bounds.extents.x > screenBound)
             ground.transform.Translate(new Vector3(-groundWidth * 2, 0, 0));
+        if (ground.transform.position.x + ground.GetComponentInChildren<SpriteRenderer>().bounds.extents.x < -screenBound)
+            ground.transform.Translate(new Vector3(groundWidth * 2, 0, 0));
 
         groundDuplicate.transform.Translate(new Vector3(groundSpeed * Time.deltaTime, 0, 0));
         if (groundDuplicate.transform.position.x - groundDuplicate.GetComponentInChildren<SpriteRenderer>().bounds.extents.x > screenBound)
             groundDuplicate.transform.Translate(new Vector3(-groundWidth * 2, 0, 0));
+        if (groundDuplicate.transform.position.x + groundDuplicate.GetComponentInChildren<SpriteRenderer>().bounds.extents.x < -screenBound)
+            groundDuplicate.transform.Translate(new Vector3(groundWidth * 2, 0, 0));
 
         foreach (GameObject p in platforms)
         {
             p.transform.Translate(new Vector3(groundSpeed * Time.deltaTime, 0, 0));
             if (p.transform.position.x - p.GetComponentInChildren<SpriteRenderer>().bounds.extents.x > screenBound)
                 p.transform.Translate(new Vector3(-screenBound * 2 - platformWidth, 0, 0));
+            if (p.transform.position.x + p.GetComponentInChildren<SpriteRenderer>().bounds.extents.x < -screenBound)
+                p.transform.Translate(new Vector3(screenBound * 2 + platformWidth, 0, 0));
         }
         
         lastPosition = player.transform.position;
+        player.desiredVelocity = groundSpeed;
     }
 }

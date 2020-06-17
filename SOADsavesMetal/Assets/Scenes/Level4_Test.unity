@@ -3946,7 +3946,7 @@ MonoBehaviour:
   deathAnim: {fileID: 7400000, guid: 43a5ba77e1a29fb45aa77e94b7925864, type: 2}
   fadeOut: {fileID: 7400000, guid: 1536b87bd8d73b6489b7f303fe2d9775, type: 2}
   fader: {fileID: 1984526877}
-  startingHP: 300
+  startingHP: 400
   damageMultiplier: 1
   player: {fileID: 1105088042}
   deathHealth: {fileID: 2009444533}
@@ -3988,19 +3988,19 @@ MonoBehaviour:
   screenShake: {fileID: 519420030}
   PhaseChangeThreshholds:
   - BossPhase: {fileID: 11400000, guid: 44460e2d267d3fa4aaa1158064141398, type: 2}
-    HealthPercentThreshhold: 80
+    HealthPercentThreshhold: 85
     ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: 4ed25ccdba0176546b3eb43492ba1bdf, type: 2}
-    HealthPercentThreshhold: 60
+    HealthPercentThreshhold: 70
     ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: ead73af070a885c4f96d29aa5488f9f4, type: 2}
-    HealthPercentThreshhold: 40
+    HealthPercentThreshhold: 50
     ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: e37eacd5347e4d941bdd008b27fa70ef, type: 2}
-    HealthPercentThreshhold: 20
+    HealthPercentThreshhold: 35
     ExecuteOnPhaseStart: {fileID: 0}
   - BossPhase: {fileID: 11400000, guid: b5b8fd229560303449cf7ae718935e02, type: 2}
-    HealthPercentThreshhold: 10
+    HealthPercentThreshhold: 15
     ExecuteOnPhaseStart: {fileID: 11400000, guid: 85e94a36d0e4b724883df45ad608c536,
       type: 2}
   - BossPhase: {fileID: 11400000, guid: a0b950d1a92bf8748aab1fad27030bac, type: 2}

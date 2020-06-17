@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e7c72deae689114f9706a0bf4eba392, type: 3}
   m_Name: HorizontalBeam
   m_EditorClassIdentifier: 
-  duration: 2
+  duration: 2.5
   BeamPrefab: {fileID: 5406669656197480969, guid: a44607891009485488a926c49a3b3924,
     type: 3}
   CycleTime: 2
