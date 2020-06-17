@@ -38,7 +38,7 @@ public class ControlSchemes: MonoBehaviour
                 RAttack = KeyCode.X;
                 SAttack = KeyCode.C;
                 pause = KeyCode.Escape;
-
+                SaveSystem.SaveGame();
                 break;
 
             //WASD controls
@@ -51,6 +51,7 @@ public class ControlSchemes: MonoBehaviour
                 RAttack = KeyCode.K;
                 SAttack = KeyCode.L;
                 pause = KeyCode.Escape;
+                SaveSystem.SaveGame();
                 break;
 
             //Controller controls
@@ -63,6 +64,7 @@ public class ControlSchemes: MonoBehaviour
                 RAttack = KeyCode.JoystickButton2;
                 SAttack = KeyCode.JoystickButton3;
                 pause = KeyCode.JoystickButton7;
+                SaveSystem.SaveGame();
                 break;
 
 
@@ -76,6 +78,7 @@ public class ControlSchemes: MonoBehaviour
                 RAttack = KeyCode.X;
                 SAttack = KeyCode.C;
                 pause = KeyCode.Escape;
+                SaveSystem.SaveGame();
                 break;
         }    
     }
