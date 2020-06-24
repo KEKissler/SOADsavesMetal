@@ -16,12 +16,13 @@ public class SandHandMovement : MonoBehaviour
     bool goUp = false;
     [SerializeField]
     bool attack = false;
+    bool goDown = false;
     float time = 0;
     float DeathTime = 10;
     // Start is called before the first frame update
     void Start()
     {
-        AttackObject.SetActive(false);
+        AttackObject.SetActive(true);
         time = Time.time;
     }
 
@@ -29,9 +30,15 @@ public class SandHandMovement : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (goUp && Time.time - time > attackTime)
+        if(goDown == true)
         {
-            AttackObject.SetActive(false);
+            //AttackObject.SetActive(false);
+            transform.position = transform.position + new Vector3(0, -speed * Time.deltaTime, 0);
+            AttackObject.GetComponent<SandHandAttack>().setDamage(false);
+        }
+        else if (goUp && Time.time - time > attackTime)
+        {
+            //AttackObject.SetActive(false);
             transform.position = transform.position + new Vector3(0, speed * Time.deltaTime, 0);
         }
         if(transform.position.y > attackPos && attack == true)
@@ -40,6 +47,7 @@ public class SandHandMovement : MonoBehaviour
             {
                 time = Time.time;
                 //start playing attack animation
+                gameObject.GetComponent<Animator>().SetBool("Crush", true);
 
             }
             goUp = false;
@@ -47,9 +55,10 @@ public class SandHandMovement : MonoBehaviour
             
 
             if(Time.time - time >= attackTime){
-                attack = false; goUp = true;
-                AttackObject.SetActive(true);
+                attack = false; goDown = true;
+                AttackObject.GetComponent<SandHandAttack>().setDamage(true);
                 time = Time.time;
+                gameObject.GetComponent<Animator>().SetBool("Crush", false);
             }
 
         }
