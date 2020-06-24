@@ -33,7 +33,7 @@ public class HorizontalBeamAttack : SandarametAttack
         playerLocation = data.player.transform;
         spawnLocation = data.frontHand.transform;
         attackParent = data.attackParent;
-        topMiddle = new Vector3(0, laserHeight, 0);
+        topMiddle = new Vector3(1f, laserHeight, 0);
     }
 
     protected override IEnumerator Execute(float duration)
