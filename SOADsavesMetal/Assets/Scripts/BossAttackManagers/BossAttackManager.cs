@@ -88,7 +88,7 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
                 if (PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart)
                 {
                     PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart.ExecuteAttack();
-                    stopCurrentAttack();
+                    StopCoroutine(attackManager);
                     timer = PhaseChangeThreshholds[phaseIndex].ExecuteOnPhaseStart.duration;
                 }
             }
@@ -107,7 +107,9 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
     public void stopCurrentAttack()
     {
         attack.EndAttackEarly();
-        StopCoroutine(attackManager);
+        if(attackManager != null)
+            StopCoroutine(attackManager);
+            
         for (int i = 0; i < attackParent.childCount; ++i)
         {
             Destroy(attackParent.GetChild(i).gameObject);

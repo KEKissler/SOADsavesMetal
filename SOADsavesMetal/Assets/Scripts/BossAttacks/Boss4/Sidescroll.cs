@@ -68,7 +68,7 @@ public class Sidescroll : MonoBehaviour
         city.transform.Translate(new Vector3(citySpeed * Time.deltaTime, 0, 0));
         if (city.transform.position.x - city.GetComponentInChildren<SpriteRenderer>().bounds.extents.x > screenBound)
             city.transform.Translate(new Vector3(-cityWidth * 2, 0, 0));
-        if (city.transform.position.x - city.GetComponentInChildren<SpriteRenderer>().bounds.extents.x < -screenBound)
+        if (city.transform.position.x + city.GetComponentInChildren<SpriteRenderer>().bounds.extents.x < -screenBound)
             city.transform.Translate(new Vector3(cityWidth * 2, 0, 0));
 
         cityDuplicate.transform.Translate(new Vector3(citySpeed * Time.deltaTime, 0, 0));
