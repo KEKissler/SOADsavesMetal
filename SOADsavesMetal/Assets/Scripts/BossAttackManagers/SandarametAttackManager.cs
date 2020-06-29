@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SandarametAttackManager : BossAttackManager<SandarametPhase>
@@ -17,5 +18,19 @@ public class SandarametAttackManager : BossAttackManager<SandarametPhase>
     protected override SandarametPhase GetNextPhase(List<PhaseChangeThreshhold> phaseChangeThreshhold, int phaseIndex)
     {
         return (SandarametPhase)phaseChangeThreshhold[phaseIndex].BossPhase;
+    }
+
+    public void deathScreenShake()
+    {
+        StartCoroutine(infiniteScreenShake());
+    }
+
+    private IEnumerator infiniteScreenShake()
+    {
+        while(true)
+        {
+            yield return new WaitForEndOfFrame();
+            screenShake.shake(.25f);
+        }
     }
 }
