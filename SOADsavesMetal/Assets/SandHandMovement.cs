@@ -17,6 +17,7 @@ public class SandHandMovement : MonoBehaviour
     [SerializeField]
     bool attack = false;
     bool goDown = false;
+    bool damageDone = false;
     float time = 0;
     float DeathTime = 10;
     // Start is called before the first frame update
@@ -55,8 +56,13 @@ public class SandHandMovement : MonoBehaviour
             
 
             if(Time.time - time >= attackTime){
-                attack = false; goDown = true;
                 AttackObject.GetComponent<SandHandAttack>().setDamage(true);
+                damageDone = true;
+                time = Time.time;
+            }
+            else if(Time.time - time >= attackTime/2 && damageDone)
+            {
+                attack = false; goDown = true;
                 time = Time.time;
                 gameObject.GetComponent<Animator>().SetBool("Crush", false);
             }

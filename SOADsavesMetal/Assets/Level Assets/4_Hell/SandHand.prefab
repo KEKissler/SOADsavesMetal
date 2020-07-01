@@ -13,8 +13,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12522861, y: -0.05054539}
-  m_Size: {x: 0.13823092, y: 0.11040659}
+  m_Offset: {x: 0.12522863, y: -0.070022754}
+  m_Size: {x: 0.13823093, y: 0.07145211}
   m_Direction: 1
 --- !u!1 &6261517199396502498
 GameObject:
@@ -113,8 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackObject: {fileID: 6261517200214684233}
   speed: 2
-  attackTime: 1
-  attackPos: -1
+  attackTime: 0.75
+  attackPos: -2.5
   goUp: 0
   attack: 0
 --- !u!95 &1609103911895691439
