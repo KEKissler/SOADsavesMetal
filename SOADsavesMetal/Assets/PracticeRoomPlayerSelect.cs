@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Experimental.UIElements;
-using UnityEngine.XR.WSA.Input;
 
 
 /* This script is meant for use with the player in the PRACTICE ROOM ONLY.
