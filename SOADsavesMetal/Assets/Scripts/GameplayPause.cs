@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class GameplayPause : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class GameplayPause : MonoBehaviour
     public GameObject optionsScreen;
     public CountDown countDown;
     public Player player;
+
+    public GameObject pauseFirstButton, controlsFirstButton, controlsClosedButton;
 
     FMOD.Studio.EventInstance pauseEffect;
     [FMODUnity.EventRef]
@@ -74,6 +77,12 @@ public class GameplayPause : MonoBehaviour
         Time.timeScale = 0f;
         paused = true;
         pauseMenu.SetActive(true);
+
+        //Clear selected object
+        EventSystem.current.SetSelectedGameObject(null);
+        //Set a new selected event object
+        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
+
         pauseEffect.setParameterByName("PauseMuteIntensity", 1);
         FMOD.Studio.EventInstance pauseSoundInstance = FMODUnity.RuntimeManager.CreateInstance(pauseSound);
         pauseSoundInstance.start();

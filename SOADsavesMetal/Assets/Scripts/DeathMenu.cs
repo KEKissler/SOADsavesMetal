@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DeathMenu : MonoBehaviour
@@ -11,6 +12,8 @@ public class DeathMenu : MonoBehaviour
     public Player player;
     public BossHealth bossHealth;
     public Text deathTipBox;
+
+    public GameObject pauseFirstButton, controlsFirstButton, controlsClosedButton;
 
     FMOD.Studio.EventInstance deathEffect;
     [FMODUnity.EventRef]
@@ -67,6 +70,12 @@ public class DeathMenu : MonoBehaviour
         currentScale = Time.timeScale;
         Time.timeScale = 0f;
         paused = true;
+
+        //Clear selected object
+        EventSystem.current.SetSelectedGameObject(null);
+        //Set a new selected event object
+        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
+
         deathMenu.SetActive(true);
         if (deathEffect.isValid())
         {

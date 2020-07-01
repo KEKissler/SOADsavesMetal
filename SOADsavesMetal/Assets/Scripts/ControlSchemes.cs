@@ -41,6 +41,7 @@ public class ControlSchemes: MonoBehaviour
                     RAttack = KeyCode.X;
                     SAttack = KeyCode.C;
                     pause = KeyCode.Escape;
+                    StartCoroutine(ControllerUpdatePause());
                     SaveSystem.SaveGame();
                     break;
 
@@ -54,6 +55,7 @@ public class ControlSchemes: MonoBehaviour
                     RAttack = KeyCode.K;
                     SAttack = KeyCode.L;
                     pause = KeyCode.Escape;
+                    StartCoroutine(ControllerUpdatePause());
                     SaveSystem.SaveGame();
                     break;
 
@@ -67,6 +69,7 @@ public class ControlSchemes: MonoBehaviour
                     RAttack = KeyCode.JoystickButton2;
                     SAttack = KeyCode.JoystickButton3;
                     pause = KeyCode.JoystickButton7;
+                    StartCoroutine(ControllerUpdatePause());
                     SaveSystem.SaveGame();
                     break;
 
@@ -85,5 +88,20 @@ public class ControlSchemes: MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void updateControlScheme()
+    {
+        StartCoroutine(ControllerUpdatePause());
+    }
+
+    public IEnumerator ControllerUpdatePause()
+    {
+        yield return new WaitForSecondsRealtime(1.0f);    
+        yield return new WaitForEndOfFrame();
+        if (StaticData.firstLoad)
+            StaticData.firstLoad = false;
+        SaveSystem.SaveGame();
+
     }
 }
