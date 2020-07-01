@@ -48,6 +48,7 @@ public class Sidescroll : MonoBehaviour
 
         screenBound = Camera.main.orthographicSize * 16 / 9;
 
+        movePlayer = true;
         player.desiredVelocity = groundSpeed;
     }
 
