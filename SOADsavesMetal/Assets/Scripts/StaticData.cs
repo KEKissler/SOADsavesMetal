@@ -18,7 +18,6 @@ public class StaticData: MonoBehaviour
     static public bool shavoUnlock = false;
     static public bool daronUnlock = false;
     static public bool serjUnlock = false;
-    
 
     [SerializeField] bool changeCharacter = true;
 
@@ -76,6 +75,16 @@ public class StaticData: MonoBehaviour
     public void reloadLevel()
     {
         SaveGame();
+
+        BossHealth boss = FindObjectOfType<BossHealth>();
+        switch(boss.currentBoss)
+        {
+            case 1: boss.agasAttackManager.stopCurrentAttack(); break;
+            case 2: boss.nhangAttackManager.stopCurrentAttack(); break;
+            case 3: boss.tsovinarAttackManager.stopCurrentAttack(); break;
+            case 4: boss.sandarametAttackManager.stopCurrentAttack(); break;
+        }
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
