@@ -2071,7 +2071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &836362493
 Animator:
   serializedVersion: 3
@@ -2098,7 +2098,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836362492}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3949,7 +3949,7 @@ MonoBehaviour:
   deathAnim: {fileID: 7400000, guid: 43a5ba77e1a29fb45aa77e94b7925864, type: 2}
   fadeOut: {fileID: 7400000, guid: 156b0f22ef8346a4395d38085dff5cca, type: 2}
   fader: {fileID: 1824787021}
-  startingHP: 400
+  startingHP: 20
   damageMultiplier: 1
   player: {fileID: 1105088042}
   deathHealth: {fileID: 2009444533}
