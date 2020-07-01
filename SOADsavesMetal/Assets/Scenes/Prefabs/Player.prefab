@@ -250,7 +250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700851087149963370}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.18, y: 0.18, z: 0}
+  m_LocalPosition: {x: 1.18, y: 0.17, z: 0}
   m_LocalScale: {x: 2.511301, y: 1.905, z: 1}
   m_Children:
   - {fileID: 9117497486599704607}
@@ -1638,7 +1638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9117497486599704595}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.24688394, y: -0.031496093, z: 0}
+  m_LocalPosition: {x: -0.225, y: -0.015, z: 0}
   m_LocalScale: {x: 1.1945999, y: 1.5748032, z: 1}
   m_Children: []
   m_Father: {fileID: 7166661154969307610}
@@ -1681,7 +1681,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300014, guid: 86f44e4a4ce89f143b03b67f183b847f, type: 3}
+  m_Sprite: {fileID: 21300008, guid: 86f44e4a4ce89f143b03b67f183b847f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1727,8 +1727,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.65, y: 0.8}
+    pivot: {x: 0, y: 0.5}
+    oldSize: {x: 0.7, y: 0.85}
     newSize: {x: 0.7, y: 0.85}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1848,11 +1848,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SerjWings
       objectReference: {fileID: 0}
-    - target: {fileID: 4443553847271393034, guid: 205d6aa3a38fc5346b5069d87046239c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4443553847271393035, guid: 205d6aa3a38fc5346b5069d87046239c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1922,6 +1917,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.0036418
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443553847271393034, guid: 205d6aa3a38fc5346b5069d87046239c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 205d6aa3a38fc5346b5069d87046239c, type: 3}
