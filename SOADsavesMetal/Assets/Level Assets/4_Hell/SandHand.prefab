@@ -13,8 +13,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12522863, y: -0.070022754}
-  m_Size: {x: 0.13823093, y: 0.07145211}
+  m_Offset: {x: 0.12522861, y: -0.05054539}
+  m_Size: {x: 0.13823092, y: 0.11040659}
   m_Direction: 1
 --- !u!1 &6261517199396502498
 GameObject:
@@ -112,9 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackObject: {fileID: 6261517200214684233}
-  speed: 2
-  attackTime: 0.75
-  attackPos: -2.5
+  speed: 4
+  attackTime: 0.5
+  attackPos: -1
   goUp: 0
   attack: 0
 --- !u!95 &1609103911895691439
@@ -145,8 +145,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6261517200214684234}
-  - component: {fileID: 6261517200214684236}
   - component: {fileID: 6261517200214684235}
+  - component: {fileID: 4803537854742733794}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
@@ -168,22 +168,6 @@ Transform:
   m_Father: {fileID: 6261517199396502501}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &6261517200214684236
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6261517200214684233}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.12912029, y: 0.0052768392}
-  serializedVersion: 2
-  m_Radius: 0.32651943
 --- !u!114 &6261517200214684235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +180,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b9323c2f7672549b0b0dfe2433ccf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &4803537854742733794
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261517200214684233}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.92, y: 0.1}
+  m_Direction: 1
 --- !u!1001 &6261517200243520001
 PrefabInstance:
   m_ObjectHideFlags: 0

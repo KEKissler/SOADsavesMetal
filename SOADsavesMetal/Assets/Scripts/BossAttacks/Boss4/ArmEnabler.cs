@@ -6,6 +6,6 @@ public class ArmEnabler : MonoBehaviour
 
     void enableArm()
     {
-        arm.SetActive(true);
+        arm.GetComponent<SpriteRenderer>().enabled = true;
     }
 }

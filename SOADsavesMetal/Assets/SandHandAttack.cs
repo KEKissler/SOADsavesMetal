@@ -5,14 +5,30 @@ using UnityEngine;
 public class SandHandAttack : MonoBehaviour
 {
     private bool Damage = false;
+    private Sidescroll sidescroll;
+
+    void Start()
+    {
+        sidescroll = FindObjectOfType<Sidescroll>();
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.tag == "Player" && Damage)
+        if(collision.tag == "Player")
         {
-            if(collision.gameObject.GetComponent<Player>() != null)
+            sidescroll.movePlayer = false;
+            if(collision.gameObject.GetComponent<Player>() != null && Damage)
             {
                 collision.gameObject.GetComponent<Player>().DamagePlayer();
             }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            sidescroll.movePlayer = true;
         }
     }
 

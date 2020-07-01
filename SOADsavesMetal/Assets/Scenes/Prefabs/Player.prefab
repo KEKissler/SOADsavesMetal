@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99760ef5f5aa84446957f9a48256cd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ps: {fileID: 0}
+  ps: {fileID: 9117497486307095085}
   shortRangeHitbox: {fileID: 7072049019509825791}
   musicNote: {fileID: 3085386667858968886, guid: 51fc87d4b1e7a7d44bc2b9515669fee4,
     type: 3}
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfde5e7a97b4d8479af0871787555c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ps: {fileID: 0}
+  ps: {fileID: 9117497486307095085}
   stringBreak: {fileID: 3848826691018149732, guid: 6be51598315a04743b8ae3a9cadd7962,
     type: 3}
   guitarPick: {fileID: 4801075261888603570, guid: ce19e6d68756b1b4ca26df4287a5c410,
@@ -250,7 +250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700851087149963370}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.18, y: 0.18, z: 0}
+  m_LocalPosition: {x: 1.18, y: 0.17, z: 0}
   m_LocalScale: {x: 2.511301, y: 1.905, z: 1}
   m_Children:
   - {fileID: 9117497486599704607}
@@ -314,6 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 9117497486307095085}
   isSuper: 0
   meterCharge: 8
   damage: 5
@@ -438,7 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e280697de6bf2eb48a1725d610971a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ps: {fileID: 0}
+  ps: {fileID: 9117497486307095085}
   shortRangeHitbox: {fileID: 1700851087149963370}
   drumstick: {fileID: 1934037792989198, guid: 9abd557049d819441b7d884a4aa2d653, type: 3}
   cymbal: {fileID: 1312487970120966, guid: 8f9c7732d14746745b38e29d40bf5efd, type: 3}
@@ -658,6 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 9117497486307095085}
   isSuper: 0
   meterCharge: 8
   damage: 5
@@ -854,6 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 9117497486307095085}
   isSuper: 0
   meterCharge: 9
   damage: 8
@@ -1034,6 +1037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d282e45cea0074f81403e7d6f6d34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
   isSuper: 1
   meterCharge: 0
   damage: 35
@@ -1143,7 +1147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e255c20345e4143478599acbe9d9ec90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ps: {fileID: 0}
+  ps: {fileID: 9117497486307095085}
   shortRangeHitbox: {fileID: 8216758325658497405}
   longMicrophone: {fileID: 5549783632657337775, guid: 7b56553e2814d124ca2ef893f13d95e2,
     type: 3}
@@ -1253,6 +1257,7 @@ MonoBehaviour:
   shavoMaxCharge: 110
   daronMaxCharge: 110
   serjMaxCharge: 120
+  ps: {fileID: 9117497486307095085}
   pa: {fileID: 0}
 --- !u!114 &1787599692000143368
 MonoBehaviour:
@@ -1506,6 +1511,7 @@ MonoBehaviour:
   daronListeningForParry: 0
   serjFlightActive: 0
   blockAttackProgress: 0
+  controlSchemes: {fileID: 0}
   gameplayPause: {fileID: 0}
   countDown: {fileID: 0}
   deathMenu: {fileID: 0}
@@ -1632,7 +1638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9117497486599704595}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.24688394, y: -0.031496093, z: 0}
+  m_LocalPosition: {x: -0.225, y: -0.015, z: 0}
   m_LocalScale: {x: 1.1945999, y: 1.5748032, z: 1}
   m_Children: []
   m_Father: {fileID: 7166661154969307610}
@@ -1675,7 +1681,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300014, guid: 86f44e4a4ce89f143b03b67f183b847f, type: 3}
+  m_Sprite: {fileID: 21300008, guid: 86f44e4a4ce89f143b03b67f183b847f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1721,8 +1727,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.65, y: 0.8}
+    pivot: {x: 0, y: 0.5}
+    oldSize: {x: 0.7, y: 0.85}
     newSize: {x: 0.7, y: 0.85}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1842,11 +1848,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SerjWings
       objectReference: {fileID: 0}
-    - target: {fileID: 4443553847271393034, guid: 205d6aa3a38fc5346b5069d87046239c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4443553847271393035, guid: 205d6aa3a38fc5346b5069d87046239c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1916,6 +1917,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.0036418
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443553847271393034, guid: 205d6aa3a38fc5346b5069d87046239c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 205d6aa3a38fc5346b5069d87046239c, type: 3}

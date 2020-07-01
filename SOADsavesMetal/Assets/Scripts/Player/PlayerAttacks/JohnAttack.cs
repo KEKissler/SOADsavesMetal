@@ -30,7 +30,6 @@ public class JohnAttack : PlayerAttack {
 	// Use this for initialization
 	void Start () {
         shortRangeHitbox.SetActive(false);
-        ps = GameObject.FindWithTag("Player").GetComponent<Player>();
 	}
 
     /*
@@ -68,7 +67,7 @@ public class JohnAttack : PlayerAttack {
         while (ps.blockAttackProgress) yield return null;
 
         // Attack
-        shortRangeHitbox.transform.localPosition = new Vector2(1.15f, 0.18f);
+        shortRangeHitbox.transform.localPosition = new Vector2(1.137f, 0.17f);
         attackTimer = 0.0f;
         while(attackTimer < SHORT_ATTACK_HOLD_DURATION)
         {
