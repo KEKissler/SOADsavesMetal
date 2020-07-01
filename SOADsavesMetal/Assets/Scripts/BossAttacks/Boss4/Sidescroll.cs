@@ -9,6 +9,7 @@ public class Sidescroll : MonoBehaviour
     public GameObject ground;
     public Player player;
     public GameObject[] platforms;
+    public bool movePlayer;
 
     public float skySpeed;
     public float citySpeed;
@@ -99,6 +100,13 @@ public class Sidescroll : MonoBehaviour
         }
         
         lastPosition = player.transform.position;
-        player.desiredVelocity = groundSpeed;
+        if(movePlayer)
+        {
+            player.desiredVelocity = groundSpeed;
+        }
+        else
+        {
+            player.desiredVelocity = 0f;
+        }
     }
 }
