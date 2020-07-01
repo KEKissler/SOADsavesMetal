@@ -128,7 +128,8 @@ public class StaticData: MonoBehaviour
             //SpriteRenderer playerSprite = FindObjectOfType<SpriteRenderer>();
             if(playerScript != null)
             {
-                playerScript.currentBandMember = playerSelected; // sets player to selected player
+                //Debug.Log("player has been awakened :o");
+                playerScript.SetCurrentBandMember(playerSelected); // sets player to selected player
                 //playerSprite = selectedCharacter;
                 //Debug.Log(playerSprite);
             }

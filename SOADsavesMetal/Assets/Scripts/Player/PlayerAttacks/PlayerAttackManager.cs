@@ -16,7 +16,7 @@ public class PlayerAttackManager : MonoBehaviour
     public float johnMaxCharge;
     public float shavoMaxCharge, daronMaxCharge, serjMaxCharge;
 
-    private Player ps;
+    public Player ps;
     public PlayerAttack pa;
 
     void Start()
@@ -26,16 +26,15 @@ public class PlayerAttackManager : MonoBehaviour
 
     public IEnumerator SetPlayerName()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         JohnAttack.SetActive(false);
         ShavoAttack.SetActive(false);
         DaronAttack.SetActive(false);
         SerjAttack.SetActive(false);
 
-        ps = GameObject.FindWithTag("Player").GetComponent<Player>();
-
         switch (ps.currentBandMember)
         {
+
             case "John":
                 JohnAttack.SetActive(true);
                 pa = JohnAttack.GetComponent<JohnAttack>();

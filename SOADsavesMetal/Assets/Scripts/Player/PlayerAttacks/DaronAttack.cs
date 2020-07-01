@@ -25,7 +25,6 @@ public class DaronAttack : PlayerAttack
     
 	// Use this for initialization
 	void Start () {
-        ps = GameObject.FindWithTag("Player").GetComponent<Player>();
         superObject.SetActive(false);
 	}
 

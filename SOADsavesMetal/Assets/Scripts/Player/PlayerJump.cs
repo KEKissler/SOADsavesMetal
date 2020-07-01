@@ -99,10 +99,10 @@ public class PlayerJump : MonoBehaviour
         ps.curInvulnerableTime = 0.3f > ps.curInvulnerableTime ? 0.3f : ps.curInvulnerableTime;
         ps.playerUpperAnim.Play(ps.GetAnimName("Parry"));
 
-        float totalDuration = 0.25f, timer = 0f;
+        float totalDuration = 0.32f, timer = 0f;
 
         ps.daronListeningForParry = true;
-        while (timer < 0.2f)
+        while (timer < 0.32f)
         {
             timer += Time.deltaTime;
             if (!ps.daronListeningForParry)

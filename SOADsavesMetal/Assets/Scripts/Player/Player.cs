@@ -175,7 +175,9 @@ public class Player : MonoBehaviour
 
     public void SetCurrentBandMember(string newBandMember)
     {
+        pam = playerUpperBody.GetComponentInChildren<PlayerAttackManager>();
         currentBandMember = newBandMember;
+        Debug.Log("yee");
         StartCoroutine(pam.SetPlayerName());
     }
 
@@ -240,7 +242,6 @@ public class Player : MonoBehaviour
         paa = playerUpperBody.GetComponentInChildren<PlayerAttackAnims>();
         phm = GetComponent<PlayerHorizontalMovement>();
         pj = GetComponent<PlayerJump>();
-        pam = playerUpperBody.GetComponentInChildren<PlayerAttackManager>();
         paa.ps = this;
         phm.ps = this;
         pj.ps = this;
@@ -562,6 +563,8 @@ public class Player : MonoBehaviour
 
     public void DamagePlayer()
     {
+        sr.size = new Vector2(10f, 10f);
+        SetCurrentBandMember(currentBandMember);
         if (daronListeningForParry)
         {
             daronListeningForParry = false;
@@ -577,24 +580,25 @@ public class Player : MonoBehaviour
 
     IEnumerator PlayerFlashOnDamage(float duration)
     {
+        if (Health != 0 && currentBandMember == "Daron")
+        {
+            float forgiveTime = 0.14f, t2 = 0f;
+            while (t2 < forgiveTime)
+            {
+                t2 += Time.deltaTime;
+                if (daronListeningForParry)
+                {
+                    curInvulnerableTime += forgiveTime;
+                    daronListeningForParry = false;
+                    yield break;
+                }
+                yield return null;
+            }
+
+        }
         Health -= 1;
         if (Health != 0)
         {
-            if (currentBandMember == "Daron")
-            {
-                float forgiveTime = 0.09f, t2 = 0f;
-                while (t2 < forgiveTime)
-                {
-                    t2 += Time.deltaTime;
-                    if (daronListeningForParry)
-                    {
-                        curInvulnerableTime += forgiveTime;
-                        daronListeningForParry = false;
-                        yield break;
-                    }
-                    yield return null;
-                }
-            }
             PlayAudioEvent(playerHit);
 
             float initialPeriod = 0.25f, finalPeriod = 0.05f;
