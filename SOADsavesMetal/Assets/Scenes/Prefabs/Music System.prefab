@@ -56,5 +56,6 @@ MonoBehaviour:
   - event:/Music/M_Level4
   - event:/Music/M_Credits
   - event:/Music/M_Outro
+  - event:/Music/M_Level4-2
   trackSelectIndex: 0
   currentMusicIndex: 0

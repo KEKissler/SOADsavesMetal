@@ -623,6 +623,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6977039927035601482, guid: 05f055b78c6159a4c8745b1f6e9a8886,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6977039927035601485, guid: 05f055b78c6159a4c8745b1f6e9a8886,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -698,16 +703,6 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.88
       objectReference: {fileID: 0}
-    - target: {fileID: 1080315020046186876, guid: 05f055b78c6159a4c8745b1f6e9a8886,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080315020046186876, guid: 05f055b78c6159a4c8745b1f6e9a8886,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0.08
-      objectReference: {fileID: 0}
     - target: {fileID: 6977039927035601483, guid: 05f055b78c6159a4c8745b1f6e9a8886,
         type: 3}
       propertyPath: m_SortingOrder
@@ -719,10 +714,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: a5627b239da79414e9d01b361186e70f,
         type: 3}
-    - target: {fileID: 6977039927035601482, guid: 05f055b78c6159a4c8745b1f6e9a8886,
+    - target: {fileID: 1080315020046186876, guid: 05f055b78c6159a4c8745b1f6e9a8886,
         type: 3}
-      propertyPath: Player
-      value: 
+      propertyPath: m_Size.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080315020046186876, guid: 05f055b78c6159a4c8745b1f6e9a8886,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05f055b78c6159a4c8745b1f6e9a8886, type: 3}
@@ -1351,6 +1351,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6977039927035601482, guid: 05f055b78c6159a4c8745b1f6e9a8886,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6977039927035601485, guid: 05f055b78c6159a4c8745b1f6e9a8886,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1426,16 +1431,6 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.56
       objectReference: {fileID: 0}
-    - target: {fileID: 1080315020046186876, guid: 05f055b78c6159a4c8745b1f6e9a8886,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080315020046186876, guid: 05f055b78c6159a4c8745b1f6e9a8886,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0.08
-      objectReference: {fileID: 0}
     - target: {fileID: 6977039927035601483, guid: 05f055b78c6159a4c8745b1f6e9a8886,
         type: 3}
       propertyPath: m_SortingOrder
@@ -1447,10 +1442,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: a5627b239da79414e9d01b361186e70f,
         type: 3}
-    - target: {fileID: 6977039927035601482, guid: 05f055b78c6159a4c8745b1f6e9a8886,
+    - target: {fileID: 1080315020046186876, guid: 05f055b78c6159a4c8745b1f6e9a8886,
         type: 3}
-      propertyPath: Player
-      value: 
+      propertyPath: m_Size.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080315020046186876, guid: 05f055b78c6159a4c8745b1f6e9a8886,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05f055b78c6159a4c8745b1f6e9a8886, type: 3}
@@ -1803,6 +1803,7 @@ MonoBehaviour:
   - {fileID: 565167781}
   - {fileID: 2096569783}
   - {fileID: 295899697}
+  movePlayer: 0
   skySpeed: 0.5
   citySpeed: 0.75
   groundSpeed: 1.5
@@ -2446,51 +2447,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: currentBandMember
-      value: Daron
-      objectReference: {fileID: 0}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: gameplayPause
-      value: 
-      objectReference: {fileID: 1479844871}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: countDown
-      value: 
-      objectReference: {fileID: 1479844870}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: deathMenu
-      value: 
-      objectReference: {fileID: 1479844872}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: platforms.Array.data[0]
-      value: 
-      objectReference: {fileID: 565167783}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: platforms.Array.data[1]
-      value: 
-      objectReference: {fileID: 2096569785}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: platforms.Array.data[2]
-      value: 
-      objectReference: {fileID: 295899699}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: bossDead
-      value: 
-      objectReference: {fileID: 1539245692}
-    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
-        type: 3}
-      propertyPath: controlSchemes
-      value: 
-      objectReference: {fileID: 1479844875}
     - target: {fileID: 9117497486307095081, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2545,6 +2501,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: currentBandMember
+      value: Daron
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: gameplayPause
+      value: 
+      objectReference: {fileID: 1479844871}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: countDown
+      value: 
+      objectReference: {fileID: 1479844870}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: deathMenu
+      value: 
+      objectReference: {fileID: 1479844872}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: platforms.Array.data[0]
+      value: 
+      objectReference: {fileID: 565167783}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: platforms.Array.data[1]
+      value: 
+      objectReference: {fileID: 2096569785}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: platforms.Array.data[2]
+      value: 
+      objectReference: {fileID: 295899699}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: bossDead
+      value: 
+      objectReference: {fileID: 1539245692}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: controlSchemes
+      value: 
+      objectReference: {fileID: 1479844875}
+    - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
+        type: 3}
+      propertyPath: startingHealth
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9117497486307095082, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
@@ -3357,11 +3363,6 @@ PrefabInstance:
       propertyPath: isBattleScene
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 825568786141207103, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
-        type: 3}
-      propertyPath: fadeImage
-      value: 
-      objectReference: {fileID: 1824787022}
     - target: {fileID: 1282551597, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 5
@@ -3571,6 +3572,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 825568786141207103, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
+        type: 3}
+      propertyPath: fadeImage
+      value: 
+      objectReference: {fileID: 1824787022}
     - target: {fileID: 5909654529114422228, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3808,6 +3814,7 @@ GameObject:
   - component: {fileID: 1539245693}
   - component: {fileID: 1539245694}
   - component: {fileID: 1539245690}
+  - component: {fileID: 1539245695}
   m_Layer: 0
   m_Name: sandaramet
   m_TagString: BossHittable
@@ -3934,6 +3941,7 @@ MonoBehaviour:
   damageAnim: {fileID: 7400000, guid: e6596a9e0c29cdd4cacb87fa4a221d20, type: 2}
   damageAnim2: {fileID: 7400000, guid: 92168f78776d84847ac50e62ec039915, type: 2}
   deathAnim: {fileID: 7400000, guid: 43a5ba77e1a29fb45aa77e94b7925864, type: 2}
+  bossDeath: event:/Enemy/Death Shrieks/04b_sanda_deathscream
 --- !u!114 &1539245692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4010,6 +4018,20 @@ MonoBehaviour:
     HealthPercentThreshhold: 0
     ExecuteOnPhaseStart: {fileID: 0}
   phaseIndex: 0
+--- !u!114 &1539245695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539245686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c253e25f5cb3e4b9402d54bb2eda96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 1479844873}
+  transitionEffect: event:/Enemy/Death Shrieks/04a_sanda_formchange
 --- !u!1 &1565244139
 GameObject:
   m_ObjectHideFlags: 0
@@ -4737,6 +4759,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6977039927035601482, guid: 05f055b78c6159a4c8745b1f6e9a8886,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6977039927035601485, guid: 05f055b78c6159a4c8745b1f6e9a8886,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4812,16 +4839,6 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.88
       objectReference: {fileID: 0}
-    - target: {fileID: 1080315020046186876, guid: 05f055b78c6159a4c8745b1f6e9a8886,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080315020046186876, guid: 05f055b78c6159a4c8745b1f6e9a8886,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0.08
-      objectReference: {fileID: 0}
     - target: {fileID: 6977039927035601483, guid: 05f055b78c6159a4c8745b1f6e9a8886,
         type: 3}
       propertyPath: m_SortingOrder
@@ -4833,10 +4850,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: a5627b239da79414e9d01b361186e70f,
         type: 3}
-    - target: {fileID: 6977039927035601482, guid: 05f055b78c6159a4c8745b1f6e9a8886,
+    - target: {fileID: 1080315020046186876, guid: 05f055b78c6159a4c8745b1f6e9a8886,
         type: 3}
-      propertyPath: Player
-      value: 
+      propertyPath: m_Size.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080315020046186876, guid: 05f055b78c6159a4c8745b1f6e9a8886,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05f055b78c6159a4c8745b1f6e9a8886, type: 3}

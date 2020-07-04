@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="EncodableAsset" id="{5abd4f07-98ba-4e69-b6e9-7f8bc2740a30}">
+		<property name="assetPath">
+			<value>Bosses/Death Shrieks/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{583e0078-1f91-402a-91f8-51c998e8250d}</destination>
+		</relationship>
+	</object>
+</objects>

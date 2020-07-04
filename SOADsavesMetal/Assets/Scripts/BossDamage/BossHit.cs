@@ -28,7 +28,8 @@ public class BossHit : MonoBehaviour
     private Vector3 bossStart;
     private Animator bossAnimations;
     private float transformationCutoff;
-
+    [FMODUnity.EventRef]
+    public string bossDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +61,8 @@ public class BossHit : MonoBehaviour
             {
                 transform.parent.position = bossStart;
                 bossAnimations.Play(TSOVINAR_DEATH);
+                FMOD.Studio.EventInstance death = FMODUnity.RuntimeManager.CreateInstance(bossDeath);
+                death.start();
                 Destroy(gameObject, deathAnim.length-cutoff);
                 //gameObject.
             }
@@ -74,6 +77,8 @@ public class BossHit : MonoBehaviour
             {
                 transform.parent.position = bossStart;
                 bossAnimations.Play(AGAS_DEATH);
+                FMOD.Studio.EventInstance death = FMODUnity.RuntimeManager.CreateInstance(bossDeath);
+                death.start();
                 Destroy(gameObject, deathAnim.length - 1);
             }
         }
@@ -86,6 +91,8 @@ public class BossHit : MonoBehaviour
             else
             {
                 bossAnimations.Play(NHANG_DEATH);
+                FMOD.Studio.EventInstance death = FMODUnity.RuntimeManager.CreateInstance(bossDeath);
+                death.start();
             }
         }
         else if(name == "sandaramet")
@@ -106,6 +113,8 @@ public class BossHit : MonoBehaviour
                 else
                 {
                     bossAnimations.Play(SANDARAMET_DEATH);
+                    FMOD.Studio.EventInstance death = FMODUnity.RuntimeManager.CreateInstance(bossDeath);
+                    death.start();
                 }
             }
         }

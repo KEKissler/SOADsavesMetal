@@ -2170,6 +2170,7 @@ MonoBehaviour:
   damageAnim: {fileID: 7400000, guid: 9d149a108af95a348a65b7f6c2dcdd95, type: 2}
   damageAnim2: {fileID: 0}
   deathAnim: {fileID: 7400000, guid: 9f67567e93c5f65498bc93aa80d4bd33, type: 2}
+  bossDeath: event:/Enemy/Death Shrieks/01_agas_deathscream
 --- !u!1 &1040912959
 GameObject:
   m_ObjectHideFlags: 0
@@ -3941,6 +3942,11 @@ PrefabInstance:
       propertyPath: deathHealth
       value: 
       objectReference: {fileID: 8857609954847487182}
+    - target: {fileID: 573222039197791906, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
+        type: 3}
+      propertyPath: bossDeath
+      value: event:/Enemy/Death Shrieks/01_agas_deathscream
+      objectReference: {fileID: 0}
     - target: {fileID: 1944043208692453105, guid: 1ee5c10a8273f2e4b8db6ef183e941a0,
         type: 3}
       propertyPath: m_Offset.x

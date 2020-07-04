@@ -43,6 +43,7 @@ public class BossHealth : MonoBehaviour
     [FMODUnity.EventRef]
     public string bossHit;
 
+
     public int currentBoss;
     [SerializeField] bool Dead;
 
@@ -111,9 +112,7 @@ public class BossHealth : MonoBehaviour
                 default:
                     break;
             }
-
             music.StopMusic();
-            
             StartCoroutine(LoadLevelSelector());
             
         }

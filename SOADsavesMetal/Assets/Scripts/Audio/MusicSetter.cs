@@ -42,6 +42,10 @@ public class MusicSetter : MonoBehaviour
     }
     public void QueueBattleMusic(int track)
     {
-        MusicSystem.instance.trackSelectIndex = track;
+        MusicSystem.instance.currentMusicIndex = track;
+    }
+    public void ChangeMusic(int index)
+    {
+        MusicSystem.instance.ChangeMusic(index);
     }
 }

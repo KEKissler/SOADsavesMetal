@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{b46f031e-7ddb-4eb1-8e67-6230f8d845fb}">
+		<property name="assetPath">
+			<value>Bosses/Death Shrieks/04a_sanda_formchange.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>6.25</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{583e0078-1f91-402a-91f8-51c998e8250d}</destination>
+		</relationship>
+	</object>
+</objects>

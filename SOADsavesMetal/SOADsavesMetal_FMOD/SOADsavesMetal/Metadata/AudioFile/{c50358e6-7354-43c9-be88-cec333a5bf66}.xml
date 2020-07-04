@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{c50358e6-7354-43c9-be88-cec333a5bf66}">
+		<property name="assetPath">
+			<value>Music/Credits - Hypnotize (Edit).ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>164.12879818594104</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{583e0078-1f91-402a-91f8-51c998e8250d}</destination>
+		</relationship>
+	</object>
+</objects>

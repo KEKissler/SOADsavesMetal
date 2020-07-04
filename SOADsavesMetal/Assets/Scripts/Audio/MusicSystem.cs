@@ -76,7 +76,7 @@ public class MusicSystem : MonoBehaviour
     {
         FMOD.Studio.PLAYBACK_STATE state;
         FMOD.RESULT res = currentMusic.getPlaybackState(out state);
-        if ((res == FMOD.RESULT.OK && (state == FMOD.Studio.PLAYBACK_STATE.STOPPED)) || res == FMOD.RESULT.ERR_INVALID_HANDLE)
+        if ((res == FMOD.RESULT.OK && (state == FMOD.Studio.PLAYBACK_STATE.STOPPED || state == FMOD.Studio.PLAYBACK_STATE.STOPPING)) || res == FMOD.RESULT.ERR_INVALID_HANDLE)
         {
             currentMusic = FMODUnity.RuntimeManager.CreateInstance(musicEvents[currentMusicIndex]);
             currentMusic.start();
