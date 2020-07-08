@@ -19,7 +19,7 @@ MonoBehaviour:
   preXLength: 10
   xAttackSize: 1
   chargeDuration: 1.5
-  attackDuration: 1
+  attackDuration: 0.5
   flashDuration: 0
   endDuration: 0.3
   trackingSpeed: 0
