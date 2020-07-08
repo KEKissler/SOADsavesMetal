@@ -55,7 +55,7 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
         while (!BossHealth.isDead())
         {
             BossAttack newAttack = SelectNextAttack();
-            if(attack == newAttack)
+            while(attack == newAttack)
             {
                 newAttack = SelectNextAttack();
             }

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd8d28a8c9e3fa24ba5af6e257d54e8b, type: 3}
+  m_Name: Left_DuoSwirlBall1
+  m_EditorClassIdentifier: 
+  duration: 2
+  Attacks:
+  - Attack: {fileID: 11400000, guid: c30c8f0094423104d8ecc2ece5e95fc5, type: 2}
+    duration: 0.5
+  - Attack: {fileID: 11400000, guid: d021d57b95c21fd469cc8d38ff57613d, type: 2}
+    duration: 0.5
