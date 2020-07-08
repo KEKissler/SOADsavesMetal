@@ -156,29 +156,26 @@ public class DeathTipGenerator
         "A new band member is unlocked after defeating each boss. Try them all out!",
         "Each band member has a different melee attack, ranged attack, Super, and double jump. Choose wisely!",
         "Double tapping the crouch button will let you drop through platforms. Use this to avoid attacks!",
-        "A new music track is unlocked after defeating each boss. You can mix and match music with levels however you want!"
+        "A new music track is unlocked after defeating each boss. You can mix and match music with levels however you want!",
+        "Don’t underestimate the power of melee attacks—they deal more damage and charge your Super faster!"
     };
 
     private static readonly string[] johnTips = {
-        "Don’t underestimate the power of melee attacks—they deal more damage, charge your Super faster, and most are able to block projectiles!",
         "John’s Super has the potential to deal a lot of damage, but leaves you vulnerable for the duration. Time it wisely!",
         "John’s second jump can provide you with an extra height boost when it really matters. Don’t forget about it!"
     };
 
     private static readonly string[] shavoTips = {
-        "Don’t underestimate the power of melee attacks—they deal more damage, charge your Super faster, and most are able to block projectiles!",
         "Shavo’s Super can be hard to aim, but it makes you invulnerable for the duration and deals a lot of damage if it hits!",
         "Shavo’s double jump is an angled dash. Use it to dodge your enemies’ attacks!"
     };
 
     private static readonly string[] daronTips = {
-        "Daron’s melee attacks don’t block projectiles, but they do a lot more damage and charge your Super even faster!",
         "Daron’s Super doesn’t do as much damage as the other band members, but it’s easier to aim and makes you temporarily invulnerable.",
         "Daron’s double jump doesn’t actually affect his trajectory, instead it destroys projectiles you come into contact with. Time it wisely!"
     };
 
     private static readonly string[] serjTips = {
-        "Don’t underestimate the power of melee attacks—they deal more damage, charge your Super faster, and most are able to block projectiles!",
         "Serj’s Super hits the entire screen, and makes you invulnerable for the duration. Use it to your advantage!",
         "Serj’s double jump grants you full aerial control—mastering it can change the tide of battle!"
     };
