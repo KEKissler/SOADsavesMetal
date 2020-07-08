@@ -106,13 +106,16 @@ public abstract class BossAttackManager<T> : MonoBehaviour where T : BossPhase
 
     public void stopCurrentAttack()
     {
-        attack.EndAttackEarly();
-        if(attackManager != null)
-            StopCoroutine(attackManager);
-            
-        for (int i = 0; i < attackParent.childCount; ++i)
+        if(attack != null)
         {
-            Destroy(attackParent.GetChild(i).gameObject);
+            attack.EndAttackEarly();
+            if(attackManager != null)
+                StopCoroutine(attackManager);
+                
+            for (int i = 0; i < attackParent.childCount; ++i)
+            {
+                Destroy(attackParent.GetChild(i).gameObject);
+            }
         }
     }
 
