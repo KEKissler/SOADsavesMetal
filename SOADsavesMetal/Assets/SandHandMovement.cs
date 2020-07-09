@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FMOD.Studio;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,9 +21,17 @@ public class SandHandMovement : MonoBehaviour
     bool damageDone = false;
     float time = 0;
     float DeathTime = 10;
+
+    [FMODUnity.EventRef]
+    public string pushHandEvent;
+
+    //save on instances rather than constantly creating them
+    public EventInstance pushHandInstance;
+
     // Start is called before the first frame update
     void Start()
     {
+        pushHandInstance = FMODUnity.RuntimeManager.CreateInstance(pushHandEvent);
         AttackObject.SetActive(true);
         time = Time.time;
     }
@@ -80,5 +89,6 @@ public class SandHandMovement : MonoBehaviour
         goUp = true;
         attack = true;
         time = 0;
+        pushHandInstance.start();
     }
 }
