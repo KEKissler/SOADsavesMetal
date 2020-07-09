@@ -21,6 +21,7 @@ public class MenuButtons : MonoBehaviour {
         StaticData.daronUnlock = false;
         StaticData.serjUnlock = false;
         SaveSystem.SaveGame();
+        Debug.Log(StaticData.firstPlay);
     }
 
     public void Continue() {

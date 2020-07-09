@@ -6,18 +6,18 @@ using UnityEngine.Experimental.PlayerLoop;
 
 public class ControlSchemes: MonoBehaviour
 {
-    public KeyCode up = KeyCode.UpArrow;
-    public KeyCode down = KeyCode.DownArrow;
-    public string hori = "Horizontal";
-    public string vert = "Vertical";
-    public KeyCode CAttack = KeyCode.Z;
-    public KeyCode RAttack = KeyCode.X;
-    public KeyCode SAttack = KeyCode.C;
-    public KeyCode pause = KeyCode.Escape;
+    public KeyCode up;
+    public KeyCode down;
+    public string hori;
+    public string vert;
+    public KeyCode CAttack;
+    public KeyCode RAttack;
+    public KeyCode SAttack;
+    public KeyCode pause;
 
     public int scheme;
     
-    private void Start()
+    private void Awake()
     {
         scheme = StaticData.controlScheme;
     }
@@ -25,7 +25,7 @@ public class ControlSchemes: MonoBehaviour
     {
         //Assisgns the current scheme that is being held in saveData
 
-        if (scheme != StaticData.controlScheme)
+        do 
         {
             scheme = StaticData.controlScheme;
 
@@ -41,8 +41,6 @@ public class ControlSchemes: MonoBehaviour
                     RAttack = KeyCode.X;
                     SAttack = KeyCode.C;
                     pause = KeyCode.Escape;
-                    StartCoroutine(ControllerUpdatePause());
-                    SaveSystem.SaveGame();
                     break;
 
                 //WASD controls
@@ -55,8 +53,6 @@ public class ControlSchemes: MonoBehaviour
                     RAttack = KeyCode.K;
                     SAttack = KeyCode.L;
                     pause = KeyCode.Escape;
-                    StartCoroutine(ControllerUpdatePause());
-                    SaveSystem.SaveGame();
                     break;
 
                 //Controller controls
@@ -69,25 +65,11 @@ public class ControlSchemes: MonoBehaviour
                     RAttack = KeyCode.JoystickButton2;
                     SAttack = KeyCode.JoystickButton3;
                     pause = KeyCode.JoystickButton7;
-                    StartCoroutine(ControllerUpdatePause());
-                    SaveSystem.SaveGame();
-                    break;
-
-
-                //Also Arrow keys
-                default:
-                    up = KeyCode.UpArrow;
-                    down = KeyCode.DownArrow;
-                    hori = "Horizontal";
-                    vert = "Vertical";
-                    CAttack = KeyCode.Z;
-                    RAttack = KeyCode.X;
-                    SAttack = KeyCode.C;
-                    pause = KeyCode.Escape;
-                    SaveSystem.SaveGame();
                     break;
             }
-        }
+            //StartCoroutine(ControllerUpdatePause());
+
+        } while (!scheme.Equals(StaticData.controlScheme));
     }
 
     public void updateControlScheme()
@@ -97,7 +79,7 @@ public class ControlSchemes: MonoBehaviour
 
     public IEnumerator ControllerUpdatePause()
     {
-        yield return new WaitForSecondsRealtime(1.0f);    
+        yield return new WaitForSecondsRealtime(1.0f);
         yield return new WaitForEndOfFrame();
         if (StaticData.firstLoad)
             StaticData.firstLoad = false;
