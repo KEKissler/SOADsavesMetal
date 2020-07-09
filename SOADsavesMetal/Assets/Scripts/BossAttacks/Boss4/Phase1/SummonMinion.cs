@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FMOD.Studio;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class SummonMinion : SandarametAttack
     public float angle;
     [SerializeField]
     private float Y_offset;
+    [SerializeField]
+    private bool isChargeMinion;
 
     private Transform attackParent;
     private Transform playerPosition;
@@ -18,6 +21,9 @@ public class SummonMinion : SandarametAttack
     private GameObject fireballObject;
     private Collider2D topCollider;
     private Collider2D bottomCollider;
+
+    [FMODUnity.EventRef]
+    public string minionChargeEvent;
 
     public override void Initialize(SandarametAttackData data)
     {
@@ -39,6 +45,11 @@ public class SummonMinion : SandarametAttack
         if (fireballObject.GetComponent<Projectile>() != null)
         {
             fireballObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, 0f, angle);
+            if (isChargeMinion)
+            {
+                EventInstance minionInstance = FMODUnity.RuntimeManager.CreateInstance(minionChargeEvent);
+                minionInstance.start();
+            }
         }
     }
 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1094636117859559861}
   - component: {fileID: 1125367232}
   - component: {fileID: 1561477173619020107}
+  - component: {fileID: 3172258981187790930}
   m_Layer: 0
   m_Name: Shot Minnion 1.0
   m_TagString: Minnion
@@ -147,6 +148,7 @@ MonoBehaviour:
   shot: {fileID: 1883100758368052, guid: cc1e07ece144cd241a99931749565888, type: 3}
   ProjectileSpeed: 3
   ProjectileType: 0
+  minionProjectile: event:/Enemy/E_Sandaramet/E_Sandaramet_MinionFireball
 --- !u!95 &1561477173619020107
 Animator:
   serializedVersion: 3
@@ -166,3 +168,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3172258981187790930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094636117859559870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3620590b94630554795c0e2346311d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flapEvent: event:/Enemy/E_Sandaramet/E_Sandaramet_WingFlap

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FMOD.Studio;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +27,11 @@ public class FirePillarAnimation : MonoBehaviour
     private SpriteRenderer alpha;
     private bool tracking = true;
 
+    [FMODUnity.EventRef]
+    public string chargeEvent;
+    [FMODUnity.EventRef]
+    public string fireEvent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +49,8 @@ public class FirePillarAnimation : MonoBehaviour
     {
         alpha.transform.parent.LeanScaleX(xAttackSize, chargeDuration);
         var a = StartCoroutine(LerpColor(alpha, startingColor, flashColor, chargeDuration));
-
+        EventInstance chargeInstance = FMODUnity.RuntimeManager.CreateInstance(chargeEvent);
+        chargeInstance.start();
         yield return new WaitForSeconds(chargeDuration);
         tracking = false;
         if (a != null)
@@ -90,6 +97,8 @@ public class FirePillarAnimation : MonoBehaviour
     {
         beamHitBox.enabled = true;
         fire.gameObject.SetActive(true);
+        EventInstance fireInstance = FMODUnity.RuntimeManager.CreateInstance(fireEvent);
+        fireInstance.start();
         var particles = new ParticleSystem.Particle[100];
         smoke.GetParticles(particles);
         for(int i = 0; i < particles.Length; ++i)

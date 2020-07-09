@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spawnee: {fileID: 1042536919406123074, guid: 15d14706c87fd7f4f9079e03ed55a6aa, type: 3}
   speed: -1
+  breakEvent: event:/Enemy/E_Sandaramet/E_Sandaramet_Stalactites
 --- !u!95 &4686940996366498527
 Animator:
   serializedVersion: 3

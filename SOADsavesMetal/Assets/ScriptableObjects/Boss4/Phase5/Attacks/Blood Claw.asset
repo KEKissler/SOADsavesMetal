@@ -16,3 +16,4 @@ MonoBehaviour:
   spawnTime: 0.35
   bloodWavePrefab: {fileID: 1883100758368052, guid: 9b521583065fbaa4092f80a85ca7e596,
     type: 3}
+  waveEvent: event:/Enemy/E_Sandaramet/E_Sandaramet_BloodWave

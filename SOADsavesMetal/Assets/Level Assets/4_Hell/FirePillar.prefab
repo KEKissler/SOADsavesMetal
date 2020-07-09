@@ -4847,6 +4847,8 @@ MonoBehaviour:
   gameplayPause: {fileID: 0}
   smoke: {fileID: 0}
   fire: {fileID: 0}
+  chargeEvent: event:/Enemy/E_Sandaramet/E_Sandaramet_FirePillar
+  fireEvent: event:/Enemy/E_Sandaramet/E_Sandaramet_LaserFire
 --- !u!1 &4382737866514268137
 GameObject:
   m_ObjectHideFlags: 0

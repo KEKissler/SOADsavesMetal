@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FMOD.Studio;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,9 +22,15 @@ public class ShotEnemyShooting : MonoBehaviour
     int shotSent;
     float waitTime;
 
+    [FMODUnity.EventRef]
+    public string minionProjectile;
+
+    public EventInstance minionInstance;
+
     // Start is called before the first frame update
     void Start()
     {
+        minionInstance = FMODUnity.RuntimeManager.CreateInstance(minionProjectile);
         timeLastShot = Time.time;
         shotSent = 0;
         waitTime = longwaitTime;
@@ -53,6 +60,7 @@ public class ShotEnemyShooting : MonoBehaviour
         GameObject fireballObject = Instantiate(shot, transform.position, Quaternion.identity);
         if (fireballObject.GetComponent<Projectile>() != null)
         {
+            minionInstance.start();
             //fireballObject.GetComponent<Projectile>().Configure(gameObject, ProjectileType, ProjectileSpeed, 0f);
         }
     }

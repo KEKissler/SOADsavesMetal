@@ -42,7 +42,7 @@ public class MusicSetter : MonoBehaviour
     }
     public void QueueBattleMusic(int track)
     {
-        MusicSystem.instance.currentMusicIndex = track;
+        MusicSystem.instance.trackSelectIndex = track;
     }
     public void ChangeMusic(int index)
     {

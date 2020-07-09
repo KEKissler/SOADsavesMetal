@@ -19,3 +19,5 @@ MonoBehaviour:
   ProjectileType: 1
   angle: 140
   Y_offset: 0.5
+  isChargeMinion: 1
+  minionChargeEvent: event:/Enemy/E_Sandaramet/E_Sandaramet_MinionCharge

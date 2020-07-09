@@ -28,10 +28,16 @@ public class SandHandMovement : MonoBehaviour
     //save on instances rather than constantly creating them
     public EventInstance pushHandInstance;
 
+    [FMODUnity.EventRef]
+    public string crushEvent;
+    //save on instances rather than constantly creating them
+    public EventInstance crushInstance;
+
     // Start is called before the first frame update
     void Start()
     {
         pushHandInstance = FMODUnity.RuntimeManager.CreateInstance(pushHandEvent);
+        crushInstance = FMODUnity.RuntimeManager.CreateInstance(crushEvent);
         AttackObject.SetActive(true);
         time = Time.time;
     }
@@ -90,5 +96,10 @@ public class SandHandMovement : MonoBehaviour
         attack = true;
         time = 0;
         pushHandInstance.start();
+    }
+
+    public void PlayCrush()
+    {
+        crushInstance.start();
     }
 }

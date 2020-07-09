@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FMOD.Studio;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,9 @@ public class SpikeSpawner : MonoBehaviour
     GameObject Spawnee;
     [SerializeField]
     float speed = 5;
+
+    [FMODUnity.EventRef]
+    public string breakEvent;
 
     private void FixedUpdate()
     {
@@ -19,6 +23,8 @@ public class SpikeSpawner : MonoBehaviour
         if(collision.tag == "Player")
         {
             GameObject temp = Instantiate(Spawnee, gameObject.transform.position, gameObject.transform.rotation);
+            EventInstance breakInstance = FMODUnity.RuntimeManager.CreateInstance(breakEvent);
+            breakInstance.start();
             if (temp.GetComponent<Projectile>() != null)
             {
                //temp.GetComponent<Projectile>().Configure(this.gameObject, ProjectileType.Gravity, ProjectileSpeed.Med, 0);

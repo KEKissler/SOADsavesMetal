@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using FMOD.Studio;
+using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,6 +25,11 @@ public class HorizontalBeamAnimation : MonoBehaviour
     private float postYLength = 0;
     private SpriteRenderer alpha;
     private bool tracking = true;
+
+    [FMODUnity.EventRef]
+    public string chargeEvent;
+    [FMODUnity.EventRef]
+    public string fireEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +59,8 @@ public class HorizontalBeamAnimation : MonoBehaviour
 
     private IEnumerator Coalesce()
     {
+        EventInstance chargeInstance = FMODUnity.RuntimeManager.CreateInstance(chargeEvent);
+        chargeInstance.start();
         alpha.transform.LeanScaleY(yAttackSize, chargeDuration);
         var a = StartCoroutine(LerpColor(alpha, startingColor, flashColor, chargeDuration));
 
@@ -99,6 +108,8 @@ public class HorizontalBeamAnimation : MonoBehaviour
 
     private IEnumerator Firing()
     {
+        EventInstance fireInstance = FMODUnity.RuntimeManager.CreateInstance(fireEvent);
+        fireInstance.start();
         beamHitBox.enabled = true;
         yield return new WaitForSeconds(attackDuration);
         beamHitBox.enabled = false;

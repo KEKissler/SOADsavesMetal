@@ -4845,6 +4845,8 @@ MonoBehaviour:
   flashColor: {r: 0, g: 0, b: 0, a: 0}
   player: {fileID: 0}
   gameplayPause: {fileID: 0}
+  chargeEvent: event:/Enemy/E_Sandaramet/E_Sandaramet_LaserCharge
+  fireEvent: event:/Enemy/E_Sandaramet/E_Sandaramet_LaserFire
 --- !u!1 &4382737866514268137
 GameObject:
   m_ObjectHideFlags: 0

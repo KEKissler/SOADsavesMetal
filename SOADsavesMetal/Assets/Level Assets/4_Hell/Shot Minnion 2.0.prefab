@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5036355610137651117}
   - component: {fileID: 5392030318906291160}
   - component: {fileID: 6057850221620434225}
+  - component: {fileID: 5786653948462464801}
   m_Layer: 0
   m_Name: Shot Minnion 2.0
   m_TagString: Minnion
@@ -166,3 +167,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5786653948462464801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5036355610137651110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3620590b94630554795c0e2346311d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flapEvent: event:/Enemy/E_Sandaramet/E_Sandaramet_WingFlap

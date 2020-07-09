@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toSpawn: {fileID: 4901896941705344347, guid: 30cd831b2f2790c4e8aa32fd4e0558e0, type: 3}
+  spawnEvent: event:/Enemy/E_Sandaramet/E_Sandaramet_Stalactiteshake

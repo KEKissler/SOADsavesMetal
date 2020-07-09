@@ -19,3 +19,4 @@ MonoBehaviour:
   ProjectileType: 0
   angle: 230
   Y_offset: 0
+  bloodSphere: event:/Enemy/E_Sandaramet/E_Sandaramet_BloodSphere

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FMOD.Studio;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +19,9 @@ public class FlameSphere : SandarametAttack
     private GameObject fireballObject;
     private Collider2D topCollider;
     private Collider2D bottomCollider;
+
+    [FMODUnity.EventRef]
+    public string bloodSphere;
 
     public override void Initialize(SandarametAttackData data)
     {
@@ -42,6 +46,8 @@ public class FlameSphere : SandarametAttack
         if(fireballObject.GetComponent<Projectile>() != null)
         {
             fireballObject.GetComponent<Projectile>().Configure(playerPosition.gameObject, ProjectileType, ProjectileSpeed, 0f, angle);
+            EventInstance bloodballInstance = FMODUnity.RuntimeManager.CreateInstance(bloodSphere);
+            bloodballInstance.start();
         }
     }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FMOD.Studio;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,9 @@ public class BloodClawAttack : SandarametAttack
     private GameObject arm;
     private Transform spawnPoint;
     private Transform attackParent;
+
+    [FMODUnity.EventRef]
+    public string waveEvent;
 
     public override void Initialize(SandarametAttackData data)
     {
@@ -28,6 +32,8 @@ public class BloodClawAttack : SandarametAttack
         GameObject wave = Instantiate(bloodWavePrefab, spawnPoint.position, Quaternion.identity, attackParent);
         yield return new WaitForEndOfFrame();
         wave.GetComponentInChildren<Projectile>().Configure(attackParent.gameObject, ProjectileType.Linear, ProjectileSpeed.Stop, 0, -90f);
+        EventInstance waveInstance = FMODUnity.RuntimeManager.CreateInstance(waveEvent);
+        waveInstance.start();
         yield return new WaitForSeconds(duration-spawnTime);
     }
 

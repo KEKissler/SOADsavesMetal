@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 6630077106205200285}
   - component: {fileID: 2555337256819108549}
   - component: {fileID: 3941681488792509701}
+  - component: {fileID: 3529561860384471055}
   m_Layer: 0
   m_Name: Animation
   m_TagString: Untagged
@@ -265,3 +266,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3529561860384471055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2318068012091542183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3620590b94630554795c0e2346311d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flapEvent: event:/Enemy/E_Sandaramet/E_Sandaramet_WingFlap
