@@ -177,7 +177,6 @@ public class Player : MonoBehaviour
     {
         pam = playerUpperBody.GetComponentInChildren<PlayerAttackManager>();
         currentBandMember = newBandMember;
-        Debug.Log("yee");
         StartCoroutine(pam.SetPlayerName());
     }
 

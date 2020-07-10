@@ -10,7 +10,7 @@ public class StaticData: MonoBehaviour
 
     static public string playerSelected = "";
     static public string levelSelect = "";
-    static public int controlScheme = 0;
+    static public int controlScheme;
     static public SpriteRenderer selectedCharacter;
     static public bool firstLoad = true;
     static public bool firstPlay = true;
@@ -114,6 +114,7 @@ public class StaticData: MonoBehaviour
         shavoUnlock = data.shavoUnlock;
         daronUnlock = data.daronUnlock;
         serjUnlock = data.serjUnlock;
+        controlScheme = data.controlScheme;
     }
 
     public void Quit()

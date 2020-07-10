@@ -80,6 +80,7 @@ public class BossHealth : MonoBehaviour
         {
             sandarametAttackManager = temp4;
             currentBoss = 4;
+            Debug.Log(StaticData.firstPlay);
         }
         HP = startingHP;
     }
