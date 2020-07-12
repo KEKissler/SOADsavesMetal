@@ -101,6 +101,7 @@ public class JohnAttack : PlayerAttack {
         shotTimer = 0.0f;
         while(attackTimer < SUPER_LENGTH)
         {
+            if (ps.Dead) yield break;
             //if (ps.isCrouching()) drumstickYReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
             shotTimer += Time.deltaTime;
             attackTimer += Time.deltaTime;

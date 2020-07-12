@@ -27,7 +27,7 @@ public class MusicNote : PlayerProjectile
     void Update()
     {
         transform.position = new Vector2(transform.position.x, startY +
-            Mathf.Sin(8f * accumulatedTime / oscillationPeriod) - 0.5f);
+            0.7f * Mathf.Sin((8f * accumulatedTime - 0.5f) / oscillationPeriod));
         accumulatedTime += Time.deltaTime;
     }
 }

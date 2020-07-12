@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71dfef18dd5cfae419f134f0632d8b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 5
   playerRotationY: 0
   micHitbox: {fileID: 1426186518864495016}
 --- !u!50 &8114545222118189833

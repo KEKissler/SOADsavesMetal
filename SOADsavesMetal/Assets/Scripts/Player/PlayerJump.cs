@@ -142,4 +142,5 @@ public class PlayerJump : MonoBehaviour
         ps.serjFlightActive = false;
         ps.PlayAudioEvent(ps.serjFlyEnd);
     }
+
 }

@@ -86,7 +86,7 @@ public class PlayerAttackAnims : MonoBehaviour
             Debug.Log("Serj");
             ps.playerUpperAnim.Play("SerjLong");
             ps.PlayAudioEvent(ps.serjLongRange);
-            yield return new WaitForSeconds(0.56f);
+            yield return new WaitForSeconds(0.75f);
         }
         ps.blockAttackProgress = false;
         ps.attacking = false;
