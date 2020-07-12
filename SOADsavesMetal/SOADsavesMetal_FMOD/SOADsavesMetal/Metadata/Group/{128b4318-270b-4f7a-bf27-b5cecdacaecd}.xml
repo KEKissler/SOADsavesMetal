@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="MixerGroup" id="{128b4318-270b-4f7a-bf27-b5cecdacaecd}">
 		<property name="volume">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<property name="name">
 			<value>MUS</value>
@@ -20,8 +20,26 @@
 	<object class="MixerBusEffectChain" id="{4db588d7-7cf1-4dbf-b79a-2967132e6a65}">
 		<relationship name="effects">
 			<destination>{b38360ef-2c2d-4cb0-b319-5c7a6c11a8c2}</destination>
+			<destination>{c0d8adba-d1d3-48da-bc7d-31bab27737b3}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{5a6e21ac-3b8c-404e-a570-0ff31c8c537a}" />
 	<object class="MixerBusFader" id="{b38360ef-2c2d-4cb0-b319-5c7a6c11a8c2}" />
+	<object class="CompressorEffect" id="{c0d8adba-d1d3-48da-bc7d-31bab27737b3}">
+		<property name="ratio">
+			<value>8.80000019</value>
+		</property>
+		<property name="attackTime">
+			<value>1.39999998</value>
+		</property>
+		<property name="releaseTime">
+			<value>58</value>
+		</property>
+		<property name="gain">
+			<value>1.5</value>
+		</property>
+		<relationship name="sidechains">
+			<destination>{fcc88af5-753f-4358-aae5-26f3e052e522}</destination>
+		</relationship>
+	</object>
 </objects>

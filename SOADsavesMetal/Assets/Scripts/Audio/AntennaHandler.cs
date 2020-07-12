@@ -29,9 +29,9 @@ public class AntennaHandler : MonoBehaviour
     }
     private void OnDestroy()
     {
-        FMOD.Studio.PLAYBACK_STATE state;
-        FMOD.RESULT result = instance.getPlaybackState(out state);
-        if (result == FMOD.RESULT.OK && state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
-            instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        //FMOD.Studio.PLAYBACK_STATE state;
+        //FMOD.RESULT result = instance.getPlaybackState(out state);
+        //if (result == FMOD.RESULT.OK && state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 }

@@ -15,8 +15,8 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: SOADsavesMetal_FMOD\SOADsavesMetal\SOADsavesMetal.fspro
-  sourceBankPath: SOADsavesMetal_FMOD\SOADsavesMetal\Build
+  sourceProjectPath: SOADsavesMetal_FMOD/SOADsavesMetal/SOADsavesMetal.fspro
+  sourceBankPath: SOADsavesMetal_FMOD/SOADsavesMetal\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0

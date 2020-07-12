@@ -53,12 +53,15 @@
 			<destination>{88078878-41ab-417d-92d0-b780a65f72e1}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{db26c447-cba0-45f5-94aa-f5364936c30d}</destination>
+			<destination>{09d94eb9-ae6d-468f-8bab-d3c59b6861f9}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{177a6ed1-8833-42c5-93f0-f993cf690fb9}">
 		<property name="maxVoices">
 			<value>1</value>
+		</property>
+		<property name="triggerCooldown">
+			<value>20000</value>
 		</property>
 	</object>
 	<object class="MarkerTrack" id="{34657e46-a3a2-4e01-bb2e-65a71d666d6a}" />
@@ -76,6 +79,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{0e26cc2c-1a26-458e-af02-39c1eceae97b}">
+		<property name="volume">
+			<value>3.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{4ba4040f-b1e3-412c-ba9e-efc82aaab18b}</destination>
 		</relationship>
@@ -117,6 +123,7 @@
 	<object class="MixerBusEffectChain" id="{4ba4040f-b1e3-412c-ba9e-efc82aaab18b}">
 		<relationship name="effects">
 			<destination>{3766b279-f4d5-4595-a943-3101de62cd76}</destination>
+			<destination>{76796507-4047-44fa-8625-ca43fb085ecf}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{716f6ef7-9783-4a47-ab37-21a5a91af9f3}" />
@@ -128,5 +135,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{db6f4c04-a079-4b80-ad1d-94f85d46a5d1}" />
 	<object class="MixerBusFader" id="{3766b279-f4d5-4595-a943-3101de62cd76}" />
+	<object class="SFXReverbEffect" id="{76796507-4047-44fa-8625-ca43fb085ecf}" />
 	<object class="MixerBusFader" id="{99ad8fe3-4dde-4ef2-aec8-5a124ee21a2e}" />
 </objects>

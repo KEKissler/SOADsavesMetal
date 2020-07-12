@@ -1,10 +1,21 @@
-﻿using System.Collections;
+﻿using FMOD.Studio;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttackAnims : MonoBehaviour
 {
     public Player ps;
+
+    EventInstance superInstance;
+
+    private void OnDestroy()
+    {
+        if (superInstance.isValid())
+        {
+            superInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
+    }
 
     public IEnumerator shortRangeAttackAnims()
     {
@@ -122,7 +133,8 @@ public class PlayerAttackAnims : MonoBehaviour
 
             // Start the attack
             ps.blockAttackProgress = false;
-            ps.PlayAudioEvent(ps.shavoSuper);   // may need tweaking
+            superInstance = FMODUnity.RuntimeManager.CreateInstance(ps.shavoSuper);
+            superInstance.start();
             yield return null;
             ps.blockAttackProgress = true;
             ps.playerUpperAnim.speed = 0.77f;
@@ -135,13 +147,15 @@ public class PlayerAttackAnims : MonoBehaviour
         }
         else if (ps.currentBandMember == "John")
         {
-            ps.PlayAudioEvent(ps.johnSuper);
+            superInstance = FMODUnity.RuntimeManager.CreateInstance(ps.johnSuper);
+            superInstance.start();
             yield return new WaitForSeconds(3.0f);
         }
         else if (ps.currentBandMember == "Daron")
         {
             yield return null;
-            ps.PlayAudioEvent(ps.daronSuper);
+            superInstance = FMODUnity.RuntimeManager.CreateInstance(ps.daronSuper);
+            superInstance.start();
             ps.playerLowerAnim.Play("DaronIdleLegs");
             ps.playerUpperAnim.Play("DaronSuper");
             if (!ps.moving && !ps.crouched && !ps.inAir)
@@ -152,7 +166,8 @@ public class PlayerAttackAnims : MonoBehaviour
         }
         else if (ps.currentBandMember == "Serj")
         {
-            ps.PlayAudioEvent(ps.serjSuper);
+            superInstance = FMODUnity.RuntimeManager.CreateInstance(ps.serjSuper);
+            superInstance.start();
             ps.playerLowerAnim.Play("SerjLongLegs");
             ps.playerUpperAnim.Play("SerjSuper");
             yield return new WaitForSeconds(3.63f);
