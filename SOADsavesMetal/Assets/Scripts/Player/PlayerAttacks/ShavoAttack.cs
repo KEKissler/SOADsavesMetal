@@ -86,12 +86,13 @@ public class ShavoAttack : PlayerAttack
         }
 
     	// Create projectile (musicNote)
-    	GameObject mNote = Instantiate(musicNote, transform.parent.position, Quaternion.identity);
+    	GameObject mNote = Instantiate(musicNote,
+            transform.parent.position + new Vector3(0, 0.1f), Quaternion.identity);
         MusicNote mnScript = mNote.GetComponent<MusicNote>();
         mnScript.playerRotationY = transform.parent.rotation.y;
-        mnScript.startTime = (float)rand.NextDouble() * 4f;
-        mnScript.oscillationPeriod = (float)rand.NextDouble() * 2f + 2f;
-        mnScript.setSpeed((float)rand.NextDouble() * 2f + 5.8f);
+        mnScript.startTime = (float)rand.NextDouble() * 0.4f;
+        mnScript.oscillationPeriod = (float)rand.NextDouble() * 1.5f + 2.5f;
+        mnScript.setSpeed((float)rand.NextDouble() * 1.8f + 5.8f);
         mNote.SetActive(true);
     }
 

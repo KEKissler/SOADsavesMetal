@@ -49,7 +49,9 @@ public class Sidescroll : MonoBehaviour
         screenBound = Camera.main.orthographicSize * 16 / 9;
 
         movePlayer = true;
-        player.desiredVelocity = groundSpeed;
+        if (player.inAir) player.desiredVelocity = 0;
+        else player.desiredVelocity = groundSpeed;
+
     }
 
     // Update is called once per frame
@@ -101,9 +103,14 @@ public class Sidescroll : MonoBehaviour
         }
         
         lastPosition = player.transform.position;
-        if(movePlayer)
+        if(player.Dead)
         {
             player.desiredVelocity = groundSpeed;
+        }
+        else if(movePlayer)
+        {
+            if (player.inAir) player.desiredVelocity = 0;
+            else player.desiredVelocity = groundSpeed;
         }
         else
         {

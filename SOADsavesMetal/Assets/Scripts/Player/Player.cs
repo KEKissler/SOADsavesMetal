@@ -205,6 +205,7 @@ public class Player : MonoBehaviour
     {
         // Initialize player state
         health = startingHealth;
+        health = 2;
         moving = false;
         attacking = false;
         deathStarted = false;
@@ -279,7 +280,7 @@ public class Player : MonoBehaviour
 
                 #region Super meter charge
                 // Uncomment the following line for instant meter recharge
-                // superMeterCharge += maxSuperCharge;
+                superMeterCharge += maxSuperCharge;
                 // Passive meter charge, maybe vary by character
                 superMeterCharge += maxSuperCharge / 100f * Time.deltaTime;
                 if (superMeterCharge > maxSuperCharge) superMeterCharge = maxSuperCharge;
@@ -317,7 +318,7 @@ public class Player : MonoBehaviour
                 #endregion Falling and jumping animations
 
                 #region Crouching
-                if ((Input.GetKey(down) || (Input.GetAxisRaw(vert) > 0.5)) && !inAir
+                if ((Input.GetKey(down) || (Input.GetAxisRaw(vert) < -0.5)) && !inAir
                     && (currentBandMember == "John" || !isSuperActive)) // This is a hacky fix
                 { // This line used to have !attacking
                     if(!crouched) playerUpperBody.transform.localPosition = new Vector3(0, -crouchDistance);
@@ -403,12 +404,22 @@ public class Player : MonoBehaviour
             }
             else
             {
-                //Death animation
+                // Death animation
                 if (!deathStarted)
                 {
                     isDead = true;
                     StartCoroutine("Kill");
                     deathStarted = true;
+
+                    // Serj edge case
+                    if (serjFlightActive)
+                    {
+                        rb.gravityScale = 5f; // If gravityScale on prefab changes, this is no longer correct
+                        rb.drag = 0f;
+                        serjFlightActive = false;
+                        PlayAudioEvent(serjFlyEnd);
+                        serjWings.GetComponent<SpriteRenderer>().enabled = false;
+                    }
                 }
             }
         }
@@ -512,6 +523,7 @@ public class Player : MonoBehaviour
         yield return new WaitForEndOfFrame();
         SAttack = controlSchemes.SAttack;
         yield return new WaitForEndOfFrame();
+        SaveSystem.SaveGame();
     }
 
     public IEnumerator Kill()
@@ -611,7 +623,7 @@ public class Player : MonoBehaviour
             float curPeriod;
             float timer = 0f, tick = 0f;
             sr.enabled = false;
-            srLegs.enabled = false;
+            if (currentBandMember == "John" || !isSuperActive) srLegs.enabled = false;
             while (timer < duration)
             {
                 curPeriod = Mathf.Lerp(initialPeriod, finalPeriod, timer / duration);
@@ -620,13 +632,13 @@ public class Player : MonoBehaviour
                 if (tick > curPeriod / 2)
                 {
                     sr.enabled = !sr.enabled;
-                    srLegs.enabled = sr.enabled;
+                    if (currentBandMember == "John" || !isSuperActive) srLegs.enabled = sr.enabled;
                     tick = 0f;
                 }
                 yield return null;
             }
             sr.enabled = true;
-            srLegs.enabled = true;
+            if (currentBandMember == "John" || !isSuperActive) srLegs.enabled = true;
         }
     }
 }

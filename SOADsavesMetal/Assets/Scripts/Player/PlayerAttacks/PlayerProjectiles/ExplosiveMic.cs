@@ -12,7 +12,7 @@ public class ExplosiveMic : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        speed = 11.5f;
+        speed = 13.5f;
 		rb = GetComponent<Rigidbody2D>();
 
         float angle = Mathf.Deg2Rad * playerRotationY * -180f;
@@ -36,8 +36,8 @@ public class ExplosiveMic : MonoBehaviour {
 
             Animator anim = GetComponent<Animator>();
             anim.Play("explode");
-            rb.velocity /= 3f;
-            rb.gravityScale /= 2f;
+            rb.velocity /= 4f;
+            rb.gravityScale /= 2.5f;
 
             Destroy(gameObject, 0.8f);
         }
