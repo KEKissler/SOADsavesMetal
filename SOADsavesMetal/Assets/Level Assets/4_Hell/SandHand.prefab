@@ -192,11 +192,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.92, y: 0.1}
+  m_Offset: {x: 0.13532709, y: 0.031229146}
+  m_Size: {x: 0.64934766, y: 0.1624588}
   m_Direction: 1
 --- !u!1001 &6261517200243520001
 PrefabInstance:
@@ -295,7 +295,13 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.07014253
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6977039927035601483, guid: 05f055b78c6159a4c8745b1f6e9a8886,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6977039927035601483, guid: 05f055b78c6159a4c8745b1f6e9a8886, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 05f055b78c6159a4c8745b1f6e9a8886, type: 3}
 --- !u!1 &3906323397557080136 stripped
 GameObject:
