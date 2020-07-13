@@ -4457,7 +4457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f2897875e6db24782824c21513fc00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  control: {fileID: 0}
+  control: {fileID: 1365414061}
   backButton: {fileID: 1844366469}
 --- !u!1001 &1876183598
 PrefabInstance:
