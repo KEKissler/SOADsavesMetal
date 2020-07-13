@@ -14,8 +14,6 @@ public class GameplayPause : MonoBehaviour
     public CountDown countDown;
     public Player player;
 
-    public GameObject pauseFirstButton, controlsFirstButton, controlsClosedButton;
-
     FMOD.Studio.EventInstance pauseEffect;
     [FMODUnity.EventRef]
     public string pauseSound;
@@ -80,8 +78,6 @@ public class GameplayPause : MonoBehaviour
 
         //Clear selected object
         EventSystem.current.SetSelectedGameObject(null);
-        //Set a new selected event object
-        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
 
         pauseEffect.setParameterByName("PauseMuteIntensity", 1);
         FMOD.Studio.EventInstance pauseSoundInstance = FMODUnity.RuntimeManager.CreateInstance(pauseSound);
