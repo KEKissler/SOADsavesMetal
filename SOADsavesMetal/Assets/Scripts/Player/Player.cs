@@ -205,7 +205,7 @@ public class Player : MonoBehaviour
     {
         // Initialize player state
         health = startingHealth;
-        health = 2;
+        //health = 2;
         moving = false;
         attacking = false;
         deathStarted = false;
@@ -280,7 +280,7 @@ public class Player : MonoBehaviour
 
                 #region Super meter charge
                 // Uncomment the following line for instant meter recharge
-                superMeterCharge += maxSuperCharge;
+                //superMeterCharge += maxSuperCharge;
                 // Passive meter charge, maybe vary by character
                 superMeterCharge += maxSuperCharge / 100f * Time.deltaTime;
                 if (superMeterCharge > maxSuperCharge) superMeterCharge = maxSuperCharge;
@@ -546,6 +546,7 @@ public class Player : MonoBehaviour
     {
         yield return null;
         float timer = 0f;
+        //bool 
         while (timer < 0.30f)
         {
             timer += Time.deltaTime;
