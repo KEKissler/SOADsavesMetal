@@ -2581,7 +2581,7 @@ PrefabInstance:
     - target: {fileID: 9117497486307095085, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
       propertyPath: startingHealth
-      value: 999
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1832133128532563320, guid: efc0d8d3460c18043896482f0ba598cb,
         type: 3}
@@ -3581,7 +3581,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Texture
       value: 
-      objectReference: {fileID: 2800000, guid: 2a1f5137f131fd94d9a80f1efe64da77, type: 3}
+      objectReference: {fileID: 1824787022}
     - target: {fileID: 5909654528865257738, guid: 7b3a1b92c6ffacb4eb0b1aec70a8fe43,
         type: 3}
       propertyPath: m_AnchorMax.x
