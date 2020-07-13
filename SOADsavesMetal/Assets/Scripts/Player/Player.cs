@@ -318,7 +318,7 @@ public class Player : MonoBehaviour
                 #endregion Falling and jumping animations
 
                 #region Crouching
-                if ((Input.GetKey(down) || (Input.GetAxisRaw(vert) > 0.5)) && !inAir
+                if ((Input.GetKey(down) || (Input.GetAxisRaw(vert) < -0.5)) && !inAir
                     && (currentBandMember == "John" || !isSuperActive)) // This is a hacky fix
                 { // This line used to have !attacking
                     if(!crouched) playerUpperBody.transform.localPosition = new Vector3(0, -crouchDistance);
