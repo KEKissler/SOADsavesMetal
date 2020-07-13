@@ -523,6 +523,7 @@ public class Player : MonoBehaviour
         yield return new WaitForEndOfFrame();
         SAttack = controlSchemes.SAttack;
         yield return new WaitForEndOfFrame();
+        SaveSystem.SaveGame();
     }
 
     public IEnumerator Kill()
