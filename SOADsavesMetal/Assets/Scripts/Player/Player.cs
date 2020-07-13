@@ -544,13 +544,18 @@ public class Player : MonoBehaviour
 
     private IEnumerator listenForDoubleDownTap()
     {
+        bool usingController = false;
+        if (Input.GetAxis(vert) > 0.5) usingController = true;
+        bool returnedToNeutral = false;
+
         yield return null;
         float timer = 0f;
-        //bool 
+
         while (timer < 0.30f)
         {
             timer += Time.deltaTime;
-            if (Input.GetKeyDown(down) || (Input.GetAxis(vert) > 0.5))
+            if (Input.GetKeyDown(down) || (usingController && returnedToNeutral
+                && Input.GetAxis(vert) > 0.5))
             {
                 // Toggle platform colliders off
                 for (int i = 0; i < platforms.Length; ++i)
@@ -574,6 +579,10 @@ public class Player : MonoBehaviour
                 }
                 listeningForDoubleDownTap = false;
                 yield break;
+            }
+            else if (usingController && Input.GetAxis(vert) < 0.4)
+            {
+                returnedToNeutral = true;
             }
             yield return null;
         }
