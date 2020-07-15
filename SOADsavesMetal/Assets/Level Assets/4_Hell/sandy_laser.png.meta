@@ -1,7 +1,17 @@
 fileFormatVersion: 2
 guid: 8597a4ccaa4c2794f8f09376bfe850cb
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: sandy_laser_0
+    21300002: sandy_laser_1
+    21300004: sandy_laser_2
+    21300006: sandy_laser_3
+    21300008: sandy_laser_4
+    21300010: sandy_laser_5
+    21300012: sandy_laser_6
+    21300014: sandy_laser_7
+    21300016: sandy_laser_8
+    21300018: sandy_laser_9
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -40,7 +50,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -69,9 +79,160 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: sandy_laser_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 545
+        height: 146
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8933e6aa5abb7f644bf13e9b42c7ec64
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandy_laser_1
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 0
+        width: 545
+        height: 146
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e1416ddcc39ab146b2d4b329e0ff41b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandy_laser_2
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 0
+        width: 545
+        height: 146
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cbf394b5bf1a7440a6c2fff82311303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandy_laser_3
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 0
+        width: 545
+        height: 146
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cf1c79dc88a9d843b227ad04b0e633e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandy_laser_4
+      rect:
+        serializedVersion: 2
+        x: 2180
+        y: 0
+        width: 545
+        height: 146
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9882bb1a4a078043825ce20693d190c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandy_laser_6
+      rect:
+        serializedVersion: 2
+        x: 3270
+        y: 0
+        width: 545
+        height: 146
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fa21a5efc1581842a2ae2e4b49d38a8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandy_laser_7
+      rect:
+        serializedVersion: 2
+        x: 3815
+        y: 0
+        width: 545
+        height: 146
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a129803dde25d94db1833b9775e6f08
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
