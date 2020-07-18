@@ -580,7 +580,7 @@ public class Player : MonoBehaviour
                 listeningForDoubleDownTap = false;
                 yield break;
             }
-            else if (usingController && Input.GetAxis(vert) < 0.4)
+            else if (usingController && Input.GetAxis(vert) < 0.42)
             {
                 returnedToNeutral = true;
             }
@@ -636,6 +636,12 @@ public class Player : MonoBehaviour
             if (currentBandMember == "John" || !isSuperActive) srLegs.enabled = false;
             while (timer < duration)
             {
+                if (currentBandMember != "John" && isSuperActive)
+                {
+                    sr.enabled = true;
+                    srLegs.enabled = true;
+                    yield break;
+                }
                 curPeriod = Mathf.Lerp(initialPeriod, finalPeriod, timer / duration);
                 timer += Time.deltaTime;
                 tick += Time.deltaTime;

@@ -9,7 +9,7 @@ using UnityEngine;
  */
 public class DaronStringDmg : MonoBehaviour {
 
-    private Player ps;
+    public Player ps;
     public bool isSuper;
     public float meterCharge = 0f;
 	public int damage = 111;
@@ -17,7 +17,7 @@ public class DaronStringDmg : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ps = GameObject.FindWithTag("Player").GetComponent<Player>();
+
 	}
 	
 	// Update is called once per frame

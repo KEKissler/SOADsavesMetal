@@ -111,6 +111,11 @@ public class PlayerAttackAnims : MonoBehaviour
         ps.blockAttackProgress = true;
         ps.attacking = true;
         ps.isSuperActive = true;
+
+        // Give 2 frames for flashing damage indicator to stop
+        yield return null;
+        yield return null;
+
         if (ps.currentBandMember == "Shavo")
         {
             ps.playerLowerBody.GetComponent<SpriteRenderer>().enabled = false;
