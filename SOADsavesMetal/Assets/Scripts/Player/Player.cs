@@ -312,7 +312,7 @@ public class Player : MonoBehaviour
                         if (currentBandMember == "John" || !isSuperActive)
                             PlayAnims("Jump");
                         lowerBodyHitbox.offset = new Vector2(lowOriginalOffset.x, -0.05f);
-                        lowerBodyHitbox.size = new Vector2(lowOriginalSize.x, 0.35f);
+                        lowerBodyHitbox.size = new Vector2(lowOriginalSize.x, 0.34f);
                     }
                 }
                 #endregion Falling and jumping animations
