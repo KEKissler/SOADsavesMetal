@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMOD.Studio;
+
 
 public class AntennaHandler : MonoBehaviour
 {
     public FMOD.Studio.EventInstance instance;
+    public EventDescription description;
 
     [FMODUnity.EventRef]
     public string whiteNoiseEvent;
@@ -12,6 +15,7 @@ public class AntennaHandler : MonoBehaviour
     public void Awake()
     {
         instance = FMODUnity.RuntimeManager.CreateInstance(whiteNoiseEvent);
+        description = FMODUnity.RuntimeManager.GetEventDescription(whiteNoiseEvent);
     }
 
     public void SetupHandler(WhiteNoiseAttack whiteNoise)
@@ -32,6 +36,11 @@ public class AntennaHandler : MonoBehaviour
         //FMOD.Studio.PLAYBACK_STATE state;
         //FMOD.RESULT result = instance.getPlaybackState(out state);
         //if (result == FMOD.RESULT.OK && state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
-        instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        EventInstance[] array;
+        description.getInstanceList(out array);
+        foreach (EventInstance inst in array)
+        {
+            inst.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
     }
 }
