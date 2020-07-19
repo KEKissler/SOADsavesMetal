@@ -28,13 +28,28 @@ public class ShortRangeDmg : MonoBehaviour {
     // Handles hitting bosses and interactive objects
 	void OnTriggerEnter2D(Collider2D col)
 	{
-        if (col.gameObject.tag == "BossHittable" && canHit)
+        if (col.gameObject.tag == "BossHittable")
         {
-            col.gameObject.SendMessage("hit", damage);
-            float dmgMult = col.gameObject.GetComponent<BossHit>().damageMultiplier;
-            //Debug.Log("yee " + dmgMult);
-            canHit = false;
-            ps.superMeterCharge += meterCharge * dmgMult;
+            if (isSuper)
+            {
+                float dmgMult = col.gameObject.GetComponent<BossHit>().damageMultiplier;
+                int scaledDamage = damage;
+
+                if (dmgMult > 0 && dmgMult < 1) scaledDamage = (int)(damage / (Mathf.Pow(dmgMult, 0.5f) + 0.01f));
+                if (dmgMult > 0 && canHit)
+                {
+                    col.gameObject.SendMessage("hit", scaledDamage);
+                    canHit = false;
+                }
+            }
+            else
+            {
+                col.gameObject.SendMessage("hit", damage);
+                float dmgMult = col.gameObject.GetComponent<BossHit>().damageMultiplier;
+                //Debug.Log("yee " + dmgMult);
+                canHit = false;
+                ps.superMeterCharge += meterCharge * dmgMult;
+            }
         }
         else if (col.gameObject.tag == "Projectile") ;
         //Destroy(col.gameObject);
@@ -48,11 +63,26 @@ public class ShortRangeDmg : MonoBehaviour {
 	{
         if (col.gameObject.tag == "BossHittable" && canHit)
         {
-            col.gameObject.SendMessage("hit", damage);
-            float dmgMult = col.gameObject.GetComponent<BossHit>().damageMultiplier;
-            // Debug.Log("yee " + dmgMult);
-            canHit = false;
-            ps.superMeterCharge += meterCharge * dmgMult;
+            if (isSuper)
+            {
+                float dmgMult = col.gameObject.GetComponent<BossHit>().damageMultiplier;
+                int scaledDamage = damage;
+
+                if (dmgMult > 0 && dmgMult < 1) scaledDamage = (int) (damage / (Mathf.Pow(dmgMult, 0.5f) + 0.01f));
+                if (dmgMult > 0 && canHit)
+                {
+                    col.gameObject.SendMessage("hit", scaledDamage);
+                    canHit = false;
+                }
+            }
+            else
+            {
+                col.gameObject.SendMessage("hit", damage);
+                float dmgMult = col.gameObject.GetComponent<BossHit>().damageMultiplier;
+                //Debug.Log("yee " + dmgMult);
+                canHit = false;
+                ps.superMeterCharge += meterCharge * dmgMult;
+            }
         }
         else if (col.gameObject.tag == "Projectile") ;
         //Destroy(col.gameObject);
@@ -62,6 +92,13 @@ public class ShortRangeDmg : MonoBehaviour {
         }
 	}
 
+    // Deprecated useless function
+    int getBossHealth(Collider2D col)
+    {
+        return col.gameObject.GetComponent<BossHit>().healthScript.getHP();
+    }
+
+    // Useful function
 	void refreshHit()
 	{
 		canHit = true;

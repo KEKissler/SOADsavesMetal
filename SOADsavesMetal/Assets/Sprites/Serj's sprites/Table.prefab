@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ps: {fileID: 0}
-  isSuper: 0
+  isSuper: 1
   meterCharge: 0
   damage: 8
+  startingBossHealth: -9999

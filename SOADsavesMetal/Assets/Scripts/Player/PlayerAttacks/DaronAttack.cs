@@ -55,15 +55,18 @@ public class DaronAttack : PlayerAttack
         float yReductionWhenCrouched = 0f;
         //if (ps.isCrouching()) yReductionWhenCrouched = WE_DONT_LIKE_EYE_LASER_DRUMSTICKS;
 
-    	Instantiate(stringBreak, transform.parent.position +
+    	GameObject break1 = Instantiate(stringBreak, transform.parent.position +
             new Vector3(0.7f * getDirection(transform.parent), yReductionWhenCrouched, 0),
             transform.parent.rotation);
-        Instantiate(stringBreak, transform.parent.position +
+        GameObject break2 = Instantiate(stringBreak, transform.parent.position +
             new Vector3(0.7f * getDirection(transform.parent), yReductionWhenCrouched, 0),
             transform.parent.rotation * Quaternion.Euler(0, 0, 40f));
-        Instantiate(stringBreak, transform.parent.position +
+        GameObject break3 = Instantiate(stringBreak, transform.parent.position +
             new Vector3(0.7f * getDirection(transform.parent), yReductionWhenCrouched, 0),
             transform.parent.rotation * Quaternion.Euler(0, 0, -40f));
+        break1.GetComponent<DaronStringDmg>().ps = ps;
+        break2.GetComponent<DaronStringDmg>().ps = ps;
+        break3.GetComponent<DaronStringDmg>().ps = ps;
 
         yield return null;
 
