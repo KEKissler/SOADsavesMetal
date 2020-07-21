@@ -131,7 +131,6 @@ public class BossHealth : MonoBehaviour
         if (currentBoss == 4 && StaticData.firstPlay.Equals(true))
         {
             SceneManager.LoadScene("EndingSequence");
-            StaticData.firstPlay = false;
         }
         else
             SceneManager.LoadScene("Level_Load_Test");
