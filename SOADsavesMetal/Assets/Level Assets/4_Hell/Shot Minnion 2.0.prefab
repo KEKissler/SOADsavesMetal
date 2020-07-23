@@ -148,6 +148,7 @@ MonoBehaviour:
   shot: {fileID: 1883100758368052, guid: cc1e07ece144cd241a99931749565888, type: 3}
   ProjectileSpeed: 2
   ProjectileType: 0
+  minionProjectile: event:/Enemy/E_Sandaramet/E_Sandaramet_MinionFireball
 --- !u!95 &6057850221620434225
 Animator:
   serializedVersion: 3

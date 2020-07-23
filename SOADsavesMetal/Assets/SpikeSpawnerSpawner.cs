@@ -7,12 +7,14 @@ public class SpikeSpawnerSpawner : MonoBehaviour
 {
     [SerializeField]
     GameObject toSpawn;
+    [SerializeField]
+    Transform attackParent;
     [FMODUnity.EventRef]
     public string spawnEvent;
 
     public void Spawn()
     {
-        Instantiate(toSpawn, gameObject.transform.position, gameObject.transform.rotation);
+        Instantiate(toSpawn, gameObject.transform.position, gameObject.transform.rotation, attackParent);
         EventInstance breakInstance = FMODUnity.RuntimeManager.CreateInstance(spawnEvent);
         breakInstance.start();
     }

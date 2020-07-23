@@ -18,6 +18,7 @@ public class Transformation : SandarametAttack
         duration = data.transformationAnim.length;
         hit = data.sandaramet.GetComponentInChildren<BossHit>();
         sidescroll = FindObjectOfType<Sidescroll>();
+        data.sandaramet.GetComponentInChildren<SandarametAttackManager>().stopCurrentAttack();
     }
 
     protected override IEnumerator Execute(float duration)

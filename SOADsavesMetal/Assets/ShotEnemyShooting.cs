@@ -18,9 +18,6 @@ public class ShotEnemyShooting : MonoBehaviour
     public ProjectileSpeed ProjectileSpeed;
     [SerializeField]
     public ProjectileType ProjectileType;
-    float timeLastShot;
-    int shotSent;
-    float waitTime;
 
     [FMODUnity.EventRef]
     public string minionProjectile;
@@ -31,27 +28,20 @@ public class ShotEnemyShooting : MonoBehaviour
     void Start()
     {
         minionInstance = FMODUnity.RuntimeManager.CreateInstance(minionProjectile);
-        timeLastShot = Time.time;
-        shotSent = 0;
-        waitTime = longwaitTime;
+        StartCoroutine(shootRoutine());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator shootRoutine()
     {
-        if(Time.time - timeLastShot > waitTime)
+        while(true)
         {
-            shotSent++;
-            Shoot();
-            timeLastShot = Time.time;
-            waitTime = shortWaitTime;
-            
-        }
-
-        if(shotSent >= numberOfShots)
-        {
-            waitTime = longwaitTime;
-            shotSent = 0;
+            Debug.Log("Shoot");
+            yield return new WaitForSeconds(longwaitTime);
+            for(int i = 0; i < numberOfShots; ++i)
+            {
+                Shoot();
+                yield return new WaitForSeconds(shortWaitTime);
+            }
         }
     }
 

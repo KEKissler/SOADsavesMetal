@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f403d52bc03dcd54aa013b6c4a2e8925, type: 3}
   m_Name: Transformation
   m_EditorClassIdentifier: 
-  duration: 0
+  duration: 5
