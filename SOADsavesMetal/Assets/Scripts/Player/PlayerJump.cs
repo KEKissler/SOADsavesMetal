@@ -6,6 +6,8 @@ public class PlayerJump : MonoBehaviour
 {
     public Player ps;
     private bool tryJump;
+    public GameObject parryBubble;
+    public float bubbleMaxSize;
     void Start()
     {
         tryJump = false;
@@ -48,12 +50,12 @@ public class PlayerJump : MonoBehaviour
                 StartCoroutine(Dash());
                 ps.PlayAudioEvent(ps.shavoDash);
             }
-            else if (ps.currentBandMember == "Daron")
+            else if (ps.currentBandMember == "Daron" && !ps.daronListeningForParry)
             {
                 StartCoroutine("Parry");
                 ps.PlayAudioEvent(ps.daronTeleport);
             }
-            else if (ps.currentBandMember == "Serj")
+            else if (ps.currentBandMember == "Serj" && !ps.serjFlightActive)
             {
                 ps.PlayAudioEvent(ps.serjFlyStart);
                 StartCoroutine(Hover());
@@ -96,25 +98,29 @@ public class PlayerJump : MonoBehaviour
     public IEnumerator Parry()
     {
         ps.blockNormalJumpAnims = true;
-        ps.curInvulnerableTime = 0.3f > ps.curInvulnerableTime ? 0.3f : ps.curInvulnerableTime;
+        StartCoroutine(BubbleExpand());
+        ps.curInvulnerableTime = 0.33f > ps.curInvulnerableTime ? 0.33f : ps.curInvulnerableTime;
         ps.playerUpperAnim.Play(ps.GetAnimName("Parry"));
 
-        float totalDuration = 0.32f, timer = 0f;
+        float timer = 0f;
 
         ps.daronListeningForParry = true;
-        while (timer < 0.32f)
+        while (timer < 0.26f)
         {
             timer += Time.deltaTime;
             if (!ps.daronListeningForParry)
             {
                 ps.rb.velocity = new Vector2(ps.rb.velocity.x, ps.jumpHeight * 0.75f);
+                ps.curInvulnerableTime += 0.2f;
                 break;
             }
             yield return null;
         }
-        ps.daronListeningForParry = false;
-        yield return new WaitForSeconds(totalDuration - timer);
+        yield return null;
+        StartCoroutine(BubbleContract());
+        yield return new WaitForSeconds(0.2f);
 
+        ps.daronListeningForParry = false;
         ps.blockNormalJumpAnims = false;
     }
 
@@ -139,8 +145,43 @@ public class PlayerJump : MonoBehaviour
         }
         ps.rb.gravityScale = oldGravity;
         ps.rb.drag = 0f;
+        yield return null;
         ps.serjFlightActive = false;
         ps.PlayAudioEvent(ps.serjFlyEnd);
     }
 
+    private IEnumerator BubbleExpand()
+    {
+        parryBubble.SetActive(true);
+        yield return null;
+
+        float timer = 0f, duration = 0.07f;
+        while (timer < duration)
+        {
+            if (!ps.daronListeningForParry) break;
+
+            float sz = Mathf.Lerp(0.01f, bubbleMaxSize, timer / duration);
+            parryBubble.transform.localScale = new Vector2(sz, sz);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        parryBubble.transform.localScale = new Vector2(bubbleMaxSize, bubbleMaxSize);
+        yield return null;
+    }
+
+    private IEnumerator BubbleContract()
+    {
+        yield return null;
+        float timer = 0f, duration = 0.09f;
+        while (timer < duration)
+        {
+            float sz = Mathf.Lerp(bubbleMaxSize, 0.01f, timer / duration);
+            parryBubble.transform.localScale = new Vector2(sz, sz);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        parryBubble.SetActive(false);
+        yield return null;
+    }
 }

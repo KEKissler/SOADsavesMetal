@@ -205,7 +205,7 @@ public class Player : MonoBehaviour
     {
         // Initialize player state
         health = startingHealth;
-        //health = 2;
+        //health = 50;
         moving = false;
         attacking = false;
         deathStarted = false;
@@ -610,7 +610,7 @@ public class Player : MonoBehaviour
     {
         if (Health != 0 && currentBandMember == "Daron")
         {
-            float forgiveTime = 0.14f, t2 = 0f;
+            float forgiveTime = 0.13f, t2 = 0f;
             while (t2 < forgiveTime)
             {
                 t2 += Time.deltaTime;
