@@ -55,6 +55,14 @@ public class MusicSystem : MonoBehaviour
 
     public void ChangeMusic(int index)
     {
+        if (currentMusicIndex == index)
+        {
+            if (!IsCurrentMusicPlaying())
+            {
+                StartMusic();
+            }
+            return;
+        }
         StopMusic();
         currentMusicIndex = index;
         StartMusic();
@@ -62,14 +70,9 @@ public class MusicSystem : MonoBehaviour
 
     public void StopMusic()
     {
-        if (currentMusic.isValid())
+        if (IsCurrentMusicPlaying())
         {
-            FMOD.Studio.PLAYBACK_STATE state;
-            FMOD.RESULT res = currentMusic.getPlaybackState(out state);
-            if (res == FMOD.RESULT.OK && state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
-            {
-                currentMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            }
+            currentMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
     public void StartMusic()
@@ -81,6 +84,17 @@ public class MusicSystem : MonoBehaviour
             currentMusic = FMODUnity.RuntimeManager.CreateInstance(musicEvents[currentMusicIndex]);
             currentMusic.start();
         }
+    }
+
+    private bool IsCurrentMusicPlaying()
+    {
+        if (!currentMusic.isValid())
+        {
+            return false;
+        }
+        FMOD.Studio.PLAYBACK_STATE state;
+        FMOD.RESULT res = currentMusic.getPlaybackState(out state);
+        return res == FMOD.RESULT.OK && state == FMOD.Studio.PLAYBACK_STATE.PLAYING;
     }
     
 }
